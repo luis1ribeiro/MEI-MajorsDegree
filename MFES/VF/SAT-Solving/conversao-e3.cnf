@@ -1,0 +1,48 @@
+c Formulas Iniciais
+c 1.  A∨(A→B)→A∨¬B
+c 2.  (A→B∨C)∧¬(A∧¬B→C)
+c 3.  (¬A→¬B)→(¬A→B)→A
+
+
+c Passagem para CNF
+
+c 1. (¬A ∨ A ∨ B) ∧ (A ∨ A ∨ ¬B) ∧ (¬B ∨ A ∨ ¬B) -Simplificação-> (A ∨ ¬B) ∧ (A ∨ ¬B) -Simplificação-> (A ∨ ¬B)
+c ---------
+c p cnf 2 1
+c 1 -2 0
+c RESULT: 1 -2 0
+c Satisfazível e Refutável (porque não é uma tautologia)
+
+
+c 2. (¬A ∨ B ∨ C) ∧ A ∧ ¬B ∧ C
+c p cnf 3 4
+c -1 2 3 0
+c 1 0
+c -2 0
+c 3 0
+c RESULT: UNSATIS
+c Contradição por ser UNSAT.
+
+c 3.
+c    (¬A → ¬B) → (¬A → B) → A
+c  ≡ { A → B ≡ ¬A ∨ B }
+c    (¬(¬A → ¬B) ∨ (¬A → B)) → A
+c  ≡ { A → B ≡ ¬A ∨ B }
+c    ¬(¬(¬A → ¬B) ∨ (¬A → B)) ∨ A
+c  ≡ { ¬ }
+c    ((¬A → ¬B) ∧ ¬(¬A → B)) ∨ A
+c  ≡ { A → B ≡ ¬A ∨ B }
+c    ((A ∨ ¬B) ∧ ¬(A ∨ B)) ∨ A
+c  ≡ { ¬ }
+c    ((A ∨ ¬B) ∧ ¬A ∧ ¬B) ∨ A
+c  ≡ { distributividade }
+c    (A ∨ ¬B ∨ A) ∧ (¬A ∨ A) ∧ (¬B ∨ A)
+c  ≡ { simplificando }
+c    (A ∨ ¬B) ∧ True ∧ (¬B ∨ A)
+c  ≡ { simplificando }
+c    (A ∨ ¬B)
+c ---------
+c p cnf 2 1
+c 1 -2 0
+c RESULT: 1 -2 0
+c Satisfazível e Refutável

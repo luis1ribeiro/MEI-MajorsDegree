@@ -1,0 +1,137 @@
+
+theory Exprs
+use map.Map
+use map.Const
+use int.Int
+
+
+(* identifiers *)
+type ident
+function mk_ident int : ident
+
+
+(* expressions *)
+type operator = Oplus | Ominus | Omult
+
+type expr =
+  | Econst int
+  | Evar ident
+  | Ebin expr operator expr
+
+
+(* program states *)
+type state = map ident int
+
+
+(* semantics of expressions *)
+function eval_expr (s:state) (e:expr) : int =
+  match e with
+    (* Se for uma constante, retorna o próprio valor. *)
+    | Econst c -> c
+    (* Se for uma variável, tenho que usar o state s. *)
+    | Evar c   -> s[c]
+    (* Se for uma expressão com operadores, identificamos qual o operador (dando match) e fazemos a operação correspondente. *)
+    | Ebin c operator c1
+                  -> match operator with
+                      | Oplus  -> eval_expr s c + eval_expr s c1
+                      | Ominus -> eval_expr s c - eval_expr s c1
+                      | Omult  -> eval_expr s c * eval_expr s c1
+                     end
+    end
+
+  goal Test13 :
+    let s = const 0 in
+    eval_expr s (Econst 13) = 13
+
+  goal Test42 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr s (Evar x) = 42
+
+  goal Test55 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr s (Ebin (Evar x) Oplus (Econst 13)) = 55
+
+
+
+(* semantics of expressions as an evaluation relation   *)
+(* this always terminates, and thus was written as a    *)
+(* function before, but we can write it as an inductive *)
+(* predicate and prove a correspondence between the two *)
+
+(* Função auxiliar para o predicado abaixo definido. *)
+function eval_bin (v1:int) (op:operator) (v2:int) : int =
+  match op with
+    | Oplus  -> v1 + v2
+    | Ominus -> v1 - v2
+    | Omult  -> v1 * v2
+  end
+
+(* Predicado indutivo. *)
+inductive eval_expr_rel state expr state int =
+  | econst : forall s:state, n :int.
+                 eval_expr_rel s (Econst n) s n
+  | evar   : forall s:state, c :ident.
+               eval_expr_rel s (Evar c) s s[c]
+  | ebin   : forall s:state, x1 x2 : expr, c1 c2 :int, op :operator.
+              eval_expr_rel s x1 s c1 ->
+                 eval_expr_rel s x2 s c2 ->
+  	              eval_expr_rel s (Ebin x1 op x2) s (eval_bin c1 op c2)
+
+  goal Test13r :
+    let s = const 0 in
+    eval_expr_rel s (Econst 13) s 13
+
+  goal Test42r :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr_rel s (Evar x) s 42
+
+  (* Este teste falha por ser necessário lemmas auxiliares de ajuda na indução. *)
+  goal Test55r :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr_rel s (Ebin (Evar x) Oplus (Econst 13)) s 55
+
+
+(* Não há alteração de estado aquando a avaliação da expressão. Noção de consistência de estado. *)
+lemma no_side_effects:
+  forall s1 s2:state, e:expr, v:int.
+    eval_expr_rel s1 e s2 v -> s1 = s2
+
+(* Questão 2:
+
+  Lema principal:
+    lemma expr_eval:
+      forall e:expr, s:state, n:int.
+        eval_expr_rel s e s n <-> (eval_expr s e = n)
+  Para usar o induction_pr tenho que ter uma implicação onde a prova indutiva esteja no lado esquerdo da implicação.
+
+  Tentei primeiro dar split, na tentativa de separar em implicações, mas sem sucesso. Então, dividi o lemma em 2 auxiliares.
+  Sendo uma equivalência definido por 2 implicações, temos que:
+*)
+(* Aqui, é necessário usar induction_pr, porque o predicado indutivo está no lado da esquerdo da implicação. *)
+lemma expr_eval_1:
+      forall e:expr, s:state, n:int.
+        eval_expr_rel s e s n -> (eval_expr s e = n)
+(* Aqui, a prova pode ser feita através do commando induction_ty_lex. *)
+lemma expr_eval_2:
+      forall e:expr, s:state, n:int.
+        (eval_expr s e = n) -> eval_expr_rel s e s n
+(* Como defini os 2 lemmas auxiliares, aqui não é necessário nenhuma prova indutiva. *)
+lemma expr_eval:
+      forall e:expr, s:state, n:int.
+        eval_expr_rel s e s n <-> (eval_expr s e = n)
+
+(* Como temos o lemma expr_eval definido acima, o Teste55 é provado diretamente, sem indução. *)
+goal Test55r2 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr_rel s (Ebin (Evar x) Oplus (Econst 13)) s 55
+
+end
+
+
+
+

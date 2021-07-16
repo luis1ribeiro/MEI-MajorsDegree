@@ -1,0 +1,207 @@
+module InsertionSortList
+
+  use  int.Int
+  use  list.List
+  use  list.Mem
+  use  list.SortedInt
+  use  list.Permut
+  use  list.Length
+
+
+  (* Função recursiva que funciona como um programa - Se tirar a tag function deixa de fazer parte do nível lógico (só ao nível dos programas) *)
+  let rec insert x l
+    requires { sorted l }
+    (* As pré condições, nas funções recursivas funcionam como um invariante de ciclo. *)
+    ensures { sorted result /\ permut result (Cons x l) }
+    (*
+       Se tirarmos a parte da permutação da pós condição, não garantimos a integridade da lista de entrada.
+       Temos que garantir a permutação. Funciona como outro invariante de ciclo.
+    *)
+    variant { length l }
+ =  match l with
+    | Nil -> Cons x Nil
+    | Cons y l' -> if x <= y then Cons x l else Cons y (insert x l') (* Onde a função é recursiva. *)
+    end
+
+    (* Aqui devo usar o split all full para dividir as pós condições pelos matches...
+       O split_vc não garante, neste caso (talvez por ser recursivo??), a prova de todas as condições. *)
+
+
+  let rec insertionSort (l: list int) =
+    ensures { sorted result /\ permut result l } (* Podemos tirar a permutação, porque apenas que a função auxiliar insert garanta a ordenação da lista. *)
+    (* Se tirar o sorted, o insertion não é provado porque usa a função insert que requere que a lista seja sorted. *)
+    variant { length l }
+    match l with
+      | Nil -> Nil
+      | Cons x l' -> insert x (insertionSort l')
+    end
+
+end
+
+
+(* BTREE's *)
+module Bintree_insert
+
+  use  int.Int
+  use  list.List
+  use  list.Mem
+  use  list.Append
+  use  list.Permut
+  use  list.Length
+  use  list.SortedInt
+  use  list.NumOcc
+  use ref.Ref
+
+
+  (* ao nível lógico -> \/, ao nível dos programas -> || *)
+
+  type tree 'a = Empty | Node (tree 'a) 'a (tree 'a)
+
+  (* Se tirar a tag de function, não vai ser conhecida ao nível lógico então vai dar erro em baixo qnd referencio como uma VC (pós condição do add) *)
+  let rec function size (t: tree 'a) : int =
+    match t with
+    |  Empty -> 0
+    |  Node l _ r -> 1 + (size l) + (size r)
+    end
+
+  (* k ocorre em t *)
+  predicate memt (t : tree int) (k : int) =
+    match t with
+      | Empty -> false
+      | Node l x r -> if x = k then true else memt l k \/ memt r k
+    end
+
+   (* Apesar de correto, não dá. Posso criar um let rec com esta definição com um ensure igual ao forall embaixo declarado.
+
+    predicate leq_tree (k : int) (t : tree int) =
+      match t with
+      | Empty -> true
+      | Node l x r -> if k >= x then leq_tree k l /\ leq_tree k r else false
+      end
+    *)
+  predicate leq_tree (x : int) (t : tree int) = forall k : int. memt t k -> k <= x (* todos menores que k *)
+
+
+  (* Apesar de correto, não dá. Posso criar um let rec com esta definição com um ensure igual ao forall embaixo declarado.
+
+    predicate geq_tree (k : int) (t : tree int) =
+      match t with
+       | Empty -> true
+       | Node l x r -> if k <= x then geq_tree k l /\ geq_tree k r else false
+      end
+   *)
+  predicate geq_tree (x : int) (t : tree int) = forall k : int. memt t k -> x <= k (* todos maiores que k *)
+
+  predicate sortedBT (t : tree int) =
+    match t with
+    | Empty -> true
+      (* todos os elementos à esquerda da root são menores que ele e todos os elementos à direita são maiores que ele. *)
+      (* Para além disso, ambas as subarvores teem que estar sorted. *)
+    | Node l k r -> leq_tree k l /\ geq_tree k r /\ sortedBT l /\ sortedBT r
+    end
+
+  function num_occ (x: 'a) (t: tree 'a) : int =
+    match t with
+      | Empty -> 0
+      | Node l k r -> (if x = k then 1 else 0) + (num_occ x l) + (num_occ x r)
+    end
+
+
+  let rec add (t : tree int) (v : int) : tree int =
+      requires { sortedBT t }
+      ensures  { sortedBT result }
+      ensures  { size result = size t + 1 } (* !POSSO RETIRAR. Serve apenas para verificar propriedades do predicado. *)
+      ensures  { forall k : int. memt result k <-> memt t k \/ k = v} (* Integridade do result. Permutação. Se k ocorre em result, ou ocorre na tree inicial ou então é o elemento a inserir. *)
+      ensures  {  forall x: int. num_occ x result =
+                    if x = v then 1 + num_occ x t else num_occ x t} (* !POSSO RETIRAR. Serve apenas para verificar propriedades do predicado. Ocorrência de número. *)
+      variant  { t }
+      match t with
+        | Empty -> Node (Empty) v (Empty)
+        | Node t1 x t2 ->
+          if v <= x then Node (add t1 v) x t2 else Node t1 x (add t2 v)
+  end
+
+  (* ----------------- *)
+  (* TPC 1 - Inserir (começando com uma árvore vazia) cada elemento da lista usando a função de inserção add. *)
+
+  (*
+     Inicialmente pensei desta maneira, onde teria uma complementar a esta que dava t inicialmente como Empty.
+     No entanto não conseguia provar a permutação dos inteiros da lista para a árvore, nem a preservância do número de ocorrências. Talvez porque havia 2 variantes, a tree t e a lista l mudavam a cada iteração.
+     Portanto, decidi tentar resolver com o raciocinio que usamos para fazer o insertionSort.
+
+     let rec l2tree_aux (l: list int) (t: tree int) : tree int
+        requires { sortedBT t /\ size (old t) < size t}
+        ensures  { sortedBT result }
+        variant  { l }
+        = match l with
+          | Nil -> t
+          | Cons x y -> let t' = add t x in l2tree_aux y t'
+          end
+     
+     let rec l2tree_main (l : list int) : tree int
+     = l2tree_aux l Empty
+  *)
+
+  (* Usando o racicinio do insertion sort, acima definido. *)
+    let rec l2tree (l: list int) : tree int
+      ensures { sortedBT result }
+      (* Esta VC (pós condição) está relacionada com a pós condição do add relativo à ocorrência de um certo k. *)
+      ensures { forall k:int. memt result k <-> mem k l}
+      (* Esta VC (pós condição) está relacionada com a pós condição do add relativo ao número de ocorrências de um certo k. *)
+      ensures { forall k:int. NumOcc.num_occ k l = num_occ k result}
+      (* Sabendo que, o número de ocorrências é preservado e todos os elementos de k pertencem à lista, o length da lista deve ser igual ao size do result. *)
+      variant { length l }
+      = match l with
+        | Nil -> Empty
+        | Cons x y -> add (l2tree y) x
+      end
+
+
+  (* ----------------- *)
+  (* TPC 2 -
+        a. Começar por separar a cauda da lista em duas, uma contendo os elementos inferiores ou iguais à cabeça da lista, e outra contendo os superiores.
+        b. Construir a árvore colocando a cabeça da lista na raíz, e usando as duas sublistas para construir recursivamente as sub-árvores.
+  *)
+
+  (* lista dos números menores que um número n. *)
+    let rec menores (l: list int) (n: int) : list int
+      ensures { forall k:int. mem k result -> k <= n } (* Se k pertence ao result então quer dizer que tem que ser menor ou igual a n. *)
+      (* Estes ensures servem para garantir as pós condições definidas na função principal l2tree_v2. *)
+      ensures { forall k:int. k<=n -> NumOcc.num_occ k l = NumOcc.num_occ k result}
+      (* Para todo o elemento que pertence à lista resultante, o número de ocorrência deve ser preservado. Não prova se puser mem k result -> NumOcc..., não deveria dar? *)
+      ensures { forall k:int. mem k result -> mem k l} (* Se pertence ao result então pertence à lista inicial. *)
+      ensures { length result <= length l } (* O length da lista result nunca deve ser maior que a inicial. *)
+      variant { length l }
+      = match l with
+        | Nil -> Nil
+        | Cons x y -> if x <= n then Cons x (menores y n) else menores y n
+        end
+
+  (* lista dos números maiores que um número n. *)
+    let rec maiores (l: list int) (n: int) : list int
+      ensures { forall k:int. mem k result -> k > n } (* Se k pertence ao result então quer dizer que tem que ser maior que n. *)
+      (* Estes ensures servem para garantir as pós condições definidas na função principal l2tree_v2. *)
+      ensures { forall k:int. k>n -> NumOcc.num_occ k l = NumOcc.num_occ k result} 
+      (* Para todo o elemento que pertence à lista resultante, o número de ocorrência deve ser preservado. Não prova se puser mem k result -> NumOcc..., não deveria dar? *)
+      ensures { forall k:int. mem k result -> mem k l} (* Se pertence ao result então pertence à lista inicial. *)
+      ensures { length result <= length l } (* O length da lista result nunca deve ser maior que a inicial. *)
+      variant { length l }
+      = match l with
+         | Nil -> Nil
+         | Cons x y -> if x > n then Cons x (maiores y n) else maiores y n
+        end
+
+  (* Construir a árvore e as sub-árvores. *)
+    let rec l2tree_v2 (l: list int) : tree int
+      ensures { sortedBT result }
+      (* Esta VC (pós condição) está relacionada com a pós condição do add relativo à ocorrência de um certo k. *)
+      ensures { forall k:int. memt result k <-> mem k l}
+      (* Esta VC (pós condição) está relacionada com a pós condição do add relativo ao número de ocorrências de um certo k. *)
+      ensures { forall k:int. NumOcc.num_occ k l = num_occ k result}
+      variant { length l }
+      = match l with
+        | Nil -> Empty
+        | Cons x y -> Node (l2tree_v2 (menores y x)) x (l2tree_v2 (maiores y x))
+      end
+
+end

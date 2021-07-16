@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Acceptor"/>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="ordering/Ord"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Blue">
+   <type name="Quorum"/>
+</node>
+
+<node visible="no">
+   <type name="Ballot"/>
+   <type name="Value"/>
+</node>
+
+<node visible="yes" color="Green">
+   <set name="$chosen" type="Value"/>
+</node>
+
+<node visible="yes" showlabel="no" color="Gray">
+   <set name="$AcceptorsThatVoted" type="Acceptor"/>
+</node>
+
+<edge attribute="no">
+   <relation name="quorum"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+</edge>
+
+<edge style="inherit" visible="no" attribute="yes">
+   <relation name="maxBall"> <type name="Acceptor"/> <type name="Ballot"/> </relation>
+   <relation name="votes"> <type name="Acceptor"/> <type name="Ballot"/> <type name="Value"/> </relation>
+</edge>
+
+<edge visible="no">
+   <relation name="$ThreeAcceptorsTwoQuorum_a1"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+   <relation name="$ThreeAcceptorsTwoQuorum_a2"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

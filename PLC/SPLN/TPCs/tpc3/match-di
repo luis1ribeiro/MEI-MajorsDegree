@@ -1,0 +1,145 @@
+#!/usr/bin/python3
+from jjcli import *
+import re,sys
+import readline
+import random
+import unidecode
+
+# feita em aula
+def load_names_and_emails(c : list) -> [(str, str)]:
+        result = []
+        for linha in c:
+            linha = linha.strip()
+            if re.search(r'::', linha): # Se a linha não for vazia.
+                # match do nome e email -> \s: espaços.
+                nome,email = split(r'\s*::\s*', linha)
+                # Preenchimento do dicionário
+                d[linha.split('::')[0].strip()] = estrategias(linha.split('::')[0].strip())
+                result.append((nome,email))
+        return result
+
+# feita em aula
+def avalia1(solucao: [(str,str)], calc, name_emails:dict) -> float:
+    soma = 0
+    # A solução é uma lista de pares gerado após a leitura de cada linha do ficheiro de input.
+    for n,e in solucao:
+        r = calc(e, name_emails)
+        # Se o nome associado a um email estiver nos nomes possivelmente associados a um email (search)
+        if n in r:
+            i = r.index(n)
+            a = 1/(i+1)
+            soma += a
+    return soma / len(solucao)
+
+# Vai receber o dicionário global declarado na main
+def search(mail:str, dic:dict) -> [str]:
+  names=[]
+  for n,its in dic.items():
+    if mail in its:
+      names.append(n)
+  return names
+
+def normalize (name: str) -> str:
+    name = name.lower()
+    name = unidecode.unidecode(name)
+    name = re.sub(r'( \. | da | de | dos )',' ', name)
+    return name
+
+def estrategias (name : str) ->  [str] :
+
+    name = normalize(name)
+    nn   = name.split(' ') # Separar os nomes. # print(name)
+    temp  = ''
+    names = []
+
+    # Primeiro nome
+    names.append(nn[0])
+    # Último nome
+    names.append(nn[len(nn)-1])
+    # Primeiro e Último nome.
+    names.append(nn[0]+nn[len(nn)-1])
+    # Segundo Nome
+    names.append(nn[1]) if len(nn)>1 else names
+    # Terceiro Nome
+    names.append(nn[2]) if len(nn)>2 else names
+
+    # Primeira letra do Primeiro nome e último nome
+    names.append(nn[0][0]+nn[len(nn)-1])
+    # Primeira letra do Nome e do Sobrenome
+    names.append(nn[0][0]+nn[len(nn)-1][0])
+    # Primeira letra dos 3 primeiros nomes
+    names.append(nn[0][0]+nn[1][0]+nn[-1][0])
+    # Primeira letra do primeiro nome e dos ultimos 2.
+    names.append(nn[0][0]+nn[len(nn)-2][0]+nn[len(nn)-1][0]) if len(nn) > 1 else names
+    #Primeira letra do primeiro nome e segundo nome
+    names.append(nn[0][0]+nn[1][0])
+    #Primeira letra do nome próprio, segundo nome, penúltimo nome e ultimo nome
+    names.append(nn[0][0]+nn[1][0]+nn[len(nn)-2][0]+nn[len(nn)-1][0]) if len(nn) > 2 else names
+    # Todas as iniciais do nome completo ou iniciais mais ultimo nome.
+    for i in range(len(nn)):
+        temp+=nn[i][0]
+    names.append(temp)
+    names.append(temp+nn[len(nn)-1][1:])
+    temp = ''
+
+    # Casos especiais:
+    # Rui Manuel da Silva Ralha :: r_ralha
+    names.append(nn[0][0]+'_'+nn[len(nn)-1])
+    # José Francisco Creissac Freitas Campos :: jose.campos
+    names.append(nn[0]+'.'+nn[len(nn)-1])
+    # José Manuel Ferreira Machado :: jmac
+    names.append(nn[0][0]+nn[len(nn)-1][0:3])
+    # Pedro Manuel Rangel S. Henriques :: prh
+    if (len(nn) >=5 ):
+      names.append(nn[0][0]+nn[2][0]+nn[4][0])
+
+    return names
+
+
+def main():
+
+    global d
+    d = {}
+    # Querie mode ou ver percentagem de acerto.
+    c=clfilter(opt="q")
+    l = list(c.input())
+    result = load_names_and_emails(l)
+
+    # querie mode
+    if("-q" in c.opt):
+      while True:
+        try:
+          mail = input("? mail: ").strip()
+          if mail == "q!":
+              sys.exit()
+          else:
+            readline.add_history(mail)
+            names=search(mail,d)
+
+            if names :
+              c = 1
+              selected = random.choice(names)
+              while c == 1:
+                if names :
+                  selected = random.choice(names)
+                  print('-',selected,end="")
+                  opt = input('. Is this one? [Y/n] ')
+                  if opt == "y" or opt == "Y" or opt == "":
+                    c = 0
+                  elif opt == "n" or opt == "N":
+                    names.remove(selected)
+                else :
+                  print("No more matches. ")
+                  c = 0
+
+            else:
+                print('No names matches the input ' + mail + '.')
+        except KeyboardInterrupt:
+          sys.exit()
+
+      # not querie mode.
+    else:
+      a = avalia1(result , search, d)
+      print("Taxa de Acerto: ",a*100,"%")
+
+main()

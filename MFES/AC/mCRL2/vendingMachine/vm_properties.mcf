@@ -1,0 +1,49 @@
+%  MODEL CHECKING
+% RUN: $ mcrl22lps vm01.mcrl2 | lps2pbes -f vm01a.mcf | pbes2bool %
+
+--
+% always, eventually a ready is possible (true)
+[ true* ] < true* . ready > true
+
+/*
+   In this property, [true*] represents all finite sequences of actions starting from the initial state.
+   <true*.ready> expresses the existence of a sequence of actions ending with the action ready.
+   The last occurence of true in this property is a logical formula to be evaluated in the current state.
+   Thus, if the property is satisfied by the system, then after any finite sequence of actions, [true*],
+   the system can continue with some finite sequence of actions ending with ready, <true*.ready>,
+   and reaches a state in which the formula true holds.
+   Since true always holds, this property states that a next ready is always possible.
+*/
+
+--
+% a ready is always possible (false)
+% Não poderia ser: < -*ready > true
+[ true* ] < ready > true
+
+/*
+  This property is less liberal than property (a).
+  Here, <ready> true requires a ready action to be possible for the system, after any finite sequence, [true*].
+  This property does not hold:
+  - A ready action is not immediately followed by a ready action again.
+  - Also, ready is not possible in the initial state.
+*/
+
+--
+% after every ready only a coin follows (true)
+[ true* . ready . !coin ] false
+
+/*
+  This property uses the complement construct. !coin are all actions different from coin.
+  So, any sequence of actions with ready as its one but final action
+  and ending with an action different from coin, leads to a state where false holds.
+  Since no such state exists, there are no path of the form true*.ready.!coin.
+  Thus, after any ready action, any action that follows, if any, will be coin.
+*/
+
+--
+% any ready is followed by a coin and another ready (true)
+[ true* . ready . !coin ] false  &&  [ true* . ready . true . !ready ] false
+
+/*
+  This property is a further variation involving conjunction &&.
+*/

@@ -1,0 +1,65 @@
+c  Anne = 1
+c  Susan = 2
+c  Peter = 3
+c  left chair = 1
+c  middle chair = 2
+c  right chair = 3
+c
+c  X11 → 1
+c  X12 → 2
+c  X13 → 3
+c  X21 → 4
+c  X22 → 5
+c  X23 → 6
+c  X31 → 7
+c  X32 → 8
+c  X33 → 9
+c
+c  Everyone should sit in a chair.
+c  (1 ∨ 2 ∨ 3) ∧ (4 ∨ 5 ∨ 6) ∧ (7 ∨ 8 ∨ 9)
+c
+c  There are no shared chairs.
+c  1 → ¬4 ∧ 1 → ¬7 ≡ (¬1 ∨ ¬4) ∧ (¬1 ∨ ¬7) --→ same as 1 → ¬4 ∧ ¬7 by Distribution
+c  2 → ¬5 ∧ 2 → ¬8 ≡ (¬2 ∨ ¬5) ∧ (¬2 ∨ ¬8)
+c  3 → ¬6 ∧ 3 → ¬9 ≡ (¬3 ∨ ¬6) ∧ (¬3 ∨ ¬9)
+c
+c  4 → ¬1 ∧ 4 → ¬7 ≡ (¬4 ∨ ¬1) ∧ (¬4 ∨ ¬7)
+c  5 → ¬2 ∧ 5 → ¬8 ≡ (¬5 ∨ ¬2) ∧ (¬5 ∨ ¬8)
+c  6 → ¬3 ∧ 6 → ¬9 ≡ (¬6 ∨ ¬3) ∧ (¬6 ∨ ¬9)
+c
+c  7 → ¬1 ∧ 7 → ¬4 ≡ (¬7 ∨ ¬1) ∧ (¬7 ∨ ¬4)
+c  8 → ¬2 ∧ 8 → ¬5 ≡ (¬8 ∨ ¬2) ∧ (¬8 ∨ ¬5)
+c  9 → ¬3 ∧ 9 → ¬6 ≡ (¬9 ∨ ¬3) ∧ (¬9 ∨ ¬6)
+c
+c  Anne does not want to sit near Peter.
+c  1 → 9 ≡ ¬1 ∨ 9 (canceled by the rule that says that Anne does not sit in the left chair)
+c  ¬2 (if Anne is in the middle chair, she is automatically near Peter, thus Anne can't be in the middle chair)
+c  3 → 7 ≡ ¬3 ∨ 7
+c
+c  Anne does not want to sit in the left chair.
+c  ¬1
+c
+c  Susan does not want to sit to the right of Peter.
+c  9 → (¬4 ∧ ¬5) ≡ ¬9 ∨ (¬4 ∧ ¬5) ≡ (¬9 ∨ ¬4) ∧ (¬9 ∨ ¬5)
+c  8 → ¬4 ≡ ¬8 ∨ ¬4
+c
+p cnf 9 20
+1 2 3 0
+4 5 6 0
+7 8 9 0
+-1 -4 0
+-1 -7 0
+-2 -5 0
+-2 -8 0
+-3 -6 0
+-3 -9 0
+-4 -7 0
+-5 -8 0
+-6 -9 0
+-1 9 0
+-2 0
+-3 7 0
+-1 0
+-9 -4 0
+-9 -5 0
+-8 -4 0

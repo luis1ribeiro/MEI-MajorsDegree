@@ -1,0 +1,16 @@
+map S: Set(Pos);
+eqn S = { n: Pos | n>=1 && n <=10 };
+
+% Usar função
+map limit : Pos -> Bool;
+var n : Pos;
+eqn limit(n) = n>=1 && n<=10;
+
+act   up, down;
+      setcounter:Pos;
+
+proc  Ctr(x:Pos) = up.Ctr(x+1)
+                  + sum v:Pos . (succ(v)==x) -> down.Ctr(v)
+                  + sum m:Pos . (m in S && x!=m) -> (setcounter(m).Ctr(m));
+				% + sum m:Pos . limit(m) -> setcounter(m).Ctr(m);	  
+init  Ctr(1);

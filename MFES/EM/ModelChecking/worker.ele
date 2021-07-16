@@ -1,0 +1,71 @@
+// Abstract specification of a distributed transaction protocol
+
+sig Worker {}
+var sig Prepared in Worker {}
+var sig Committed in Prepared {}
+var sig Aborted in Worker {}
+
+pred finish[w : Worker] {
+	w not in Prepared
+	w not in Aborted
+	Prepared' = Prepared + w
+	Committed' = Committed
+	Aborted' = Aborted
+}
+
+pred abort[w : Worker] {
+	w not in Aborted
+	w in Prepared implies some Aborted
+	Prepared' = Prepared - w
+	Committed' = Committed
+	Aborted' = Aborted + w
+}
+
+pred commit[w : Worker] {
+	Worker in Prepared
+	Prepared' = Prepared
+	Committed' = Committed + w
+	Aborted' = Aborted
+}
+
+pred nop {
+	Prepared' = Prepared
+	Committed' = Committed
+	Aborted' = Aborted
+}
+
+fact init {
+	no Prepared
+	no Aborted
+}
+
+fact transitions {
+	always (nop or some w : Worker | finish[w] or commit[w] or abort[w])
+}
+
+run {}
+
+assert Consistency {
+	always (no Committed or no Aborted)
+}
+
+check Consistency
+
+assert Stability {
+	all w : Worker {
+		always (w in Committed implies always w in Committed)
+		always (w in Aborted implies always w in Aborted)
+	}
+}
+
+check Stability
+
+pred CommitWF {
+	all w : Worker | (eventually always (Worker in Prepared)) implies (always eventually commit[w])
+}
+
+assert Progress {
+	CommitWF implies always (some Committed implies eventually Worker in Committed)
+}
+
+check Progress

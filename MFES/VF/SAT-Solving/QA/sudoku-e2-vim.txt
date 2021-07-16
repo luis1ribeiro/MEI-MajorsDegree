@@ -1,0 +1,9 @@
+Através da facilidade de manipulação do VIM, facilmente converti as restrições proposicionais num modelo SAT.
+  :%s/∧/\n/ (Substituição dos and's proposicionais por \n, para haver uma seperação por linhas)
+  :%s/(// :%s/)// (Tirar os parênteses)
+  :%s/¬/-/  (Substituição dos not's proposicionais pelo caracter \-)
+  :%s/∨//   (Remoção dos or's proposicionais)
+  :%s/c//   (Remoção dos c's que significam comentários)
+  :%s/$/ 0/ (Adicionar ao fim de cada linha um '0')
+  :%s/ \+/ / (Normalização dos espaços)
+  :%sort u  (Eliminação de condições repetidas)

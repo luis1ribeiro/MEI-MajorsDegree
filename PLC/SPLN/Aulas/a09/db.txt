@@ -1,0 +1,53 @@
+.
+  Instalação da biblioteca flit:
+    -> flit init: Configuração
+  O nosso módulo tem como dependência o yaml. Sendo que o yaml não está no core, deve ser especificado.
+  Especificar scripts.
+
+    -> flit build
+    -> flit publish --repository testpypi
+    -> pydoc genlr: Ver help no módulo criado.
+
+.
+  Instalação da biblioteca pytest:
+    Uso de asserts para testar propriedades.
+    Estes asserts tem de ser declarados em funções.
+    > pytest
+      Verifica todos os asserts definidos nas funções de todos os ficheiros python.
+
+.
+  Travessia de diretorias: walkdir python -→ os.walk()
+
+.
+  TP2: Estudo de módulos com Apresentação.
+
+    Módulos:
+      - rdflib
+      - owlready2
+      - nltk
+      - freeling
+
+      Parse de DomainSpecificLanguages:
+      - ply
+      - lark parser
+
+      - flask (template)
+      - pickle, json, yaml
+      - shelve (dicionários com ficheiros)
+
+      Bases de dados: (FICAMOS COM ESTE)
+      - pymongo
+      - sqlite
+      - py2neo
+
+      - pytesseract
+      - beautifulsoup4 : html
+      - lxml : xml
+      - watchdog : sensível filesystem
+
+      Machine Learning:
+      - muitas
+
+      Processar ou Gerar:  pdfs, epubs, latex
+
+      Interface Gráfica: tkinter, pygame

@@ -1,0 +1,311 @@
+theory Exprs
+use map.Map
+use map.Const
+use int.Int
+use int.EuclideanDivision
+use ref.Ref
+
+
+
+(* identifiers *)
+type ident
+function mk_ident int : ident
+
+
+(* expressions *)
+type operator = Oplus | Ominus | Omult | Odiv
+
+type expr =
+  | Econst int
+  | Evar ident
+  | Eincbf ident (* inc before → ++x *)
+  | Eincaf ident (* inc after  → x++ *)
+  | Ebin expr operator expr
+
+(* program states *)
+type state = map ident int
+
+(* Função auxiliar para o predicado e função. *)
+function eval_bin (v1:int) (op:operator) (v2:int) : int =
+  match op with
+    | Oplus  -> v1 + v2
+    | Ominus -> v1 - v2
+    | Omult  -> v1 * v2
+    | Odiv   -> div v1 v2 (* Uso da euclidean division definida em aula *)
+  end
+
+(* semantics of expressions *)
+function eval_expr (s:state) (e:expr) : int =
+  match e with
+    (* Se for uma constante, retorna o próprio valor. *)
+    | Econst c -> c
+    (* Se for uma variável, tenho que usar o state s. *)
+    | Evar c   -> get s c
+    (* Incrementar variável ++c *)
+    | Eincbf c   -> let s = set s c ((get s c)+1) in get s c
+    (* Incrementar variável c++ *)
+    | Eincaf c  -> let temp = get s c in let s = set s c ((get s c) +1) in temp
+    (* Se for uma expressão com operadores, identificamos qual o operador (dando match) e fazemos a operação correspondente. *)
+    | Ebin c operator c1 -> eval_bin (eval_expr s c) operator (eval_expr s c1)
+    end
+
+  goal Test13 :
+    let s = const 0 in
+    eval_expr s (Econst 13) = 13
+
+  goal Test42 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr s (Evar x) = 42
+
+  goal Test55 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr s (Ebin (Evar x) Oplus (Econst 13)) = 55
+
+
+  (* -- Operações Div teste simples -- *)
+    goal TesteDiv :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 4 in
+      eval_expr s (Ebin (Evar x) Odiv (Econst 2)) = 2
+
+    (* Não consegue provar por ser falso. 4/2 != 1 *)
+    goal DivFalse :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 4 in
+      eval_expr s (Ebin (Evar x) Odiv (Econst 2)) = 1
+
+
+  (* -- Operações Inc testes -- *)
+    (* teste simples x++. *)
+    goal TesteInc :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 1 in
+      eval_expr s (Ebin (Eincaf x) (* x continua 1 *) Oplus (Econst 2)) = 3
+
+    (* teste simples ++x. *)
+    goal TesteIncv2 :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 1 in
+      eval_expr s (Ebin (Eincbf x) (* x = 2 *) Oplus (Econst 2)) = 4
+
+    (* teste não deve ser provado. *)
+    goal TesteIncFalse :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 2 in
+      eval_expr s (Eincaf x) = 3 (* Devia retornar 2, por que é x++. *)
+
+
+(* semantics of expressions as an evaluation relation   *)
+(* this always terminates, and thus was written as a    *)
+(* function before, but we can write it as an inductive *)
+(* predicate and prove a correspondence between the two *)
+
+(* Predicado indutivo. *)
+inductive eval_expr_rel state expr state int =
+  | econst : forall s:state, n:int.
+                 eval_expr_rel s (Econst n) s n
+  | evar   : forall s:state, c:ident.
+               eval_expr_rel s (Evar c) s (get s c)
+  | eincaf : forall s:state, c:ident.
+               (* x++ *) let temp = (get s c) in eval_expr_rel s (Eincaf c) (set s c ((get s c)+1)) temp
+  | eincbf : forall s:state, c:ident.
+               (* ++x *) let temp = (get s c) in eval_expr_rel s (Eincbf c) (set s c ((get s c)+1)) (temp + 1)
+  | ebin   : forall s s1 s2:state, x1 x2 : expr, c1 c2 :int, op :operator.
+              eval_expr_rel s x1 s1 c1 ->
+                 eval_expr_rel s1 x2 s2 c2 ->
+  	              eval_expr_rel s (Ebin x1 op x2) s2 (eval_bin c1 op c2)
+
+  goal Test13r :
+    let s = const 0 in
+    eval_expr_rel s (Econst 13) s 13
+
+  goal Test42r :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr_rel s (Evar x) s 42
+
+  (* Este teste falha por ser necessário lemmas auxiliares de ajuda na indução. Usar o assert. *)
+  goal Test55r :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr_rel s (Ebin (Evar x) Oplus (Econst 13)) s 55
+
+
+  (* -- Operações Div teste simples -- *)
+    (* é provado usando asserts, devido a ser uma operação Ebin. *)
+    goal TesteDivr :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 4 in
+      eval_expr_rel s (Ebin (Evar x) Odiv (Econst 2)) s 2
+
+    (* Teste falso de divisão. 8/2 != 1 *)
+    goal TesteDivFalse :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 8 in
+      eval_expr_rel s (Ebin (Evar x) Odiv (Econst 2)) s 1
+
+
+  (* -- Operações Inc testes -- *)
+    (* teste simples x++. *)
+    goal TestIncr :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 1 in
+      let s2 = set (const 0) x 2 in
+      eval_expr_rel s (Eincaf x) s2 1
+
+    (* teste simples ++x. *)
+    goal TestIncrv2 :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 1 in
+      let s2 = set (const 0) x 2 in
+      eval_expr_rel s (Eincbf x) s2 2
+
+    (* Não consegue provar porque é falso. 2++ retorna 2 e atualiza para 3 no estado s. *)
+    goal IncrFalse:
+      let x = mk_ident 0 in
+      let s = set (const 0) x 2 in
+      let s1 = set (const 0) x 3 in
+      eval_expr_rel s (Eincaf x) s1 3 (* Devia retornar 2 *)
+
+
+    (* Precisa de asserts também. Aquele estado s1 é declarado para ser usado nos asserts definidos. *)
+    goal TestBothIncsr :
+      let x = mk_ident 0 in
+      let s = set (const 0) x 1 in
+      let s1 = set (const 0) x 2 in (* estado intermediário *)
+      let s2 = set (const 0) x 3 in
+        eval_expr_rel s (Ebin (Eincaf x) Oplus (Eincbf x)) s2 4
+
+
+  (* ---- *)
+  (* Não há alteração de estado aquando a avaliação da expressão. Noção de consistência de estado. *)
+  (* O uso do incr x++ e ++x vai alterar o estado, daí este lemma não consegue ser provado. *)
+  lemma no_side_effects:
+    forall s1 s2:state, e:expr, v:int.
+      eval_expr_rel s1 e s2 v -> s1 = s2
+
+  (* O uso do split all full permite-nos usar o induction_pr para a primeira implicação e induction_ty_lex para a segunda. *)
+  lemma expr_eval:
+      forall e:expr, s:state, n:int.
+        eval_expr_rel s e s n <-> (eval_expr s e = n)
+
+  (* Como temos o lemma expr_eval definido acima, o Teste55 é provado diretamente, sem indução. *)
+  goal Test55r2 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 42 in
+    eval_expr_rel s (Ebin (Evar x) Oplus (Econst 13)) s 55
+
+
+end
+(* ---- *)
+
+(* Programs - TPC4 *)
+theory Programs
+use map.Map
+use map.Const
+
+use Exprs
+
+(* statements *)
+  type stmt =
+    | Sskip
+    | Sassign ident expr
+    | Sseq stmt stmt
+    | Sif expr stmt stmt
+    | Swhile expr stmt
+
+(* big step semantics *)
+  inductive big_step state stmt state =
+
+    | big_step_seq:
+      forall s1 s2 s3:state, i1 i2:stmt.
+        big_step s1 i1 s2  ->
+          big_step s2 i2 s3  ->
+            big_step s1 (Sseq i1 i2) s3
+
+    (* Operação skip - não faz nada *)
+    | big_step_skip:
+      forall s: state.
+        (* <skip,s> ↓↓ <skip,s> *)
+        big_step s Sskip s
+
+    (* Assign de uma variável *)
+    | big_step_assign:
+      forall s,s1:state, n:int, x:ident, e:expr.
+        (* Avalio a expressão expr para n num estado s'. <E,s> ↓↓ <n,s1> *)
+        eval_expr_rel s e s1 n ->
+          (* Atribuição em s' de x para o n. *)
+          (* <l:=E,s> ↓↓ <skip,s1[l→n]> *)
+          big_step s (Sassign x e) (set s1 x n)
+
+    (* If quando a condição é true, uso C1 *)
+    | big_step_if_true:
+      forall s s1 s2:state, n:int, e:expr, c1 c2:stmt. (* condições *)
+        (* <B,s> ↓↓ <true,s1> *)
+        eval_expr_rel s e s1 n ->
+          (* true *)
+          n <> 0 ->
+            (* <c1, s1> ↓↓ <skip, s2> *)
+            big_step s1 c1 s2 ->
+              (* <if B then c1 else c2, s> ↓↓ <skip, s2> *)
+              big_step s (Sif e c1 c2) s2
+
+    (* If quando a condição é falso, uso C2 *)
+    | big_step_if_false:
+      forall s s1 s2:state, e:expr, c1 c2:stmt. (* condições *)
+        (* <B,s> ↓↓ <false,s1> *)
+        eval_expr_rel s e s1 0 ->
+            (* <c2, s1> ↓↓ <skip, s2> *)
+            big_step s1 c2 s2 ->
+              (* <if B then c1 else c2, s> ↓↓ <skip, s2> *)
+              big_step s (Sif e c1 c2) s2
+
+    (* Ciclo while enquando a condição (expr e) é verdadeira *)
+    | big_step_while_true:
+      forall s s1 s2 s3:state, n:int, e:expr, c:stmt.
+        (* <B,s> ↓↓ <true,s1> *)
+        eval_expr_rel s e s1 n ->
+          (* true *)
+          n <> 0 ->
+            (* <C,s1> ↓↓ <skip, s2> *)
+            big_step s1 c s2  ->
+              (* <while B do C, s2> ↓↓ <skip, s3> *)
+              big_step s2 (Swhile e c) s3  ->
+                (* <while B do C, s> ↓↓ <skip, s3> *)
+                big_step s (Swhile e c) s3
+
+    (* Sair do ciclo while *)
+    | big_step_while_false:
+      forall s s1:state, e:expr, c:stmt.
+        (* <B,s> ↓↓ <false, s1> *)
+        eval_expr_rel s e s1 0 ->
+          (* <while B do C, s> ↓↓ <skip, s1> *)
+          big_step s (Swhile e c) s1
+
+
+  (* --- GOALS --- *)
+
+  goal Assign42 :
+    let x = mk_ident 0 in
+    let s = const 0 in
+    forall s':state.
+      big_step s (Sassign x (Econst 42)) s' ->
+        get s' x = 42
+
+  goal If42 :
+    let x = mk_ident 0 in
+    let s = set (const 0) x 0 in
+    forall s1:state, i:stmt.
+      big_step s
+        (Sif (Evar x)
+             (Sassign x (Econst 13))
+             (Sassign x (Econst 42)))
+	      s1 ->
+	        get s1 x = 42
+
+  goal big_step_determinism:
+    forall s s':state, i :stmt.
+      big_step s i s'  ->  forall s'': state. big_step s i s''  -> s' = s''
+end

@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+# Functions and methods are called callable as they can be called.
+# In fact, any object which implements the special __call__() method is termed callable. So, in the most basic sense, a decorator is a callable that returns a callable
+
+def make_pretty(func):
+    def inner():
+        print("I got decorated")
+        func()
+    return inner
+
+
+@make_pretty
+def ordinary():
+    print("I am ordinary")
+
+ordinary()

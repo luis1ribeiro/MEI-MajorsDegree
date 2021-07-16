@@ -1,0 +1,159 @@
+
+module Division
+
+  use int.Int
+  use ref.Ref
+
+  let division (a:int) (b:int) : int
+    requires { 0 <= a && 0 < b } (* pré condição *)
+    ensures  { exists r: int. result * b + r = a && 0 <= r < b } (* pós condição *)
+  =
+    (* as variáveis mutáveis são delcaradas, e inicializadas, como referências → ref *)
+    let q = ref 0 in
+    let r = ref a in
+    (* a leitura de uma referência obriga ao uso de !*)
+    while !r >= b do
+      invariant { !q * b + !r = a && 0 <= !r } (* invariantes de ciclo *)
+      variant   { !r } (* r está a ser decrementado → variante de ciclo 0*)
+      (* := → escrita numa referência *)
+      q := !q+1;
+      r := !r-b
+    done;
+    (* retorno da função *)
+    !q
+
+
+    (*
+      A condição de verificação (VC) gerada pelo Why3 será facilmente provada por qualquer solver. Será útil fazer “split” dessa VC para se observar que surgem 4 condições separadas, associadas a:
+        - inicialização e preservação do invariante
+        - pós-condição (utilidade do invariante)
+        - condição de decremento do variante
+    *)
+end
+
+
+module EuclideanAlgorithm
+
+  use int.Int
+  use int.EuclideanDivision
+  use ref.Refint
+  use number.Gcd
+
+
+  let rec euclid (u v: int) : int
+    variant  { v }
+    requires { u >= 0 /\ v >= 0 } (* pré condição *)
+    ensures  { result = gcd u v } (* pós condição *)
+  =
+  if v = 0 then u
+  else euclid v (mod u v)
+  (*
+     Esta função será também facilmente verificada. Note que numa função recursiva sem ciclos não é necessário escrever invariantes:
+     o próprio contrato (em particular a pós-condição acima) substitui a utilização de um invariante de ciclo.
+  *)
+
+
+(* Complete *)
+
+  (* As variáveis parametrizadas u0 v0 não podem ser alteradas por não serem mutáveis *)
+  let euclidit (u0 v0: int) : int
+    requires { u0 >= 0 /\ v0 >= 0 }
+    ensures  { result = gcd u0 v0 }
+  =
+    let u = ref u0 in
+    let v = ref v0 in
+    (* 32(u) / 18(v) = 1 0and r = 14 *)
+    while !v <> 0 do
+      invariant {!u >= 0 /\ !v >=0}
+      invariant {gcd !u !v = gcd u0 v0}
+      variant {!v}
+      let tmp = !v in
+      v := mod !u !v;
+      u := tmp
+      (* Na próxima iteração u = 18 and v = 14 *)
+    done;
+    !u
+
+end
+
+
+module Fib
+
+  use int.Int
+  use ref.Ref
+  use int.EuclideanDivision
+
+  (* Predicado indutivo com a definição de Fibonacci *)
+  inductive isFib (n:int) (r:int) =
+  | case0 : isFib 0 0
+  | case1 : isFib 1 1
+  | caseInd : forall n f1 f2 :int. isFib (n-1) f1 -> isFib (n-2) f2 -> isFib n (f1+f2)
+
+
+  (* Se tirar o function, o fib não vai ser conhecido ao nível lógico e não poderá ser declarado em lemmas *)
+  let rec function fib (n: int) : int
+    requires { n >= 0 }
+    variant  { n }
+    ensures { isFib n result }
+  =
+    if n = 0 then 0
+    else if n = 1 then 1
+    	 else fib (n-1) + fib (n-2)
+    (* recursivamente à custa da soma dos 2 n's anteriores *)
+
+  (* Para provar isto tenho que por o n no contexto → split e depois induction n *)
+  lemma fib_lm : forall n:int. n >= 1 -> fib n >= 1
+
+
+  let fib_i m : int
+    requires { m >= 0 }
+    ensures  { result = fib m }
+    (* ensures { isFib m result }   *)
+  =
+    let n = ref 0 in
+    let x = ref 0 in
+    let y = ref 1 in
+    while !n < m do
+      invariant { 0 <= !n <= m }
+      invariant { !x = fib !n }
+      invariant { !y = fib (!n+1) }
+      (* invariant { isFib !n !x } *)
+      (* invariant { isFib (!n+1) !y} *)
+      variant { m - !n }
+      let tmp = !x in
+      x := !y;
+      y := !y + tmp;
+      n := !n + 1;
+    done;
+    !x
+
+
+  let rec fib_even_rec m : int
+    requires { m >= 0 }
+    ensures  { result = fib (3*m) }
+    ensures  { exists k. k>=0 /\ result = fib k }
+    ensures  { mod result 2 = 0 }
+    variant { m }
+ =  if m=0 then 0
+    else if m=1 then 2
+    else 4 * fib_even_rec (m-1) + fib_even_rec (m-2)
+
+  let fibsgt_even n : int
+    requires { n >= 0 }
+    ensures  { result >= n /\ mod result 2 = 0 }
+    ensures  { exists k. k>=0 /\ result = fib k }
+  = let x = ref 0 in
+    let y = ref 2 in
+    while !x < n do
+      invariant { 0 <= !x < !y }
+      invariant { mod !x 2 = 0 }
+      invariant { mod !y 2 = 0 }
+      invariant { exists k. k>=0 /\ !x = fib k /\ !y = fib (k+3) }
+      variant { n - !x }
+      let tmp = !x in
+      x := !y;
+      y := 4 * !y + tmp;
+    done;
+    !x
+
+end

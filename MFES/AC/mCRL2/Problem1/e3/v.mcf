@@ -1,0 +1,2 @@
+% I can reach a state where b is inevitable, and for all traces that require at least a . b . b, reaches a state where a can be true.
+<a.b>[!b]false && [a.b.b]<a>true

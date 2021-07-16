@@ -1,0 +1,27 @@
+. map f lista     =====> [f(x) | x ∈ lista]
+. filter p lista  =====> [x    | x ∈ lista : p(x)]
+
+. print("5\b6") --> 6 porque \b é um backspace
+
+. Iteradores são lazy (Processar elemento a elemento, podendo não precisar da lista toda)
+  - yes | head -3
+    . yes imprime uma lista infinita de yes, o head -3 faz com que o $yes "pare".
+
+.
+  >>> a = [list(range(100))]
+
+.
+  >>> a = [len,max]
+  >>> a[0]([1,2,4])
+  3
+  >>> a[1]([1,2,4])
+  4
+
+.
+  :%s/"/'/g → /g permite trocar todas as ocurrências
+
+.
+  $ for a in {1..300}; do ./grammar-script; done | sort | uniq -c
+
+.
+  f.__doc__ -→ Retorna me a documentação de uma função.

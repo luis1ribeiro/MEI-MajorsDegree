@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="Z3" version="4.8.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.3.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.7" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="lists.why"/>
+<theory name="Lists">
+ <goal name="app_nil">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.06" steps="2433"/></proof>
+ </goal>
+ <goal name="aux_length">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="2793"/></proof>
+ </goal>
+ <goal name="app_length">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="5879688"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="unknown" time="0.05" steps="8873"/></proof>
+ <transf name="split_vc" >
+  <goal name="app_length.0">
+  <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00" steps="63755630"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+  <proof prover="2" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.06" steps="8828"/></proof>
+  <transf name="induction_arg_ty_lex" arg1="l1">
+   <goal name="app_length.0.0">
+   <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="4738"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="snoc_len">
+ <proof prover="1" obsolete="true"><result status="valid" time="0.00" steps="4"/></proof>
+ <proof prover="2" obsolete="true"><result status="unknown" time="0.13" steps="11564"/></proof>
+ </goal>
+ <goal name="snoc_app">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="3555"/></proof>
+ </goal>
+ <goal name="mem_app">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="5859707"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="unknown" time="0.07" steps="10443"/></proof>
+ <transf name="split_vc" >
+  <goal name="mem_app.0">
+  <proof prover="0" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00" steps="55057164"/></proof>
+  <proof prover="1" timelimit="10" memlimit="4000" obsolete="true"><result status="timeout" time="10.00"/></proof>
+  <proof prover="2" timelimit="10" memlimit="4000" obsolete="true"><result status="unknown" time="0.06" steps="9791"/></proof>
+  <transf name="induction_arg_ty_lex" arg1="l1">
+   <goal name="mem_app.0.0">
+   <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="5102"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="aux_reverse">
+ <transf name="induction_ty_lex" >
+  <goal name="aux_reverse.0">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.09" steps="8677"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="rev_rev" proved="true">
+ <transf name="induction_ty_lex" proved="true" >
+  <goal name="rev_rev.0" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="6338"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="last_nil">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.05" steps="5703"/></proof>
+ </goal>
+ <goal name="lastf_aux">
+ <proof prover="2" obsolete="true"><result status="valid" time="0.07" steps="7221"/></proof>
+ </goal>
+ <goal name="lastf1">
+ <proof prover="0" timelimit="5" obsolete="true"><result status="timeout" time="5.00" steps="30970613"/></proof>
+ <proof prover="1" timelimit="5" obsolete="true"><result status="timeout" time="5.00"/></proof>
+ <proof prover="2" timelimit="5" obsolete="true"><result status="unknown" time="0.12" steps="11878"/></proof>
+ <transf name="introduce_premises" >
+  <goal name="lastf1.0">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="4798518"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2" obsolete="true"><result status="unknown" time="0.06" steps="9992"/></proof>
+  <transf name="induction_arg_ty_lex" arg1="l">
+   <goal name="lastf1.0.0">
+   <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="5956"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="lastf2">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2874991"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="63340"/></proof>
+ <transf name="induction_pr" >
+  <goal name="lastf2.0">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="5769"/></proof>
+  </goal>
+  <goal name="lastf2.1">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.04" steps="5866"/></proof>
+  </goal>
+ </transf>
+ <transf name="introduce_premises" >
+  <goal name="lastf2.0">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="7862140"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="296398"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

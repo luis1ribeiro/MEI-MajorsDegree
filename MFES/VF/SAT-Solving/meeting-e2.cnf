@@ -1,0 +1,22 @@
+c Meeting problem
+
+c Mon Tue Wed Thu Fri
+c
+c Maria cannot meet on Wednesday - ¬Wed
+c Peter can only meet on Monday, Wednesday or Thursday - Mon \/ Wed \/ Thu /\ ¬Tue /\ ¬Fri
+c Anne cannot meet on Friday - ¬Fri
+c Mike cannot meet on Tuesday nor on Thursday - ¬Tue /\ ¬Thu
+c
+c ¬Wed /\ (Mon \/ Wed \/ Thu) /\ ¬Fri /\ (¬Tue /\ ¬Thu)
+
+p cnf 5 5
+-3 0
+1 3 4 0
+-5 0
+-2 0
+-4 0
+
+
+c RESULT
+c 1 -2 -3 -4 -5 0
+c Should meet on Mon

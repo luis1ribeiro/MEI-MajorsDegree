@@ -1,0 +1,217 @@
+#!/usr/bin/python3
+from typing import *
+from sys import argv
+from re import *
+import unidecode
+
+# ----------------------------------- TYPES ------------------------------------
+
+Strategy = NewType('Strategy', Callable[[str, Iterable[str]], Optional[Tuple[str, int]]])
+Decision = NewType('Decision', Callable[[str, Iterable[str]], str])
+
+# An iteratable is a Python object that can be used as a sequence.
+# You can go to the next item of the sequence using the next() method.
+# You can loop over an iterable, but you cannot access individual elements directly.
+# It's a container object: it can only return one of its element at the time.
+
+# ----------------------------------- UTILS ------------------------------------
+
+# Vai guardar numa lista todas as calls das funções de estratégia.
+def getStratFuncs() -> Iterable[Strategy]:
+    return [
+        strat for name, strat in globals().items() if name.startswith('strat_')
+    ]
+
+# The globals() function returns a dictionary containing the variables defined in the global namespace.
+# When globals() is called from a function or method,
+# it returns the dictionary representing the global namespace of the module where the function
+# or method is defined, not from where it is called.
+
+# --------------------------------- NORMALIZE ----------------------------------
+
+def normalizeName(name : str) -> str:
+    return unidecode.unidecode(name).strip().replace('.', '').lower()
+
+def normalizeNames(names : Iterable[str]) -> Iterable[str]:
+    return [normalizeName(name) for name in names]
+
+# ---------------------------------- DECISION ----------------------------------
+
+"""
+Todas as funçoes de decisão devem seguir a seguinte assinatura, por causa do decorador acima:
+def xxxx(email : str, hits : Iterable[str]) -> str:
+    .....
+"""
+
+# Escolhe o primeiro 'hit' encontrado.
+def firstHit(email : str, hits : Iterable[str]) -> str:
+    return hits[0]
+
+# --------------------------------- DECORATORS ---------------------------------
+
+# Strategy decorator - Servirá para associar um determinado peso a uma estratégia e se a estratégia falhar retorna None.
+def strategy( weight : int, decision : Decision ) -> Strategy:
+
+    def decorator(f : Callable[[str, Iterable[str]], str]) -> Strategy:
+        # f será a estratégia associada -→ decorator
+        def wrapper( email : str, nomes : Iterable[str]) -> Tuple[str, int]:
+            hits = f(email, nomes)
+            return ( decision( email, hits ) , weight) if hits else None
+
+        return wrapper
+
+    return decorator
+
+# ----------------------------------- STRATS -----------------------------------
+
+"""
+    Estratégias de encontrar um nome que corresponda a um email podem ser implementadas infinitamente.
+    Todas as funções aqui definidas devem ter uma assinatura semelhante a esta:
+    @strategy(Inserir um peso ou numero de confiança aqui, Função de decisão que escolhe qual o nome da lista de 'hits')
+    def strat_xxxx(email : str, nomes : Iterable[str]) -> Iterable[str]:
+        .....
+
+    O email e respetiva lista de nomes já foram normalizadas.
+"""
+
+@strategy(1, firstHit)
+def strat_letters(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    hits = [
+        nome for nome in nomes if match(r'.*\s'.join(email) + r'.*', nome, IGNORECASE)
+    ]
+
+    return hits
+
+@strategy(2, firstHit)
+def strat_lettersFinal(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    hits = [
+        nome for nome in nomes if match(r'.+\s+'.join(email) + r'\w+$', nome, IGNORECASE) and nome.split()[-1][0] == email[-1]
+    ]
+
+    return hits
+
+
+@strategy(3, firstHit)
+def strat_letterWord(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    if len(email) < 2:
+        return []
+
+    letter = email[0]
+    word = email[1:]
+
+    hits = [
+        nome for nome in nomes if match(fr'\s*{letter}.*?\s', nome, IGNORECASE) and nome.split()[-1] == word
+    ]
+
+    return hits
+
+@strategy(0, firstHit)
+def strat_word(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    hits = [
+        nome for nome in nomes if email in [n.lower() for n in nome.split()]
+    ]
+
+    return hits
+
+@strategy(-1, firstHit)
+def strat_subword(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    hits = [
+        nome for nome in nomes if match(fr'.*{email}.*', nome, IGNORECASE)
+    ]
+
+    return hits
+
+@strategy(-50, firstHit)
+def strat_littlePanic(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    divisions = [
+       ([email[0:l+1], email[l + 1:len(email)]]) for l in range(len(email) - 1)
+    ]
+
+    hits = []
+
+    for div in divisions:
+
+        hits += [
+            nome for nome in nomes if match(fr'.*?\s*{div[0]}\s+.*', nome, IGNORECASE) and match(fr'.*?\s*{div[1]}\s*.*', nome, IGNORECASE)
+        ]
+
+
+    return hits
+
+@strategy(-100, firstHit)
+def strat_panic(email : str, nomes : Iterable[str]) -> Iterable[str]:
+
+    if len(email) < 3:
+        return []
+
+    divisions = [
+      email[l:len(email)] for l in range(len(email) - 2)
+    ]
+
+    hits = []
+
+    for div in divisions:
+
+        hits += [
+            nome for nome in nomes if match(fr'.*?\s*{div}\s*.*', nome, IGNORECASE)
+        ]
+
+    return hits
+
+# ----------------------------------- MAIN -------------------------------------
+
+def main(args : Iterable[str]) -> ():
+
+    if len(args) != 2:
+        print('Este comand necessita de pelo menos um ficheiro de input.\nPor favor, tente novamente.')
+        return
+
+    try:
+
+        with open(f'{args[1]}') as f:
+            nomesDict = {
+                normalizeName(notNorm.split('::')[0]) : notNorm.split('::')[0].strip() for notNorm in f.readlines()
+            }
+
+            f.seek(0)
+
+            match = {
+                (line.split('::')[1].strip()) : (line.split('::')[0].strip()) for line in f.readlines()
+            }
+
+        nomes = nomesDict.keys()
+
+        acertos = 0
+
+        for email in match.keys():
+
+            # Guesses sorted by Weight.
+            # Sendo que o getStratFuncs() retorna as funções callable, tenho que fazer aquele guess := strat(email, nomes) guess := strat(email, nomes).
+            guesses = sorted([
+                guess for strat in getStratFuncs() if (guess := strat(email, nomes)) is not None
+            ], key = lambda el : el[1], reverse=True)
+
+            if guesses:
+
+                if nomesDict[guesses[0][0]] == match[email]:
+                    acertos += 1
+
+
+        print(f'Taxa de acerto {acertos}/{len(nomes)}, {round((acertos / len(nomes)) * 100)}% dos emails corresponderam aos nomes corretos!')
+
+    except FileNotFoundError:
+        print('Ficheiro de nomes não encontrado!')
+
+    except Exception as e:
+        print("Wrong command. Command syntax: tpc3.py (email) (file).")
+        raise e
+
+
+if __name__ == '__main__':
+    main(argv)

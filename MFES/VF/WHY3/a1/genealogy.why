@@ -1,0 +1,61 @@
+
+theory Genealogy
+
+  type person
+
+  type gender = Male | Female
+
+  function gender person : gender
+
+  function father person : person
+  function mother person : person
+
+  axiom Father_gender : forall p : person. gender (father p) = Male
+  axiom Mother_gender : forall p : person. gender (mother p) = Female
+  (* Os axiomas para especificar as funções - Axiomas são garantidos *)
+
+  predicate parent (p : person) (c : person) = p = father c \/ p = mother c
+
+  predicate son (s : person) (p : person) = gender s = Male /\ parent p s
+  predicate daughter (d : person) (p : person) = gender d = Female /\ parent p d
+
+  predicate child (c : person) (p : person) = parent p c
+
+  goal Child_is_son_or_daughter:
+    forall c p : person. child c p <-> son c p \/ daughter c p
+
+  (* p1 != p2 tal que têm os mesmos pais *)
+  predicate sibling (p1 : person) (p2 : person) =
+    p1 <> p2 /\ (father p1 = father p2 \/ mother p1 = mother p2)
+
+  goal Sibling_sym : forall p1 p2 : person. sibling p1 p2 -> sibling p2 p1
+
+  predicate brother (b : person) (p : person) = sibling b p /\ gender b = Male
+  predicate sister  (s : person) (p : person) = sibling s p /\ gender s = Female
+
+  (* Predicate grandparent *)
+  predicate grandparent (gp : person) (n : person) = exists p: person. parent p n /\ parent gp p
+  (* Predicate grandfather *)
+  predicate grandfather (gp: person) (n: person) = exists m: person. parent m n /\ gp = father m
+  (* Predicate grandmother *)
+  predicate grandmother (gp: person) (n: person) = exists m: person. parent m n /\ gp = mother m
+
+  (* Grandparent is either a GrandFather or a GrandMother *)
+  goal Grandparent_is_gf_or_gm:
+    forall g p: person. grandparent g p <-> grandfather g p \/ grandmother g p
+  (* GrandFather is Male *)
+  goal GFisMale:
+    forall g c: person. grandfather g c -> gender g = Male
+  (* GrandMother is Female *)
+  goal GMisFemale:
+    forall g c: person. grandmother g c -> gender g = Female
+
+  goal Only2GrandParents:
+    forall g1 g2 g3 p: person.
+      grandparent g1 p /\ grandparent g2 p /\ grandparent g3 p -> (g1 = g2) \/ (g1 = g3) \/ (g2 = g3)
+
+  goal Sibling_is_brother_or_sister:
+    forall p1 p2 : person. sibling p1 p2 <-> brother p1 p2 \/ sister p1 p2
+
+
+end

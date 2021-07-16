@@ -1,0 +1,91 @@
+% This file contains a specification of the well known
+% problem of the fox, the goose and the beans, also known as
+% the wolf, the goat and the cabbage, which
+% dates back to the French 8th century mathematician Alcuis.
+%
+% There are a farmer with a fox, a goose and a pack of beans standing
+% at one side of a river. He wants to cross and for this
+% purpose he has a small boat that can only contain him and
+% one item (2 beings at most). If the fox is left with the goose, the fox will
+% eat the goose. If the goose is left with the beans, the beans
+% is consumed. The question is to find a strategy to bring the
+% man to the other shore (right shore) without losing any of his items.
+
+sort
+  % The position(aka shore) can only be right or left.
+  Position = struct left | right;
+  % Here I declare which beings are involved. Since farmer will dictate how the system evolves, will be consider as an individual Process.
+  Being = struct fox | goose | beans;
+  % RiverShores struct will be a pair of set of beings, each set for each shore.
+  RiverShores = struct rshores(Set(Being), Set(Being));
+
+map
+  % Returns the opposite Position of the one given.
+  oPos: Position -> Position;
+
+  % Returns the Set of Beings in a given shore/position.
+  beings: RiverShores # Position -> Set(Being);
+
+  % Moves being to the right or to the left.
+  being2right: RiverShores # Being -> RiverShores;
+  being2left: RiverShores # Being -> RiverShores;
+
+var
+  l,r: Set(Being);
+  b: Being;
+
+eqn
+  % Left Shore is the opposite of Right Shore, and vice-versa.
+  oPos(left) = right;
+  oPos(right) = left;
+
+  % Beings at each river shore.
+  beings(rshores(l, r), left)  = l;
+  beings(rshores(l, r), right) = r;
+
+  % When the farmer crosses the river with a being. Update the beings at each river shore.
+  being2right(rshores(l,r), b) = rshores(l - {b}, r + {b});
+  being2left(rshores(l,r), b)  = rshores(l + {b}, r - {b});
+
+act
+  % Beings actions
+  crossBeing, farmerBeing: Being # Position;
+  % Farmer
+  crossFarmer: Position;
+  % System
+  cross: Being # Position;
+
+  % Action that denotes the undeasired, which is one of the beings being eaten.
+  is_eaten: Being;
+  % Job's done. We good.
+  gg;
+
+proc
+  	% Process that dictates how the system evolves.
+	Farmer(s: RiverShores, p:Position) =
+	 % If all beings at the right shore, the job is done.
+     (beings(s, right) == {fox,goose,beans}) -> gg . delta
+     % Cases where beings can be eaten.
+     + ({fox,goose} <= beings(s, oPos(p))) -> is_eaten(goose) . delta
+     + ({goose,beans} <= beings(s, oPos(p))) -> is_eaten(beans) . delta
+	 % Where farmer can cross the river.
+	 + (!({fox,goose} <= beings(s, oPos(p))) && !({goose,beans} <= beings(s, oPos(p))) && (beings(s, right) != {fox,goose,beans})) ->
+	   (
+		 crossFarmer(oPos(p)) . Farmer(s,oPos(p)) % Crossing the river alone.
+		 % Crossing the river with a being.
+     	 + sum i:Being. (i in beings(s, p) && (beings(s, right) != {fox,goose,beans})) -> farmerBeing(i,oPos(p)) .
+     		(p == left) ->
+       	 		Farmer(being2right(s,i),oPos(p))
+      		<>
+        		Farmer(being2left(s,i),oPos(p))
+	 );
+
+
+	% Process that describes the behaviour of a Being.
+	Being(i: Being, p: Position) =
+		crossBeing(i,oPos(p)) . Being(i,oPos(p));
+
+
+
+% All beings start at the left shore, so right shore must be empty.
+init allow({gg, is_eaten, crossFarmer, cross}, comm({farmerBeing | crossBeing -> cross}, Being(fox,left) || Being(goose,left) || Being(beans,left) || Farmer(rshores({fox,goose,beans}, {}), left)));

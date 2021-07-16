@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+
+import spacy
+from jjcli import *
+
+nlp = spacy.load('pt_core_news_sm') # referência a muitos sub-modulos.
+
+c = clfilter()
+
+for text in c.slurp():
+  doc = nlp(text)
+
+  for a in doc.sents: # Vai processar cada sentence. → Sentence split.
+    # a.ents -> Entidades de cada sentence.
+    for token in a:
+      # Processo de tokenize para cada sentence processada.
+      # print(token.text, token.pos_, token.dep_, token.lemma_)
+      # Parte textual /  Parte of speech / dep? / text:comi -> lemma:comer
+      if token.pos_ == "VERB": # Print dos verbos.
+        print(token.lemma_)

@@ -1,0 +1,15 @@
+% Conjunto de Ações
+act
+  ins10, optA, acc10, putA, coin, ready ;
+% Processos
+proc
+  User = ins10 . optA . User ;
+  Mach = acc10 . putA . Mach ;
+init
+  allow(
+    { coin, ready },
+	  % applies a communication function C forcing action synchronization and renaming to a new action
+    comm(
+      { ins10|acc10 -> coin, optA|putA -> ready },
+      User || Mach
+  ) ) ;

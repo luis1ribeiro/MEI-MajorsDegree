@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+from random import choice
+
+'''
+s : "Como se costuma dizer, " !proverbios
+  | !proverbios
+  ;
+'''
+
+g = {
+    's': [['!proverbios'], ['Como se costuma dizer, ', '!proverbios']]
+}
+
+def fprov(file: str):
+    with open(file) as f:
+        provs = f.readlines()
+
+    prov=choice(provs).strip()
+
+    return(prov)
+
+
+def gera(gra: dict, simb: str) -> str :
+
+  if simb == "!proverbios":
+    return(fprov(simb[1:]))
+
+  if simb not in gra:
+    return simb
+
+  # Lista em compreensão
+  return str.join('', [gera(gra, si) for si in choice(gra[simb])])
+
+
+##########
+print(gera(g,'s'))

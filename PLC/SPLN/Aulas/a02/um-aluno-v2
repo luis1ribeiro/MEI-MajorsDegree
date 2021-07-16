@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+import random, os, sys
+
+disc = sys.argv[1] # → spln
+fi = f'{os.environ["HOME"]}/alunos/{disc}' # → >>> os.environ["HOME"]
+                                           #   '/home/luis'
+                                           # /home/luis/alunos/spln
+with open(fi) as f:
+  alunos = f.readlines()
+
+print(random.choice(alunos).strip())       # remove \s (espaços, \n ...)

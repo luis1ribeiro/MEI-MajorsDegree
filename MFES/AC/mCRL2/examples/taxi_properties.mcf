@@ -1,0 +1,14 @@
+% φ0 = In a taxi network, a car can collect a passenger or be allocatedby the Central to a pending service.
+φ0 = 〈rec,alo 〉true
+
+% φ1 = This applies only to cars already on service.
+φ1 = [onservice]〈rec,alo 〉true
+
+% φ2 = If a car is allocated to a service, it must first collect thepassenger and then plan the route.
+φ2 = [alo]〈rec 〉〈plan 〉true
+
+% φ3 = On detecting an emergence the taxi becomes inactive.
+φ3 = [sos][−]false
+
+% φ4 = A car on service is not inactive.
+φ4 = [onservice]〈− 〉true

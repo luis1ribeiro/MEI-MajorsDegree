@@ -1,0 +1,61 @@
+// The set of all values that can be chosen.
+sig Value {}
+
+// The set of all values that have been chosen.
+var sig Chosen in Value {}
+
+/*
+	Initial state:
+		- no value yet chosen.
+*/
+fact init {
+	no Chosen
+}
+
+// Predicate that choose a value if there isn't already a chosen one.
+pred next [v: Value] {
+	no Chosen
+	Chosen' = 	v
+}
+
+// No operation predicate.
+pred nop {
+	Chosen' = Chosen
+}
+
+// Operations available for each state.
+fact transition {
+  always (nop or some v: Value | next[v])
+}
+
+// Safety: At most one value is chosen.
+assert safety {
+	always lone Chosen
+}
+
+check safety
+
+// Liveness: A value is eventually chosen.
+assert liveness {
+	eventually some Chosen
+}
+
+check liveness
+
+// Next operation is available if there isn't a chosen value yet.
+pred nextEnabled [v : Value] { 
+	no Chosen
+}
+
+/*
+	Fairness:
+		- there is at least one value to choose;
+		- weak fairness on predicate next.
+*/
+fact fairness {
+	some Value
+	all v : Value | (eventually always nextEnabled[v]) implies (always eventually next[v])
+}
+
+// Run with 10 different values.
+run{} for exactly 10 Value

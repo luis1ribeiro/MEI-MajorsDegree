@@ -1,0 +1,18 @@
+.
+  \w = [a-zA-Z0-9áé...] -→ Alfanuméricos e Acentuados.
+  findall(r'.(-)',...)  -→ Captura o que está entre parênteses (-).
+  .*? -→ non greedy (come o menos possível).
+.
+  Quando um split têm uma ER dentro de parênteses, também dá split aí!
+.
+  Trabalho Prático 0:
+    - Família Antunes Guimarães.
+      → extrair "get" .. get URL (import requests). [pg = requests.get(URL)]
+      → Costados:
+        º nome, id
+      → "Pessoais":
+        º nome
+        º * (nascimento) ou + (morte)
+        º Pais, Casamentos e Filhos
+        º Notas
+

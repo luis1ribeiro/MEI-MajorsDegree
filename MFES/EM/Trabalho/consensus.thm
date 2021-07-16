@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="Value"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Green">
+   <set name="this/Chosen" type="Value"/>
+</node>
+
+</view>
+
+</alloy>

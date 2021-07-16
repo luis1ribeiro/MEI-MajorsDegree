@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+import re,sys
+import readline
+from estrategias import *
+
+def gendict(file: str):
+
+  with open(file,'r') as names:
+
+        # Vai receber o ficheiro de nomes. Associa a cada nome uma lista de siglas sobre cada heuristica.
+        for n in names:
+            d[n.strip()] = genemails(n.strip())
+
+
+def search(mail:str)-> [str]:
+
+    names = []
+    for n,its in d.items():
+        if mail in its:
+            names.append(n)
+
+    # Rate of how many are corresponded.
+    if len(names) > 0:
+        rate = str( round(((1/len(names))*100),2)     )
+        for i in range(len(names)):
+            names[i]+='  ::  '+rate + '%'
+
+    return names
+
+
+def main():
+    global d
+    d = {}
+
+    gendict(sys.argv[1]) # vai preencher o dicionário d declarado acima.
+
+    while True:
+      try:
+
+        mail = input("? ").strip()
+        if mail == "q!":
+            sys.exit()
+
+        else:
+            readline.add_history(mail)
+            names=search(mail)
+
+            if names:
+                for n in names:
+                    print('   .',n)
+            else:
+                print('No names matches the input ' + mail + '.')
+      except KeyboardInterrupt:
+        sys.exit()
+
+main()

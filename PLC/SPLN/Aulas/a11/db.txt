@@ -1,0 +1,6 @@
+.
+  WebScrapping - Retirar informação web para tratamento. - Uso de BeautifulSoup.
+    - website: www.jonsay.co.uk
+  Criação de ficheiros para cada tabela encontrada no find_all do bs4.
+
+

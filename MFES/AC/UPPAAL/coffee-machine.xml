@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+chan coin, cancel, capuccino, coffee, serve;</declaration>
+	<template>
+		<name x="5" y="5">Machine</name>
+		<declaration>// Place local declarations here.
+clock c;</declaration>
+		<location id="id0" x="-221" y="-187">
+			<name x="-238" y="-170">idle</name>
+		</location>
+		<location id="id1" x="-17" y="-306">
+			<name x="-27" y="-340">wait</name>
+			<label kind="invariant" x="-27" y="-289">c&lt;=5</label>
+		</location>
+		<location id="id2" x="187" y="-187">
+			<name x="204" y="-195">prep</name>
+			<label kind="invariant" x="170" y="-170">c&lt;=5</label>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-25" y="-136">c&gt;=2</label>
+			<label kind="synchronisation" x="-25" y="-119">serve!</label>
+			<nail x="161" y="-102"/>
+			<nail x="-170" y="-93"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="17" y="-229">coffee?</label>
+			<label kind="assignment" x="42" y="-212">c:=0</label>
+			<nail x="-8" y="-229"/>
+			<nail x="93" y="-161"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="110" y="-306">capuccino?</label>
+			<label kind="assignment" x="127" y="-289">c:=0</label>
+			<nail x="68" y="-314"/>
+			<nail x="161" y="-255"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-178" y="-331">c==5</label>
+			<label kind="synchronisation" x="-187" y="-314">cancel!</label>
+			<nail x="-85" y="-331"/>
+			<nail x="-221" y="-255"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="-153" y="-263">coin?</label>
+			<label kind="assignment" x="-136" y="-229">c:=0</label>
+		</transition>
+	</template>
+	<template>
+		<name>Person</name>
+		<location id="id3" x="-484" y="-127">
+			<name x="-494" y="-161">idle</name>
+		</location>
+		<location id="id4" x="-212" y="-127">
+			<name x="-222" y="-161">inserted</name>
+		</location>
+		<location id="id5" x="-76" y="34">
+			<name x="-86" y="0">chosen</name>
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-306" y="85">serve?</label>
+			<nail x="-76" y="102"/>
+			<nail x="-484" y="102"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-136" y="-76">capuccino!</label>
+			<nail x="-127" y="-102"/>
+			<nail x="-76" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="synchronisation" x="-229" y="-25">coffee!</label>
+			<nail x="-229" y="-51"/>
+			<nail x="-178" y="17"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-391" y="-212">cancel?</label>
+			<nail x="-255" y="-195"/>
+			<nail x="-442" y="-195"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-374" y="-144">coin!</label>
+		</transition>
+	</template>
+	<system>// List one or more processes to be composed into a system.
+system Machine, Person;
+    </system>
+	<queries>
+		<query>
+			<formula></formula>
+			<comment></comment>
+		</query>
+	</queries>
+</nta>

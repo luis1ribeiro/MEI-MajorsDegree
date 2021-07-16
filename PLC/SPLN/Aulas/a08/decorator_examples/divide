@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+def smart_divide(func):
+    def inner(a, b):
+        print("I am going to divide", a, "and", b)
+        if b == 0:
+            print("Whoops! cannot divide")
+            return
+
+        return func(a, b)
+    return inner
+
+
+@smart_divide # Não preciso de atribuir da maneira: divide = smart_divide(divide)
+def divide(a, b):
+    print(a/b)
+
+# A keen observer will notice that parameters of the nested inner()
+# function inside the decorator is the same as the parameters of functions it decorates.
+
+print(divide(2,1))
+print(divide(2,0))

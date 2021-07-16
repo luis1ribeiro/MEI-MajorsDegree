@@ -1,0 +1,130 @@
+#!/usr/bin/python3
+from jjcli import *
+
+cc=clfilter()
+
+subM = []
+conditions = []
+
+def getInd(i,j,n):
+  return (i-1)*(linhas*numeros) + (j-1)*colunas + n
+
+def subMatrix(M,N):
+  print("------------")
+  print(str(M) + " " + str(N))
+
+  listaSub = []
+  for l in range(M,N):
+    for c in range(M,N):
+      listaSub.append((l+1,c+1))
+  if listaSub != []:
+    print(listaSub)
+    subM.append(listaSub)
+
+  listaSub=[]
+  for l in range(M):
+    for c in range(M,N):
+      listaSub.append((l+1,c+1))
+      if (len(listaSub) == pow(N-M,2)):
+        subM.append(listaSub)
+        print(listaSub)
+        listaSub=[]
+
+  if listaSub != []:
+    print(listaSub)
+    subM.append(listaSub)
+
+  listaSub=[]
+  for c in range(M):
+    for l in range(M,N):
+      listaSub.append((l+1,c+1))
+      if (len(listaSub) == pow(N-M,2)):
+        subM.append(listaSub)
+        print(listaSub)
+        listaSub=[]
+  if listaSub != []:
+    print(listaSub)
+    subM.append(listaSub)
+
+def numberPerBlock(N):
+  for i in range(linhas):
+    for c in range(colunas):
+      for n in range(numeros):
+        for n1 in range(numeros):
+          if n1 > n:
+            lista = []
+            lista.append(-(getInd(i+1,c+1,n+1)))
+            lista.append(-(getInd(i+1,c+1,n1+1)))
+            lista.append(0)
+            conditions.append(lista)
+
+
+def numberPerMBlock(N):
+    print("Here are the subMatrixs generated:")
+    for i in range(N):
+      subMatrix(i*N,(i+1)*N)
+    for n in range(numeros):
+      for mat in subM:
+        lista = []
+        for (l,c) in mat:
+          lista.append(getInd(l,c,n+1))
+        lista.append(0)
+        conditions.append(lista)
+
+def numberPerLine(N):
+  for i in range(linhas):
+    for n in range(numeros):
+      lista = []
+      for c in range(colunas):
+        lista.append(getInd(i+1,c+1,n+1))
+      lista.append(0)
+      conditions.append(lista)
+
+def numberPerCollumn(N):
+  for c in range(colunas):
+    for n in range(numeros):
+      lista = []
+      for i in range(linhas):
+        lista.append(getInd(i+1,c+1,n+1))
+      lista.append(0)
+      conditions.append(lista)
+
+
+# Variável de Controlo
+iline = 0
+for line in cc.input():
+
+  line= sub(r'\(',r'',line) # o count permite dizer que só queremos fazer isto uma vez
+  line= sub(r'\)',r'',line) # o count permite dizer que só queremos fazer isto uma vez
+
+  # Reading N value
+  if iline == 0:
+    global N
+    N = int(line.split('=')[1])
+    iline = 1
+
+    global colunas
+    global linhas
+    global numeros
+    linhas=numeros=colunas=pow(N, 2)
+    numberPerLine(N)
+    numberPerCollumn(N)
+    numberPerBlock(N)
+    numberPerMBlock(N)
+
+  else:
+    split= line.split(',')
+    # Aqui já tenho lida as posições chefe
+    indice = (int(split[0])-1)*(colunas*numeros) + (int(split[1])-1)*(linhas) + int(split[2])
+    conditions.append([indice,0])
+    # vetor[indice]=1
+    # (i-1)*16 + (j-1)*4 + n
+
+
+f = open("sudoku-e3.cnf", "w")
+
+f.write("p cnf "+str(pow(N,6))+" "+str(len(conditions)))
+f.write("\n")
+f.write('\n'.join(list(map(lambda x: ' '.join(list(map(str,x))),conditions))))
+
+f.close()

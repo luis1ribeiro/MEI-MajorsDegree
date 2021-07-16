@@ -1,0 +1,30 @@
+.
+  Discussão inicial sobre a política de nomes e atribuição de casos de testes.
+  Strategy Decorator - (Python Decorator) --→ @strategy(...)
+                              ↓
+                  A decorator takes in a function,
+              adds some functionality and returns it.
+
+  Estratégias como:
+    - camelCase
+    - snake_case
+    - Atribuição de lista a siglas como 'af'
+
+.
+  Term Frequency (TF/IDF)
+    - "Ferramentas de Parsing"
+      → 50  : "Ferramentas de"
+      → 800 : "de"
+      → 40  : "Ferramentas"
+      → 2   : "Parsing"
+
+.
+  Construir módulos e uso desses módulos: PyPI
+  TPC: Criar uma conta no PyPI test. Arranjar um nome para o módulo.
+
+.
+  xmllint -xpath "//title" @file
+  Uso do spacy para processar um ficheiro xml do Público.
+
+  TEXTO -(sentence split)-> Frases -(tokenize)-> Palavras -(analise morfologica)-> Palavra + Part of speech -(análise sintática)-> ...
+

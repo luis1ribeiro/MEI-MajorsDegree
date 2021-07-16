@@ -1,0 +1,314 @@
+open util/ordering[Ballot]
+
+/** Paxos **/
+
+/*
+	This is a specification of the Paxos algorithm without explicit leaders
+	or learners. 
+*/
+
+// Values that can be chosen.
+sig Value {} 
+
+/*
+	Acceptors that can chose values:
+		maxBall: sets the minimum ballot for the next vote;
+		maxVBall: largest ballot number voted;
+		maxVal: value voted on the largest ballot number.
+*/
+sig Acceptor { 												
+	var maxBall : lone Ballot, 
+	var maxVBall: lone Ballot,
+	var maxVal: lone Value
+}
+
+// Set of sequential values to implement order on the voting algorithm
+sig Ballot {}
+
+// A Quorum is a large-enough set of acceptors.
+sig Quorum {
+	quorum: set Acceptor
+}
+
+// Diferent message types.
+abstract sig Type {}
+one sig A1, A2, B1, B2 extends Type {}
+
+// Possible messages in the algorithm.
+sig Message{
+	type: one Type,
+	bal: one Ballot,
+	acc: lone Acceptor,
+	mbal: lone Ballot,
+	val: lone Value
+}
+
+// Messages sent throughout the algorithm.
+var sig Sent in Message {}
+
+/*
+	Some message assumptions according to message type:
+		- A1 message only has ballot number;
+		- B1 message only needs ballot and acceptor, mballot and value are optionals;
+		- A2 message only has ballot and value;
+		- B2 message only has ballot, acceptor and value.
+*/
+fact MessageAssumption{
+	all m: type.A1 | no m.acc + m.mbal + m.val 
+	all m: type.B1 | one m.acc	
+	all m: type.A2 | one m.val and no m.acc + m.mbal	
+	all m: type.B2 | one m.acc and one m.val and no m.mbal
+}
+
+// There are no equal possible messages.
+fact NoEqualMessage{
+	all a: Acceptor, b, mb: Ballot, v: Value {
+		lone m: type.A1 | m.bal = b
+		lone m: type.B1 | m.acc = a and m.bal = b and m.mbal = mb and m.val = v
+		lone m: type.A2 | m.bal = b and m.val = v
+		lone m: type.B2 | m.acc = a and m.bal = b and m.val = v
+	}
+}
+
+/*
+	Some Quorum assumptions:
+		- There is, at least, one member of intersection between two quorums;
+		- All acceptors must have at least one quorum;
+		- All quorums must have at least one acceptor.
+*/
+fact QuorumAssumption {
+	all q1, q2: Quorum | some q1.quorum & q2.quorum
+	iden & (Acceptor->Acceptor) in ~quorum.quorum
+	iden & (Quorum->Quorum) in quorum.~quorum
+}
+
+/*
+	 Ballot b broadcast a message { type = A1 } to start itself.
+*/
+pred phase1a [b: Ballot] {
+	Sent' = Sent + {m: type.A1 | m.bal= b}
+	maxBall' = maxBall
+	maxVBall' = maxVBall
+	maxVal' = maxVal
+}
+
+/*
+	Acceptor a reads a message { type = A1 } from ballot b and can
+	compute the message only if b > a.maxBall. This computation
+	sets a.maxBall to b and broadcasts a message { type = B1 } 
+	containing the values of a.maxVBall and a.maxVal and the new
+	value of a.maxBall to specify the ballot.
+*/
+pred phase1b [a: Acceptor] {
+	some m: Sent {
+		m.type = A1
+		a.maxBall.lt[m.bal]
+		maxBall' = maxBall ++ a-> m.bal
+		Sent' = Sent + {msg: type.B1 { 
+			msg.acc = a
+			msg.bal = m.bal
+			msg.mbal = a.maxVBall
+			msg.val = a.maxVal
+		}}
+		maxVBall' = maxVBall
+		maxVal' = maxVal
+	}
+}
+
+/*
+	Ballot b can only perform phase2a if two conditions are satisfied:
+		- it hasn't performed a phase2a action already;
+		- it has received phase1b messages from all aceptors of some quorum,
+		so it can deduce that the value v is safe at ballot b on quorum.
+	
+	This action broadcasts a message { type = A2 } sugests a value v at ballot b to all
+	acceptors.
+*/
+pred phase2a[b: Ballot, v: Value] {
+	all m: Sent | m.type != A2 or m.bal != b
+	some q: Quorum {
+		let q1b = {m: Sent | m.type = B1 and m.acc in q.quorum and m.bal = b},  q1bv = {m: q1b | one mbal} {
+			all a: q.quorum | some m: q1b | m.acc = a
+			no q1bv or some m: q1bv | m.val = v and all mm: q1bv | m.mbal.gte[mm.mbal]
+		}
+	}
+	Sent' = Sent + {m: type.A2 | m.bal = b and m.val = v}
+	maxBall' = maxBall
+	maxVBall' = maxVBall
+	maxVal' = maxVal 
+}
+
+/*
+	Acceptor a reads a message { type = A2 } from ballot b and can
+	compute the message only if a.maxBall <= b. In that case, acceptor a
+	updates the values of maxBall, maxVBall and maxVal according to the
+	ones received on the message and then sends a message { type = B2} 
+	confirming the "vote" on ballot b with value v (received on the message).
+*/
+pred phase2b[a: Acceptor] {
+	some m: Sent {
+		m.type = A2
+		a.maxBall.lte[m.bal]
+		maxBall' = maxBall ++ a->m.bal
+		maxVBall' = maxVBall ++ a->m.bal
+		maxVal' = maxVal ++ a->m.val
+		let send = {msg: type.B2 { 
+			msg.acc = a
+			msg.bal = m.bal
+			msg.val = m.val
+		}} {
+			some send
+			Sent' = Sent + send
+		}
+	}
+}
+
+
+/*
+	At the start of the algorithm, there aren't acceptors with maxBall,
+	maxVBall or maxVal defined and no one has sent a message.
+*/
+fact init {
+	no maxBall
+	no maxVBall
+	no maxVal
+	no Sent
+}
+
+// No operation predicate
+pred nop {
+	Sent' = Sent
+	maxBall' = maxBall
+	maxVBall' = maxVBall
+	maxVal' = maxVal
+}
+
+// Operations available for each state
+fact transition {
+	always (nop or (some b: Ballot | phase1a[b] or some v: Value | phase2a[b, v]) or some a: Acceptor | phase1b[a] or phase2b[a])
+}
+
+// Set of all votes
+fun votes: set Acceptor->Ballot->Value {
+	let msg = type.B2 & Sent |
+		{a: Acceptor, b: Ballot, v: Value | some vote: msg | vote.acc = a and vote.bal = b and vote.val = v}
+}
+
+// Set of chosen values
+fun chosen: set Value {
+	{v: Value | some q: Quorum | all a: q.quorum |  some a.votes.v}
+}
+
+
+/*
+	Run that eventually some value is chosen and sets the quorum
+	to have more than half of acceptors numbers (each quorum has at least two acceptors).
+*/
+run ThreeAcceptorsTwoQuorum {
+	all q: Quorum | some disj a1, a2: Acceptor | q<:quorum = (q->a1) + (q->a2)
+	eventually some chosen
+} for exactly 2 Value, exactly 2 Ballot, exactly 3 Acceptor, exactly 2 Quorum,  exactly 7 Message, exactly 7 steps
+
+/*
+	Run that eventually some value is chosen and sets the quorum
+	to have more than half of acceptors numbers (each quorum has at least two acceptors).
+*/
+run FourAcceptorsTwoQuorum {
+	all q: Quorum | some disj a1, a2, a3: Acceptor | q<:quorum = (q->a1) + (q->a2) + (q->a3)
+	eventually some chosen
+} for exactly 2 Value, exactly 2 Ballot, exactly 4 Acceptor, exactly 2 Quorum,  exactly 9 Message, exactly 9 steps
+
+/*
+	Run that eventually some value is chosen and sets the quorum
+	to have more than half of acceptors numbers (each quorum has at least two acceptors).
+*/
+run SixAcceptorsTwoQuorum {
+	all q: Quorum | some disj a1, a2, a3, a4: Acceptor | q<:quorum = (q->a1) + (q->a2) + (q->a3) + (q->a4)
+	eventually some chosen
+} for exactly 2 Value, exactly 2 Ballot, exactly 6 Acceptor, exactly 2 Quorum,  exactly 11 Message, exactly 11 steps
+
+
+/** 
+	Voting properties need to be true (implicit refinement)
+**/
+
+
+// Acceptor a has voted for value v in ballot b.
+pred votedFor [a: Acceptor, b: Ballot, v: Value] {
+	b->v in a.votes
+}
+
+// Acceptor a didn't vote at ballot b.
+pred didNotVoteAt [a: Acceptor, b: Ballot] {
+	no b.(a.votes)
+}
+
+// Acceptor a didn't vote at ballot b and can't vote anymore.
+pred cannotVoteAt [a: Acceptor, b: Ballot] {
+	a.maxBall.gt[b]
+	didNotVoteAt[a, b]
+}
+
+// There isn't any other value than v that could be chosen on ballot b.
+pred noneOtherChoosableAt [b : Ballot, v : Value] {
+	some q: Quorum | all a: q.quorum | votedFor[a, b, v] or cannotVoteAt[a, b]
+}
+
+// No value other than v has been or can ever be chosen in any ballot numbered less than b.
+pred safeAt [b: Ballot, v: Value] {
+	all c: b.prevs | noneOtherChoosableAt[c, v]
+}
+
+// If acceptor a voted at ballot b with value v, this value needs to be safe at ballot b. 
+assert votesSafe {
+	always (all v:  Acceptor.votes | safeAt[v.Value, Ballot.v])
+	//always (all a: Acceptor, b: Ballot, v: Value| votedFor[a, b, v] implies safeAt[b, v]) - neste caso, o desempenho é parecido
+}
+
+// An acceptor can't vote on different values at the same ballot.
+assert oneVote {
+	always (all a: Acceptor | ~(a.votes).(a.votes) in iden)
+}
+
+
+/*
+	There is only one value per ballot, which means that if there is
+	some vote at ballot b, no one can vote at this ballot with a different value.
+*/
+assert oneValuePerBallot {
+	always (~(Acceptor.votes).(Acceptor.votes) in iden)
+}
+
+// Safety: At most one value is chosen.
+assert safety {
+	always lone chosen
+}
+
+// Liveness: A value is eventually chosen.
+assert liveness {
+	eventually some chosen
+}
+
+check votesSafe
+check oneVote
+check oneValuePerBallot
+
+check liveness
+check safety
+
+/*
+	Fairness:
+		- there is at least one acceptor that votes, this implies that exists at least one quorum;
+		- there is at least one ballot to vote at;
+		- there is at least one value to vote for;
+		- if a value has not been chosen yet, then eventually some acceptor will compute
+		the phase2b, in order to vote.
+*/
+fact fairness {
+	some Acceptor
+	some Ballot
+	some Value
+	all a: Acceptor {
+		(eventually always no chosen) implies (always eventually phase2b[a])
+	}
+}

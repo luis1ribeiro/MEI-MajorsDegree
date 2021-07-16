@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<alloy>
+
+<view nodetheme="Martha">
+
+<defaultnode/>
+
+<defaultedge/>
+
+<node>
+   <type name="A1"/>
+   <type name="A2"/>
+   <type name="Acceptor"/>
+   <type name="B1"/>
+   <type name="B2"/>
+   <type name="Int"/>
+   <type name="String"/>
+   <type name="univ"/>
+   <type name="ordering/Ord"/>
+   <type name="seq/Int"/>
+</node>
+
+<node color="Blue">
+   <type name="Quorum"/>
+</node>
+
+<node visible="no">
+   <type name="Ballot"/>
+   <type name="Message"/>
+   <type name="Type"/>
+   <type name="Value"/>
+</node>
+
+<node visible="yes" color="Gray">
+   <set name="this/Sent" type="Message"/>
+</node>
+
+<node visible="yes" color="Green">
+   <set name="$chosen" type="Value"/>
+</node>
+
+<edge visible="no">
+   <relation name="$FourAcceptorsTwoQuorum_a1"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+   <relation name="$FourAcceptorsTwoQuorum_a2"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+   <relation name="$FourAcceptorsTwoQuorum_a3"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+</edge>
+
+<edge visible="no" attribute="yes">
+   <relation name="acc"> <type name="Message"/> <type name="Acceptor"/> </relation>
+   <relation name="bal"> <type name="Message"/> <type name="Ballot"/> </relation>
+   <relation name="maxBall"> <type name="Acceptor"/> <type name="Ballot"/> </relation>
+   <relation name="maxVal"> <type name="Acceptor"/> <type name="Value"/> </relation>
+   <relation name="maxVBall"> <type name="Acceptor"/> <type name="Ballot"/> </relation>
+   <relation name="mbal"> <type name="Message"/> <type name="Ballot"/> </relation>
+   <relation name="type"> <type name="Message"/> <type name="Type"/> </relation>
+   <relation name="val"> <type name="Message"/> <type name="Value"/> </relation>
+</edge>
+
+<edge visible="yes">
+   <relation name="$votes"> <type name="Acceptor"/> <type name="Ballot"/> <type name="Value"/> </relation>
+</edge>
+
+<edge visible="yes" attribute="no">
+   <relation name="quorum"> <type name="Quorum"/> <type name="Acceptor"/> </relation>
+</edge>
+
+</view>
+
+</alloy>

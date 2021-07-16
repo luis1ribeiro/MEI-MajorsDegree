@@ -1,0 +1,20 @@
+theory First
+
+(* Declaração de um tipo *)
+type t
+
+constant c : t
+
+predicate a
+predicate p t
+predicate q t
+(* não há especificação destes prediados *)
+
+function f (t) : t
+
+(* Para todo o x do tipo t, se p(x) então existe um x do tipo t tal que p(x) *)
+goal P1 : (forall x:t. p(x)) -> (exists x:t. p(x))
+
+goal P5 : (forall x:t. p(x) -> p(f(x))) -> forall x:t.p(x) -> p(f(f(x)))
+
+end

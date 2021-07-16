@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="Z3" version="4.8.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.3.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.7" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml">
+<path name=".."/><path name="imp.why"/>
+<theory name="Exprs">
+ <goal name="Test13" proved="true">
+ <proof prover="2"><result status="valid" time="0.05" steps="2759"/></proof>
+ </goal>
+ <goal name="Test42" proved="true">
+ <proof prover="2"><result status="valid" time="0.05" steps="2947"/></proof>
+ </goal>
+ <goal name="Test55" proved="true">
+ <proof prover="2"><result status="valid" time="0.04" steps="3377"/></proof>
+ </goal>
+ <goal name="Test13r" proved="true">
+ <proof prover="2"><result status="valid" time="0.04" steps="3495"/></proof>
+ </goal>
+ <goal name="Test42r" proved="true">
+ <proof prover="2"><result status="valid" time="0.05" steps="3696"/></proof>
+ </goal>
+ <goal name="Test55r">
+ <proof prover="0"><result status="unknown" time="0.05" steps="45735"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="unknown" time="0.09" steps="10952"/></proof>
+ <transf name="split_vc" >
+  <goal name="Test55r.0">
+  <proof prover="0"><result status="unknown" time="0.04" steps="45735"/></proof>
+  <proof prover="1"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="unknown" time="0.07" steps="10952"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="no_side_effects" proved="true">
+ <proof prover="2"><result status="valid" time="0.04" steps="3775"/></proof>
+ </goal>
+ <goal name="expr_eval_1" proved="true">
+ <proof prover="0"><result status="unknown" time="0.51" steps="1548029"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="52654"/></proof>
+ <transf name="induction_pr" proved="true" >
+  <goal name="expr_eval_1.0" proved="true">
+  <proof prover="2"><result status="valid" time="0.08" steps="3677"/></proof>
+  </goal>
+  <goal name="expr_eval_1.1" proved="true">
+  <proof prover="2"><result status="valid" time="0.09" steps="3676"/></proof>
+  </goal>
+  <goal name="expr_eval_1.2" proved="true">
+  <proof prover="2"><result status="valid" time="0.09" steps="8991"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="expr_eval_2" proved="true">
+ <proof prover="0"><result status="unknown" time="0.06" steps="90158"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="unknown" time="0.06" steps="9090"/></proof>
+ <transf name="induction_ty_lex" proved="true" >
+  <goal name="expr_eval_2.0" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="7852"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="expr_eval" proved="true">
+ <proof prover="2"><result status="valid" time="0.03" steps="3887"/></proof>
+ </goal>
+ <goal name="Test55r2" proved="true">
+ <proof prover="2"><result status="valid" time="0.06" steps="4532"/></proof>
+ </goal>
+</theory>
+</file>
+</why3session>

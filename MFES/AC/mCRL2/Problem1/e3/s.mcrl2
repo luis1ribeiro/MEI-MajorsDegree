@@ -1,0 +1,8 @@
+% Set of Actions.
+act a,b;
+
+% Process Declaration on S.
+proc S  = a . b . S2;
+     S2 = (b . S2) + (a . S);
+
+init S;

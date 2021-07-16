@@ -1,0 +1,2 @@
+% LIVENESS: After a message is received, must exist at least one message that arrived to its destination. It's refered t2, which is the process right after sending the message to its destination.
+[in1]<true* . t2> true

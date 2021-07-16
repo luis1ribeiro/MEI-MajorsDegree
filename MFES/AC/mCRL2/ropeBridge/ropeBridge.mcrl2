@@ -1,0 +1,71 @@
+% Data type for the position of adventurers and the flashlight.
+% Initially, they are all on the 'start' side of the bridge. In the end,
+% they should all have reached the 'finish' side.
+sort Position = struct start | finish;
+
+
+act forward_adventurer, % an adventurer moves forward → cant it be just one speed?
+    forward_flashlight, % the flashlight moves forward
+    forward_referee,    % the referee processes a forward movement
+    forward: Int # Int; % two adventurers and a flashlight move forward
+                        % and the referee processes this
+
+    back_adventurer, % an adventurer moves back
+    back_flashlight, % the flashlight moves back
+    back_referee,    % the referee processes a back movement
+    back: Int;       % one adventurer and a flashlight move back and the
+                     % referee processes this
+
+    report: Int; % the referee reports that all adventurers have
+                 % crossed the bridge along with the time that it took
+
+% The Flashlight process models the flashlight:
+% 1. If it is at the 'start' side, it can move forward together with any
+%    pair of adventurers.
+% 2. If it is at the 'finish' side, it can move back together with any
+%    adventurer.
+proc Flashlight(pos:Position) =
+       (pos == start) ->
+         % Case 1.
+         sum s,s':Int . forward_flashlight(s,s') . Flashlight(finish)
+       <>
+         % Case 2.
+         sum s:Int . back_flashlight(s) . Flashlight(start);
+
+% The Adventure process checks which of the adventures is the slowest:
+% Since going forward any adventurer goes with another one, the combined speed is the same as the slowest one.
+proc Adventurer(speed:Int, pos:Position) =
+      (pos == start) ->
+        (
+          sum s: Int .
+          (speed > s) -> forward_adventurer(s,speed) . Adventurer(speed,finish)
+                      <> forward_adventurer(speed,s) . Adventurer(speed,finish)
+        )
+      % If he's at Finish State.
+      <>
+		back_adventurer(speed) . Adventurer(speed,start);
+
+% Models the referee who counts the number of minutes passed and the
+% number of adventurers that have reached the far side of the bridge
+% I don't think i need to specify where the referee is, since i can syncronize forward_referee with the rest of the forwards.
+proc Referee(minutes:Int, num_finished:Int) =
+       sum s,s':Int . forward_referee(s,s')
+                    . Referee(minutes + max(s,s'), num_finished + 2)
+       +
+       (num_finished < 4) ->
+         sum s:Int . back_referee(s)
+                   . Referee(minutes + s, num_finished - 1)
+       <> % num_finished >= 4
+         report(minutes) . Referee(minutes, num_finished); % Isnt this a deadlock??
+
+
+% Observe that the referee keeps track of the minutes that have passed, and that the forward_referee, back_referee and report actions have to be added.
+% The report action is responsible for reporting the number of minutes that have passed when all adventurers have reached the far side of the bridge.
+init allow( { forward, back, report },
+     comm(  { forward_adventurer | forward_adventurer |
+              forward_flashlight | forward_referee -> forward,
+              back_adventurer | back_flashlight | back_referee -> back },
+       Adventurer(1,start) || Adventurer(2,start)  ||
+       Adventurer(5,start) || Adventurer(10,start) ||
+       Flashlight(start)   || Referee(0,0)
+     ));

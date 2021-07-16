@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+
+
+/* Major Road has 2 traffic lights and a sensor associated to each. */
+const int N = 2;
+typedef int[0,N-1] id_major;
+typedef int[0,N] grau;
+
+/* level of traffic in each road */
+int [0,2] lvl_minor; /* 0-no, 1-low, 2-high */
+int [0,2] lvl_major; /* 0-no, 1-low, 2-high */
+int last_id=-1; /* last_id read */
+
+chan major[N];
+urgent chan trigger_major;
+urgent broadcast chan trigger_minor;
+broadcast chan finish_major;
+urgent chan executeM;
+bool pronto_minor; int pronto_major = -1;      /* Se está pronto a executar mal o processo de troca de sinal esteja terminado */
+bool ocupado_major=false, ocupado_minor=false; /* Estes bools servem para controlar se os semáforos estão no processo de troca de sinal */
+bool podeDiminuir_M = true; bool podeDiminuir_m = false; /* Booleano que determina se o sensor pode ler mais tráfego ou não. Se estiver vermelho, o tráfego só pode aumentar. */
+bool ninguemle = false; bool ready = false;
+
+
+/* Pode ler sincronizadamente. */
+bool canReadM(int lvl) 
+{
+    if (lvl == 0){
+        return (!ninguemle &amp;&amp; !ready &amp;&amp; lvl_major!=0);
+    }
+    else {
+        return (!podeDiminuir_M)?(lvl_major&lt;lvl &amp;&amp; !ninguemle &amp;&amp; !ready):(lvl_major!=lvl &amp;&amp; !ninguemle &amp;&amp; !ready);
+    }
+    
+}
+
+bool canReadm(int lvl) 
+{
+    if (lvl == 0) {
+        return !ninguemle &amp;&amp; !ready &amp;&amp; lvl_minor!=0;
+    }
+    else {
+        return (!podeDiminuir_m)?(lvl_minor&lt;lvl &amp;&amp; !ninguemle &amp;&amp; !ready):(lvl_minor!=lvl &amp;&amp; !ninguemle &amp;&amp; !ready);
+    }
+    
+}
+
+
+
+/* Primeira Fase */
+bool changed, test; /* bools de controlo sincronização majorRoad - minorRoad */
+chan flip, change; /* channels da primeira fase */
+broadcast chan finish; /* channels da primeira fase */</declaration>
+	<template>
+		<name>MajorLight</name>
+		<parameter>const id_major id</parameter>
+		<location id="id0" x="-136" y="-102">
+			<name x="-145" y="-85">off</name>
+		</location>
+		<location id="id1" x="280" y="-102">
+			<name x="271" y="-85">on</name>
+		</location>
+		<location id="id2" x="68" y="-102">
+			<name x="51" y="-77">warn</name>
+			<committed/>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="17" y="-212">trigger_minor?</label>
+			<nail x="170" y="-187"/>
+			<nail x="-42" y="-187"/>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-59" y="-119">major[id]?</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id1"/>
+			<label kind="guard" x="17" y="17">pronto_major!=id</label>
+			<label kind="synchronisation" x="34" y="0">executeM?</label>
+			<nail x="-42" y="-8"/>
+			<nail x="178" y="-8"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="synchronisation" x="127" y="-119">trigger_major!</label>
+		</transition>
+	</template>
+	<template>
+		<name x="5" y="5">MajorRoad</name>
+		<declaration>// Place local declarations here.
+clock x;</declaration>
+		<location id="id3" x="-60" y="-340">
+			<name x="-76" y="-374">green</name>
+		</location>
+		<location id="id4" x="416" y="-170">
+			<name x="433" y="-153">red</name>
+		</location>
+		<location id="id5" x="-323" y="-170">
+			<name x="-333" y="-204">yellow</name>
+			<label kind="invariant" x="-348" y="-153">x &lt;= 5</label>
+		</location>
+		<location id="id6" x="-60" y="-170">
+			<name x="-94" y="-204">changing</name>
+			<label kind="invariant" x="-51" y="-153">x &lt;= 1</label>
+		</location>
+		<location id="id7" x="416" y="-340">
+			<name x="373" y="-374">red_to_green</name>
+			<label kind="invariant" x="433" y="-349">x &lt;= 1</label>
+		</location>
+		<location id="id8" x="170" y="-340">
+			<name x="127" y="-374">red_to_green_C</name>
+			<committed/>
+		</location>
+		<location id="id9" x="187" y="-51">
+			<name x="144" y="-25">rightBeforeRed</name>
+			<committed/>
+		</location>
+		<init ref="id3"/>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-8" y="-93">changed &amp;&amp; x==1</label>
+			<label kind="synchronisation" x="42" y="-76">flip!</label>
+			<label kind="assignment" x="-51" y="-59">changed=false, ninguemle=false</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="323" y="-93">finish_major!</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="34" y="-331">finish?</label>
+			<label kind="assignment" x="-51" y="-399">test = false, ocupado_major=false</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="guard" x="289" y="-357">x == 1</label>
+			<label kind="assignment" x="280" y="-332">test = true</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="424" y="-272">change?</label>
+			<label kind="assignment" x="433" y="-255">x = 0</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-119" y="-280">trigger_minor?</label>
+			<label kind="assignment" x="-204" y="-263">x = 0, changed = false, ocupado_minor=true</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-204" y="-52">x==5</label>
+			<label kind="synchronisation" x="-213" y="-94">change!</label>
+			<label kind="assignment" x="-204" y="-68">x = 0</label>
+			<nail x="-323" y="-77"/>
+			<nail x="-323" y="-77"/>
+			<nail x="-60" y="-77"/>
+			<nail x="-77" y="-77"/>
+			<nail x="-77" y="-77"/>
+			<nail x="-60" y="-77"/>
+			<nail x="-60" y="-77"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-255" y="-187">!changed &amp;&amp; x==1</label>
+			<label kind="assignment" x="-255" y="-162">changed = true, x = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>MinorRoad</name>
+		<declaration>clock y;</declaration>
+		<location id="id10" x="-425" y="-391">
+			<name x="-442" y="-425">green</name>
+		</location>
+		<location id="id11" x="144" y="-391">
+			<name x="134" y="-425">red</name>
+		</location>
+		<location id="id12" x="-425" y="-195">
+			<name x="-416" y="-221">changing</name>
+			<label kind="invariant" x="-408" y="-187">y &lt;= 1</label>
+		</location>
+		<location id="id13" x="-654" y="-195">
+			<name x="-671" y="-229">yellow</name>
+			<label kind="invariant" x="-713" y="-195">y &lt;= 5</label>
+		</location>
+		<location id="id14" x="-85" y="-391">
+			<name x="-119" y="-425">red_to_green</name>
+			<label kind="invariant" x="-102" y="-374">y &lt;= 1</label>
+		</location>
+		<location id="id15" x="-272" y="-535">
+			<name x="-323" y="-569">red_to_green_C</name>
+			<committed/>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-416" y="-510">finish_major?</label>
+			<label kind="assignment" x="-442" y="-493">ocupado_minor=false</label>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="-153" y="-484">flip?</label>
+			<label kind="assignment" x="-153" y="-467">y=0</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-178" y="-212">changed &amp;&amp; y == 1 &amp;&amp; test</label>
+			<label kind="synchronisation" x="-119" y="-187">finish!</label>
+			<label kind="assignment" x="-161" y="-170">y = 0, ninguemle=false</label>
+			<nail x="144" y="-195"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-467" y="-331">trigger_major?</label>
+			<label kind="assignment" x="-510" y="-314">y = 0, ocupado_major=true</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id12"/>
+			<label kind="guard" x="-569" y="-119">y==5</label>
+			<label kind="synchronisation" x="-578" y="-102">change!</label>
+			<label kind="assignment" x="-569" y="-76">y = 0</label>
+			<nail x="-654" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="guard" x="-578" y="-212">!changed &amp;&amp; y==1</label>
+			<label kind="assignment" x="-578" y="-187">changed = true, y = 0</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="8" y="-382">change?</label>
+			<label kind="assignment" x="17" y="-408">y = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>SensorMajor</name>
+		<parameter>const id_major id</parameter>
+		<declaration>clock z;
+
+void atualiza() 
+{
+    if (!podeDiminuir_m &amp;&amp; lvl_minor &gt; lvl_major){
+        pronto_minor = true;
+        ready=true;
+    }
+}
+</declaration>
+		<location id="id16" x="-518" y="-34">
+			<name x="-544" y="-8">reading</name>
+		</location>
+		<location id="id17" x="-398" y="-161">
+			<name x="-391" y="-153">readed</name>
+			<committed/>
+		</location>
+		<location id="id18" x="-102" y="0">
+			<name x="-94" y="17">execute</name>
+			<committed/>
+		</location>
+		<init ref="id16"/>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-501" y="25">pronto_major==id &amp;&amp; !ocupado_minor &amp;&amp; !podeDiminuir_M</label>
+			<label kind="synchronisation" x="-348" y="51">executeM!</label>
+			<label kind="assignment" x="-357" y="8">ready=false</label>
+			<nail x="-442" y="42"/>
+			<nail x="-187" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-552" y="-382">lvl_major&gt;=lvl_minor &amp;&amp; ocupado_minor</label>
+			<label kind="assignment" x="-578" y="-348">pronto_major=id, pronto_minor=false, ready=true</label>
+			<nail x="-195" y="-161"/>
+			<nail x="-195" y="-357"/>
+			<nail x="-646" y="-357"/>
+			<nail x="-646" y="-17"/>
+			<nail x="-544" y="-17"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-221" y="-85">lvl_major&gt;=lvl_minor &amp;&amp; !ocupado_minor &amp;&amp; !podeDiminuir_M</label>
+		</transition>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id16"/>
+			<label kind="synchronisation" x="-348" y="144">major[id]!</label>
+			<label kind="assignment" x="-569" y="170">ninguemle=true,  podeDiminuir_m=false, podeDiminuir_M=true, pronto_major=-1</label>
+			<nail x="-102" y="161"/>
+			<nail x="-518" y="161"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-603" y="-263">lvl_major&lt;lvl_minor || podeDiminuir_M</label>
+			<label kind="assignment" x="-518" y="-229">atualiza()</label>
+			<nail x="-399" y="-238"/>
+			<nail x="-586" y="-238"/>
+			<nail x="-586" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-561" y="-178">canReadM(2)</label>
+			<label kind="assignment" x="-561" y="-161">lvl_major=2, last_id=id</label>
+			<nail x="-518" y="-161"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-467" y="-51">canReadM(0)</label>
+			<label kind="assignment" x="-476" y="-34">lvl_major=0, last_id=id</label>
+			<nail x="-485" y="-34"/>
+			<nail x="-400" y="-34"/>
+		</transition>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id17"/>
+			<label kind="guard" x="-501" y="-119">canReadM(1)</label>
+			<label kind="assignment" x="-527" y="-102">lvl_major=1, last_id=id</label>
+			<nail x="-493" y="-59"/>
+			<nail x="-450" y="-102"/>
+		</transition>
+	</template>
+	<template>
+		<name>SensorMinor</name>
+		<declaration>clock z;
+
+void atualiza() 
+{
+    if (!podeDiminuir_M &amp;&amp; lvl_minor &lt;= lvl_major &amp;&amp; lvl_major != 0){
+        pronto_major = last_id;
+        ready=true;
+    }
+}</declaration>
+		<location id="id19" x="-127" y="-170">
+			<name x="-110" y="-161">readed</name>
+			<committed/>
+		</location>
+		<location id="id20" x="-246" y="-43">
+			<name x="-272" y="-17">reading</name>
+		</location>
+		<location id="id21" x="178" y="85">
+			<name x="203" y="94">disabled</name>
+			<committed/>
+		</location>
+		<init ref="id20"/>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id21"/>
+			<label kind="guard" x="-221" y="17">pronto_minor &amp;&amp; !ocupado_major &amp;&amp; !podeDiminuir_m</label>
+			<label kind="synchronisation" x="-110" y="34">trigger_minor!</label>
+			<label kind="assignment" x="-102" y="51">ready=false</label>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id20"/>
+			<label kind="guard" x="-324" y="-391">lvl_minor &gt; lvl_major &amp;&amp; ocupado_major</label>
+			<label kind="assignment" x="-331" y="-357">pronto_minor=true, pronto_major=-1, ready=true</label>
+			<nail x="32" y="-170"/>
+			<nail x="32" y="-365"/>
+			<nail x="-384" y="-365"/>
+			<nail x="-384" y="51"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id20"/>
+			<label kind="assignment" x="-323" y="102">ninguemle=true, podeDiminuir_m=true, podeDiminuir_M=false, pronto_minor=false</label>
+			<nail x="-246" y="85"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id20"/>
+			<label kind="guard" x="-348" y="-272">lvl_minor &lt;= lvl_major || podeDiminuir_m</label>
+			<label kind="assignment" x="-255" y="-238">atualiza()</label>
+			<nail x="-127" y="-246"/>
+			<nail x="-306" y="-246"/>
+			<nail x="-306" y="-42"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id21"/>
+			<label kind="guard" x="17" y="-51">lvl_minor &gt; lvl_major &amp;&amp; !ocupado_major &amp;&amp; !podeDiminuir_m</label>
+			<label kind="synchronisation" x="187" y="-17">trigger_minor!</label>
+			<label kind="assignment" x="195" y="-34">ready=false</label>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id19"/>
+			<label kind="guard" x="-272" y="-204">canReadm(2)</label>
+			<label kind="assignment" x="-263" y="-187">lvl_minor=2</label>
+			<nail x="-246" y="-170"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id19"/>
+			<label kind="guard" x="-187" y="-76">canReadm(0)</label>
+			<label kind="assignment" x="-178" y="-59">lvl_minor=0</label>
+			<nail x="-127" y="-43"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id19"/>
+			<label kind="guard" x="-229" y="-118">canReadm(1)</label>
+			<label kind="assignment" x="-221" y="-102">lvl_minor=1</label>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system SensorMinor , MinorRoad, SensorMajor, MajorRoad, MajorLight;</system>
+	<queries>
+		<query>
+			<formula>A[] (MajorRoad.yellow imply MajorRoad.x &lt;= 5) and (MinorRoad.yellow imply MinorRoad.y &lt;= 5)</formula>
+			<comment>Interim lights always stay for 5s only in both roads. (same as the below one but through a "positive" point of view)</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; (MajorRoad.yellow and MajorRoad.x &gt; 5) or (MinorRoad.yellow and MinorRoad.y &gt; 5)</formula>
+			<comment>Interim lights always stay for 5s only in both roads.</comment>
+		</query>
+		<query>
+			<formula>MajorRoad.changing and changed --&gt; MajorRoad.red_to_green_C and Sensor.z == 44</formula>
+			<comment>Após deixar de estar verde na MajorRoad passam no máximo 44 segundos até voltar a estar.</comment>
+		</query>
+		<query>
+			<formula>Sensor.disabled and !lap --&gt; (lap)?(Sensor.disabled):(true)</formula>
+			<comment>Disabled sensor only comes back to disabled after being in a wait state.</comment>
+		</query>
+		<query>
+			<formula>Sensor.disabled and lap --&gt; (!lap)?(Sensor.disabled):(true)</formula>
+			<comment>Disabled sensor only comes back to disabled after being in a wait state.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MajorRoad.green and Sensor.disabled)</formula>
+			<comment>O sensor só pode estar em estado de após-leitura enquanto o sinal da majorRoad estiver a vermelho.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MinorRoad.green and Sensor.wait)</formula>
+			<comment>O sensor só pode estar em estado de leitura enquanto o sinal da minorRoad estiver a vermelho.</comment>
+		</query>
+		<query>
+			<formula>MajorRoad.red and lvl_major &gt; lvl_minor --&gt; MajorRoad.green</formula>
+			<comment>Eventually a car waiting will get a green light. </comment>
+		</query>
+		<query>
+			<formula>SensorMinor.disabled and MinorRoad.red --&gt; MinorRoad.green</formula>
+			<comment>Eventually a car waiting will get a green light, if the sensor triggers.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MajorRoad.green and MinorRoad.green)</formula>
+			<comment>Minor-road and major-road lights are never green at the same time.</comment>
+		</query>
+		<query>
+			<formula>A[] !deadlock</formula>
+			<comment>No deadlocks</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; MajorRoad.red</formula>
+			<comment>Major-road light can go red.</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; MinorRoad.green</formula>
+			<comment>Minor-road light can go green.</comment>
+		</query>
+	</queries>
+</nta>

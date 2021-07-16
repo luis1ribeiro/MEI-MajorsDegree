@@ -1,0 +1,82 @@
+#!/usr/bin/python3
+from random import choice
+import sys
+import pandas as pd
+
+'''
+s :
+  | db
+  | piloto
+  ;
+
+db : "O diário bordo do dia " !dia !spln
+   ;
+
+piloto: "O piloto de teste do dia " !dia !spln
+   ;
+'''
+
+g = {
+    's': [['db'], ['piloto']],
+    'db': [['O diário bordo do dia ', '!dia', '!spln']],
+    'piloto': [['O piloto do dia ', '!dia', '!spln']]
+}
+
+
+if len(sys.argv) < 2:
+  print("Must be given a month number.")
+  sys.exit()
+if int(sys.argv[1]) < 1 and int(sys.argv[1]) > 12:
+  print("Month invalid.")
+  sys.exit()
+
+month = sys.argv[1]
+ym = "2021-0" + month
+ym1 = "2021-0" + str(int(month)+1)
+
+diaslist = pd.date_range(start=ym, end=ym1,
+                         freq='W-MON').strftime('%m-%d').tolist()
+# Fill these arrays.
+alunos=[]
+
+
+def fprov(fi: str):
+
+    c = 0
+    with open(fi) as f:
+        provs = f.readlines()
+
+    while c == 0:
+      prov=choice(provs).strip()
+
+      if prov not in alunos:
+        alunos.append(prov)
+        c = 1
+
+    return(prov)
+
+
+def gera(gra: dict, simb: str, lhs: str, dia: str) -> str :
+
+  if simb == "!dia":
+    return dia + ": "
+
+  if simb == "!spln":
+      return(fprov(simb[1:]))
+
+  if simb not in gra:
+    return simb
+
+  # Lista em compreensão
+  return str.join('', [gera(gra, si, simb, dia) for si in choice(gra[simb])])
+
+
+
+##########
+for dia in diaslist:
+  print('===',dia,'===')
+  print("\t",gera(g,'db','s',dia))
+  print("\t",gera(g,'piloto','s',dia))
+  print("")
+
+# Podia fazer um list(s.keys()) e verificava se era o axioma.

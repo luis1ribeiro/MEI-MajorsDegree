@@ -1,0 +1,153 @@
+
+theory Lists
+
+  use import list.List
+  use import int.Int
+
+  (* ------------ *)
+  function (++) (l1 l2: list 'a) : list 'a =
+  match l1 with
+    | Nil -> l2
+    | Cons x1 r1 -> Cons x1 (r1 ++ l2)
+  end
+
+  (* O lemma não é provado através de SMT solvers, uma vez que a prova exige a utilização de indução.*)
+  (* Em Why3 podemos utilizar a transformação induction_ty_lex para efectuar a prova. *)
+  (* No entanto se for Nil++l=l, não precisa de ser por indução *)
+  lemma app_nil:
+    forall l :list 'a. l++Nil = l
+  (* A transformação substitui o objectivo de prova por outro que corresponde à forma como levaríamos a cabo uma prova por indução estrutural sobre a primeira lista. *)
+  (* O novo objectivo pode ser provado automaticamente por um SMT solver. *)
+
+  (* ------------ *)
+  function length (l:list 'a) : int =
+    match l with
+      | Nil -> 0
+      | Cons _ r -> 1 + length r
+    end
+
+  (* Uma vez que decorre imediatamente da definição da função, o lema pode ser directamente provado com um SMT solver. *)
+  lemma aux_length:
+    forall x: 'a, l :list 'a. length (Cons x l) = 1 + (length l)
+
+  (* Introduce_premises para atribuir/induzir tipo ao l1*)
+  (* Este lema pode ser provado por indução estrutural sobre a lista `l1`.  A transformação
+   induction_ty_lex não terá sucesso, uma vez que fará indução sobre `l2`. Deve utilizar a transformação `induction_arg_ty_lex l1`, que permite nomear a expressão sobre a qual se pretende fazer indução. *)
+  lemma app_length :
+    forall l1 l2 :list 'a. length (l1 ++ l2) = length l1 + length l2
+
+   (* ------------ *)
+   (* Por definir snoc sem ser em match, e usando diretamente o append, não vai ser necessário provas por indução.
+      Logo, é provado diretamente por os SMT solvers. *)
+   function snoc (x:'a) (l:list 'a) : list 'a = l ++ Cons x Nil
+
+   lemma snoc_len :
+      forall x:'a,  l:list 'a. length (snoc x l) = 1 + (length l)
+
+   lemma snoc_app :
+      forall x:'a,  l:list 'a.  snoc x l =  l ++ (Cons x Nil)
+
+   (* ------------ *)
+   (* Pode returnar falso logo tem que ser um predicado *)
+    predicate mem (x: 'a) (l: list 'a) = match l with
+      | Nil      -> false
+      | Cons y r -> x = y \/ mem x r
+     end
+
+    lemma mem_app:
+      forall x :'a, l1 l2 :list 'a.
+         mem x (l1 ++ l2) -> mem x l1 \/ mem x l2
+
+   (* ------------ *)
+    function reverse (l: list 'a) : list 'a =
+      match l with
+      | Nil      -> Nil
+      | Cons x r -> reverse r ++ Cons x Nil
+    end
+
+
+    lemma aux_reverse:
+                                                         (* Cons x reverse l*)
+      forall x: 'a, l :list 'a. reverse (l++(Cons x Nil)) = Cons x Nil ++ reverse l
+
+    (* Não será imediato provar o resultado por indução, quando l é um Cons x1 x. *)
+    lemma rev_rev : forall l: list 'a. reverse (reverse l) = l
+
+    (*  Dificuldade de indução
+
+        Caso indutivo: l = Cons x r
+        HI: reverse(reverse r) = r
+
+
+        reverse (reverse (Cons x r))
+        =
+        reverse (reverse r ++ Cons x Nil))
+        - Não consegue usar a HI: reverse(reverse r)=r, daí ser necessário usar o lemma auxiliar.
+    *)
+
+    (* ------------ *)
+    (*
+        Os predicados definidos acima têm uma definição indutiva “funcional”, i.e. uma definição total e que termina sempre.
+        Um predicado pode ser definido de uma forma indutiva mais geral, como o fecho de um conjunto de axiomas/regras.
+        Neste caso admite-se quer parcialidade, quer não-terminação.
+    *)
+    (* Não pode ser uma função → Predicado indutivo garante uma definição fechada.*)
+    (* Estes 2 axiomas são os únicos que definem este predicado *)
+    inductive last 'a (list 'a) =
+     | Last_one : forall x: 'a. last x (Cons x Nil)
+     | Last_two : forall x y: 'a, l: list 'a. last x l -> last x (Cons y l)
+
+    (* Sem ser necessário indução, porque a lista Nil não está definida acima *)
+    lemma last_nil : forall x:'a. not (last x Nil)
+
+    function lastf (l: list int) : int =
+      match l with
+      | Nil        -> 0
+      | Cons x Nil -> x
+      | Cons x t   -> lastf t
+      end
+
+    (* Não precisa de ser por indução por ser diretamente conseguido pela 3º clausula da função *)
+    lemma lastf_aux : forall x:int, t: list int.
+              t<>Nil -> lastf (Cons x t) = lastf t
+
+    (* Se tivermos um predicado indutivo e uma lemma que tenha implicações que trabalham sobre esse predicato
+      Devo usar o induction_pr. *)
+
+    (* Provar por indução na estrutura da lista l *)
+    lemma lastf1 : forall x:int, l: list int.
+        l<>Nil -> last (lastf l) l
+
+    (* O segundo lema não poderá ser provado usando a mesma técnica. É necessário agora que o raciocínio indutivo proceda sobre a definição do predicado indutivo last, uma vez que este ocorre no antecedente da fórmula que se pretende provar. *)
+    lemma lastf2 : forall x:int, l: list int.
+        last x l -> x = lastf l
+     (*
+        Depois de introduzir as premissas no contexto obtém-se os dois objectivos
+        de prova seguintes (apresentados de forma simplificada), correspondentes cada um a um dos casos da definição do predicado indutivo:
+
+        (...)
+        axiom H1 : l = Cons x (Nil: list int)
+        --------- Goal ---------
+        goal lastf2 : x = lastf l
+
+
+        (...)
+        axiom H3 : last x l1
+        axiom H2 : x = lastf l1
+        axiom H1 : l = Cons y l1
+        --------- Goal ---------
+        goal lastf2 : x = lastf l
+
+    *)
+
+
+    (* NOTAS FINAIS *)
+    (* As transformações do Why3 constituem um mecanismo muito poderoso
+       que permite em muitas circunstâncias evitar o recurso
+       a um proof assistant:
+       o princípio indutivo é reflectido numa transformação dos objectivos de prova,
+       sendo os objectivos mais simples que
+       resultam desta transformação provados por um SMT solver.
+     *)
+
+end

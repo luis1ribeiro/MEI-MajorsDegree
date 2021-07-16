@@ -1,0 +1,29 @@
+sort
+  Being = struct fox | goose | beans;
+
+map
+  isSafe: Being # Being -> Bool;
+
+eqn
+  isSafe(Fox,Goose) = false ;
+  isSafe(Goose,Beans) = false ;
+
+act
+	fr,fl,gr,gl,br,bl, % actions by the passengers
+	ffr,fgr,fbr,farmerr,ffl,fgl,fbl,farmerl, % actions by the farmer
+	foxr,foxl,gooser,goosel,beansr,beansl,% actions by the system
+	winf,wing,winb,win; % actions to detect winning conditions
+
+proc
+	Fox = fr.(fl+winf).Fox ;
+	Goose = gr.(gl+wing).Goose ;
+	Beans = br.(bl+winb).Beans ;
+	Farmer = (ffr+fgr+fbr+farmerr).(ffl+fgl+fbl+farmerl).Farmer ;
+
+init
+	allow(
+{foxr,foxl,gooser,goosel,beansr,beansl,farmerl,farmerr,win},
+	comm(
+	{ fr|ffr->foxr,   fl|ffl->foxl,gr|fgr->gooser, gl|fgl->goosel,br|fbr->beansr, bl|fbl->beansl, winf|wing|winb|farmerl->win},
+	Fox||Goose||Beans||Farmer));
+

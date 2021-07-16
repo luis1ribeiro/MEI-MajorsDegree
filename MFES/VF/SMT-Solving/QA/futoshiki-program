@@ -1,0 +1,121 @@
+#!/usr/bin/python3
+
+from z3 import *
+from jjcli import *
+cc=clfilter()
+
+# Array de preorders dado no input
+preorders=[]
+
+s = Solver()
+x = {}
+
+with open(sys.argv[1]) as f:
+  # ficheiro de output
+  output = str(sys.argv[1]).split('input',1)[1]
+
+  # Ler a primeira linha por causa da declaração de N
+  line = f.readline()
+  N = int(line.split('=')[1])
+
+linhas=colunas=N
+
+# restrições de bloco
+for i in range(linhas):
+  x[i] = {}
+  for j in range(colunas):
+    x[i][j] = Int('x'+str(i)+str(j))
+    s.add(And(1<=x[i][j],x[i][j]<=N))
+
+# restrições de linha
+for i in range(linhas):
+  s.add(Distinct([x[i][j] for j in range(colunas)]))
+
+# restrições de coluna
+for j in range(colunas):
+  s.add(Distinct([x[i][j] for i in range(linhas)]))
+
+
+# push para ler o ficheiro de input
+s.push()
+
+# Read file
+with open(sys.argv[1]) as f:
+  lines = f.readlines()
+
+  fstline=0
+
+  for line in lines:
+
+    # Ignore first line
+    if fstline == 0:
+      fstline = 1
+
+    elif fstline == 1:
+
+      split = line.split(' ')
+      # operator op (=,<,>)
+      op = split[0]
+
+      # Se for uma declaração -→ = (1,2) 3
+      if op == '=':
+          n1 = sub(r'\(',r'',split[1])
+          n1 = sub(r'\)',r'',n1)
+          pos = n1.split(',')
+
+          i = int(pos[0]) - 1
+          j = int(pos[1]) - 1
+          n = int(split[2])
+          s.add(x[i][j] == n)
+
+      # É uma preorder entre posições -→ < (1,2) (1,3)
+      else:
+        n1 = sub(r'\(',r'',split[1])
+        n1 = sub(r'\)',r'',n1)
+        s1 = n1.split(',')
+
+        n2 = sub(r'\(',r'',split[2])
+        n2 = sub(r'\)',r'',n2)
+        s2 = n2.split(',')
+
+        dif1 = abs(int(s1[0])-int(s2[0]))
+        dif2 = abs(int(s1[1])-int(s2[1]))
+
+        # dif1=true ou dif2=true mas nunca dif1=true e dif2=true
+        if((dif1==1 or dif2==1) and (dif1+dif2==1)):
+          if(op == '<'):
+            s.add(x[int(s1[0])-1][int(s1[1])-1] < x[int(s2[0])-1][int(s2[1])-1])
+
+            # auxiliar para depois ser apresentado no output.
+            preorders.append(str(x[int(s1[0])-1][int(s1[1])-1] < x[int(s2[0])-1][int(s2[1])-1]))
+
+          elif(op == '>'):
+            s.add(x[int(s1[0])-1][int(s1[1])-1] > x[int(s2[0])-1][int(s2[1])-1])
+
+            # auxiliar para depois ser apresentado no output.
+            preorders.append(str(x[int(s1[0])-1][int(s1[1])-1] > x[int(s2[0])-1][int(s2[1])-1]))
+
+          else:
+            print("Pre order mal definido.")
+            sys.exit()
+        else:
+          print("Pre orders foram mal calculados.")
+          sys.exit()
+
+
+f_out = open('output'+output, "w")
+
+if s.check() == sat:
+  m=s.model()
+  f_out.write('======= Solution =======\n')
+  for i in range(linhas):
+    f_out.write(str([m[x[i][j]].as_long() for j in range(colunas) ])) # as_long → ver como inteiro.
+    f_out.write("\n")
+
+  f_out.write('\n======= Pre-Orders =======\n')
+  for po in preorders:
+    f_out.write(po+"\n")
+else:
+  f_out.write("Não tem solução.")
+
+f_out.close()

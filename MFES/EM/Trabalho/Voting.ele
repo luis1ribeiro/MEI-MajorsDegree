@@ -1,0 +1,238 @@
+open util/ordering[Ballot]
+
+/** Voting **/
+
+/* 	
+	This is a high-level algorithm in which a set of 
+ 	processes cooperatively choose a value.
+*/
+
+// First definitions.
+
+// Set of choosable values.
+sig Value {}
+
+/*
+	Acceptors that can chose values:
+		votes: set of votes casted by an acceptor;
+		maxBall: sets the minimum ballot for the next vote.
+*/
+sig Acceptor { 													
+	var votes : Ballot -> Value, 
+	var maxBall : lone Ballot
+}
+
+// Set of sequential values to implement order on the voting algorithm.
+sig Ballot {}
+
+// A Quorum is a large-enough set of acceptors.
+sig Quorum {
+	quorum: set Acceptor
+}
+
+/*
+	Some Quorum assumptions:
+		- There is, at least, one member of intersection between two quorums;
+		- All acceptors must have at least one quorum;
+		- All quorums must have at least one acceptor.
+*/
+fact QuorumAssumption {
+	all q1, q2: Quorum | some q1.quorum & q2.quorum
+	iden & (Acceptor->Acceptor) in ~quorum.quorum
+	iden & (Quorum->Quorum) in quorum.~quorum
+}
+
+// Acceptor a has voted for value v in ballot b.
+pred votedFor [a: Acceptor, b: Ballot, v: Value] {
+	b->v in a.votes
+}
+
+// A quorum of acceptors have all voted for value v in ballot b.
+pred chosenAt [b: Ballot, v: Value] {
+	some q : Quorum | all a : q.quorum | votedFor[a,b, v]
+}
+
+// The set of values that have been chosen.
+fun chosen [] : set Value {
+	{ v : Value | some b: Ballot | chosenAt[b,v] }
+}
+
+// Acceptor a didn't vote at ballot b.
+pred didNotVoteAt [a: Acceptor, b: Ballot] {
+	no b.(a.votes)
+}
+
+// Acceptor a didn't vote at ballot b and can't vote anymore.
+pred cannotVoteAt [a: Acceptor, b: Ballot] {
+	a.maxBall.gt[b]
+	didNotVoteAt[a, b]
+}
+
+// There isn't any other value than v that could be chosen on ballot b.
+pred noneOtherChoosableAt [b : Ballot, v : Value] {
+	some q: Quorum | all a: q.quorum | votedFor[a, b, v] or cannotVoteAt[a, b]
+}
+
+// No value other than v has been or can ever be chosen in any ballot numbered less than b.
+pred safeAt [b: Ballot, v: Value] {
+	all c: b.prevs | noneOtherChoosableAt[c, v]
+}
+
+// If acceptor a voted at ballot b with value v, this value needs to be safe at ballot b. 
+assert votesSafe {
+	always (all a: Acceptor, b: Ballot, v: Value| votedFor[a, b, v] implies safeAt[b, v])
+	// always (all v:  Acceptor.votes | safeAt[v.Value, Ballot.v])  - implementação mais simples, no entanto, demora mais tempo 
+}
+
+// An acceptor can't vote on different values at the same ballot.
+assert oneVote {
+	always (all a: Acceptor | ~(a.votes).(a.votes) in iden)
+}
+
+/*
+	There is only one value per ballot, which means that if there is
+	some vote at ballot b, no one can vote at this ballot with a different value.
+*/
+assert oneValuePerBallot{
+	always (~(Acceptor.votes).(Acceptor.votes) in iden)
+}
+
+check votesSafe
+check oneVote
+check oneValuePerBallot
+
+// Quorum q allows a vote for value v at ballot b.
+pred showsSafeAt [q: Quorum, b: Ballot, v: Value] {
+	all a: q.quorum | b.lte[a.maxBall]
+	b != first implies some c:  b.prevs {
+		some a : q.quorum | votedFor[a, c, v]
+		all d: c.nexts & b.prevs, a: q.quorum | didNotVoteAt[a, d]
+	} 
+}
+
+/*
+	Initial state:
+		- there are no votes;
+		- there is no acceptor with maxBall defined.
+*/
+fact init {
+	no votes
+	no maxBall
+}
+
+/*
+	Predicate to increase maxBall for acceptor a to ballot b without voting,
+	this is only possible if a.maxBall < b.
+*/
+pred increaseMaxBall [a: Acceptor, b: Ballot] {
+	a.maxBall.lt[b]
+	maxBall' = maxBall ++ (a->b)
+	votes' = votes
+}
+
+/*
+	Acceptor a vote for value v at ballot b, this is only possible if:
+		- a.maxBall <= b;
+		- a didn't vote at b yet;
+		- all acceptors except a, their vote for ballot b is {} or v;
+		- there is at least one quorum that allows voting for value v at ballot b.
+*/
+pred voteFor [a: Acceptor, b: Ballot, v: Value] {
+	a.maxBall.lte[b]
+	no b.(a.votes)
+	all c: Acceptor - a | b.(c.votes) in v
+	some q: Quorum | showsSafeAt[q, b, v]
+	votes' = votes + (a->b->v) 
+	maxBall' = maxBall ++ (a->b)
+}
+
+// No operation predicate.
+pred nop {
+	votes' = votes
+	maxBall' = maxBall
+}
+
+// Operations available for each state.
+fact transition {
+	always (nop or some  a: Acceptor, b: Ballot | increaseMaxBall[a, b] or some v: Value | voteFor[a, b, v])
+}
+
+// Acceptors that casted a vote
+fun AcceptorsThatVoted[] : set Acceptor {
+	votes.Value.Ballot
+}
+
+
+/*
+	Run that eventually some value is chosen and sets the quorum
+	to have more than half of acceptors numbers (each quorum has at least two acceptors).
+*/
+run ThreeAcceptorsTwoQuorum {
+	all q: Quorum | some disj a1, a2: Acceptor | q<:quorum = (q->a1) + (q->a2)
+	eventually some chosen
+} for exactly 5 Value, exactly 3 Acceptor, exactly 2 Quorum, exactly 4 Ballot
+
+
+
+/**
+	Consensus properties need to be true (implicit refinement)
+**/
+
+/*
+	Run that eventually some value is chosen and sets the quorum
+	to have more than half of acceptors numbers (each quorum has at least three acceptors).
+*/
+run FourAcceptorTwoQuorum {
+	all q: Quorum | some disj a1, a2, a3: Acceptor | q<:quorum = (q->a1) + (q->a2) + (q->a3)
+	eventually some chosen
+} for exactly 5 Value, exactly 4 Acceptor, exactly 2 Quorum, exactly 4 Ballot
+
+
+// Safety: At most one value is chosen.
+assert safety {
+	always lone chosen
+}
+
+// Liveness: A value is eventually chosen.
+assert liveness {
+	eventually some chosen
+}
+
+check liveness
+check safety
+
+/*
+	Fairness:
+		- there is at least one acceptor that votes, this implies that exists at least one quorum;
+		- there is at least one ballot to vote at;
+		- there is at least one value to vote for;
+		- if a value has not been chosen yet, it will eventually be chosen by someone.
+*/
+fact fairness {
+	some Acceptor
+	some Ballot
+	some Value
+	all a: Acceptor, b: Ballot, v: Value {
+		(eventually always no chosen) implies (always eventually voteFor[a,b,v])
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

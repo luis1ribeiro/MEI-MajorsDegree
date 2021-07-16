@@ -1,0 +1,22 @@
+.
+  Associar um nome a um email do DI.
+  Eurística de nomes.
+  Normalizar nomes? Tirar partido de várias estratégias?
+
+. SHUFFLE FICHEIROS
+  > shuf → shuffle
+
+. DIVIDIR O FICHEIRO
+  > grep -Eo '^[^:]+' nome-email-di
+  > cut -d':' -f1 nome-email-di
+
+  (alias jj??)
+  > tabproj _1 nomes > so_nomes
+  > tabproj _2 nomes > so_emails
+
+. Funções de Estratégia
+  normaliza  :: nomeC → nomeC
+  expand     :: email → (RE, confiança)
+  mailexpReg :: email → (nomeC, confiança)*
+                nomeC ...
+

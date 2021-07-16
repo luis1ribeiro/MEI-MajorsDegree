@@ -1,0 +1,13 @@
+VIM:
+  :%sort u -→ sort unique.
+  :%s/..$// -→ substitui os 2 ultimos caractéres por nada.
+chmod +x um-aluno
+sudo cp um-aluno /usr/local/bin
+pydoc jjcli
+
+Simply add /place/with/the/file to the $PATH variable with the following command:
+
+                    → export PATH=$PATH:/place/with/the/file ←
+
+You should now be able to execute the script anywhere on your system by just typing in its name,
+without having to include the full path as you type it.

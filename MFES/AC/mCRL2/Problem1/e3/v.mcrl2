@@ -1,0 +1,10 @@
+% Set of Actions.
+act a,b;
+
+% Process Declaration on V.
+proc V  = a . V1;
+     V1 = (b . V2) + (b . V3);
+	   V2 = (b . V2) + (a . V);
+	   V3 = b . V2;
+
+init V;

@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+
+from jjcli import *
+import numpy as np #https://www.w3schools.com/python/numpy_array_split.asp
+#Disable VisibleDeprecationWarning
+np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)
+import json
+
+c=clfilter(opt="a")
+txt= qx("pdftotext e.pdf -") # qx é uma opção da biblioteca jjcli que permite executar um comando shell e guardar numa var
+
+# apagar tudo até a ocurrência da primeira "Sopa"
+
+txt= sub(r'(.|\n)*?Sopa',r'===Sopa',txt,count=1) # o count permite dizer que só queremos fazer isto uma vez
+txt= sub(r'\n1 (.|\n)*',r'===Fim',txt,count=1)   # Vai apanhar o último \n
+txt= sub(r'\n(Acompanhamento [12]|Prato|Sopa)\n', r'===\1\n',txt) # \1 vai buscar o elemento Acomp. ou Prato ou Sopa
+
+lista=split(r'===',txt) # Para separar entre cada elemento
+lista.pop(0) # Tirar "" inicial
+lista.pop()  # Tirar "FIM"
+# ou lista[1:-1]
+
+menugeral = []
+for g in lista:
+  tit,*items= split(r'\n\n+',g)
+  menugeral.append((tit,items))
+# Até agora já temos cada elemento associado aos seus subelementos. Por exemplo, Sopa: Sopa de Cenoura, ...
+# De notar, que temos elementos repetidos por causa do Almoço e Jantar.
+
+# Array split
+menugeral  = (np.array_split(menugeral,2))
+almoco = list(menugeral[0])
+jantar = list(menugeral[1])
+
+ementaJSON={}
+diaJSON={}
+almocoJSON={}
+jantarJSON={}
+
+for dia in range(2,7):
+  for tit,its in almoco:
+    almocoJSON[str(tit)] = its[dia-2].strip().replace('\n',' ')
+  for tit,its in jantar:
+    jantarJSON[str(tit)] = its[dia-2].strip().replace('\n',' ')
+
+  diaJSON["Almoço"] = almocoJSON
+  diaJSON["Jantar"] = jantarJSON
+  ementaJSON[str(dia) + "ºF"] = diaJSON
+
+with open('ementa.json','w+') as jfile:
+  json_ementa = json.dump(ementaJSON, jfile, ensure_ascii=False, sort_keys=True)
+print("ementa.json gerado.")

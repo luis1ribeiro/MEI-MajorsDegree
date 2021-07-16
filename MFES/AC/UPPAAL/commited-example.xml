@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+clock x;
+chan reset; /* synchronized actions reset */</declaration>
+	<template>
+		<name x="5" y="5">P1</name>
+		<declaration>// Place local declarations here.</declaration>
+		<location id="id0" x="-136" y="93">
+			<name x="-153" y="110">loop</name>
+			<label kind="invariant" x="-161" y="59">x &lt;= 3</label>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id0"/>
+			<label kind="guard" x="-59" y="85">x&gt;=2</label>
+			<label kind="synchronisation" x="-59" y="68">reset!</label>
+			<nail x="-68" y="42"/>
+			<nail x="-68" y="144"/>
+		</transition>
+	</template>
+	<template>
+		<name>Observer</name>
+		<location id="id1" x="-280" y="-8">
+			<name x="-290" y="-42">idle</name>
+		</location>
+		<location id="id2" x="8" y="-8">
+			<name x="-2" y="-42">taken</name>
+			<committed/>
+		</location>
+		<init ref="id1"/>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id1"/>
+			<label kind="assignment" x="-161" y="51">x:=0</label>
+			<nail x="-59" y="42"/>
+			<nail x="-229" y="42"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id2"/>
+			<label kind="synchronisation" x="-178" y="-59">reset?</label>
+			<nail x="-229" y="-42"/>
+			<nail x="-68" y="-42"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+// List one or more processes to be composed into a system.
+system P1,Observer;
+    </system>
+	<queries>
+		<query>
+			<formula>E&lt;&gt;Observer.idle and x&gt;2</formula>
+			<comment>There is a path where observer is in idle and didnt took reset action.</comment>
+		</query>
+		<query>
+			<formula>A[]Observer.taken imply x&gt;=2</formula>
+			<comment>Every trace where Observer is in taken, x must be higher or equal than 2.</comment>
+		</query>
+	</queries>
+</nta>

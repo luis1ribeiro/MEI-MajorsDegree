@@ -1,0 +1,116 @@
+module SelectionSort
+
+  use int.Int
+  use ref.Ref
+  use array.Array
+  use array.IntArraySorted
+  use array.ArrayPermut
+  use array.ArrayEq
+
+
+  let swap (a: array int) (i: int) (j: int) =
+    (* Têm que ser indices válidos. *)
+    requires { 0 <= i < length a /\ 0 <= j < length a }
+    (* exchange do a à entrada da função (old a) e do array a à saida (a) com trocas na posição i e j. *)
+    ensures { exchange (old a) a i j }
+    let v = a[i] in
+      a[i] <- a[j];
+      a[j] <- v
+    (* Em vez de usar o exchange podemos dizer que todas as posições são perservadas menos aquelas que mudamos *)
+
+  (* O algoritmo selection sort ordena um array colocando sucessivamente em cada posição o “próximo mínimo”,
+     como ilustrado pela seguinte execução:
+
+     [3,1,2] (swap 3 1)
+     [1!,3,2] (swap 3 2)
+     [1!,2!,3]
+     [1!,2!,3!]
+     
+     Durante a aula, garantimos a permutação e ordenação do array individualmente.
+  *)
+
+  (* -------- TPC -------- *)
+  (* -> selection_sort sem o uso do select. *)
+  let selection_sort (a: array int)
+    ensures { sorted a }
+    ensures { permut_all (old a) a }
+    (* Por se tratar de um ciclo for e ser bounded (sei quantas interações vou ter), não é necessário variante *)
+  = for i = 0 to length a - 1 do
+      invariant { sorted_sub a 0 i }
+      invariant { forall k1 k2: int. 0 <= k1 < i <= k2 < length a -> a[k1] <= a[k2] }
+      invariant { permut_all (old a) a }
+      let min = ref i in
+        let len = length a - 1 in
+        (* Como não usamos o select diretamente, temos que implementa-lo, tal como os seus invariantes *)
+         for j = i + 1 to len do
+          invariant { i <= !min < j} (* O indice min tem que ser sempre superior a i e menor que j. *)
+          invariant { forall k : int. i <= k < j -> a[!min] <= a[k]} (* Para forçar a pos condição do select (invariante definido no primeiro ciclo for). *)
+          if a[j] < a[!min] then min := j (* Por haver este if → vai haver +4 loop invariant preservation (2 para o true e 2 para o false). *)
+         done;
+      if i <> !min then swap a !min i
+    done
+end
+
+
+module InsertionSort
+
+  use int.Int
+  use ref.Ref
+  use array.Array
+  use array.IntArraySorted
+  use array.ArrayPermut
+  use array.ArrayEq
+
+  (* Durante a aula, garantimos a permutação e ordenação do array individualmente. *)
+  
+  (* Igual ao swap definido acima. *)
+  let swap (a: array int) (i: int) (j: int) =
+    requires { 0 <= i < length a /\ 0 <= j < length a }
+    ensures { exchange (old a) a i j }
+   let v = a[i] in
+    a[i] <- a[j];
+    a[j] <- v
+
+
+  (* versão com swap, completa:
+    [0, 10, 20, 30, 6, 40, 80]
+    [0, 10, 20, 6, 30, 40, 80]
+    [0, 10, 6, 20, 30, 40, 80] !
+    [0, 6, 10, 20, 30, 40, 80]
+    [0, 6, 10, 20, 30, 40, 80]
+  *)
+  
+  (* -------- TPC -------- *)
+  (* -> fazer invariantes para este insertion_sort3 *)
+  let insertion_sort3 (a: array int) =
+    ensures { sorted a /\ permut_all (old a) a }
+  label L in (* Esta label não é mencionda, portanto pode ser retirada. *)
+    for i = 1 to length a - 1 do
+      invariant { sorted_sub a 0 i /\ permut_all (old a) a }
+      let j = ref i in
+      while !j > 0 && a[!j - 1] > a[!j] do
+        invariant { 0 <= !j <= i /\ permut_all (old a) a}
+
+        (* Da posição 0 do array até à posição j-1 tem que estar ordenado. !j primeiros elementos. Aqui não interessa em que interação do ciclo estamos. *)
+        invariant { sorted_sub a 0 !j}
+        (* Quando !j é inferior a i: No exemplo acima, quando o 6 e o 20 são trocados, tem que ser verdade que de !j(6) até i(i-1+1=i), com a[i]=30, está ordenado ([6,20,30]), o que é verdade. *)
+        invariant { !j <> i -> sorted_sub a !j (i+1)}
+        (* Apartir do momento que trocamos j j-1 nas iterações seguintes, é verdade que as posições de !j até ao !j de entrada de ciclo (=i) estão ordenadas. *)
+        
+        (* Apesar de garantirmos em cima, que os subarrays de 0 até !j e de !j até i estão ordenados, temos que garantir que o array de 0 até i, tirando a posição !j, está ordenado. *)
+        (* Para isso, temos que garantir que TODOS os indices até !j tem o valor (a[k1]) inferior ao valor de qualquer dos indices de !j + 1 até i. *)
+        (* Quando 6 é trocado por 20 (marcado com um !), no exemplo acima temos que:
+
+           (1) os indices até !j: 0 , 1 com os valores 0 , 10
+           (2) os indices de !j+1 até i: 3, 4 com os valores 20 , 30
+
+           Note que, é verdade que todos os valores de (1) são inferiores aos de (2).
+        *)
+        invariant { !j <> i -> forall k1 k2:int. 0 <= k1 < !j /\ !j < k2 <= i -> a[k2] >= a[k1] }
+        variant { !j }
+        swap a (!j-1) !j;
+        j := !j - 1
+      done
+    done
+
+end

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="Z3" version="4.8.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.3.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.7" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="programs-lab1.mlw"/>
+<theory name="Division" proved="true">
+ <goal name="division&#39;vc" expl="VC for division" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="6216301"/></proof>
+ <proof prover="1" obsolete="true"><result status="unknown" time="0.01"/></proof>
+ <proof prover="2"><result status="valid" time="0.02" steps="1875"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="division&#39;vc.0" expl="loop invariant init" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="division&#39;vc.0.0" expl="loop invariant init" proved="true">
+   <proof prover="2"><result status="valid" time="0.04" steps="762"/></proof>
+   </goal>
+   <goal name="division&#39;vc.0.1" expl="loop invariant init" proved="true">
+   <proof prover="2"><result status="valid" time="0.02" steps="766"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="division&#39;vc.1" expl="loop variant decrease" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="6207695"/></proof>
+  <proof prover="1" obsolete="true"><result status="unknown" time="0.00"/></proof>
+  <proof prover="2" obsolete="true"><result status="unknown" time="0.06" steps="5567"/></proof>
+  <transf name="split_vc" proved="true" >
+   <goal name="division&#39;vc.1.0" expl="loop variant decrease" proved="true">
+   <proof prover="2"><result status="valid" time="0.03" steps="851"/></proof>
+   </goal>
+   <goal name="division&#39;vc.1.1" expl="loop variant decrease" proved="true">
+   <proof prover="2"><result status="valid" time="0.02" steps="1063"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="division&#39;vc.2" expl="loop invariant preservation" proved="true">
+  <transf name="split_vc" proved="true" >
+   <goal name="division&#39;vc.2.0" expl="loop invariant preservation" proved="true">
+   <proof prover="2"><result status="valid" time="0.01" steps="927"/></proof>
+   </goal>
+   <goal name="division&#39;vc.2.1" expl="loop invariant preservation" proved="true">
+   <proof prover="2"><result status="valid" time="0.04" steps="1098"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="division&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="6240272"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.03" steps="1162"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="EuclideanAlgorithm" proved="true">
+ <goal name="euclid&#39;vc" expl="VC for euclid" proved="true">
+ <proof prover="1"><result status="valid" time="0.09" steps="195"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="96903"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="euclid&#39;vc.0" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.05" steps="7149"/></proof>
+  </goal>
+  <goal name="euclid&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="7924"/></proof>
+  </goal>
+  <goal name="euclid&#39;vc.2" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="7878"/></proof>
+  <transf name="split_vc" proved="true" >
+   <goal name="euclid&#39;vc.2.0" expl="precondition" proved="true">
+   <proof prover="2"><result status="valid" time="0.04" steps="7151"/></proof>
+   </goal>
+   <goal name="euclid&#39;vc.2.1" expl="precondition" proved="true">
+   <proof prover="2"><result status="valid" time="0.04" steps="7836"/></proof>
+   </goal>
+  </transf>
+  </goal>
+  <goal name="euclid&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="1"><result status="valid" time="0.01" steps="23"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="98553"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="euclidit&#39;vc" expl="VC for euclidit" proved="true">
+ <proof prover="1"><result status="valid" time="0.08" steps="121"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="150067"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="euclidit&#39;vc.0" expl="loop invariant init" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="7143"/></proof>
+  </goal>
+  <goal name="euclidit&#39;vc.1" expl="loop invariant init" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="7145"/></proof>
+  </goal>
+  <goal name="euclidit&#39;vc.2" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.02" steps="7198"/></proof>
+  </goal>
+  <goal name="euclidit&#39;vc.3" expl="loop variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="8067"/></proof>
+  </goal>
+  <goal name="euclidit&#39;vc.4" expl="loop invariant preservation" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="7991"/></proof>
+  </goal>
+  <goal name="euclidit&#39;vc.5" expl="loop invariant preservation" proved="true">
+  <proof prover="1"><result status="valid" time="0.02" steps="21"/></proof>
+  <proof prover="2"><result status="timeout" time="1.00" steps="151676"/></proof>
+  </goal>
+  <goal name="euclidit&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="8352"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Fib" proved="true">
+ <goal name="fib&#39;vc" expl="VC for fib" proved="true">
+ <proof prover="1"><result status="valid" time="0.01" steps="24"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="265374"/></proof>
+ <transf name="split_vc" >
+  <goal name="fib&#39;vc.0" expl="variant decrease">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="1182"/></proof>
+  </goal>
+  <goal name="fib&#39;vc.1" expl="precondition">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.03" steps="1371"/></proof>
+  </goal>
+  <goal name="fib&#39;vc.2" expl="variant decrease">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="1201"/></proof>
+  </goal>
+  <goal name="fib&#39;vc.3" expl="precondition">
+  <proof prover="2" obsolete="true"><result status="valid" time="0.02" steps="1387"/></proof>
+  </goal>
+  <goal name="fib&#39;vc.4" expl="postcondition">
+  <proof prover="1" obsolete="true"><result status="valid" time="0.01" steps="18"/></proof>
+  <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="166522"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="fib_lm" proved="true">
+ <proof prover="0"><result status="timeout" time="1.00" steps="3272930"/></proof>
+ <proof prover="1"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="238573"/></proof>
+ <transf name="split_vc" proved="true" >
+  <goal name="fib_lm.0" proved="true">
+  <transf name="induction" proved="true" arg1="n">
+   <goal name="fib_lm.0.0" expl="base case" proved="true">
+   <proof prover="2"><result status="valid" time="0.04" steps="3004"/></proof>
+   </goal>
+   <goal name="fib_lm.0.1" expl="recursive case" proved="true">
+   <proof prover="2"><result status="valid" time="0.03" steps="4365"/></proof>
+   </goal>
+  </transf>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="fib_i&#39;vc" expl="VC for fib_i" proved="true">
+ <proof prover="2"><result status="valid" time="0.07" steps="11846"/></proof>
+ </goal>
+ <goal name="fib_even_rec&#39;vc" expl="VC for fib_even_rec" proved="true">
+ <proof prover="2"><result status="valid" time="0.08" steps="12031"/></proof>
+ </goal>
+ <goal name="fibsgt_even&#39;vc" expl="VC for fibsgt_even" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="14702527"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="250410"/></proof>
+ <transf name="split_all_full" proved="true" >
+  <goal name="fibsgt_even&#39;vc.0" expl="loop invariant init" proved="true">
+  <proof prover="2"><result status="valid" time="0.02" steps="3817"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.1" expl="loop invariant init" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="3834"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.2" expl="loop invariant init" proved="true">
+  <proof prover="2"><result status="valid" time="0.02" steps="3851"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.3" expl="loop invariant init" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="5384"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.4" expl="loop variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="5256"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.5" expl="loop invariant preservation" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="5366"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.6" expl="loop invariant preservation" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="5839"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.7" expl="loop invariant preservation" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="6373"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.8" expl="loop invariant preservation" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="15889"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.9" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="4558"/></proof>
+  </goal>
+  <goal name="fibsgt_even&#39;vc.10" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="6223"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

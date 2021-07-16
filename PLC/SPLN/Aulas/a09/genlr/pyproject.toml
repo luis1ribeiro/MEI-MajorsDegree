@@ -1,0 +1,13 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "genlr"
+author = "Luís Mário"
+author-email = "a85954@alunos.uminho.pt"
+classifiers = [ "License :: OSI Approved :: MIT License"]
+requires = ["pyyaml"]
+
+[tool.flit.scripts]
+gensh = "genlr:shellquery"

@@ -1,0 +1,54 @@
+e3:
+  /* Continuação */
+  Tr = {
+       ((rest,busy,up), x>=1, tau_hit, {x}, (rest,busy,half)),
+       ((rest,busy,half), x>=1, tau_hit, {x}, (rest,busy,done)),
+       -- ((rest,busy,done), x>=1, tau_hit, {x}, (rest,busy,up)),
+
+       ((work,busy,up), x>=1, tau_hit, {x}, (work,busy,half)),
+       ((work,busy,half), x>=1, tau_hit, {x}, (work,busy,done)),
+       -- ((work,busy,done), x>=1, tau_hit, {x}, (work,busy,up)),
+
+       ((rest,free,up), true, tau_go, {x,y,z}, (work,busy,up)),
+       ((rest,free,half), true, tau_go, {x,y,z}, (work,busy,half)),
+       ((rest,free,done), true, tau_go, {x,y,z}, (work,busy,done)),
+
+       ((work,busy,up), y>=5 and z>=10, tau_done, {}, (rest,free,up)),
+       ((work,busy,half), y>=5 and z>=10, tau_done, {}, (rest,free,half)),
+       ((work,busy,done), y>=5 and z>=10, tau_done, {}, (rest,free,done)),
+
+       ((rest,free,done), true,transicao,{},(rest,free,up)),
+       ((rest,busy,done), true,transicao,{},(rest,busy,up)),
+       ((work,free,done), true,transicao,{},(work,free,up)),
+       ((work,busy,done), true,transicao,{},(work,busy,up))
+     }
+
+e4:
+  S = {<off,t> | t \in R+0 } U {<on,t> | 0 <= t <= 2}
+  S0 = {(off, const 0)}
+
+  N = {in,out} U R+0
+
+  T is given by:
+        <off,t> -d->  <off, t+d> for all t,d >=0
+        <off,t> -in->  <on,0> for all t >= 0
+        <on,t> -d->   <on,t+d> for all t,d>=0 and t+d<=2
+        <on,t> -out-> <off,t> for all 1 <= t <= 2
+
+e5:
+  {} : Traço vazio
+  {<0,press>,<6,press>,<7,press>,<10,press>,<11,press>} : <off,0> -press-> <low,0> -d=6-> <low,6> -press-> <off,6> -d=1-> <off,7> -press-> <low,0> -d=3-> <low,3> -press-> <bright,3> -d=1-> <bright,4> -press-> <off,4>
+  {<1,press>,<3,press>} : <off,0> -d=1-> <off,1> -press-> <low,0> -d=3-> <low,3> -press-> <bright,3>
+
+e6:
+  W:
+    {} : Traço vazio
+    {<1,t>} : W1 -> W2
+    {<1,t>,<d,t>} for all 1 <= d <=2 : W1 -> W2 -> W3
+
+  Z:
+    {} : Traço vazio
+    {<1,t>} : Z1 -> Z2
+    {<1,t>,<d,t>} for all 1 <= d <= 2 : Z1 -> Z2 -> Z3
+
+

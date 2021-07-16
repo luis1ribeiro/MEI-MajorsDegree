@@ -1,0 +1,11 @@
+act    inn,outt,ia,ib,oa,ob,c :  Bool;
+
+proc  BufferS = sum n:  Bool.inn(n).outt(n).BufferS;
+
+      BufferA = rename({inn -> ia, outt -> oa}, BufferS);
+      BufferB = rename({inn -> ib, outt -> ob}, BufferS);
+      % Aqui digo que oa e ib não são possíveis isoladamente.
+      S = allow({ia,ob,c}, comm({oa|ib -> c}, BufferA || BufferB));
+
+% Aqui declaro que c é uma ação interna.
+init   hide({c}, S);

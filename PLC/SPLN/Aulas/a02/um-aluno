@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+from jjcli import * # módulo implementado pelo jj. re + getopt + fileinputs + sys + os + subprocess
+import random
+
+c=clfilter(opt="a")
+aluno=[]
+
+for line in c.input():
+  aluno.append(line)
+
+print(random.choice(aluno))

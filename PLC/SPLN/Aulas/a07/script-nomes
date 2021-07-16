@@ -1,0 +1,69 @@
+#!/usr/bin/python3
+
+from jjcli import *
+import re
+import unidecode
+
+def load_names(filename: str) -> [str]:
+    pass
+
+# Devolve uma lista de pares com o nome associado ao email. Isto serve para depois ser avaliado pelo avalia.
+def load_names_and_emails(filename: str) -> [(str, str)]:
+    with open(filename, 'r', encoding='utf-8') as f:
+
+        result = []
+        for linha in f:
+            linha = linha.strip()
+            if search(r'::', linha): # Se a linha não for vazia.
+                # match do nome e email -> \s: espaços.
+                nome,email = split(r'\s*::\s*', linha)
+                result.append((nome,email))
+        return result
+
+# Aqui a estratégia é diferente à minha resolução.
+# Associo a cada tag uma ER que calcula possíveis nomes associados. (re_e_final)
+def avalia1(solucao: [(str,str)], calc) -> float:
+    nomes = [x for x,y in solucao]
+    soma = 0
+
+    for n,e in solucao:
+        # calc é a função calcular_nome.
+        r = calc(e, nomes)
+
+        if n in r:
+            i = r.index(n)
+            a = 1/(i+1)
+            soma += a
+    return soma / len(solucao) # Avalia total de todos os nomes.
+
+def calcular_nome1(email: str, nomes: [str]) -> [str]:
+    stripped_email = sub("[^a-zA-Z]+", "", email) # Uniformizar o email. Tirar tudo o que não sejam letras?
+
+    # \1(.* |) Dá match de \1 individualmente ou \1 \w* seguido de um \s.
+    re_e_final = sub(r"(\w)", r"\1(.* |)", stripped_email) # o \1 dá match com o \w tratado no elemento anterior a esse.
+    # print(re_e_final)
+
+    resultados_email = []
+    for nome in nomes:
+        nome_aux = unidecode.unidecode(nome) # --> Uniformizar o nome. Tirar acentos.
+        if re.search(rf'{re_e_final}', nome_aux, flags=re.IGNORECASE):
+            resultados_email.append(nome)
+    return resultados_email # retorna os resultados associados a um email e à expressão regular definida acima.
+
+
+def calcular_nome2(email: str, nomes: [str]) -> [(str,float)]:
+    pass
+def calcular_nome3(email: str, nomes: [str]) -> str:
+    pass
+
+
+def main():
+    s = load_names_and_emails('nomes-di')
+    nomes = [x for x,y in s] # Vai buscar o primeiro dos pares e cria uma lista por compreensão.
+
+    e = calcular_nome1('aproenca', nomes)
+    a = avalia1( s , calcular_nome1)
+    print(a)
+
+
+main()

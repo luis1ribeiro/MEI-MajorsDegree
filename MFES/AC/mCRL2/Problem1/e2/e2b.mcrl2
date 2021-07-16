@@ -1,0 +1,15 @@
+% Set of Actions for each Process B1 B2.
+act in1, in2, out1, out2, t1, t2, r1, r2, m1, m2;
+
+% Heading: It acknowledges in r the reception of a message and waits in t the confirmation that a message sent was arrived to its destination.
+% Since action r aknoledges the recepetion of a message, must be right after action in. This will result in the possibility of receving a message m2, while m1 may still not be sent to its destination.
+% Note that m2 can't be sent to B2 from B1, without fully processing m1, adding just the possibility of skipping some sequential steps.
+proc B1 = in1 . r1 . out1 . t1 . B1;
+     B2 = in2 . r2 . out2 . t2 . B2;
+
+% Since processes cant receive actions as arguments, I need to declare different actions for each process B1 B2, and some must be synchronized (forcing action synchronization).
+% The actions who've been synchronized can't be executed as one, so they must me denied/blocked.
+init block({out1, in2, t1, r2},
+     comm({ out1 | in2 -> m1, t1 | r2 -> m2 },
+     B1 || B2
+     ));

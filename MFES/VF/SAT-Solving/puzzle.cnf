@@ -1,0 +1,93 @@
+c  ---------------------------------------
+c 1.1
+c  ---------------------------------------
+
+c  ser sócio → 1
+c  ser loiro → 2
+c  ir ao sábado → 3
+c  ser adulto → 4
+c  usar chapéu → 5
+c  usar anel → 6
+
+c  Os sócios loiros não podem ir ao Sábado.
+c  (1 ∧ 2) → ¬3
+c  ≡
+c  ¬1 ∨ ¬2 ∨ ¬3
+c
+c  Quem não for adulto têm que usar chapéu.
+c  ¬4 → 5
+c  ≡
+c  4 ∨ 5
+c
+c  Cada sócio usa anel ou não usa chapéu.
+c  1 → (6 ∨ ¬5)
+c  ≡
+c  ¬1 ∨ 6 ∨ ¬5
+c
+c  Um sócio vai ao Sábado se e só se é adulto. (Primeira implicação, porque "se e só se" é uma equivalência)
+c  1 ∧ 3 → 4
+c  ≡
+c  ¬1 ∨ ¬ 3 ∨ 4
+c
+c  Um sócio vai ao Sábado se e só se é adulto. (Segunda implicação, porque "se e só se" é uma equivalência)
+c  4 → 1 ∧ 3
+c  ≡
+c  (¬4 ∨ 1) ∧ (¬4 ∨ 3)
+c
+c  Todos os sócios adultos têm que usar anel.
+c  (1 ∧ 4) → 6
+c  ≡
+c  ¬1 ∨ ¬4 ∨ 6
+c
+c  Quem usa anel tem que ser loiro.
+c  6 → 2
+c  ≡
+c  ¬6 ∨ 2
+
+c  Temos então,
+c  (¬1 ∨ ¬2 ∨ ¬3) ∧ (4 ∨ 5) ∧ (¬1 ∨ 6 ∨ ¬5) ∧ (¬3 ∨ 4 ∨ ¬1) ∧ (¬1 ∨ ¬4 ∨ 6) ∧ (¬6 ∨ 2)
+
+p cnf 6 8
+-1 -2 -3 0
+4 5 0
+-1 6 -5 0
+-1 -3 4 0
+-4 1 0
+-4 3 0
+-1 -4 6 0
+-6 2 0
+
+c  ---------------------------------------
+c 1.2
+c  ---------------------------------------
+c SAT
+c -1 2 -3 -4 5 6 0 (Ser loiro (2), ter anel (6) e chapeu (5))
+c Sendo SAT então podemos concluir que é consistente.
+
+c  ---------------------------------------
+c 1.3
+c  ---------------------------------------
+
+c a) Quem usa anel não pode ir ao Sábado? (6 → ¬3) ≡ (¬6 ∨ ¬3) --(negação)-→ (6 ∧ 3)
+c 3 0
+c 6 0
+c SAT
+c -1 2 3 -4 5 6 0
+c Result: SAT logo não posso garantir esta propriedade.
+
+c b) Pode um sócio de chapéu ser loiro?
+c Se é Pode, não temos que garantir que seja sempre verdade, portanto não temos que testar a negação da formula.
+c 1 ∧ 2 ∧ 5 (Sócio ∧ Loiro ∧ Chapéu)
+c 1 0
+c 2 0
+c 5 0
+c SAT
+c 1 2 -3 -4 5 6 0
+c Result: SAT logo, é verdade que um sócio(1) de chapeu(5) PODE ser loiro(2). No entanto, não é sempre verdade.
+
+c c) A afirmação "Afinal a associação não pode ter sócios adultos." é correta?
+c (¬1 ∨ ¬4) --(negação)-→ (1 ∧ 4)
+c 1 0
+c 4 0
+c UNSAT
+c Result: UNSAT, logo posso garantir a vericidade desta afirmação.

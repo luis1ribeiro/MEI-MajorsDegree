@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+clock transiction_time; /* O transiction_time conta o tempo todo durante a mudandaça de sinal e o quanto tempo está verde uma transição. */
+
+/* A Major Road tem 2 semáforos e um sensor associado a cada. */
+const int N = 2;
+typedef int[0,N-1] id_major;
+typedef int[0,N+1] grau;
+
+/* Nível de tráfego associado a cada semáforo/road. */
+int lvl_minor=-1; /* 0-no, 1-low, 2-high */
+int lvl_major=-1; /* 0-no, 1-low, 2-high */
+int max_major = -1; int last_id=-1; /* Variáveis de controlo para calcular qual dos semáforos da major leu mais tráfego. */
+int flipCounter = 0; // Conta o número de vezes que os sinais trocaram
+
+chan major[N]; /* Sensor indica ao semáforo da major que pode começar a ficar verde e deve avisar o outro semáforo. */
+urgent chan trigger_major; /* A majorRoad começa a ficar verde. */
+urgent broadcast chan trigger_minor; /* A minorRoad começa a ficar verde. */
+broadcast chan finish_major; /* A majorRoad fica com os semáforos vermelhos. */
+chan goOutra; /* Executa a outra major, quando sinalizou tráfego abaixo do outro semáforo. */
+broadcast chan read; /* Sincronizador de Sinais indica aos sensores que está na altura de ler. */
+/* Booleano que determina qual a última road que esteve verde. Também serve de restrição à leitura de valores do sensor. Se estiver vermelho, o tráfego só pode aumentar. */
+bool majorGreen = true; bool minorGreen = false;
+
+/* channels para ler o grau lido por cada road. */
+broadcast chan readMajor[id_major][grau];
+broadcast chan readMinor[grau];
+
+/* Channels de sincronização entre as majorLights. */
+chan yellow_major;
+chan green_major;
+
+/* Primeira Fase */
+bool changed, waitForMajor; /* bools de controlo sincronização majorRoad - minorRoad */
+broadcast chan flip; /* channels da primeira fase */
+broadcast chan warn_change_major; /* channel para avisar que a majorRoad quer trocar de sinal */
+broadcast chan warn_change_minor; /* channel para avisar que a minorRoad quer trocar de sinal */
+broadcast chan finish; /* channels da primeira fase */</declaration>
+	<template>
+		<name>MajorLight</name>
+		<parameter>const id_major id</parameter>
+		<declaration>clock t;
+bool first = true;
+
+void reset_clock(grau g) {
+    if (first == true &amp;&amp; g&gt;=1) {
+        t = 0;
+        first = false;
+    }
+    if (g == 0) {
+        t = 0;
+    }
+}</declaration>
+		<location id="id0" x="-705" y="-645" color="#00ff00">
+			<name x="-764" y="-670">green</name>
+		</location>
+		<location id="id1" x="-204" y="-459" color="#ff0000">
+			<name x="-238" y="-493">red</name>
+		</location>
+		<location id="id2" x="-1002" y="-467" color="#ffff00">
+			<name x="-1028" y="-501">yellow</name>
+			<label kind="invariant" x="-1027" y="-450">t &lt;= 5</label>
+		</location>
+		<location id="id3" x="-705" y="-467">
+			<name x="-696" y="-501">changing</name>
+			<label kind="invariant" x="-688" y="-518">t &lt;= 1</label>
+		</location>
+		<location id="id4" x="-331" y="-731">
+			<name x="-365" y="-766">red_to_green</name>
+			<label kind="invariant" x="-323" y="-714">t &lt;= 1</label>
+		</location>
+		<location id="id5" x="-518" y="-731">
+			<name x="-594" y="-765">red_to_green_C</name>
+			<committed/>
+		</location>
+		<location id="id6" x="-442" y="-348">
+			<name x="-485" y="-322">rightBeforeRed</name>
+			<committed/>
+		</location>
+		<location id="id7" x="-42" y="-459">
+			<name x="-42" y="-442">go_Green</name>
+			<committed/>
+		</location>
+		<location id="id8" x="-42" y="-620">
+			<name x="-16" y="-611">warn_other</name>
+			<committed/>
+		</location>
+		<location id="id9" x="-42" y="-731">
+			<name x="-25" y="-757">wait_for_minor</name>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id1"/>
+			<label kind="select" x="-178" y="-391">i: id_major, g: grau</label>
+			<label kind="synchronisation" x="-170" y="-408">readMajor[i][g]?</label>
+			<label kind="assignment" x="-170" y="-425">reset_clock(g)</label>
+			<label kind="comments" x="-204" y="-365">reset clock if sensor captures traffic</label>
+			<nail x="-195" y="-416"/>
+			<nail x="-161" y="-433"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-484" y="-824">t == 1 &amp;&amp; id != 0</label>
+			<label kind="synchronisation" x="-474" y="-807">green_major?</label>
+			<nail x="-348" y="-790"/>
+			<nail x="-492" y="-790"/>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-416" y="-484">id != 0</label>
+			<label kind="synchronisation" x="-433" y="-467">finish_major?</label>
+			<label kind="assignment" x="-416" y="-450">t = 0</label>
+			<nail x="-424" y="-408"/>
+			<nail x="-280" y="-476"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-586" y="-493">id != 0</label>
+			<label kind="synchronisation" x="-578" y="-476">flip?</label>
+			<nail x="-620" y="-484"/>
+			<nail x="-475" y="-416"/>
+			<nail x="-450" y="-365"/>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-892" y="-399">id != 0</label>
+			<label kind="synchronisation" x="-917" y="-374">warn_change_major?</label>
+			<label kind="assignment" x="-841" y="-399">t = 0</label>
+			<nail x="-934" y="-382"/>
+			<nail x="-781" y="-382"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-875" y="-544">id != 0</label>
+			<label kind="synchronisation" x="-935" y="-527">yellow_major?</label>
+			<label kind="assignment" x="-841" y="-527">t = 0</label>
+			<nail x="-764" y="-510"/>
+			<nail x="-943" y="-510"/>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-237" y="-620">last_id != id</label>
+			<label kind="synchronisation" x="-237" y="-603">goOutra?</label>
+			<label kind="assignment" x="-238" y="-586">last_id = -1</label>
+			<nail x="-203" y="-476"/>
+			<nail x="-204" y="-654"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<label kind="synchronisation" x="-68" y="-679">trigger_major!</label>
+			<label kind="assignment" x="-59" y="-662">last_id = -1</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-68" y="-569">last_id==id</label>
+			<label kind="synchronisation" x="-59" y="-552">goOutra!</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id7"/>
+			<label kind="synchronisation" x="-153" y="-484">major[id]?</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id6"/>
+			<label kind="guard" x="-680" y="-374">changed &amp;&amp; t == 1 &amp;&amp; id == 0</label>
+			<label kind="synchronisation" x="-603" y="-357">flip!</label>
+			<label kind="assignment" x="-637" y="-340">changed=false</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-340" y="-348">id == 0</label>
+			<label kind="synchronisation" x="-365" y="-382">finish_major!</label>
+			<label kind="assignment" x="-391" y="-365">majorGreen=false, t=0</label>
+		</transition>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-688" y="-739">finish?</label>
+			<label kind="assignment" x="-790" y="-722">waitForMajor = false, majorGreen = true</label>
+			<nail x="-628" y="-730"/>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-475" y="-722">t == 1 &amp;&amp; id == 0</label>
+			<label kind="synchronisation" x="-467" y="-688">green_major!</label>
+			<label kind="assignment" x="-484" y="-705">waitForMajor = true</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="-254" y="-756">warn_change_minor?</label>
+			<label kind="assignment" x="-246" y="-722">t=0, first =true</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="synchronisation" x="-756" y="-586">trigger_minor?</label>
+			<label kind="assignment" x="-781" y="-569">t = 0, changed = false</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-909" y="-332">t == 5 &amp;&amp; id == 0</label>
+			<label kind="synchronisation" x="-926" y="-315">warn_change_major!</label>
+			<label kind="assignment" x="-875" y="-298">t = 0</label>
+			<nail x="-1002" y="-340"/>
+			<nail x="-705" y="-340"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-943" y="-459">!changed &amp;&amp; t == 1 &amp;&amp; id == 0</label>
+			<label kind="synchronisation" x="-900" y="-484">yellow_major!</label>
+			<label kind="assignment" x="-926" y="-442">changed = true, t = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>MinorLight</name>
+		<declaration>clock t;
+bool first = true;
+
+void reset_clock(grau g) {
+    if (first == true &amp;&amp; g&gt;=1) {
+        t = 0;
+        first = false;
+    }
+    if (g == 0) {
+        t = 0;
+    }
+}</declaration>
+		<location id="id10" x="-425" y="-391" color="#00ff00">
+			<name x="-442" y="-425">green</name>
+		</location>
+		<location id="id11" x="144" y="-391" color="#ff0000">
+			<name x="119" y="-425">red</name>
+		</location>
+		<location id="id12" x="-425" y="-195">
+			<name x="-416" y="-221">changing</name>
+			<label kind="invariant" x="-408" y="-187">t &lt;= 1</label>
+		</location>
+		<location id="id13" x="-654" y="-195" color="#ffff00">
+			<name x="-671" y="-229">yellow</name>
+			<label kind="invariant" x="-713" y="-195">t &lt;= 5</label>
+		</location>
+		<location id="id14" x="-85" y="-391">
+			<name x="-119" y="-425">red_to_green</name>
+			<label kind="invariant" x="-102" y="-374">t &lt;= 1</label>
+		</location>
+		<location id="id15" x="-272" y="-535">
+			<name x="-323" y="-569">red_to_green_C</name>
+			<committed/>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="187" y="-365">trigger_minor?</label>
+			<label kind="assignment" x="204" y="-348">t = 0</label>
+			<label kind="comments" x="161" y="-323">reset clock if going green</label>
+			<nail x="161" y="-348"/>
+			<nail x="187" y="-374"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id11"/>
+			<label kind="select" x="212" y="-442">g : grau</label>
+			<label kind="synchronisation" x="195" y="-425">readMinor[g]?</label>
+			<label kind="assignment" x="195" y="-408">reset_clock(g)</label>
+			<label kind="comments" x="144" y="-467">reset clock if sensor captures traffic</label>
+			<nail x="187" y="-391"/>
+			<nail x="170" y="-425"/>
+		</transition>
+		<transition>
+			<source ref="id15"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-382" y="-484">finish_major?</label>
+			<label kind="assignment" x="-407" y="-463">minorGreen = true</label>
+		</transition>
+		<transition>
+			<source ref="id14"/>
+			<target ref="id15"/>
+			<label kind="synchronisation" x="-153" y="-484">flip?</label>
+			<label kind="assignment" x="-153" y="-467">t = 0</label>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="guard" x="-178" y="-212">changed &amp;&amp; t == 1 &amp;&amp; waitForMajor</label>
+			<label kind="synchronisation" x="-119" y="-187">finish!</label>
+			<label kind="assignment" x="-212" y="-170">t = 0, minorGreen=false, first = true</label>
+			<nail x="144" y="-195"/>
+		</transition>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-543" y="-331">trigger_major?</label>
+			<label kind="assignment" x="-518" y="-314">t = 0</label>
+		</transition>
+		<transition>
+			<source ref="id13"/>
+			<target ref="id12"/>
+			<label kind="guard" x="-569" y="-119">t == 5</label>
+			<label kind="synchronisation" x="-612" y="-102">warn_change_minor!</label>
+			<label kind="assignment" x="-569" y="-76">t = 0</label>
+			<nail x="-654" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+			<nail x="-425" y="-85"/>
+		</transition>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id13"/>
+			<label kind="guard" x="-578" y="-212">!changed &amp;&amp; t == 1</label>
+			<label kind="assignment" x="-578" y="-187">changed = true, t = 0</label>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id14"/>
+			<label kind="synchronisation" x="-25" y="-382">warn_change_major?</label>
+			<label kind="assignment" x="17" y="-408">t = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>SensorMajor</name>
+		<parameter>const id_major id</parameter>
+		<declaration>/* Este canRead serve para restringir os valores lidos pela road em questão. Se tiver em vermelho só pode ler valores acima ou iguais ao lido anteriormente. */
+bool canReadM(int lvl)
+{
+    return (!majorGreen)?(lvl_major&lt;=lvl):true;
+}
+
+/* Como temos 2 sensores para a majorRoad devemos calcular qual das 2 tem o maior tráfego, e descartar o valor lido pelo o outro. */
+void calcula_major (int id, int l) {
+    if (id == 1){
+        if (max_major &lt; l) {
+            max_major = l;
+            last_id = id;
+        }
+    }
+    else {
+        if (max_major &lt; l) {
+            max_major = l;
+            last_id = id;
+        }
+    }
+}</declaration>
+		<location id="id16" x="-6179" y="-5159">
+			<name x="-6154" y="-5159">readed</name>
+		</location>
+		<location id="id17" x="-6426" y="-4938">
+			<name x="-6417" y="-4921">reading</name>
+		</location>
+		<init ref="id17"/>
+		<transition>
+			<source ref="id16"/>
+			<target ref="id17"/>
+			<label kind="synchronisation" x="-6341" y="-5269">read?</label>
+			<nail x="-6179" y="-5252"/>
+			<nail x="-6502" y="-5252"/>
+			<nail x="-6502" y="-4938"/>
+			<nail x="-6443" y="-4938"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-6350" y="-5176">canReadM(2)</label>
+			<label kind="synchronisation" x="-6358" y="-5193">readMajor[id][2]!</label>
+			<label kind="assignment" x="-6367" y="-5150">calcula_major(id,2)</label>
+			<nail x="-6426" y="-5159"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-6315" y="-4955">canReadM(0)</label>
+			<label kind="synchronisation" x="-6324" y="-4972">readMajor[id][0]!</label>
+			<label kind="assignment" x="-6333" y="-4938">calcula_major(id,0)</label>
+			<nail x="-6179" y="-4938"/>
+		</transition>
+		<transition>
+			<source ref="id17"/>
+			<target ref="id16"/>
+			<label kind="guard" x="-6350" y="-5057">canReadM(1)</label>
+			<label kind="synchronisation" x="-6350" y="-5074">readMajor[id][1]!</label>
+			<label kind="assignment" x="-6367" y="-5040">calcula_major(id,1)</label>
+		</transition>
+	</template>
+	<template>
+		<name>SensorMinor</name>
+		<declaration>/* Este canRead serve para restringir os valores lidos pela road em questão. Se tiver em vermelho só pode ler valores acima ou iguais ao lido anteriormente. */
+bool canReadm(int lvl)
+{
+    return (!minorGreen)?(lvl_minor&lt;=lvl):true;
+}</declaration>
+		<location id="id18" x="-36796" y="-37604">
+			<name x="-36771" y="-37604">readed</name>
+		</location>
+		<location id="id19" x="-37043" y="-37383">
+			<name x="-37034" y="-37366">reading</name>
+		</location>
+		<init ref="id19"/>
+		<transition>
+			<source ref="id18"/>
+			<target ref="id19"/>
+			<label kind="synchronisation" x="-36958" y="-37714">read?</label>
+			<nail x="-36796" y="-37697"/>
+			<nail x="-37119" y="-37697"/>
+			<nail x="-37119" y="-37383"/>
+			<nail x="-37060" y="-37383"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-36966" y="-37621">canReadm(2)</label>
+			<label kind="synchronisation" x="-36966" y="-37595">readMinor[2]!</label>
+			<nail x="-37043" y="-37604"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-36932" y="-37400">canReadm(0)</label>
+			<label kind="synchronisation" x="-36932" y="-37417">readMinor[0]!</label>
+			<nail x="-36796" y="-37383"/>
+		</transition>
+		<transition>
+			<source ref="id19"/>
+			<target ref="id18"/>
+			<label kind="guard" x="-36966" y="-37493">canReadm(1)</label>
+			<label kind="synchronisation" x="-36966" y="-37510">readMinor[1]!</label>
+		</transition>
+	</template>
+	<template>
+		<name>SynchronizeS</name>
+		<declaration>clock z; /* O clock z vai ser de controlo - quanto tempo vai estar verde numa das roads. */
+
+bool r_minor=false; /* True se o sensor da minor foi lido. */
+int count=0; /* Variável de controlo para saber que todos os sensores da major foram lidos. */
+int l_minor = -1; /* Nível de tráfego lido pela minor. Este valor será atribuído à var global lvl_minor. */
+bool can_leave = false; /* Variável de controlo de prioridade a uma road que esteja à espera em 'low' (com carros mas com menos tráfego que a outra). */
+bool gave_priority = false; /* Variável de controlo para saber se a prioridade acima referida foi concebida. */
+int c_road = 0; /* Outra variável de controlo para a questão acima referida. */
+
+/* Reset de variáveis ao fim da leitura de sincronização dos sensores. */
+void reset_vars() {
+    r_minor = false;
+    l_minor = -1;
+    count = 0;
+    max_major = -1;
+    z = 0;
+}
+
+/* Os semáforos não mudam. */
+bool nao_muda() {
+    return (lvl_minor &gt; lvl_major &amp;&amp; minorGreen &amp;&amp; !can_leave) || (lvl_major&gt;lvl_minor &amp;&amp; majorGreen &amp;&amp; !can_leave) || (majorGreen &amp;&amp; lvl_minor == 0) || (minorGreen &amp;&amp; lvl_major == 0);
+}
+
+/* Major Road vai ficar verde */
+bool go_major() {
+    /* Pode ficar verde caso o nível de tráfego lido na major for maior que na minor e o sinal na majorRoad esteja a vermelho. */
+    /* ou */
+    /* Caso a majorRoad tenha carros mas o tráfego é inferior à da minor, mas a minor concebeu prioridade à major para libertar os carros. */
+    return (lvl_major&gt;=lvl_minor &amp;&amp; !majorGreen &amp;&amp; lvl_major &gt;= 1) || (lvl_major &gt;=1 &amp;&amp; can_leave &amp;&amp; !majorGreen);
+}
+/* Minor Road vai ficar verde */
+bool go_minor() {
+    /* Pode ficar verde caso o nível de tráfego lido na minor for maior que na major e o sinal na minorRoad esteja a vermelho. */
+    /* ou */
+    /* A última road a estar foi a major mas dou prioridade à minor por ter o mesmo tráfego lido. */
+    /* ou */
+    /* Caso a minorRoad tenha carros mas o tráfego é inferior à da major, mas a major concebeu prioridade à minor para libertar os carros. */
+    return (lvl_minor &gt; lvl_major &amp;&amp; !minorGreen) || (lvl_minor == lvl_major &amp;&amp; majorGreen &amp;&amp; lvl_minor &gt;= 1) || (lvl_minor &gt;= 1 &amp;&amp; can_leave &amp;&amp; !minorGreen);
+}
+
+/* Incrementa c_road e testar se posso dar prioridade. */
+void priority_go () {
+    /* Se a majorRoad foi a última road a estar a verde */
+    if (majorGreen==true) {
+        /* Verifico se há tráfego na minor e se o contador está a 1, se estiver então digo que na próxima leitura deve dar prioridade à minor. */
+        if (lvl_minor &gt; 0 &amp;&amp; c_road == 1) {
+            can_leave = true;
+        }
+        if (lvl_minor &gt; 0 &amp;&amp; c_road != 1) {
+            c_road = c_road + 1; /* incremento o contador caso haja tráfego na minor. */
+        }          
+    }
+    /* Se a minorRoad foi a última road a estar a verde */
+    else {
+        /* Verifico se há tráfego na major e se o contador está a 1, se estiver então digo que na próxima leitura deve dar prioridade à major. */
+        if (lvl_major &gt; 0 &amp;&amp; c_road == 1) {
+            can_leave = true;
+        }
+        if (lvl_major &gt; 0 &amp;&amp; c_road != 1) {
+            c_road = c_road + 1; /* incremento o contador caso haja tráfego na major. */
+        }
+    }
+}
+
+/* Dá reset à priority caso alguma road execute com prioridade após 2 voltas à espera em low. */
+void reset_priority () {
+    if (lvl_major &gt;=1 &amp;&amp; can_leave &amp;&amp; !majorGreen) {
+        can_leave=false;
+        if (lvl_major &lt; lvl_minor) {
+            gave_priority=true;
+        }
+    }
+    if (lvl_minor &gt;= 1 &amp;&amp; can_leave &amp;&amp; !minorGreen) {
+        can_leave=false;
+        if (lvl_minor &lt; lvl_major) {
+            gave_priority=true;
+        }
+    }
+}
+
+/* Incrementa o contador de trocas de sinal. */
+void incCounter(){
+    flipCounter = (flipCounter &gt; 10) ? 1 : (flipCounter + 1);
+}
+
+/* Reset values after switching lights. */
+void finish_done () {
+   c_road = 0;
+}
+
+/* Reset values after read. */
+void after_read() {
+    if (gave_priority == true) {
+        gave_priority = false;
+    }
+    lvl_major=max_major; 
+    lvl_minor=l_minor; 
+    transiction_time = 0;
+}</declaration>
+		<location id="id20" x="-450" y="102" color="#ffa500">
+			<name x="-476" y="68">finished</name>
+			<committed/>
+		</location>
+		<location id="id21" x="25" y="-68" color="#ffff00">
+			<name x="51" y="-68">reading</name>
+			<committed/>
+		</location>
+		<location id="id22" x="-238" y="25">
+			<name x="-263" y="42">wait</name>
+			<label kind="invariant" x="-272" y="59">z&lt;=20</label>
+		</location>
+		<location id="id23" x="34" y="221" color="#00ff00">
+			<name x="59" y="212">readed</name>
+			<committed/>
+		</location>
+		<location id="id24" x="306" y="399">
+			<name x="323" y="408">disabled_minor</name>
+			<committed/>
+		</location>
+		<location id="id25" x="-85" y="399">
+			<name x="-76" y="416">disabled_major</name>
+			<committed/>
+		</location>
+		<location id="id26" x="-365" y="399">
+			<name x="-408" y="416">a_terminar_major</name>
+		</location>
+		<location id="id27" x="-450" y="544">
+			<name x="-442" y="561">a_terminar_minor</name>
+		</location>
+		<location id="id28" x="-280" y="-68">
+			<name x="-365" y="-93">wait_more</name>
+			<label kind="invariant" x="-348" y="-76">z&lt;=30</label>
+		</location>
+		<init ref="id21"/>
+		<transition>
+			<source ref="id28"/>
+			<target ref="id21"/>
+			<label kind="guard" x="-195" y="-85">z == 30</label>
+			<label kind="synchronisation" x="-136" y="-85">read!</label>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id28"/>
+			<label kind="guard" x="-340" y="-25">z==20 &amp;&amp; !gave_priority</label>
+		</transition>
+		<transition>
+			<source ref="id26"/>
+			<target ref="id20"/>
+			<label kind="synchronisation" x="-450" y="289">finish?</label>
+			<label kind="assignment" x="-476" y="306">finish_done()</label>
+			<nail x="-450" y="399"/>
+		</transition>
+		<transition>
+			<source ref="id27"/>
+			<target ref="id20"/>
+			<label kind="synchronisation" x="-578" y="408">finish_major?</label>
+			<label kind="assignment" x="-578" y="425">finish_done()</label>
+			<nail x="-535" y="544"/>
+			<nail x="-535" y="102"/>
+		</transition>
+		<transition>
+			<source ref="id25"/>
+			<target ref="id26"/>
+			<label kind="synchronisation" x="-255" y="374">major[last_id]!</label>
+		</transition>
+		<transition>
+			<source ref="id24"/>
+			<target ref="id27"/>
+			<label kind="synchronisation" x="76" y="527">trigger_minor!</label>
+			<nail x="306" y="544"/>
+		</transition>
+		<transition>
+			<source ref="id23"/>
+			<target ref="id25"/>
+			<label kind="guard" x="-102" y="297">go_major()</label>
+			<label kind="assignment" x="-102" y="314">reset_priority(),incCounter()</label>
+		</transition>
+		<transition>
+			<source ref="id23"/>
+			<target ref="id24"/>
+			<label kind="guard" x="263" y="331">go_minor()</label>
+			<label kind="assignment" x="263" y="348">reset_priority(), last_id=-1,incCounter()</label>
+		</transition>
+		<transition>
+			<source ref="id22"/>
+			<target ref="id21"/>
+			<label kind="guard" x="-136" y="-8">z==20 &amp;&amp; gave_priority</label>
+			<label kind="synchronisation" x="-76" y="-25">read!</label>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id21"/>
+			<label kind="select" x="-119" y="-153">g:grau</label>
+			<label kind="synchronisation" x="-68" y="-153">readMinor[g]?</label>
+			<label kind="assignment" x="-136" y="-136">r_minor=true, l_minor=g</label>
+			<nail x="-25" y="-85"/>
+			<nail x="0" y="-119"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id21"/>
+			<label kind="select" x="68" y="-136">m: id_major, g: grau</label>
+			<label kind="synchronisation" x="76" y="-119">readMajor[m][g]?</label>
+			<label kind="assignment" x="76" y="-102">count = count +1</label>
+			<nail x="76" y="-85"/>
+			<nail x="51" y="-119"/>
+		</transition>
+		<transition>
+			<source ref="id21"/>
+			<target ref="id23"/>
+			<label kind="guard" x="76" y="85">r_minor &amp;&amp; count == N</label>
+			<label kind="assignment" x="110" y="68">after_read()</label>
+			<label kind="comments" x="76" y="42">Both major and minor readed.</label>
+			<nail x="68" y="-42"/>
+			<nail x="68" y="178"/>
+		</transition>
+		<transition>
+			<source ref="id20"/>
+			<target ref="id22"/>
+			<label kind="assignment" x="-399" y="34">reset_vars()</label>
+			<nail x="-442" y="102"/>
+		</transition>
+		<transition>
+			<source ref="id23"/>
+			<target ref="id20"/>
+			<label kind="guard" x="-280" y="178">nao_muda()</label>
+			<label kind="assignment" x="-323" y="195">last_id=-1, priority_go()</label>
+			<nail x="-365" y="221"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system SensorMinor , MinorLight, SensorMajor, MajorLight, SynchronizeS;</system>
+	<queries>
+		<query>
+			<formula>A[] (SynchronizeS.gave_priority &amp;&amp; SynchronizeS.reading) imply transiction_time == 27</formula>
+			<comment>If one of the roads gets permission to release traffic, the transiction time is always 27 units of time.</comment>
+		</query>
+		<query>
+			<formula>A[] transiction_time &lt;= 37 </formula>
+			<comment>The time passed between two traffic reads is 37 units of time at most. (7s if roads change lights plus 30s of being green before reading again)</comment>
+		</query>
+		<query>
+			<formula>A[] lvl_minor &gt; 0 &amp;&amp; MinorLight.red imply MinorLight.t &lt;= 60</formula>
+			<comment>If a road has traffic, the waiting time before turning green is less than 60s.</comment>
+		</query>
+		<query>
+			<formula>A[] forall (id:id_major) lvl_major &gt; 0 &amp;&amp; MajorLight(id).red imply MajorLight(id).t &lt;= 60</formula>
+			<comment>If a road has traffic, the waiting time before turning green is less than 60s.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MinorLight.changing and MinorLight.t &gt; 1) and !(MinorLight.red_to_green and MinorLight.t &gt; 1)</formula>
+			<comment>There exists 1s delay between switching one light off and the other on. (MinorRoad)</comment>
+		</query>
+		<query>
+			<formula>A[] forall (x:id_major) !(MajorLight(x).changing and MajorLight(x).t &gt; 1) and !(MajorLight(x).red_to_green and MajorLight(x).t &gt; 1)</formula>
+			<comment>There exists 1s delay between switching one light off and the other on. (MajorRoad)</comment>
+		</query>
+		<query>
+			<formula>lvl_minor == lvl_major &amp;&amp; SynchronizeS.readed &amp;&amp; lvl_minor &gt; 0 &amp;&amp; majorGreen --&gt; lvl_minor == lvl_major &amp;&amp; lvl_minor &gt; 0 &amp;&amp; !majorGreen</formula>
+			<comment>If both roads have the same traffic level, then the traffic lights alternate constantly.</comment>
+		</query>
+		<query>
+			<formula>lvl_minor == 2 &amp;&amp; lvl_major == 0 &amp;&amp; flipCounter &lt;= 1 --&gt; lvl_minor == 2 &amp;&amp; lvl_major == 0 &amp;&amp; flipCounter &lt;=1</formula>
+			<comment>If the MinorRoad sensor is always detecting high traffic and the other sensors do not detect any traffic, then we observe a maximum of 1 signal exchange.</comment>
+		</query>
+		<query>
+			<formula>MinorLight.red &amp;&amp; lvl_minor == 2 --&gt; lvl_minor &gt;= 2</formula>
+			<comment>Traffic always remains the same or gets higher after a red light changes. (Traffic cant go lower if light is red) </comment>
+		</query>
+		<query>
+			<formula>MinorLight.red &amp;&amp; lvl_minor == 1 --&gt; lvl_minor &gt;= 1</formula>
+			<comment>Traffic always remains the same or gets higher after a red light changes. (Traffic cant go lower if light is red) </comment>
+		</query>
+		<query>
+			<formula>forall (id:id_major) MajorLight(id).red &amp;&amp; lvl_major == 2 --&gt; lvl_major &gt;= 2</formula>
+			<comment>Traffic always remains the same or gets higher after a red light changes. (Traffic cant go lower if light is red) </comment>
+		</query>
+		<query>
+			<formula>forall (id:id_major) MajorLight(id).red &amp;&amp; lvl_major == 1 --&gt; lvl_major &gt;= 1</formula>
+			<comment>Traffic always remains the same or gets higher after a red light changes. (Traffic cant go lower if light is red) </comment>
+		</query>
+		<query>
+			<formula>MinorLight.red &amp;&amp; lvl_minor &lt; lvl_major &amp;&amp; lvl_minor &gt; 0 --&gt; MinorLight.green</formula>
+			<comment>MinorRoad will be green if it has at least low traffic, even though traffic in majorRoad is higher than traffic in minorRoad.</comment>
+		</query>
+		<query>
+			<formula>MajorLight(0).red &amp;&amp; MajorLight(1).red &amp;&amp; lvl_major &lt; lvl_minor &amp;&amp; lvl_major &gt; 0 --&gt; MajorLight(0).green &amp;&amp; MajorLight(1).green</formula>
+			<comment>MajorRoad will be green if it has at least low traffic, even though traffic in minorRoad is higher than traffic in majorRoad.</comment>
+		</query>
+		<query>
+			<formula>A[] (MajorLight(0).green imply MajorLight(1).green) &amp;&amp; (MajorLight(1).green imply MajorLight(0).green)</formula>
+			<comment>Both traffic lights in the major are synchronized. (Both at green at the same time.)</comment>
+		</query>
+		<query>
+			<formula>MajorLight(1).red &amp;&amp; lvl_major &gt; 0 --&gt; MajorLight(1).green</formula>
+			<comment>Eventually a waiting car will get a green light. (major)</comment>
+		</query>
+		<query>
+			<formula>MajorLight(0).red &amp;&amp; lvl_major &gt; 0 --&gt; MajorLight(0).green</formula>
+			<comment>Eventually a waiting car will get a green light. (major)</comment>
+		</query>
+		<query>
+			<formula>MinorLight.red &amp;&amp; lvl_minor &gt; 0 --&gt; MinorLight.green</formula>
+			<comment>Eventually a waiting car will get a green light. (minor)</comment>
+		</query>
+		<query>
+			<formula>A[] forall (id:id_major) !(MajorLight(id).green and MinorLight.green)</formula>
+			<comment>Minor-road and major-road lights are never green at the same time.</comment>
+		</query>
+		<query>
+			<formula>A[] !deadlock</formula>
+			<comment>No deadlocks</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; forall (id:id_major) MajorLight(id).red</formula>
+			<comment>Major-road light can go red. (Both Traffic Lights)</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; MinorLight.green</formula>
+			<comment>Minor-road light can go green.</comment>
+		</query>
+	</queries>
+</nta>

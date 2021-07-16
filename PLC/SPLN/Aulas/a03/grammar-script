@@ -1,0 +1,85 @@
+#!/usr/bin/python3
+
+from jjcli import *
+from random import choice
+
+'''
+s: fn fv fn
+ | fn fv
+ ;
+
+fn: 'O' n
+  | 'O' np
+  | 'Ele'
+  ;
+
+n   : 'gato'
+    | 'crocodilo'
+    ;
+
+np  : 'Diogo'
+    | 'Mariolas'
+    ;
+
+fv: 'caçou'
+  | 'viu'
+  ;
+
+Exemplo: 'O gato caçou O Diogo'
+'''
+# Since Python will ignore string literals that are not assigned to a variable,
+# you can add a multiline string (triple quotes) in your code, and place your comment inside it.
+
+g = {
+    's':  [
+            ['fn','fv','fn'],
+            ['fn', 'fv'],
+          ],
+    'fn': [
+            ['o','n'],
+            ['o', 'np'],
+            ['ele']
+          ],
+    'np': [
+            ['Diogo'],
+            ['Mariolas']
+          ],
+    'n':  [
+            ['gato'],
+            ['crocodilo']
+          ],
+    'fv': [
+            ['caçou'],
+            ['viu']
+          ]
+  }
+
+def gera(gra: dict, simb: str) -> str :
+  if simb not in gra:
+    return (simb + ' ')
+
+  rhss = gra[simb]
+
+  # Random do rhs da produção lhs simb
+  rhs = choice(rhss)
+
+  ret = ''
+
+  for si in rhs:
+    ret += gera(gra,si)
+
+  return ret
+
+
+def gerav2(gra: dict, simb: str) -> str :
+  if simb not in gra:
+    return simb
+
+  # Lista em compreensão
+  return str.join(' ', [gerav2(gra, si) for si in choice(gra[simb])])
+
+
+
+##########
+print(gera(g,'s'))
+print(gerav2(g,'s'))

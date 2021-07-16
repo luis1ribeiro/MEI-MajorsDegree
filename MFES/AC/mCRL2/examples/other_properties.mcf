@@ -1,0 +1,13 @@
+/* General safety: All reachable states verify φ. */
+SAFETY: [−∗] φ
+- It is impossible to do two consecutive enter actions without a leave action in between
+  → [−∗.enter.−leave∗.enter]false
+- Absence of a deadlock
+  → [−∗]〈− 〉true
+
+/* General liveness: There is a reachable states which verifies φ. */
+LIVENESS: 〈−∗ 〉φ
+- After sending a message, it can eventually be received
+  → [send]〈−∗.receive 〉true
+- After a send a receive is possible as long as an exception does not happen
+  → [send.−excp∗]〈−∗.receive 〉true

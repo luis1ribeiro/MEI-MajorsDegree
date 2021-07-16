@@ -1,0 +1,34 @@
+.
+  Arquivo multi diretoria e tratamento de metadados.
+  Tratamento de dados e posteriormente transformar essa informação processada.
+
+  - $ vidir --> Posso aplicar depois as funcionalidades do vim para alterar as pastas. (Por exemplo o %s)
+
+.
+  ^M: The ^M is a carriage-return character.
+      If you see this, you're probably looking at a file that originated in the DOS/Windows world,
+      where an end-of-line is marked by a carriage return/newline pair, whereas in the Unix world,
+      end-of-line is marked by a single newline.
+
+  BOM: The byte order mark (BOM) is a particular usage of the special Unicode character, U+FEFF BYTE ORDER MARK, whose appearance as a magic number at the start of a text stream
+       can signal several things to a program reading the text.
+
+  $ ncm file -> script jj em perl para normalizar os ficheiros (tirar o BOM, retirar ^M \r ...)
+
+  jjcli warn imprime para o std error invés do std out
+.
+  Formato Carta
+    ---
+    metadados yaml (tag: def)
+    ---
+    markdown transcrição
+
+  1) Indice - { C001: Manuel -> Eurico ...
+  2) Estatísticas - nmr de cartas associadas a um indivíduo
+  3) Criação de uma ontologia
+  4) Página para cada pessoa
+
+.
+  Erro de sintaxe do yaml (tag:def sem espaço entre o def e ':')
+    - $ grep -Pr '\w+:\w' Colections/Arquivo
+    - map do vim: atribuir macros

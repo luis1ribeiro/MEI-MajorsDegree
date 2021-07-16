@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_2.dtd'>
+<nta>
+	<declaration>// Place global declarations here.
+bool changed, waitForMajor, dis, lap, triggered;
+chan flip, trigger, extra, change;
+broadcast chan finish;</declaration>
+	<template>
+		<name x="5" y="5">MajorRoad</name>
+		<declaration>// Place local declarations here.
+clock x;</declaration>
+		<location id="id0" x="-442" y="-280" color="#00ff00">
+			<name x="-452" y="-314">green</name>
+		</location>
+		<location id="id1" x="-17" y="-102" color="#ff0000">
+			<name x="-27" y="-136">red</name>
+		</location>
+		<location id="id2" x="-671" y="-102" color="#ffff00">
+			<name x="-681" y="-136">yellow</name>
+			<label kind="invariant" x="-681" y="-85">x &lt;= 5</label>
+		</location>
+		<location id="id3" x="-442" y="-102">
+			<name x="-476" y="-136">changing</name>
+			<label kind="invariant" x="-452" y="-85">x &lt;= 1</label>
+		</location>
+		<location id="id4" x="-17" y="-280">
+			<name x="-68" y="-314">red_to_green</name>
+			<label kind="invariant" x="0" y="-272">x &lt;= 1</label>
+		</location>
+		<location id="id5" x="-195" y="-280">
+			<name x="-246" y="-314">red_to_green_C</name>
+			<committed/>
+		</location>
+		<init ref="id0"/>
+		<transition>
+			<source ref="id5"/>
+			<target ref="id0"/>
+			<label kind="synchronisation" x="-373" y="-280">finish?</label>
+			<label kind="assignment" x="-399" y="-297">x = 0, waitForMajor = false</label>
+		</transition>
+		<transition>
+			<source ref="id4"/>
+			<target ref="id5"/>
+			<label kind="guard" x="-144" y="-297">x == 1</label>
+			<label kind="assignment" x="-153" y="-272">waitForMajor = true</label>
+		</transition>
+		<transition>
+			<source ref="id1"/>
+			<target ref="id4"/>
+			<label kind="synchronisation" x="17" y="-187">change?</label>
+			<label kind="assignment" x="17" y="-170">x = 0</label>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id1"/>
+			<label kind="guard" x="-306" y="-93">changed &amp;&amp; x == 1</label>
+			<label kind="synchronisation" x="-263" y="-119">flip!</label>
+			<label kind="assignment" x="-314" y="-76">x = 0, changed = false</label>
+		</transition>
+		<transition>
+			<source ref="id0"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-467" y="-204">x &gt;= 30</label>
+			<label kind="synchronisation" x="-459" y="-221">trigger?</label>
+			<label kind="assignment" x="-493" y="-187">x = 0, changed = false</label>
+		</transition>
+		<transition>
+			<source ref="id2"/>
+			<target ref="id3"/>
+			<label kind="guard" x="-588" y="59">x==5</label>
+			<label kind="synchronisation" x="-595" y="76">change!</label>
+			<label kind="assignment" x="-595" y="93">x = 0</label>
+			<nail x="-671" y="59"/>
+			<nail x="-442" y="59"/>
+		</transition>
+		<transition>
+			<source ref="id3"/>
+			<target ref="id2"/>
+			<label kind="guard" x="-620" y="-127">!changed &amp;&amp; x==1</label>
+			<label kind="assignment" x="-629" y="-102">changed = true, x = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>MinorRoad</name>
+		<declaration>clock y;</declaration>
+		<location id="id6" x="-459" y="-391" color="#00ff00">
+			<name x="-469" y="-425">green</name>
+			<label kind="invariant" x="-469" y="-374">y &lt;= 30</label>
+		</location>
+		<location id="id7" x="-119" y="-255" color="#ff0000">
+			<name x="-129" y="-289">red</name>
+		</location>
+		<location id="id8" x="-459" y="-255">
+			<name x="-485" y="-289">changing</name>
+			<label kind="invariant" x="-469" y="-238">y &lt;= 1</label>
+		</location>
+		<location id="id9" x="-680" y="-255" color="#ffff00">
+			<name x="-688" y="-297">yellow</name>
+			<label kind="invariant" x="-740" y="-263">y &lt;= 5</label>
+		</location>
+		<location id="id10" x="-119" y="-391">
+			<name x="-153" y="-425">red_to_green</name>
+			<label kind="invariant" x="-144" y="-374">y &lt;= 1</label>
+		</location>
+		<init ref="id7"/>
+		<transition>
+			<source ref="id10"/>
+			<target ref="id6"/>
+			<label kind="synchronisation" x="-340" y="-391">flip?</label>
+			<label kind="assignment" x="-348" y="-408">y = 0</label>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id7"/>
+			<label kind="guard" x="-399" y="-246">changed &amp;&amp; y == 1 &amp;&amp; waitForMajor</label>
+			<label kind="synchronisation" x="-323" y="-229">finish!</label>
+			<label kind="assignment" x="-314" y="-212">y = 0</label>
+		</transition>
+		<transition>
+			<source ref="id6"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-467" y="-340">y == 30</label>
+			<label kind="assignment" x="-467" y="-357">y = 0</label>
+		</transition>
+		<transition>
+			<source ref="id9"/>
+			<target ref="id8"/>
+			<label kind="guard" x="-588" y="-144">y==5</label>
+			<label kind="synchronisation" x="-595" y="-127">change!</label>
+			<label kind="assignment" x="-595" y="-110">y = 0</label>
+			<nail x="-680" y="-127"/>
+			<nail x="-459" y="-127"/>
+		</transition>
+		<transition>
+			<source ref="id8"/>
+			<target ref="id9"/>
+			<label kind="guard" x="-637" y="-272">!changed &amp;&amp; y==1</label>
+			<label kind="assignment" x="-646" y="-255">changed = true, y = 0</label>
+		</transition>
+		<transition>
+			<source ref="id7"/>
+			<target ref="id10"/>
+			<label kind="synchronisation" x="-136" y="-331">change?</label>
+			<label kind="assignment" x="-136" y="-348">y = 0</label>
+		</transition>
+	</template>
+	<template>
+		<name>Sensor</name>
+		<declaration>clock z;</declaration>
+		<location id="id11" x="-390" y="-60" color="#ffa500">
+			<name x="-382" y="-93">wait</name>
+		</location>
+		<location id="id12" x="-280" y="-170">
+			<name x="-280" y="-204">disabled</name>
+		</location>
+		<init ref="id11"/>
+		<transition>
+			<source ref="id12"/>
+			<target ref="id11"/>
+			<label kind="synchronisation" x="-272" y="-136">finish?</label>
+			<label kind="assignment" x="-272" y="-119">z = 0, lap=(lap==true?false:true)</label>
+			<nail x="-280" y="-59"/>
+		</transition>
+		<transition>
+			<source ref="id11"/>
+			<target ref="id12"/>
+			<label kind="synchronisation" x="-442" y="-153">trigger!</label>
+			<label kind="assignment" x="-476" y="-136">z=0, triggered = true</label>
+			<nail x="-391" y="-170"/>
+		</transition>
+	</template>
+	<system>// Place template instantiations here.
+
+// List one or more processes to be composed into a system.
+system Sensor,MajorRoad, MinorRoad;</system>
+	<queries>
+		<query>
+			<formula>A[] !(MinorRoad.changing and MinorRoad.y &gt; 1) and !(MinorRoad.red_to_green and MinorRoad.y &gt; 1)</formula>
+			<comment>There exists 1s delay between switching one light off and the other on. (MinorRoad)</comment>
+		</query>
+		<query>
+			<formula>A[] !(MajorRoad.changing and MajorRoad.x &gt; 1) and !(MajorRoad.red_to_green and MajorRoad.x &gt; 1)</formula>
+			<comment>There exists 1s delay between switching one light off and the other on. (MajorRoad)</comment>
+		</query>
+		<query>
+			<formula>A[] MinorRoad.green imply Sensor.disabled</formula>
+			<comment>Finally, as soon as a vehicle is detected by the sensor the latter is disabled until the minor-road lights are on red again.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MajorRoad.red and MajorRoad.x &gt; 37)</formula>
+			<comment>After a suitable time interval (30s), the lights will revert to their default position so that traffic can flow on the major road again.</comment>
+		</query>
+		<query>
+			<formula>A[] !triggered imply MajorRoad.green and MinorRoad.red</formula>
+			<comment>The lights on the major road will be always set on green and red on the minor road unless a vehicle is detected by the sensor.</comment>
+		</query>
+		<query>
+			<formula>A[] (MajorRoad.yellow imply MajorRoad.x &lt;= 5) and (MinorRoad.yellow imply MinorRoad.y &lt;= 5)</formula>
+			<comment>Interim lights always stay for 5s only in both roads. (same as the below one but through a "positive" point of view)</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; (MajorRoad.yellow and MajorRoad.x &gt; 5) or (MinorRoad.yellow and MinorRoad.y &gt; 5)</formula>
+			<comment>Interim lights always stay for 5s only in both roads.</comment>
+		</query>
+		<query>
+			<formula>MajorRoad.changing --&gt; MajorRoad.red_to_green_C and Sensor.z == 44</formula>
+			<comment>The amount of time that passes between green lights on major-road is 44 units of time.</comment>
+		</query>
+		<query>
+			<formula>Sensor.disabled and !lap --&gt; (lap)?(Sensor.disabled):(true)</formula>
+			<comment>Disabled sensor only comes back to disabled after being in a wait state.</comment>
+		</query>
+		<query>
+			<formula>Sensor.disabled and lap --&gt; (!lap)?(Sensor.disabled):(true)</formula>
+			<comment>Disabled sensor only comes back to disabled after being in a wait state.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MajorRoad.green and Sensor.disabled)</formula>
+			<comment>The sensor can only be in a post-reading state while the traffic light on the major road is red.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MinorRoad.green and Sensor.wait)</formula>
+			<comment>The sensor can only be in a reading state while the traffic light on the minor road is red.</comment>
+		</query>
+		<query>
+			<formula>MajorRoad.red --&gt; MajorRoad.green</formula>
+			<comment>Eventually a car waiting will get a green light. </comment>
+		</query>
+		<query>
+			<formula>Sensor.disabled and MinorRoad.red --&gt; MinorRoad.green</formula>
+			<comment>Eventually a car waiting will get a green light, if the sensor triggers.</comment>
+		</query>
+		<query>
+			<formula>A[] !(MajorRoad.green and MinorRoad.green)</formula>
+			<comment>Minor-road and major-road lights are never green at the same time.</comment>
+		</query>
+		<query>
+			<formula>A[] !deadlock</formula>
+			<comment>No deadlocks</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; MajorRoad.red</formula>
+			<comment>Major-road light can go red.</comment>
+		</query>
+		<query>
+			<formula>E&lt;&gt; MinorRoad.green</formula>
+			<comment>Minor-road light can go green.</comment>
+		</query>
+	</queries>
+</nta>

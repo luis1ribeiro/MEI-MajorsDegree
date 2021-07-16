@@ -1,0 +1,103 @@
+var abstract sig Person {
+	var parents : set Person,
+	var spouse : lone Person
+}
+
+var sig Man extends Person {}
+var lone sig Adam extends Man {}
+
+var sig Woman extends Person {}
+var lone sig Eve extends Woman {}
+
+// Specify some of the expected invariants
+
+assert Acyclic {
+	// Nobody can be their own ancestor
+	no iden & ^parents
+}
+
+assert Spouses {
+	// The spouse relationship is reciprocal
+	spouse.spouse in iden
+}
+
+assert Parents {
+	// Everyone except Adam and Eve has one female and one male parent
+	all p: Person.parents - Eve - Adam {
+		some Man->Woman & p.parents->p.parents
+	}
+}
+
+assert Legal {
+	// Nobody can have an ancestors as spouse
+	no ^parents & spouse 
+}
+
+// Specify the following events
+
+// Reproduction
+pred reproduce [m : Man, w : Woman] {
+	m->w in spouse
+	some s: Person - m - w {
+		no s.parents
+		parents' = parents + s->m + s->w
+	}
+	spouse' = spouse
+	Person' = Person
+}
+
+// Marriage
+pred marry [x : Person, y : Person] {
+	x != y
+	no (x+y) & (Adam+Eve) implies some x.parents and some y.parents
+	no x->y & spouse
+	no ^parents & (x->y + y->x)
+	spouse' = spouse + x->y + y->x
+	parents' = parents
+	Person' = Person
+}
+
+pred nop {
+	Person' = Person
+	parents' = parents
+	spouse' = spouse
+}
+
+// Specify the initial state
+
+fact init {
+	no parents
+	no spouse
+}
+
+fact events {
+	always (
+		nop or
+		(some m : Man, w : Woman | reproduce[m,w]) or
+		(some x,y : Person | marry[x,y])
+	)
+}
+
+// Checking the expected invariants
+
+check Acyclic
+check Spouses
+check Parents
+check Legal
+
+// Specify a scenario where Adam and Eve marry and only afterwards have 
+// children and grandchildren
+// Configure the theme to color differently man and woman and layout
+// the geneology as a tree
+
+run Genesis {
+	some a: Adam, e: Eve | eventually marry[a,e]
+	eventually some parents.parents.Adam
+	eventually some parents.parents.Eve
+}
+
+// Find a scenario where someone ends up being their own "grandparent"
+
+run OwnGrandparent {
+	eventually some p: Person | p in parents.parents.p
+}

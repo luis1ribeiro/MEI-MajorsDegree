@@ -1,0 +1,70 @@
+#!/usr/bin/python3
+from jjcli import *
+import glob, yaml, os
+import jinja2 as j2
+c=clfilter(opt="do:")
+
+base="./Colections/Arquivo"
+
+# engolir cada ficheiro md todo
+c.args = glob.iglob(base + "/**/*.md", recursive=True) # c.args vai depender de cada md file que leia.
+
+pessoas={} #dict pessoas
+
+def html1(carta: dict):
+  # Criação da pasta que vai conter todos os HTMLs.
+  os.makedirs("HTML", exist_ok=True)
+
+  # Criação de um html associado a uma carta.
+  with open(f'HTML/{carta["id"]}.html', "w") as f:
+
+    txt=j2.Template('''<h1>{{from}} → {{to}}</h1>
+    <pre>{{body}}</pre>''').render(carta)
+
+    print(txt, file=f) # invés do fwrite xD
+
+
+
+for txt in c.slurp():
+  # match faz search no inicio da linha -> Formato da Carta
+  ex = match(r'\s*---(.*?)---(.*)',txt,flags=re.S) # o '.' faz match com o '\n' com a flag.
+
+  if not ex:
+    print('### Erro no formato do ficheiro', c.filename())
+    continue
+
+  meta,body=(ex[1],ex[2]) # o ex[0] dá me o padrão todo.
+  try:
+    carta = yaml.safe_load(meta)
+  except Exception as e:
+    print('### Erro nos metadados do ficheiro', c.filename(), e)
+    continue
+
+  if "id" not in carta:
+    print("### no ID definido em", c.filename())
+    continue
+
+  carta["body"]=body # uma única estrutura
+
+
+  id_f = sub('\s+','',carta['from'])
+  id_t = sub('\s+','',carta['to'])
+  # Tratamento Pessoas
+  if id_f not in pessoas:
+    pessoas[id_f] = {}
+    pessoas[id_f]['sent'] = []
+    pessoas[id_f]['received'] = []
+    pessoas[id_f]['sent'].append(carta['id'])
+  else:
+    pessoas[id_f]['sent'].append(carta['id'])
+
+  if id_t not in pessoas:
+    pessoas[id_t] = {}
+    pessoas[id_t]['sent'] = []
+    pessoas[id_t]['received'] = []
+    pessoas[id_t]['received'].append(carta['id'])
+  else:
+    pessoas[id_t]['received'].append(carta['id'])
+
+  # print(pessoas)
+

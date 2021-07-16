@@ -1,0 +1,120 @@
+#!/usr/bin/python3
+
+import requests as reqs       # Obter a página de ementas da Universidade do Minho.
+from bs4 import BeautifulSoup # HTML parser.
+from jjcli import re, qx      # Algumas utilidades fornecidos pelo professor.
+import os                     # Operações do sistema operativo.
+import urllib                 # URL manipulator.
+from sys import argv          # Manipulação de argumentos do script.
+import json                   # Biblioteca de manipulação de JSON.
+
+HOME_DIR = os.environ['HOME']
+
+def getEmenta() -> ():
+    resp = reqs.get('http://www.sas.uminho.pt/Default.aspx?tabid=10&pageid=26&lang=pt-PT') # Obter o conteúdo do website da ementa da cantina.
+
+    resp.raise_for_status() # Raise de erros do pedido HTTP.
+
+    soup = BeautifulSoup(resp.text, 'html.parser') # Parsed HTML.
+
+    links = list(filter(lambda el: re.search(r'Cantina Gualtar', el.text), soup.find_all('a', class_='Normal'))) # Obter o link da ementa de Gualtar.
+    #links = [x for x in soup.find_all('a',class_="Normal") if re.search(r'Cantina Gualtar')] -- Versão alternativa
+
+    ementa_gualtar_link = links[0]['href'] # Extrair o href desse elemento.
+
+    if not os.path.exists(f'{HOME_DIR}/ementas'):
+        os.mkdir(f'{HOME_DIR}/ementas') # Criar uma diretoria para a ementa em pdf.
+
+    with open(f'{HOME_DIR}/ementas/ementa_gualtar_atual.pdf', 'wb') as f:
+        pdf = reqs.get(f'http://www.sas.uminho.pt/{urllib.parse.quote(ementa_gualtar_link)}') # Pedir o pdf ao website.
+        f.write(pdf.content) # Guardar o pdf na diretoria criada anteriormente.
+
+
+def parseEmenta() -> dict:
+
+    ementa = {} # return variable.
+
+    ementa_txt = qx(f'pdftotext {HOME_DIR}/ementas/ementa_gualtar_atual.pdf -') # Transformar um pdf em texto.
+
+    # Substituições para limpar o texto obtido do pdf.
+    ementa_txt = re.sub(r'(.|\n)*?(Sopa)', 'Sopa', ementa_txt, count=1)
+    ementa_txt = re.sub(r'1 -(.|\n)+', '', ementa_txt, count=1)
+    ementa_txt = re.sub(r'(Sopa|Prato|Acompanhamento (1|2))\n', r'==\g<1>\n', ementa_txt) #r'==\1\n' o \g não dá evaluate a nada
+    ementa_txt = re.split(r'==', ementa_txt)[1:]
+
+    # Lista de pares em que o primeiro elemento corresponde a se é Sopa, Prato... e o segundo elemento às opções disponíveis.
+    ementa_list = list(map(lambda el: (re.split(r'\n\n+', el)[:-1][0], [el.replace('\n', ' ') for el in re.split(r'\n\n+', el)[1:-1]]), ementa_txt))
+
+    almoco = ementa_list[:4] # Todas as refeições de almoço.
+    jantar = ementa_list[4:] # Todas as refeições de jantar.
+
+    # Criar o dicionário organizado por dia da semana com a informação da ementa.
+    for i in range(2, 7):
+        ementa[f'{i}f'] = {
+            'almoço' : {k.lower(): refs[i-2].capitalize() for k, refs in almoco},
+            'jantar': {k.lower(): refs[i-2].capitalize() for k, refs in jantar}
+        }
+
+    return ementa
+
+
+def ementapp(ementa : dict) -> ():
+
+    days = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira']
+
+    for idx, el in enumerate(ementa):
+        print(f'----------------------------- {days[idx].upper()} -----------------------------\n')
+
+        for reft in ementa[el]:
+            print(f'\t{reft.capitalize()}:')
+
+            for plat, desc in ementa[el][reft].items():
+                print(f'\t\t - {plat} - {desc}')
+
+            print()
+
+def ementaDaypp(ementa) -> ():
+
+    for reft in ementa:
+        print(f'\t{reft.capitalize()}:')
+
+        for plat, desc in ementa[reft].items():
+            print(f'\t\t - {plat} - {desc}')
+
+        print()
+
+def main() -> ():
+    getEmenta()
+    ementa = parseEmenta()
+
+    # Reagir ao input do utilizador.
+    if list(filter(lambda el: not re.search('--', el), argv)).__len__() == 1:
+
+        if '--jsonFile' in argv:
+            with open('ementa.json', 'w') as f:
+                f.write(json.dumps(ementa, indent=4, ensure_ascii=0))
+
+        elif '--pp' in argv:
+            ementapp(ementa)
+
+        else:
+            print(json.dumps(ementa, indent=4, ensure_ascii=0))
+
+    else:
+        if re.match(r'[2-6]f',argv[1]):
+
+            if '--jsonFile' in argv:
+                with open(f'{argv[1]}.json', 'w') as f:
+                    f.write(json.dumps(ementa[argv[1]], indent=4, ensure_ascii=0))
+
+            elif '--pp' in argv:
+                ementaDaypp(ementa[argv[1]])
+
+            else:
+                print(json.dumps(ementa[argv[1]], indent=4, ensure_ascii=0))
+
+        else:
+            print('Dia da semana ou comando inválido.\nComando: ementa ([2-6]f)? (opts)?\nOptions: --jsonFile, --pp')
+
+if __name__ == '__main__':
+    main()

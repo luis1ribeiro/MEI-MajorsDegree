@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE why3session PUBLIC "-//Why3//proof session v5//EN"
+"http://why3.lri.fr/why3session.dtd">
+<why3session shape_version="6">
+<prover id="0" name="Z3" version="4.8.6" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="1" name="Alt-Ergo" version="2.3.1" timelimit="1" steplimit="0" memlimit="1000"/>
+<prover id="2" name="CVC4" version="1.7" timelimit="1" steplimit="0" memlimit="1000"/>
+<file format="whyml" proved="true">
+<path name=".."/><path name="programs-lab3.mlw"/>
+<theory name="InsertionSortList" proved="true">
+ <goal name="insert&#39;vc" expl="VC for insert" proved="true">
+ <transf name="split_all_full" proved="true" >
+  <goal name="insert&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.05" steps="10265"/></proof>
+  </goal>
+  <goal name="insert&#39;vc.1" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.05" steps="8757"/></proof>
+  </goal>
+  <goal name="insert&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="9860"/></proof>
+  </goal>
+  <goal name="insert&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="10538"/></proof>
+  </goal>
+  <goal name="insert&#39;vc.4" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.30" steps="53543"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="insertionSort&#39;vc" expl="VC for insertionSort" proved="true">
+ <transf name="split_all_full" proved="true" >
+  <goal name="insertionSort&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="11862"/></proof>
+  </goal>
+  <goal name="insertionSort&#39;vc.1" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="8801"/></proof>
+  </goal>
+  <goal name="insertionSort&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="9467"/></proof>
+  </goal>
+  <goal name="insertionSort&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.22" steps="39485"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+<theory name="Bintree_insert" proved="true">
+ <goal name="add&#39;vc" expl="VC for add" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3612125"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2"><result status="valid" time="0.15" steps="34919"/></proof>
+ <transf name="split_all_full" proved="true" >
+  <goal name="add&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2447594"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="11731"/></proof>
+  </goal>
+  <goal name="add&#39;vc.1" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="10214"/></proof>
+  </goal>
+  <goal name="add&#39;vc.2" expl="variant decrease" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2379599"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="11748"/></proof>
+  </goal>
+  <goal name="add&#39;vc.3" expl="precondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="10226"/></proof>
+  </goal>
+  <goal name="add&#39;vc.4" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2250333"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="11795"/></proof>
+  </goal>
+  <goal name="add&#39;vc.5" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.05" steps="11343"/></proof>
+  </goal>
+  <goal name="add&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="10754"/></proof>
+  </goal>
+  <goal name="add&#39;vc.7" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2444806"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="12198"/></proof>
+  </goal>
+  <goal name="add&#39;vc.8" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2907025"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="15537"/></proof>
+  </goal>
+  <goal name="add&#39;vc.9" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.07" steps="13060"/></proof>
+  </goal>
+  <goal name="add&#39;vc.10" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="12961"/></proof>
+  </goal>
+  <goal name="add&#39;vc.11" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.07" steps="14066"/></proof>
+  </goal>
+  <goal name="add&#39;vc.12" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="3143207"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.07" steps="15574"/></proof>
+  </goal>
+  <goal name="add&#39;vc.13" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.07" steps="13130"/></proof>
+  </goal>
+  <goal name="add&#39;vc.14" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="13021"/></proof>
+  </goal>
+  <goal name="add&#39;vc.15" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.05" steps="14147"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="l2tree&#39;vc" expl="VC for l2tree" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1904738"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="valid" time="0.15" steps="31188"/></proof>
+ <transf name="split_all_full" proved="true" >
+  <goal name="l2tree&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="2"><result status="valid" time="0.07" steps="14284"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.1" expl="precondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2452196"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.04" steps="11229"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="10589"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1612516"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.05" steps="12086"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.4" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1555505"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="12451"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.5" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.03" steps="11781"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="913649"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.05" steps="14518"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.7" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="2643179"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.05" steps="14957"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.5" expl="postcondition">
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
+  </goal>
+  <goal name="l2tree&#39;vc.9" expl="postcondition">
+  <proof prover="2"><result status="failure" time="0.00"/></proof>
+  </goal>
+ </transf>
+ </goal>
+ <goal name="menores&#39;vc" expl="VC for menores" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1529636"/></proof>
+ <proof prover="1"><result status="valid" time="0.07" steps="447"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="170172"/></proof>
+ </goal>
+ <goal name="maiores&#39;vc" expl="VC for maiores" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1568712"/></proof>
+ <proof prover="1"><result status="valid" time="0.06" steps="443"/></proof>
+ <proof prover="2"><result status="timeout" time="1.00" steps="135098"/></proof>
+ </goal>
+ <goal name="l2tree_v2&#39;vc" expl="VC for l2tree_v2" proved="true">
+ <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1868182"/></proof>
+ <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+ <proof prover="2" obsolete="true"><result status="timeout" time="1.00" steps="156713"/></proof>
+ <transf name="split_all_full" proved="true" >
+  <goal name="l2tree_v2&#39;vc.0" expl="variant decrease" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1442004"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="13922"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.1" expl="variant decrease" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1376567"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.06" steps="15078"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.2" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.04" steps="10589"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.3" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.06" steps="12086"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.4" expl="postcondition" proved="true">
+  <proof prover="2"><result status="valid" time="0.05" steps="12451"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.5" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="762831"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.12" steps="21908"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.6" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="highfailure" time="0.31" steps="632428"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.24" steps="35511"/></proof>
+  </goal>
+  <goal name="l2tree_v2&#39;vc.7" expl="postcondition" proved="true">
+  <proof prover="0" obsolete="true"><result status="timeout" time="1.00" steps="1464979"/></proof>
+  <proof prover="1" obsolete="true"><result status="timeout" time="1.00"/></proof>
+  <proof prover="2"><result status="valid" time="0.28" steps="50700"/></proof>
+  </goal>
+ </transf>
+ </goal>
+</theory>
+</file>
+</why3session>

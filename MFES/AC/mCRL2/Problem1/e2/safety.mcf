@@ -1,0 +1,2 @@
+% SAFETY: Its impossible to send a message from B1 to B2, after a prior message from B1 to B2 where time t action wasn't executed (meaning there was a message that didn't reached its destination).
+[m1 . !t2* . m1 ] false

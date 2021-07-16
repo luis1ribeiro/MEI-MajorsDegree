@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+from jjcli import *
+from bs4 import BeautifulSoup # Uso do BeautifulSoup
+
+c = clfilter(opt="do:")
+
+for txt in c.slurp():
+
+  bs = BeautifulSoup(txt,'html.parser')
+  # Capturar as tables
+  tid = 1 # table_id
+  for t in bs.find_all('table'):
+    f = open(f'TAB{id}.tab', 'w')
+    print('\n===TABLE===', file=f)
+    # Rows
+    for r in t.find_all('tr'):
+      print('\n------', file=f)
+      # Data
+      for d in r.find_all('td'):
+        print(d.text, end=" | ", file=f)
+    f.close()
+    tid = tid + 1
