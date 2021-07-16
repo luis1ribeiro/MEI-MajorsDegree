@@ -1,5 +1,3 @@
-# Base de Dados NoSQL
-## U.C. Complementar
-### Mestrado Integrado em Eng. Informática na Universidade do Minho 
+# BDNSQL - Base de Dados noSQL
 
-Todo o repositório foi realizado pelo grupo 01.
+Master's Complementary Course
