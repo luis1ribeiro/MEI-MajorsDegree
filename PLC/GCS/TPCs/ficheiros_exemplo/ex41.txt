@@ -1,0 +1,7 @@
+STOCK
+i9 : desc ; 30 ; 20
+i1 : descc ; 20 ; 1
+//
+FATURA f1 VENDAS
+i9 | 10 . 
+i1 | 10 .

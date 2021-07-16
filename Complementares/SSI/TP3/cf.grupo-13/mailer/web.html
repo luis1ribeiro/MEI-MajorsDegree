@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Code Verification</title>
+    </head>
+    <body>
+        <input id="code" type="text">
+        <button onclick="sendCode()">SEND!</button>
+        <div id="timer">30 seconds remaining</div>
+        <script>
+            var timerId = setInterval(countdown, 1000);
+            let socket = new WebSocket('ws://localhost:5454');
+            var timeLeft = 29;
+            var elem = document.getElementById('timer');
+            var allowed = true;
+
+            function countdown() {
+                if (timeLeft == -1) {
+                    clearTimeout(timerId);
+                    end();
+                } else {
+                    elem.innerHTML = timeLeft + ' seconds remaining';
+                    timeLeft--;
+                }
+            }
+
+            function end() {
+                alert("Verification Timed Out!");
+                allowed = false;
+                socket.close()
+                window.close();
+            }
+
+            function wellDone() {
+                alert("Verification Completed!");
+                socket.close();
+                window.close();
+            }
+
+            function sendCode() {
+                if (allowed) socket.send(document.getElementById("code").value);
+            }
+
+            socket.onmessage = function(event) {
+                var obj = JSON.parse(event.data);
+                if (obj["type"] == "start") {
+                    countdown();
+                }
+                else {
+                    if (obj["value"] == true) {
+                        clearTimeout(timerId);
+                        wellDone();
+
+                    }
+                    else {
+                        document.getElementById("code").value = "";
+                        console.log(obj["value"]);
+                    }   
+                }
+            };
+        </script>
+    </body>
+</html>

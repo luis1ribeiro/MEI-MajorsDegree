@@ -1,0 +1,20 @@
+Assim como na linguagem natural, nas linguagens de programação se espera que os diversos símbolos sejam dispostos de uma forma lógica uns em relação aos outros, tal como as palavras se juntam para formar expressões, orações, frases. Essa característica é a sintaxe da linguagem. Um erro sintático portanto é um caso em que as "frases" do programa (instruções, expressões) estão mal formuladas, aquilo que comumente chamamos de "erro gramatical".
+
+Exemplos:
+
+ - Parênteses que abrem mas não fecham;
+ - Dois números um ao lado do outro sem nenhum operador entre eles;
+ - Duas instruções sem um ponto-e-vírgula entre elas;
+ - Uma palavra-chave sendo usada numa posição inesperada.
+ - Há um tipo de erro ainda mais básico, que é quando o símbolo em si está mal formado (ex.: um número com letras no meio - 123y4), que seria um erro "léxico" ou, como normalmente dizemos, um "erro de ortografia". Esse tipo de erro pode ser agrupado junto dos erros sintáticos, a menos que quisermos ser muito puristas/pedantes.
+
+Já a semântica refere-se ao significado daquilo que se quer dizer. Da mesma forma que uma frase em linguagem natural possa estar gramaticalmente correta, mas não fazer o menor sentido, também as instruções dadas ao computador podem estar bem formatadas mas não fazer aquilo que o programador quer - ou mesmo nada de útil ou ainda possível.
+
+Exemplos:
+
+ - Dividir um número por uma string;
+ - Criar uma classe que herda de si mesma;
+ - Usar o operador ^ achando que é de exponenciação, mas na verdade é um ou exclusivo;
+ - Dividir zero por zero.
+
+Os erros de sintaxe são sempre detectados em tempo de compilação/parse (pois se o compilador não consegue sequer montar uma frase, não pode fazer mais nada com ela). Já os semânticos, podem também ser pegos durante a compilação (seja na análise de tipos, na geração de código, ou em outras fases) mas podem também não o ser, e acabarem por provocar um erro em tempo de execução - ou ao menos um resultado/comportamento incorreto. Ou seja, o compilador analisa o código-fonte com sucesso, gera código de máquina, executa, e o problema só se manifesta durante essa execução (sendo ou não imediatamente notado).

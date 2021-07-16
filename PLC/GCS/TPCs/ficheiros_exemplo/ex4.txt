@@ -1,0 +1,5 @@
+1 desc1 30 30;
+2 desc2 20 1;;
+1 forn1 255 mor 255 cli 233 mord i1 20;
+2 forn1 255 mor 255 cli 233 mord i2 20.
+ 

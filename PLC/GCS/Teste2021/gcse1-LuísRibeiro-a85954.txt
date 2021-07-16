@@ -1,0 +1,116 @@
+Questão Prática
+
+/*
+    * Como sugerido usei o tipo Dinâmico ListStr, no entanto fez me sentido usar apenas o método cons(), porque à medida que ia reconhecendo as palavras, adicionava à cabeça da nova lista.
+    * Uma frase sintaticamente aceite por esta gramática abaixo defininida seria do tipo: ["ola", 1, 2, "sou"] .
+ */
+
+grammar teste;
+
+lista: listas+
+     ;
+listas: LPARA args RPARA '.' 
+                        {
+                        System.out.println("Quantidade de números pares da lista = " + $args.total_pares);
+                        System.out.println("A Lista inversa das palavras é a seguinte: " + $args.palavras_inversas);
+                        }
+     ;
+
+args returns [int total_pares, ListStr palavras_inversas]
+@init {total_pares = 0; $palavras_inversas = new ListStr;}
+    : a1=arg[$args.palavras_inversas]     {$args.palavras_inversas = $arg.list_out; if($a1.number > 0 && ($a1.number mod 2)==0){$total_pares += 1;}}
+    (',' a2=arg[$args.palavras_inversas])* {$args.palavras_inversas = $arg.list_out; if($a1.number > 0 && ($a2.number mod 2)==0){$total_pares += 1;}}
+    ;
+
+
+arg[ListStr list_in] returns [int number, ListStr list_out]
+@init{$list_out = new ListStr;}
+   : NUM    {$arg.list_out = $arg.list_in; $number = $NUM.int;}
+   | PAL    {$arg.list_out = $arg.list_in; $number = 0; $arg.list_out.cons($PAL.text);}
+   ;
+
+//LEXER
+LPARA: [\[];
+RPARA: [\]];
+NUM: [0-9]+ //ou ('0'..'9')+
+   ;
+PAL: [a-zA-Z][a-zA-Z0-9]+
+       ;
+WS: ('\r'? '\n' | ' ' | '\t')+ -> skip;
+
+
+Questão Teórica 1:
+
+    Na minha opinião a escolha da Linguagem de Programação mais apropriada para introduzir o conceito de Programação
+é o Haskell. Haskell deriva do Lisp, sendo caracterizada como uma Linguagem puramente funcional. Sendo que os alunos que invergam
+neste curso, tipicamente vieram do mundo da Matemática do Ensino Básico/Secundário, o contexto funcional parece intuitivo.
+A maneira de pensar funcionalmente, abstraindo muita coisa, limitando as especificações da Programação a composições e recursividade de funções parece o mais
+Matemático possível.
+    Caracterizando agora através das propriedades em baixo mencionadas, temos:
+    A nível de expressividade, ou seja, a clareza da linguagem e facilidade de compreensão, talvez não seja a melhor porque existem linguagens doutro caractér
+como imperativas, que permitem especificar melhor alguns Conceitos da Programação. Por exemplo, o conceito I/O dentro da linguagem Haskell não é muito claro, a sua expressividade
+neste conceito, tipicamente traz problemas de compreensão.  
+    A documentação é bastante clara no Haskell, facilmente se comenta código. Para além disso existe em particular uma biblioteca online que permite a consulta
+das funções disponíves nos módulos desta linguagem, com a respetiva documentação (conhecido como hoogle).
+    O Haskell é uma linguagem que permite especificar propriedades point-wise (com recurso a variáveis) e point-free (composição de funções apenas), portanto a unicidade
+não é garantida. No entanto, a unicidade é "um pau de dois bicos", é muito subjetivo ao utilizador.
+    Problemas como gestão de memória, tipicamente associados à Escalabilidade da linguagem, é assegurado pelo Haskell. A complexidade da aplicação não condiciona o uso desta linguagem.
+    A Modularidade é garantida pelos módulos que podemos importar. A forma como se usam os módulos é bastante claro, visto que o interpretador ghci permite importar os módulos e testa-los,
+sem a necessidade de os implementar num programa.
+    A Confiança também é garantida.
+
+    A expressividade poderá não ser a melhor em alguns conceitos dentro da Programação, no entanto, sendo uma linguagem fortemente tipada e que puramente funcional,
+o racícinio matemático ajuda no uso desta linguagem.
+
+
+Questão Teórica 2:
+
+    A Gramática de Atributos apresenta uma vantagem enorme relativa à Gramática Tradutora. Apesar de ambas serem uma extensão à GIC, e a semântica estar presente nas 2,
+as GA permite especificar atributos que são herdados e sintetizados pelas produções (à exceção do axioma, que não herda nenhuma atributo). Enquanto que as GT permitem especificar
+ações semânticas, estas são sempre relativas ao Left Hand Side da produção em questão, com recurso ao símbolo "$$". Se por exemplo, tivermos um não terminal NT que deriva
+num terminal T e noutro não terminal NT1, nas GT não podemos usar o valor do Terminal T no não terminal NT1 à custa semântica (apenas atráves de variáveis globais).
+    Estas limitações dão um grande avanço às GA, pois estas permitem sintetizar atributos ("passar" informação para as produções que derivam essa produção), e herdar atributos
+("receber" informação das produções que derivam essa produção).
+
+
+Questão Teórica 3:
+
+    A nível de compreensão da linguagem em si, a GIC2 é mais legível no sentido em que, facilmente se percebe o que a gramática especifica. O uso de não terminais e de strings ("símbolos especiais"),
+permitem uma compreensão mais rápida e clara comparativamente à GIC1. Claramente a GIC1 apresenta menos produções, a recursividade é especificada através de ER's, poupando na extensabilidade da produção.
+No meu ponto de vista, sendo um aluno já habituado ao tipo de especificação de linguagem, prefiro comprimir a gramática e optar pelo o estilo da GIC1, poupando na compreensão,
+mas ganhando na performance de compilação da gramática e respetivo processamento das frases que caracterizam a gramática. 
+    A linguagem gerada pelos dois associa alunos a respetivos grupos, tendo cada grupo o seu número como índice e os respetivos números de aluno à frente(representando no Terminal CODAL).
+
+
+Questão Teórica 4:
+
+    A ontologia permite, de certa forma, abstrair o processo de construção de uma Gramática, representando-a através de conceitos e relações entre conceitos.
+Esta abstração permite permite especificar várias gramáticas dentro do mesmo domínio de Ontologia, isto é, subir um nível na camada de representação, permite, dentro da mesma ideologia de Ontologia,
+desenvolver várias gramáticas que respeitem os Conceitos e as Relações entre eles. Permite-nos de certa forma, representar o nosso pensamento apenas com Conceitos e Relações entre Conceitos. As propriedades podem ser 
+associdadas a cada conceito, sem a necessidade de criação de novos conceitos.
+
+Ontologia SelRa
+
+conceitos  { 	Perfil[nome]
+		Caracteristica[descricao]
+		Recurso[id,tipo,descricao,intervaloidade], 
+		Aluno[id,nome,idade],  
+		Conceito[id,descricao], 
+	  }
+individuos { 
+		>>computacaoEscola.txt<<
+	  }
+relacoes    { 
+		Ensina,
+		Ensinar, 	
+	}
+triplos      { 	
+		recurso = ensina => conceito 
+		conceito = ensinar => aluno
+		perfil = possui => caracteristica
+		recurso = explora => perfil
+		aluno = tem => caracteristica
+ 	}
+
+Em cima, podemos ver a Ontologia usada pelo meu grupo no desenvolver do trabalho prático. Os conceitos mais importantes a reter são os de Aluno, Conceito e Recurso.
+Os triplos carecterizam as relações entre eles, onde um Recurso ensina um Conceito, é ensinado um Conceito a um Aluno. 

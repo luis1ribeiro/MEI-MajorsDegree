@@ -1,0 +1,107 @@
+/* [1] Apresentar os detalhes de todos os departamentos ordenadas por ordem ascendente pelo nome deste */
+MATCH (d:DEPARTMENT) 
+	RETURN d 
+	ORDER BY d.name ASC 
+
+/* [2] Apresentar o nome do departamento e o quem esta responsavel por este */
+MATCH (e:EMPLOYEE)<-[:MANAGED_BY]-(d:DEPARTMENT) 
+	RETURN d.name AS Department_Name, e.first_name, e.last_name 
+
+/* [3] Apresentar o nome do departamento e o numero de funcionarios nesse departamento */
+MATCH (e:EMPLOYEE)-[:WORK_AT]->(d:DEPARTMENT) 
+	WITH d,COUNT(e) AS total_employees 
+	RETURN d.name AS Department_Name, total_employees
+
+/* [4] Apresentar o manager ID e numero de funcionarios geridos por este */
+ MATCH (employee:EMPLOYEE)-[:IS_MANAGED_BY]->(manager:EMPLOYEE) 
+	WITH manager, COUNT(employee) AS total_employees 
+	RETURN manager.id, total_employees
+
+/* [5] Apresentar os detalhes dos funcionarios cuja percentagem de comissao e nula e o salario esta entre 10000 e 15000 e o manager e o 101 */
+MATCH (e:EMPLOYEE)-[:IS_MANAGED_BY]->(manager:EMPLOYEE{id:101}) 
+	WHERE e.salary >= 10000 AND e.salary <=15000  
+	RETURN e
+
+/* [6] Apresentar os funcionarios cujo primeiro e ultimo nome começam pela letra G */
+MATCH (e:EMPLOYEE) WHERE (e.first_name STARTS WITH 'G' AND e.last_name STARTS WITH 'G') 
+	RETURN e.first_name, e.last_name 
+
+/* [7] Apresentar todos os empregados que entraram para a empresa apos 19 de Dezembro de 2007 */
+MATCH (e:EMPLOYEE) WHERE e.hire_date > date({year:2007, month:12, day:19}) 
+	RETURN e.first_name, e.hire_date
+
+/* [8] Apresentar o nome (primeiro + ultimo) dos funcionários que foram contratados em 2008 */
+MATCH (e:EMPLOYEE) WHERE date(e.hire_date).year = 2008 
+	RETURN e.first_name, e.last_name, e.hire_date
+
+/* [9] Apresentar quantos funcionarios foram admitidos em cada mes no ano 2008 */
+MATCH (e:EMPLOYEE) WHERE date(e.hire_date).year = 2008 
+	RETURN COUNT(date(e.hire_date).month) AS tot, date(e.hire_date).month AS month 
+	ORDER BY month ASC 
+
+/* [10] Apresentar o nome dos funcionarios que iniciaram funcoes antes do manager */
+MATCH (employee:EMPLOYEE)-[:IS_MANAGED_BY]->(boss:EMPLOYEE)
+	WHERE employee.hire_date < boss.hire_date
+    RETURN employee.first_name, employee.last_name
+
+/* [11] Apresentar o cargo, numero de funcionarios, o somatorio dos salarios e a diferenca entre o maior salario e o menor dos funcionarios desse cargo */
+MATCH (e:EMPLOYEE)-[:DOES]->(j:JOB) 
+	RETURN j.title AS Title, COUNT(e.id) AS Employees, sum(e.salary) AS `Total Salary`, (max(e.salary)-min(e.salary)) AS `Max & Min Salary Difference` 
+	ORDER BY `Max & Min Salary Difference` DESC
+
+/* [12] Apresentar o nome do funcionario que sejam Programmer ou President */
+MATCH (e:EMPLOYEE)-[:DOES]->(j:JOB) WHERE (j.title = 'President' OR j.title = 'Programmer') 
+	RETURN e.first_name, e.last_name, j.title
+
+/* [13] Apresentar o titulo do cargo e media dos salarios */
+MATCH (e:EMPLOYEE)-[:DOES]->(j:JOB) 
+	RETURN j.title AS Title, AVG(e.salary) AS `Average Salary` 
+	ORDER BY `Average Salary` ASC 
+
+/* [14] Apresentar o primeiro nome do funcionario juntamente com o seu cargo e com a sua experiencia, do mais experiente para o menos experiente (por ordem descendente) */
+MATCH (e:EMPLOYEE)-[:DOES]->(j:JOB) 
+	RETURN e.first_name AS Name, j.title AS Title, duration.inDays(e.hire_date,date()).days AS Experience 
+	ORDER BY Experience DESC
+
+/* [15] Apresentar todos os cargos cujo salario maximo seja menor ou igual que 6000 */
+MATCH (j:JOB) WHERE (j.max_salary <= 6000) 
+	RETURN j.title, j.max_salary 
+	ORDER BY j.max_salary DESC
+
+/* [16] Apresentar o cargo e a diferenca entre o salario maximo e minimo para posicoes cujo salario maximo esta entre 6000 e 10000 */
+MATCH (j:JOB) WHERE j.max_salary >= 6000 AND j.max_salary <= 10000 
+	RETURN j.title AS Title, (j.max_salary-j.min_salary) AS `Max & Min Salary Difference`
+
+/* [17] Apresentar o id dos funcionarios que fizeram mais que um cargo no passado */
+MATCH (e:EMPLOYEE)-[:DID]->(j:JOB) 
+	WITH e, count(e) AS `Past Jobs` 
+	WHERE `Past Jobs` > 1  
+	RETURN e.id AS ID, e.first_name AS Name, `Past Jobs`
+
+/* [18] Apresentar os detalhes da posicao que tenha sido executada por qualquer funcionario que atualmente recebe mais que 10000 de salario */
+MATCH (e:EMPLOYEE)-[:DID]->(history:JOB) 
+	WHERE e.salary > 10000
+	RETURN e, history
+
+/* [19] Apresentar os detalhes do atual cargo dos funcionarios que trabalharam como IT Programmers no passado */
+	MATCH (job:JOB)<-[:DOES]-(e:EMPLOYEE)-[:DID]->(history:JOB{title:'Programmer'}) 
+	RETURN job, e, history
+
+/* [20] Apresentar o pais e o numero de cidades existentes em cada pais */
+MATCH (l:LOCATION)-[:CONTAINED_IN]->(c:COUNTRY) 
+	RETURN c.country_name AS Country, count(l.city) AS Cities 
+	ORDER BY Cities DESC
+
+/* [21] Apresentar o nome da regiao, nome do pais, nome da cidade, nome do departamento e do gestor deste juntamente com o seu cargo */
+MATCH (country:COUNTRY)<-[:CONTAINED_IN]-(location:LOCATION)<-[:HAVE]-(department:DEPARTMENT)-[:MANAGED_BY]->(manager:EMPLOYEE)-[:DOES]->(job:JOB) 
+	RETURN country.region_name, country, location, department, manager, job
+
+/* [22] Apresentar o nome do funcionario e o pais onde esta a trabalhar */
+MATCH (country:COUNTRY)<-[:CONTAINED_IN]-(location:LOCATION)<-[:HAVE]-(department:DEPARTMENT)<-[:WORK_AT]-(employee:EMPLOYEE)
+	RETURN country.country_name, employee.first_name
+
+/* [23] Apresentar o nome do pais, cidade e numero de departamentos que possuem mais de 5 funcionarios */
+MATCH (country:COUNTRY)<-[:CONTAINED_IN]-(location:LOCATION)<-[:HAVE]-(department:DEPARTMENT)<-[:WORK_AT]-(employee:EMPLOYEE)
+	WITH country, location, department, COUNT(employee) AS total_employees 
+    WHERE total_employees > 5
+    RETURN country, location, department;
