@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  .w3-container
+        h3 GraphDB: Graph DataBase
+        h9 Esta é a página relativa ao indivíduo #{individuo}. Aqui tem a informação relativa a este.
+  div(style='margin:25px; padding:5px; border: 1px solid black; font-size: 16px')
+    dl
+        dt
+            b Indivíduo:
+        dd= individuo
+        dt
+            b Classe a que pertence:
+        dd
+            a(href="/"+rep+"/"+classe)= classe
+        dt
+            b Repositório a que pertence:
+        dd
+            a(href="/"+rep)= rep
+        dt
+            b URI:
+        dd= prefixo + individuo
+
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-orange.w3-margin-top
+        h4 Propriedades do Indivíduo
+      table.w3-table-all
+        tr
+          th Sujeito
+          th Predicado
+          th Objeto
+        each i in propriedades
+              if (i.o != "NameIndividual" && i.o != 'NamedIndividual' && i.o)
+                tr
+                    td= individuo
+                    if i.p == "type"
+                        td rdf:#{i.p}
+                    else
+                        td= prefixo + i.p
+                    td= i.o
+  footer.w3-container.w3-orange.w3-margin-top(style="font-size:10px")
+      pre
+        i(class="fa fa-home")     
+        a(href="/") Back to Home Page
+      pre
+        i(class="fa fa-arrow-left")     
+        a(href="/"+rep+"/"+classe) Voltar para a Classe correspondente

@@ -1,0 +1,24 @@
+
+
+
+1. vscode find= title: replace "title":
+
+        find= date: replace "date": 
+        find= href: replace "href": 
+        find= ref: replace "ref":
+        depois ainda haviam 3 erros , como eram poucos resolvi manualmente (faltava virgulas, aspas)
+
+        Depois utilizando as reg exp do vscode find="PT/ABM/PCML02/001/(\d{5})/(\d{6})" replace="PT/ABM/PCML02/001/$1/$2","_id":"PT_ABM_PCML02_001_$1_$2"       para adicionar o campo _id
+
+        Depois para criar pai e mae e acrescentar um campo nome que é o nome do batzaido o que vai facilitar as queries depois
+        find ="(Registo de batismo n\.º \d+: )(.+)\. Pai: (.+); Mãe: (.+)"
+        rep= "$1$2. Pai: $3; Mãe: $4","pai":"$3","mae":"$4","nome":"$2"
+
+        Além disso acrescentei um campo novo year que me vai facilitar a query que pede batizados de um ano
+        find="(\d{4})(-\d{2}-\d{2}/\d{4}-\d{2}-\d{2})"
+        rep="$1$2","year":$1
+
+
+3. $  mongoimport -d daw2020teste -c batismos --jsonArray batismos.json 
+2021-01-20T13:22:43.560+0000    connected to: localhost
+2021-01-20T13:22:43.647+0000    imported 2571 documents

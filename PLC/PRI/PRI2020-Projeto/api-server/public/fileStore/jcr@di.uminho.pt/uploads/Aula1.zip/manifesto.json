@@ -1,0 +1,58 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "Slides da aula 1",
+            "tipo": "pdf"
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "Material produzido",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "poema",
+                        "tipo": "html"
+                    }, {
+                        "titulo": "poema2",
+                        "tipo": "html"
+                    }, {
+                        "titulo": "poema",
+                        "tipo": "css"
+                    }, {
+                        "titulo": "w3",
+                        "tipo": "css"
+                    }
+                ],
+                "pastas": [
+                    {
+                        "titulo": "poema_files",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "poema",
+                                    "tipo": "css"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }, {
+                        "titulo": "poema2_files",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "poema",
+                                    "tipo": "css"
+                                }, {
+                                    "titulo": "w3",
+                                    "tipo": "css"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!ELEMENT project-record (meta, workteam, abstract, deliverables?, date?)>
+<!ELEMENT meta (title,subtitle?, key-name, supervisor, b_date, e_date)>
+
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT subtitle (#PCDATA)>
+<!ELEMENT key-name (#PCDATA)>
+<!ELEMENT b_date (#PCDATA)>
+<!ELEMENT e_date (#PCDATA)>
+
+<!ELEMENT supervisor (#PCDATA)>
+<!ATTLIST supervisor
+            href CDATA #REQUIRED>
+
+<!ELEMENT abstract (p+)>
+<!ELEMENT p (#PCDATA|b|i|u|url)* >
+<!ELEMENT b (#PCDATA|i|u|url)*>
+<!ELEMENT i (#PCDATA|b|u|url)*>
+<!ELEMENT u (#PCDATA|b|i|url)*>
+<!ELEMENT url (#PCDATA)>
+<!ATTLIST url
+            href CDATA #REQUIRED>
+ 
+<!ELEMENT workteam (teammate+)>
+<!ELEMENT teammate (id, name, email)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ATTLIST email
+            href CDATA #REQUIRED>
+
+<!ELEMENT deliverables (url+)>
+
+<!ELEMENT date (#PCDATA)>

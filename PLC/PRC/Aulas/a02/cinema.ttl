@@ -1,0 +1,326 @@
+@prefix : <http://www.di.uminho.pt/prc2021/cinema-a2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/cinema-a2> .
+
+<http://www.di.uminho.pt/prc2021/cinema-a2> rdf:type owl:Ontology ;
+                                             rdfs:comment "Ontologias sobre cinemas." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#atuou
+:atuou rdf:type owl:ObjectProperty ;
+       owl:inverseOf :temAtor ;
+       rdfs:domain :Pessoa ;
+       rdfs:range :Filme .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#compôs
+:compôs rdf:type owl:ObjectProperty ;
+        owl:inverseOf :foiComposta ;
+        rdfs:domain :Pessoa ;
+        rdfs:range :PeçaMusical .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#escreveu
+:escreveu rdf:type owl:ObjectProperty ;
+          owl:inverseOf :foiEscrita ;
+          rdfs:domain :Pessoa .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#foiComposta
+:foiComposta rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#foiEscrita
+:foiEscrita rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#realizou
+:realizou rdf:type owl:ObjectProperty ;
+          owl:inverseOf :temRealizador .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temArgumento
+:temArgumento rdf:type owl:ObjectProperty ;
+              rdfs:domain :Filme ;
+              rdfs:range :Argumento .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temAtor
+:temAtor rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temGénero
+:temGénero rdf:type owl:ObjectProperty ;
+           rdfs:range :Género .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temLíngua
+:temLíngua rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temPaísOrigem
+:temPaísOrigem rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temPeçaMusical
+:temPeçaMusical rdf:type owl:ObjectProperty ;
+                rdfs:domain :Filme ;
+                rdfs:range :PeçaMusical .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temRealizador
+:temRealizador rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain :Filme ;
+               rdfs:range :Pessoa .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#sexo
+:sexo rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temData
+:temData rdf:type owl:DatatypeProperty ;
+         rdfs:range xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temDuração
+:temDuração rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:int .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#temTítulo
+:temTítulo rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Argumento
+:Argumento rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Ator
+:Ator rdf:type owl:Class ;
+      owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :atuou ;
+                                                   owl:someValuesFrom :Filme
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#AtoresFemininos
+:AtoresFemininos rdf:type owl:Class ;
+                 owl:equivalentClass [ owl:intersectionOf ( :Ator
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :sexo ;
+                                                              owl:hasValue "F"
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#AtoresMasculinos
+:AtoresMasculinos rdf:type owl:Class ;
+                  owl:equivalentClass [ owl:intersectionOf ( :Ator
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :sexo ;
+                                                               owl:hasValue "M"
+                                                             ]
+                                                           ) ;
+                                        rdf:type owl:Class
+                                      ] .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Escritor
+:Escritor rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :escreveu ;
+                                                       owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                            owl:unionOf ( :Argumento
+                                                                                          :Livro
+                                                                                        )
+                                                                          ]
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Filme
+:Filme rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :temData ;
+                         owl:someValuesFrom xsd:string
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :temDuração ;
+                         owl:someValuesFrom xsd:int
+                       ] ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :temTítulo ;
+                         owl:someValuesFrom xsd:string
+                       ] .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Género
+:Género rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Livro
+:Livro rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Língua
+:Língua rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Músico
+:Músico rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty :compôs ;
+                                                     owl:someValuesFrom :PeçaMusical
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#País
+:País rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Pessoa
+:Pessoa rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#PeçaMusical
+:PeçaMusical rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Realizador
+:Realizador rdf:type owl:Class ;
+            owl:equivalentClass [ owl:intersectionOf ( :Pessoa
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :realizou ;
+                                                         owl:someValuesFrom :Filme
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#ArgumentoTwilight
+:ArgumentoTwilight rdf:type owl:NamedIndividual ,
+                            :Argumento .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#BillyBurke
+:BillyBurke rdf:type owl:NamedIndividual ,
+                     :Pessoa ;
+            :atuou :Twilight ;
+            :sexo "M"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Catherine_Hardwicke
+:Catherine_Hardwicke rdf:type owl:NamedIndividual ,
+                              :Pessoa ;
+                     :realizou :Twilight ;
+                     :sexo "F"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#EN
+:EN rdf:type owl:NamedIndividual ,
+             :Língua .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#EstadosUnidos
+:EstadosUnidos rdf:type owl:NamedIndividual ,
+                        :País .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#FR
+:FR rdf:type owl:NamedIndividual ,
+             :Língua .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#França
+:França rdf:type owl:NamedIndividual ,
+                 :País .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Inglaterra
+:Inglaterra rdf:type owl:NamedIndividual ,
+                     :País .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#KristenStewart
+:KristenStewart rdf:type owl:NamedIndividual ,
+                         :Pessoa ;
+                :atuou :Twilight ;
+                :sexo "F"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#MelissaRosenberg
+:MelissaRosenberg rdf:type owl:NamedIndividual ,
+                           :Pessoa ;
+                  :escreveu :ArgumentoTwilight ;
+                  :sexo "F"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#PT
+:PT rdf:type owl:NamedIndividual ,
+             :Língua .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Portugal
+:Portugal rdf:type owl:NamedIndividual ,
+                   :País .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#RobertPattinson
+:RobertPattinson rdf:type owl:NamedIndividual ,
+                          :Pessoa ;
+                 :atuou :Twilight ;
+                 :sexo "M"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#TaylorLautner
+:TaylorLautner rdf:type owl:NamedIndividual ,
+                        :Pessoa ;
+               :atuou :Twilight ;
+               :sexo "M"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/cinema-a2#Twilight
+:Twilight rdf:type owl:NamedIndividual ,
+                   :Filme ;
+          :temArgumento :ArgumentoTwilight ;
+          :temData "2008-12-19"^^xsd:string ;
+          :temDuração "122"^^xsd:int ;
+          :temTítulo "Twilight"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

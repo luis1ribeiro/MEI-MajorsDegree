@@ -1,0 +1,94 @@
+#!/usr/bin/python3
+import json, os, shutil
+
+# Criação de ficheiros para a Ontologia
+def tratamento_ficheiros():
+    ## Criação do ficheiro Ontologia final
+    if os.path.exists("mv-final.ttl"):
+        os.remove("mv-final.ttl")
+
+    # Source path
+    source = "./pre-processamento/mv-base.ttl"
+    # Destination path
+    destination = "./mv-final.ttl"
+    shutil.copyfile(source, destination)
+    
+
+
+# Processamento Informação
+def processamento_json():
+    with open('pre-processamento/mapavirtual.json', encoding='utf-8') as f:
+        data = json.load(f)
+
+    dict_cidades={}
+    dict_mais_cidades = {} # Algumas não estão definidas individualmente e o campo distrito é uma op.
+    dict_connects={}
+    nmr_cidades=0 # Vai ser auxiliar caso não exista uma cidade mencionada como distrito.
+
+    for c in data['cidades']:
+        name = c.pop('nome')
+        dict_cidades[name] = c
+        nmr_cidades+=1
+
+    for l in data['ligações']:
+        value_id = l.pop('id')
+        dict_connects[value_id] = l
+
+
+    fw = open("mv-final.ttl", "a")
+
+    fw.write("### Cidades ###\n")
+    ## Percorrer os dicionário e dar print para o turtle. ##
+    for c in dict_cidades:
+        temp = dict_cidades[c]
+
+        fw.write("###  http://www.di.uminho.pt/prc2021/mapavirtual#"+temp['id']+"\n")
+        fw.write(":"+temp['id']+" rdf:type owl:NamedIndividual , :Cidade ;"+"\n")
+        fw.write("\t :descrição \""+temp['descrição']+"\" ;"+"\n")
+        fw.write("\t :nome \""+c+"\" ;"+"\n")
+        fw.write("\t :população \""+temp['população']+"\"^^xsd:int ;"+"\n")
+
+        distrito = temp['distrito']
+        if distrito in dict_cidades:
+            id_dist = dict_cidades[distrito]['id']
+        else:
+            if distrito not in dict_mais_cidades: 
+                dict_mais_cidades[distrito] = {}
+                nmr_cidades+=1
+                temp['id'] = "c"+str(nmr_cidades)
+                id_dist = temp['id']
+                temp['descrição'] = distrito+" é uma cidade muito bonita!"
+                temp['população'] = "undefined"
+                temp['distrito'] = distrito
+                dict_mais_cidades[distrito] = temp
+        fw.write("\t :distrito :"+id_dist+"."+"\n")
+
+    ## Distritos não definidos como cidade individualmente. ##
+    for c in dict_mais_cidades:
+        temp = dict_mais_cidades[c]
+
+        fw.write("###  http://www.di.uminho.pt/prc2021/mapavirtual#"+temp['id']+"\n")
+        fw.write(":"+temp['id']+" rdf:type owl:NamedIndividual , :Cidade ;"+"\n")
+        fw.write("\t :descrição \""+temp['descrição']+"\" ;"+"\n")
+        fw.write("\t :nome \""+c+"\" ;"+"\n")
+        fw.write("\t :população \""+temp['população']+"\"^^xsd:int ;"+"\n")
+        fw.write("\t :distrito :"+temp['id']+"."+"\n")
+
+    fw.write("\n\n### Ligações ###\n")
+
+    for l in dict_connects:
+        temp = dict_connects[l]
+
+        fw.write("###  http://www.di.uminho.pt/prc2021/mapavirtual#"+l+"\n")
+        fw.write(":"+l+" rdf:type owl:NamedIndividual , :Ligação ;"+"\n")
+        fw.write("\t :origem :"+temp['origem']+" ;"+"\n")
+        fw.write("\t :destino :"+temp['destino']+" ;"+"\n")
+        fw.write("\t :distância \""+str(temp['distância'])+"\"^^xsd:int ."+"\n")
+
+    fw.close()
+
+def main():
+    tratamento_ficheiros()
+    processamento_json()
+
+main()

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC1</key>
+        <title>Gerar um dataset em TTL</title>
+        <bdate>22-02-2021</bdate>
+        <edate>29-02-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>
+            Inicialmente, foi gerado um dataset em JSON de acordo dentro de certos critérios. Ver ficheiro <i>json-generator-filter.txt</i> 
+            <link url="https://next.json-generator.com/">Gerador de JSON</link>).
+        </p>
+        <p>
+            Numa segunda fase foi criado um conversor, em <b>FLEX</b>, de JSON para TTL de acordo com a ontologia definida na aula.
+        </p>
+    </abstract>
+    <deliverables>
+            <link url="database/db.json">Dataset gerado</link>
+            <link url="template.ttl">Ficheiro TTL template de base, usado para depois adicionar os resultados dos <i>Individuals</i></link>
+            <link url="individuals.ttl">Ficheiro TTL gerado</link>
+            <link url="filter-json2ttl.fl">Ficheiro LEX to transform json to ttl</link>
+            <link url="database/json-generator-filter.txt">Geração do dataSet JSON</link>
+    </deliverables>
+</pr>

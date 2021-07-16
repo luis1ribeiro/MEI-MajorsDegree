@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT agenda (entrada|grupo)+>
+<!ELEMENT entrada (nome, email, tfone)>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT tfone (#PCDATA)>
+
+<!-- declarar atributos para o elemento entrada -->
+<!ATTLIST entrada       
+  id ID #REQUIRED
+  tipo CDATA #IMPLIED
+>
+
+<!ELEMENT grupo (entrada|grupo|ref)+> 
+<!ATTLIST grupo
+  gid ID #REQUIRED
+>
+
+<!ELEMENT ref EMPTY> <!-- ref é um empty element, pois só tem atributos => <ref apontado="e1"/> -->
+<!ATTLIST ref
+  apontado IDREF #REQUIRED
+>

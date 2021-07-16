@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1(style="margin:35px")= title 
+  ul Welcome to #{title}
+    li 
+      a(href="/alunos/") Administrar Alunos
+    li
+      a(href="/alunos/registar/") Registo de Alunos
+  .w3-container.w3-blue-grey
+        footer.w3-container
+            pre Administração de alunos

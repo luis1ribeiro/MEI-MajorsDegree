@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue-grey
+    h1 Classe #{classe.codigo} - Nível #{classe.nivel}
+  .w3-container.w3-padding
+    b Título:
+    span  #{classe.titulo}
+    p
+      b Descrição: 
+      span  #{classe.descricao}
+    p
+      b Status: 
+      span  #{classe.status}
+    if desc.length
+      p
+        b Descendentes: 
+        ul
+          each d in desc
+            li 
+              adress
+                a(href=`/classe/${d.codigo}`) #{d.codigo}
+              span  - #{d.titulo}
+
+    if classe.nivel == 3
+      if proc
+        if proc.length
+          p
+            b Processos: 
+            ul
+              each p in proc
+                if(p.idRel == "eCruzadoCom")
+                  li 
+                    adress
+                      a(href=`/classe/${p.codigo}?classe=${classe.codigo}&ant=${ant}`) #{p.codigo}
+                    span  - #{p.idRel} - #{p.titulo}
+                if(p.idRel == "eComplementarDe")
+                  li 
+                    adress
+                      a(href=`/classe/${p.codigo}?classe=${classe.codigo}&ant=${ant}`) #{p.codigo}
+                    span  - #{p.idRel} - #{p.titulo}
+                if(p.idRel == "eSuplementoDe")
+                  li 
+                    adress
+                      a(href=`/classe/${p.codigo}?classe=${classe.codigo}&ant=${ant}`) #{p.codigo}
+                    span  - #{p.idRel} - #{p.titulo}
+                if(p.idRel == "eSuplementoPara")
+                  li 
+                    adress
+                      a(href=`/classe/${p.codigo}?classe=${classe.codigo}&ant=${ant}`) #{p.codigo}
+                    span  - #{p.idRel} - #{p.titulo}
+      
+
+  footer.w3-container.w3-blue-grey.w3-padding-medium
+    address.w3-padding-16
+        a(href=`/classes`) Página inicial
+        if ant
+          if antant
+            a(href=`/classe/${ant}?classe=${antant}`).w3-right Voltar atrás
+          else
+            a(href=`/classe/${ant}?classe=${ant}`).w3-right Voltar atrás
+        
+    

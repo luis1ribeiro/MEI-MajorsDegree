@@ -1,0 +1,3 @@
+1. Inicialmente criei um ficheiro flex para substituir o ref por "ref", e gerei o casamentos_new.json
+2. Depois notei que haviam pequenos erros dentro do dataSet, portanto corrigi à mão visto que eram poucos (4)
+3. Para a criação do campo _id, criei um script js para isso (para correr: node script.js)

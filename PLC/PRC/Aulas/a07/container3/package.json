@@ -1,0 +1,14 @@
+{
+    "name": "jserver-clav",
+    "version": "1.0.0",
+    "description": "",
+    "main": "clav.js",
+    "scripts": {
+      "start": "node clav.js"
+    },
+    "author": "rsp",
+    "license": "ISC",
+    "dependencies": {
+      "axios": "^0.21.1"
+    }
+  }

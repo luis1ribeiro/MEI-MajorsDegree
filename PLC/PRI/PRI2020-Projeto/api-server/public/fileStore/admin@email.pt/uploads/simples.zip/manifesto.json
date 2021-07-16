@@ -1,0 +1,21 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "ficheiro1",
+            "tipo": "txt"
+            
+        },
+        {
+            "titulo": "ficheiro2",
+            "tipo": "txt"
+            
+        },
+        {
+            "titulo": "ficheiro3",
+            "tipo": "txt"
+            
+        }
+    ],
+    "pastas": [
+    ]
+}

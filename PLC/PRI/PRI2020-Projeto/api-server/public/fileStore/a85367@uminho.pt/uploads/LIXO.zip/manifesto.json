@@ -1,0 +1,28 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "virus",
+            "tipo": "jpg"
+        },{
+            "titulo": "proibido",
+            "tipo": "jpg"
+        },{
+            "titulo": "naoabrirsenao",
+            "tipo": "jpg"
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "virus",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "nao abrir",
+                        "tipo": "mp4"
+                    }
+                ],
+                "pastas": []
+            }
+        }
+    ]
+}

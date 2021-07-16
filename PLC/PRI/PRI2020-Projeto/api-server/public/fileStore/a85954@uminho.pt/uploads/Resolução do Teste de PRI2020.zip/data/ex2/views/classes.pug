@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue-grey
+    h1 Classes de Nível 1
+  .w3-container
+    ul
+      each c in classes
+        li
+          adress
+            a(href=`/classe/${c.codigo}`) #{c.codigo}
+          span  - #{c.titulo}
+        
+    

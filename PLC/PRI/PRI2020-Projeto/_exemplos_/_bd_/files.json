@@ -1,0 +1,622 @@
+[{
+  "_id": {
+    "$oid": "6023c9d49419b920d420861b"
+  },
+  "subtitle": "18/19",
+  "favoritos": [
+    "a85367@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Fichas de Algoritmos e Complexidade",
+  "resourceType": "Files",
+  "creationDate": "2019-06-13",
+  "registrationDate": "2021-02-10T11:56",
+  "autor": "a84092@uminho.pt",
+  "name": "AlgoritmosComplexidade_FichasAulasTP_18-19.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 730866,
+  "privacy": 0,
+  "descricao": "",
+  "comentarios": [
+    {
+      "data": "2021-02-10T12:29",
+      "_id": {
+        "$oid": "6023d1a69419b920d42087e8"
+      },
+      "autor": "a85367@uminho.pt",
+      "descricao": " Olá! Obrigado por disponibilizares este recurso, dá mesmo jeito."
+    }
+  ],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/a84092@uminho.pt/uploads/AlgoritmosComplexidade_FichasAulasTP_18-19.zip",
+  "estrelas": {
+    "numero": 3.5,
+    "autores": [
+      "a85367@uminho.pt?;4",
+      "a85954@uminho.pt?;3",
+      "a83732@uminho.pt?;3",
+      "consumer@email.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023c9d49419b920d420861c"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ca3c9419b920d4208620"
+  },
+  "subtitle": "2019/2020",
+  "favoritos": [
+    "consumer@email.pt"
+  ],
+  "title": "Material de PL",
+  "resourceType": "Slides",
+  "creationDate": "2020-06-13",
+  "registrationDate": "2021-02-10T11:57",
+  "autor": "jj@di.uminho.pt",
+  "name": "PL1920-Material.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 886870,
+  "privacy": 0,
+  "descricao": "",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jj@di.uminho.pt/uploads/PL1920-Material.zip",
+  "estrelas": {
+    "numero": 2.75,
+    "autores": [
+      "a85367@uminho.pt?;3",
+      "a84092@uminho.pt?;2",
+      "a85954@uminho.pt?;2",
+      "a83732@uminho.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023ca3c9419b920d4208621"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cacb9419b920d4208626"
+  },
+  "subtitle": "Programação Imperativa",
+  "favoritos": [
+    "a84092@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Mini-Testes de PI",
+  "resourceType": "Test/Exam",
+  "creationDate": "2018-06-13",
+  "registrationDate": "2021-02-10T12:00",
+  "autor": "a85367@uminho.pt",
+  "name": "Minitestes de PI.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 261290,
+  "privacy": 0,
+  "descricao": "Alguns testes de PI disponibilizados pelo JCR.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/a85367@uminho.pt/uploads/Minitestes de PI.zip",
+  "estrelas": {
+    "numero": 3.5,
+    "autores": [
+      "a84092@uminho.pt?;4",
+      "a85954@uminho.pt?;3",
+      "a83732@uminho.pt?;3",
+      "consumer@email.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023cacb9419b920d4208627"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cb589419b920d420862d"
+  },
+  "subtitle": "PRI",
+  "favoritos": [
+    "consumer@email.pt"
+  ],
+  "title": "Aula 1",
+  "resourceType": "Slides",
+  "creationDate": "2020-10-19",
+  "registrationDate": "2021-02-10T12:02",
+  "autor": "jcr@di.uminho.pt",
+  "name": "Aula1.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 7270529,
+  "privacy": 0,
+  "descricao": "",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jcr@di.uminho.pt/uploads/Aula1.zip",
+  "estrelas": {
+    "numero": 2.75,
+    "autores": [
+      "a85367@uminho.pt?;2",
+      "a84092@uminho.pt?;3",
+      "a85954@uminho.pt?;3",
+      "a83732@uminho.pt?;3"
+    ],
+    "_id": {
+      "$oid": "6023cb589419b920d420862e"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cbe39419b920d4208634"
+  },
+  "subtitle": "",
+  "favoritos": [
+    "consumer@email.pt"
+  ],
+  "title": "TPC1 de PRI",
+  "resourceType": "Student Work",
+  "creationDate": "2020-10-20",
+  "registrationDate": "2021-02-10T12:04",
+  "autor": "a83732@uminho.pt",
+  "name": "TPC1 de PRI2020.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 4802,
+  "privacy": 0,
+  "descricao": "Construção de uma página HTML.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/a83732@uminho.pt/uploads/TPC1 de PRI2020.zip",
+  "estrelas": {
+    "numero": 4,
+    "autores": [
+      "a85367@uminho.pt?;5",
+      "a84092@uminho.pt?;4",
+      "a85954@uminho.pt?;3",
+      "consumer@email.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023cbe39419b920d4208635"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cc809419b920d420863e"
+  },
+  "subtitle": "2020/2021",
+  "favoritos": [
+    "a84092@uminho.pt",
+    "a83732@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Avaliação : Gramáticas na Compreensão de Software",
+  "resourceType": "Test/Exam",
+  "creationDate": "2021-01-11",
+  "registrationDate": "2021-02-10T12:07",
+  "autor": "prh@di.uminho.pt",
+  "name": "Teste de GCS 2020.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 117931,
+  "privacy": 0,
+  "descricao": "Teste de Avaliação de GCS 20/21",
+  "comentarios": [
+    {
+      "data": "2021-02-10T12:29",
+      "_id": {
+        "$oid": "6023d1de9419b920d4208815"
+      },
+      "autor": "a85367@uminho.pt",
+      "descricao": "Bom dia, na minha opinião tivemos pouco tempo para realizar este teste."
+    },
+    {
+      "data": "2021-02-10T12:43",
+      "_id": {
+        "$oid": "6023d4f09419b920d4208b1f"
+      },
+      "autor": "a85954@uminho.pt",
+      "descricao": " Também sou dessa opinião."
+    }
+  ],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/prh@di.uminho.pt/uploads/Teste de GCS 2020.zip",
+  "estrelas": {
+    "numero": 3.67,
+    "autores": [
+      "a85367@uminho.pt?;3",
+      "a84092@uminho.pt?;4",
+      "a83732@uminho.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023cc809419b920d420863f"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ccf99419b920d4208645"
+  },
+  "subtitle": "PRI 2020/2021",
+  "favoritos": [
+    "a85367@uminho.pt",
+    "a84092@uminho.pt",
+    "a83732@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Resolução do Teste",
+  "resourceType": "Problem Solved",
+  "creationDate": "2021-01-18",
+  "registrationDate": "2021-02-10T12:09",
+  "autor": "a85954@uminho.pt",
+  "name": "Resolução do Teste de PRI2020.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 43942,
+  "privacy": 0,
+  "descricao": "",
+  "comentarios": [
+    {
+      "data": "2021-02-10T12:31",
+      "_id": {
+        "$oid": "6023d2259419b920d4208836"
+      },
+      "autor": "a85367@uminho.pt",
+      "descricao": " Olá. Obrigado pela resolução do teste."
+    },
+    {
+      "data": "2021-02-10T12:37",
+      "_id": {
+        "$oid": "6023d3ad9419b920d4208978"
+      },
+      "autor": "a84092@uminho.pt",
+      "descricao": "Olá amigo. Muchas gracias ..."
+    },
+    {
+      "data": "2021-02-10T12:43",
+      "_id": {
+        "$oid": "6023d4fe9419b920d4208b23"
+      },
+      "autor": "a85954@uminho.pt",
+      "descricao": " Obrigado colegas."
+    }
+  ],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/a85954@uminho.pt/uploads/Resolução do Teste de PRI2020.zip",
+  "estrelas": {
+    "numero": 5,
+    "autores": [
+      "a85367@uminho.pt?;5",
+      "a84092@uminho.pt?;5",
+      "a83732@uminho.pt?;5",
+      "consumer@email.pt?;5"
+    ],
+    "_id": {
+      "$oid": "6023ccf99419b920d4208646"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cd579419b920d420864d"
+  },
+  "subtitle": "2020/2021",
+  "favoritos": [
+    "a85367@uminho.pt",
+    "a84092@uminho.pt",
+    "a85954@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Projeto de GCS",
+  "resourceType": "Application",
+  "creationDate": "2021-01-04",
+  "registrationDate": "2021-02-10T12:11",
+  "autor": "a83732@uminho.pt",
+  "name": "Projeto de GCS.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 598874,
+  "privacy": 0,
+  "descricao": "Trabalho realizado pelo grupo 10.",
+  "comentarios": [
+    {
+      "data": "2021-02-10T12:27",
+      "_id": {
+        "$oid": "6023d1589419b920d42087ac"
+      },
+      "autor": "a85367@uminho.pt",
+      "descricao": " Eu contribui para este projeto."
+    },
+    {
+      "data": "2021-02-10T12:36",
+      "_id": {
+        "$oid": "6023d3739419b920d4208958"
+      },
+      "autor": "a84092@uminho.pt",
+      "descricao": "Eu também contribui para este projeto."
+    },
+    {
+      "data": "2021-02-10T12:42",
+      "_id": {
+        "$oid": "6023d4c99419b920d4208b09"
+      },
+      "autor": "a85954@uminho.pt",
+      "descricao": " Eu também !!!!"
+    }
+  ],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/a83732@uminho.pt/uploads/Projeto de GCS.zip",
+  "estrelas": {
+    "numero": 4.75,
+    "autores": [
+      "a85367@uminho.pt?;5",
+      "a84092@uminho.pt?;5",
+      "a85954@uminho.pt?;5",
+      "consumer@email.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023cd579419b920d420864e"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cdcb9419b920d4208656"
+  },
+  "subtitle": "",
+  "favoritos": [],
+  "title": "Compiladores",
+  "resourceType": "Application",
+  "creationDate": "2016-05-20",
+  "registrationDate": "2021-02-10T12:12",
+  "autor": "jcr@di.uminho.pt",
+  "name": "Compiladores.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 1731,
+  "privacy": 1,
+  "descricao": "Material Didático usado nas aulas TP.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jcr@di.uminho.pt/uploads/Compiladores.zip",
+  "estrelas": {
+    "numero": 0,
+    "autores": [],
+    "_id": {
+      "$oid": "6023cdcb9419b920d4208657"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ce389419b920d420865a"
+  },
+  "subtitle": "2020/2021",
+  "favoritos": [
+    "a84092@uminho.pt",
+    "a85954@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Avaliação: Desenvolvimento de Aplicações Web",
+  "resourceType": "Test/Exam",
+  "creationDate": "2021-01-18",
+  "registrationDate": "2021-02-10T12:14",
+  "autor": "jcr@di.uminho.pt",
+  "name": "Ficha pri-2021-normal.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 44798,
+  "privacy": 0,
+  "descricao": "Teste de Avaliação de PRI.",
+  "comentarios": [
+    {
+      "data": "2021-02-10T12:35",
+      "_id": {
+        "$oid": "6023d3389419b920d42088fc"
+      },
+      "autor": "a84092@uminho.pt",
+      "descricao": "Boa tarde. Ligeiramente diferente dos outros anos o primeiro exercício."
+    },
+    {
+      "data": "2021-02-10T12:41",
+      "_id": {
+        "$oid": "6023d4b39419b920d4208b03"
+      },
+      "autor": "a85954@uminho.pt",
+      "descricao": "Eu submeti um recurso com a resolução, vão ver e avaliem."
+    }
+  ],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jcr@di.uminho.pt/uploads/Ficha pri-2021-normal.zip",
+  "estrelas": {
+    "numero": 4,
+    "autores": [
+      "a85367@uminho.pt?;4",
+      "a84092@uminho.pt?;4",
+      "a85954@uminho.pt?;4",
+      "a83732@uminho.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023ce389419b920d420865b"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ce6d9419b920d4208660"
+  },
+  "subtitle": "2020/2021",
+  "favoritos": [
+    "a85954@uminho.pt",
+    "a83732@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Avaliação: Desenvolvimento de Aplicações Web",
+  "resourceType": "Test/Exam",
+  "creationDate": "2021-01-20",
+  "registrationDate": "2021-02-10T12:15",
+  "autor": "jcr@di.uminho.pt",
+  "name": "Ficha daw-2021-normal.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 203456,
+  "privacy": 0,
+  "descricao": "Teste de Avaliação de DAW com resolução.",
+  "comentarios": [
+    {
+      "data": "2021-02-10T13:19",
+      "_id": {
+        "$oid": "6023dd7c473da0166057eb7e"
+      },
+      "autor": "a83732@uminho.pt",
+      "descricao": " Boa tarde! Ainda bem que tem a resolução..."
+    }
+  ],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jcr@di.uminho.pt/uploads/Ficha daw-2021-normal.zip",
+  "estrelas": {
+    "numero": 4.33,
+    "autores": [
+      "a85367@uminho.pt?;4",
+      "a85954@uminho.pt?;4",
+      "a83732@uminho.pt?;5"
+    ],
+    "_id": {
+      "$oid": "6023ce6d9419b920d4208661"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ced49419b920d4208667"
+  },
+  "subtitle": "Desenvolvimento de Aplicações Web",
+  "favoritos": [
+    "a85367@uminho.pt",
+    "a85954@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Projeto Final",
+  "resourceType": "Enunciated",
+  "creationDate": "2020-12-01",
+  "registrationDate": "2021-02-10T12:17",
+  "autor": "jcr@di.uminho.pt",
+  "name": "Projeto Final 2020.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 64605,
+  "privacy": 0,
+  "descricao": "Enunciado do Projeto Final.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jcr@di.uminho.pt/uploads/Projeto Final 2020.zip",
+  "estrelas": {
+    "numero": 4,
+    "autores": [
+      "a85367@uminho.pt?;4",
+      "a85954@uminho.pt?;4",
+      "a83732@uminho.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023ced49419b920d4208668"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cf2d9419b920d420866f"
+  },
+  "subtitle": "2020/2021",
+  "favoritos": [
+    "a83732@uminho.pt",
+    "consumer@email.pt"
+  ],
+  "title": "Resultados da Avaliação de PRI",
+  "resourceType": "Grades",
+  "creationDate": "2021-01-25",
+  "registrationDate": "2021-02-10T12:18",
+  "autor": "jcr@di.uminho.pt",
+  "name": "Avaliação PRI2020.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 882508,
+  "privacy": 0,
+  "descricao": "",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/jcr@di.uminho.pt/uploads/Avaliação PRI2020.zip",
+  "estrelas": {
+    "numero": 3.67,
+    "autores": [
+      "a85367@uminho.pt?;4",
+      "a85954@uminho.pt?;3",
+      "a83732@uminho.pt?;4"
+    ],
+    "_id": {
+      "$oid": "6023cf2d9419b920d4208670"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cfab9419b920d420867b"
+  },
+  "subtitle": "Exemplo",
+  "favoritos": [],
+  "title": "Ficheiro Simples",
+  "resourceType": "Example",
+  "creationDate": "2020-10-01",
+  "registrationDate": "2021-02-10T12:20",
+  "autor": "admin@email.pt",
+  "name": "simples.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 547,
+  "privacy": 1,
+  "descricao": "Um exemplo de um simples ficheiro.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/admin@email.pt/uploads/simples.zip",
+  "estrelas": {
+    "numero": 1,
+    "autores": [
+      "a84092@uminho.pt?;1",
+      "a85954@uminho.pt?;1"
+    ],
+    "_id": {
+      "$oid": "6023cfab9419b920d420867c"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cfe69419b920d420867f"
+  },
+  "subtitle": "Exemplo",
+  "favoritos": [],
+  "title": "Ficheiro combinado",
+  "resourceType": "Example",
+  "creationDate": "2020-10-01",
+  "registrationDate": "2021-02-10T12:21",
+  "autor": "admin@email.pt",
+  "name": "combinado.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 1157,
+  "privacy": 1,
+  "descricao": "Um exemplo de um ficheiro combinado.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/admin@email.pt/uploads/combinado.zip",
+  "estrelas": {
+    "numero": 1,
+    "autores": [
+      "a84092@uminho.pt?;1",
+      "a85954@uminho.pt?;1"
+    ],
+    "_id": {
+      "$oid": "6023cfe69419b920d4208680"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023d05c9419b920d4208688"
+  },
+  "subtitle": "Lixo",
+  "favoritos": [],
+  "title": "Exemplo",
+  "resourceType": "Video",
+  "creationDate": "2021-02-07",
+  "registrationDate": "2021-02-10T12:23",
+  "autor": "a85367@uminho.pt",
+  "name": "LIXO.zip",
+  "mimetype": "application/x-zip-compressed",
+  "size": 37472766,
+  "privacy": 1,
+  "descricao": "Ficheiro grande.",
+  "comentarios": [],
+  "filepath": "C:/Users/Gonçalo Pinto/Documents/GitHub/PRI2020-Projeto/api-server/public/fileStore/a85367@uminho.pt/uploads/LIXO.zip",
+  "estrelas": {
+    "numero": 0,
+    "autores": [],
+    "_id": {
+      "$oid": "6023d05c9419b920d4208689"
+    }
+  },
+  "__v": 0
+}]

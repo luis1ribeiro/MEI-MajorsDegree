@@ -1,0 +1,260 @@
+@prefix : <http://www.di.uminho.pt/prc2021/A85954-TP5#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/A85954-TP5> .
+
+<http://www.di.uminho.pt/prc2021/A85954-TP5> rdf:type owl:Ontology ;
+                                              rdfs:comment "Ontologia para as publicações do jcr." .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#editedBy
+:editedBy rdf:type owl:ObjectProperty ;
+          owl:inverseOf :editorOf .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#editorOf
+:editorOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :EDITOR ;
+          rdfs:range :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#referedasAuthor
+:referedasAuthor rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :referesAuthor .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#referedasEditor
+:referedasEditor rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :referesEditor .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#referesAuthor
+:referesAuthor rdf:type owl:ObjectProperty ;
+               rdfs:domain :Pubs ;
+               rdfs:range :AUTHOR .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#referesEditor
+:referesEditor rdf:type owl:ObjectProperty ;
+               rdfs:domain :Pubs ;
+               rdfs:range :EDITOR .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#writerOf
+:writerOf rdf:type owl:ObjectProperty ;
+          owl:inverseOf :writtenBy ;
+          rdfs:domain :AUTHOR ;
+          rdfs:range :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#writtenBy
+:writtenBy rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#address
+:address rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#booktitle
+:booktitle rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#chapter
+:chapter rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#doi
+:doi rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#howpublished
+:howpublished rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#isbn
+:isbn rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#issn
+:issn rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#journal
+:journal rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#month
+:month rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#nome
+:nome rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#number
+:number rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#pages
+:pages rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#pdf_url
+:pdf_url rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#publisher
+:publisher rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#school
+:school rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#title
+:title rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#uri
+:uri rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#volume
+:volume rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#year
+:year rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#ARTICLE
+:ARTICLE rdf:type owl:Class ;
+         rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#AUTHOR
+:AUTHOR rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( :Publisher
+                                                   [ rdf:type owl:Class ;
+                                                     owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :referedasAuthor ;
+                                                                     owl:someValuesFrom :Pubs
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :writerOf ;
+                                                                     owl:someValuesFrom :Pubs
+                                                                   ]
+                                                                 )
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ;
+        rdfs:subClassOf :Publisher .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#BOOK
+:BOOK rdf:type owl:Class ;
+      rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#EDITOR
+:EDITOR rdf:type owl:Class ;
+        owl:equivalentClass [ owl:intersectionOf ( :Publisher
+                                                   [ rdf:type owl:Class ;
+                                                     owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :editorOf ;
+                                                                     owl:someValuesFrom :Pubs
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty :referedasEditor ;
+                                                                     owl:someValuesFrom :Pubs
+                                                                   ]
+                                                                 )
+                                                   ]
+                                                 ) ;
+                              rdf:type owl:Class
+                            ] ;
+        rdfs:subClassOf :Publisher .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#INBOOK
+:INBOOK rdf:type owl:Class ;
+        rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#INPROCEEDINGS
+:INPROCEEDINGS rdf:type owl:Class ;
+               rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#MASTERTHESIS
+:MASTERTHESIS rdf:type owl:Class ;
+              rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#MISC
+:MISC rdf:type owl:Class ;
+      rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#PHDTHESIS
+:PHDTHESIS rdf:type owl:Class ;
+           rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#PROCEEDINGS
+:PROCEEDINGS rdf:type owl:Class ;
+             rdfs:subClassOf :Pubs .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#Publisher
+:Publisher rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#Pubs
+:Pubs rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#ap
+:ap rdf:type owl:NamedIndividual ,
+             :AUTHOR ;
+    :nome "André Pereira" .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#cisti2017
+:cisti2017 rdf:type owl:NamedIndividual ,
+                    :INPROCEEDINGS ;
+           :referesAuthor :jcr ;
+           :writtenBy :ap ;
+           :address "ISCTE, Lisboa, Portugal" ;
+           :booktitle "12th Iberian Conference on Information Systems and Technologies (CISTI)," ;
+           :doi "http://hdl.handle.net/1822/46093" ;
+           :month 06.24 ;
+           :title "RODA-in: A generic tool for the mass creation of Submission Information Packages" ;
+           :year 2017 .
+
+
+###  http://www.di.uminho.pt/prc2021/A85954-TP5#jcr
+:jcr rdf:type owl:NamedIndividual ,
+              :AUTHOR .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

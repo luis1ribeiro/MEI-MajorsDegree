@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  .w3-container
+        h3 Tabela Periódica - GraphDB
+        if nome == ''
+            if numero
+                h9 Esta é a página relativa a este Grupo.
+            else
+                h9 Esta é a página relativa ao Grupo de número 
+                    b #{numero}.
+        else
+            if numero
+                h9 Esta é a página relativa a este Grupo de nome 
+                    b #{nome}.
+            else
+                h9 Esta é a página relativa ao Grupo 
+                    b #{nome} - #{numero}.
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-orange.w3-margin-top
+        h4 Elementos Químicos pertencentes ao Grupo 
+            if nome == ''
+                b #{numero}
+            else 
+                b #{nome}
+      table.w3-table-all(id="TP")
+        thead
+            tr
+                th Símbolo do Elemento
+                th Saber mais
+        tbody
+            each e in elementos
+                    tr
+                        td= e.elemento
+                        td
+                            button(class="button" onclick="location.href='http://localhost:9091/elementos/"+e.elemento+"'")
+                                i(class="fa fa-flask" style="font-size:20px")
+  footer.w3-container.w3-orange.w3-margin-top(style="font-size:10px")
+    pre
+        i(class="fa fa-home")     
+        a(href="/") Voltar à Home Page
+    pre
+        i(class="fa fa-arrow-left")     
+        a(href="/grupos") Voltar para os Grupos

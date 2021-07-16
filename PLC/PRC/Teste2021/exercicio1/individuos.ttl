@@ -1,0 +1,4881 @@
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee00725274024d5a2
+:60b3ee0ee00725274024d5a2 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Emily_Terrell
+:Emily_Terrell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ee00725274024d5a2 ;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Emily Terrell" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e62b59d062f2018a3
+:60b3ee0e62b59d062f2018a3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-17" .
+###  http://www.di.uminho.pt/prc2021/EMD#Medina_Hartman
+:Medina_Hartman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e62b59d062f2018a3;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Medina Hartman" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e01ada8b23fc63b31
+:60b3ee0e01ada8b23fc63b31 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Andrews_Rivas
+:Andrews_Rivas rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e01ada8b23fc63b31;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Andrews Rivas" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e6ab8471af29e2014
+:60b3ee0e6ab8471af29e2014 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Marcella_Combs
+:Marcella_Combs rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e6ab8471af29e2014 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Marcella Combs" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ed16d4695ffdf5f17
+:60b3ee0ed16d4695ffdf5f17 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mendoza_Buckner
+:Mendoza_Buckner rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ed16d4695ffdf5f17 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Mendoza Buckner" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e2707c21708cc3418
+:60b3ee0e2707c21708cc3418 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sellers_Copeland
+:Sellers_Copeland rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e2707c21708cc3418 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Sellers Copeland" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e4a1e0233af16ac8c
+:60b3ee0e4a1e0233af16ac8c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bernard_Stokes
+:Bernard_Stokes rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e4a1e0233af16ac8c;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Bernard Stokes" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ed5225a2a93a69c3a
+:60b3ee0ed5225a2a93a69c3a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-03-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Alfreda_Raymond
+:Alfreda_Raymond rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ed5225a2a93a69c3a ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Alfreda Raymond" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e9488e742d1600f58
+:60b3ee0e9488e742d1600f58 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Alston_Green
+:Alston_Green rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e9488e742d1600f58 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Alston Green" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ef8b2c3b732bc0d82
+:60b3ee0ef8b2c3b732bc0d82 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Paige_Mccarthy
+:Paige_Mccarthy rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ef8b2c3b732bc0d82;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Paige Mccarthy" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ec14a4ad7e917ed36
+:60b3ee0ec14a4ad7e917ed36 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Claudine_Gill
+:Claudine_Gill rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ec14a4ad7e917ed36;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Claudine Gill" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ecf1638e25755912c
+:60b3ee0ecf1638e25755912c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Summer_Calhoun
+:Summer_Calhoun rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ecf1638e25755912c;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Summer Calhoun" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e2fac3611c3cd7291
+:60b3ee0e2fac3611c3cd7291 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Slater_David
+:Slater_David rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e2fac3611c3cd7291 ;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Slater David" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e1f3d25c518678bd7
+:60b3ee0e1f3d25c518678bd7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ophelia_Boyd
+:Ophelia_Boyd rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e1f3d25c518678bd7;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Ophelia Boyd" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee62c8f8a846459ea
+:60b3ee0ee62c8f8a846459ea rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Evans_Singleton
+:Evans_Singleton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ee62c8f8a846459ea ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Evans Singleton" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e0539642b38645cb3
+:60b3ee0e0539642b38645cb3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-07" .
+###  http://www.di.uminho.pt/prc2021/EMD#Church_Bishop
+:Church_Bishop rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e0539642b38645cb3 ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Church Bishop" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e3f327a6ba71f77b0
+:60b3ee0e3f327a6ba71f77b0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Woodard_Bennett
+:Woodard_Bennett rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e3f327a6ba71f77b0 ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Woodard Bennett" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e30fc3c2042f955eb
+:60b3ee0e30fc3c2042f955eb rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-15" .
+###  http://www.di.uminho.pt/prc2021/EMD#Vasquez_Michael
+:Vasquez_Michael rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e30fc3c2042f955eb;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Basquetebol ;
+   :nome "Vasquez Michael" ;
+   :género "M" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee90bdefcc8703185
+:60b3ee0ee90bdefcc8703185 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Holloway_Maxwell
+:Holloway_Maxwell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ee90bdefcc8703185 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Holloway Maxwell" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e559fb2fd0142f64c
+:60b3ee0e559fb2fd0142f64c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-02-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Michele_Barber
+:Michele_Barber rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e559fb2fd0142f64c ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Michele Barber" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0eb2087f8cccef830d
+:60b3ee0eb2087f8cccef830d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Chambers_Burton
+:Chambers_Burton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0eb2087f8cccef830d ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Chambers Burton" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ea0dc6768a6ca7192
+:60b3ee0ea0dc6768a6ca7192 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-03-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Massey_Goodman
+:Massey_Goodman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ea0dc6768a6ca7192;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :BTT ;
+   :nome "Massey Goodman" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee3d27702cac0b7cd
+:60b3ee0ee3d27702cac0b7cd rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Klein_Cameron
+:Klein_Cameron rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ee3d27702cac0b7cd;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Klein Cameron" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e23a38b2da3f0a76e
+:60b3ee0e23a38b2da3f0a76e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lambert_Mueller
+:Lambert_Mueller rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e23a38b2da3f0a76e;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Basquetebol ;
+   :nome "Lambert Mueller" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e172e761f8d52c213
+:60b3ee0e172e761f8d52c213 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-15" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ewing_Drake
+:Ewing_Drake rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e172e761f8d52c213;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Ewing Drake" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e2573d42d411cc591
+:60b3ee0e2573d42d411cc591 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lester_Manning
+:Lester_Manning rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e2573d42d411cc591 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Lester Manning" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee95a95d0c9bc3e5f
+:60b3ee0ee95a95d0c9bc3e5f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Nina_Fowler
+:Nina_Fowler rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ee95a95d0c9bc3e5f;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Nina Fowler" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0effaf9b013df4203d
+:60b3ee0effaf9b013df4203d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lynn_Shaw
+:Lynn_Shaw rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0effaf9b013df4203d;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Lynn Shaw" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee3f58fda00f17cc6
+:60b3ee0ee3f58fda00f17cc6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Betty_Blake
+:Betty_Blake rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ee3f58fda00f17cc6 ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Betty Blake" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee7cb2701483df2c9
+:60b3ee0ee7cb2701483df2c9 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Oneill_Roth
+:Oneill_Roth rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ee7cb2701483df2c9;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Oneill Roth" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e74703dea724376f8
+:60b3ee0e74703dea724376f8 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Roxanne_Miles
+:Roxanne_Miles rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e74703dea724376f8 ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Roxanne Miles" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ef3bfaf77b4e67849
+:60b3ee0ef3bfaf77b4e67849 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Cecelia_Adams
+:Cecelia_Adams rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ef3bfaf77b4e67849 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Cecelia Adams" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e54b12900f5e6c314
+:60b3ee0e54b12900f5e6c314 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Irma_Jacobs
+:Irma_Jacobs rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e54b12900f5e6c314;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Irma Jacobs" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ef050e91efe68a668
+:60b3ee0ef050e91efe68a668 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Angelia_Noel
+:Angelia_Noel rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ef050e91efe68a668;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Angelia Noel" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e536b83d9d562f9c8
+:60b3ee0e536b83d9d562f9c8 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sallie_Shaffer
+:Sallie_Shaffer rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e536b83d9d562f9c8;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Sallie Shaffer" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e6dbcbe60effe125d
+:60b3ee0e6dbcbe60effe125d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jordan_Bonner
+:Jordan_Bonner rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e6dbcbe60effe125d;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Jordan Bonner" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e8b4f7dca2601ddfc
+:60b3ee0e8b4f7dca2601ddfc rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-17" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bartlett_Sexton
+:Bartlett_Sexton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e8b4f7dca2601ddfc ;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Bartlett Sexton" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e59411e4e9d97d70a
+:60b3ee0e59411e4e9d97d70a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Opal_Stewart
+:Opal_Stewart rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e59411e4e9d97d70a ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "Opal Stewart" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee78616dd040e4dca
+:60b3ee0ee78616dd040e4dca rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ola_Glover
+:Ola_Glover rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ee78616dd040e4dca;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Ola Glover" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ea3043984230726fc
+:60b3ee0ea3043984230726fc rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-11-21" .
+###  http://www.di.uminho.pt/prc2021/EMD#Shelia_York
+:Shelia_York rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ea3043984230726fc;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Shelia York" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e242cedae88a5f12c
+:60b3ee0e242cedae88a5f12c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Raquel_Ratliff
+:Raquel_Ratliff rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e242cedae88a5f12c;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Raquel Ratliff" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e846df12b8f8e750d
+:60b3ee0e846df12b8f8e750d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Burke_Weeks
+:Burke_Weeks rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e846df12b8f8e750d ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Parapente ;
+   :nome "Burke Weeks" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e3f165afa6f23a0eb
+:60b3ee0e3f165afa6f23a0eb rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Best_French
+:Best_French rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e3f165afa6f23a0eb;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Best French" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e0ee0185da196c9ab
+:60b3ee0e0ee0185da196c9ab rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Fowler_Alvarez
+:Fowler_Alvarez rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e0ee0185da196c9ab;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Fowler Alvarez" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ecfbe9bf6149ba53b
+:60b3ee0ecfbe9bf6149ba53b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Terri_Avila
+:Terri_Avila rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ecfbe9bf6149ba53b ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Terri Avila" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e84beb8fe0be593a5
+:60b3ee0e84beb8fe0be593a5 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Alford_Small
+:Alford_Small rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e84beb8fe0be593a5 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Alford Small" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ebab436c1d23c2a84
+:60b3ee0ebab436c1d23c2a84 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Key_Arnold
+:Key_Arnold rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ebab436c1d23c2a84 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Key Arnold" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e20e993d5010857a4
+:60b3ee0e20e993d5010857a4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Nguyen_Diaz
+:Nguyen_Diaz rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e20e993d5010857a4;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Nguyen Diaz" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee409ac878ba9b99b
+:60b3ee0ee409ac878ba9b99b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sherry_Morales
+:Sherry_Morales rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ee409ac878ba9b99b;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Sherry Morales" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ed7a60ecd07dadb9e
+:60b3ee0ed7a60ecd07dadb9e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Crane_Ballard
+:Crane_Ballard rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ed7a60ecd07dadb9e ;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Crane Ballard" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e07cb41f968328e60
+:60b3ee0e07cb41f968328e60 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Terry_Chaney
+:Terry_Chaney rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e07cb41f968328e60;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Karaté ;
+   :nome "Terry Chaney" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee48920a886a461e2
+:60b3ee0ee48920a886a461e2 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sheppard_Bryant
+:Sheppard_Bryant rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ee48920a886a461e2 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Karaté ;
+   :nome "Sheppard Bryant" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e79c5349b29557a62
+:60b3ee0e79c5349b29557a62 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Janis_Mckinney
+:Janis_Mckinney rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e79c5349b29557a62 ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Janis Mckinney" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e3bffb9b3df6f5ea4
+:60b3ee0e3bffb9b3df6f5ea4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sue_Waters
+:Sue_Waters rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e3bffb9b3df6f5ea4;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Sue Waters" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e03c621784bf7b2eb
+:60b3ee0e03c621784bf7b2eb rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Cynthia_Page
+:Cynthia_Page rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e03c621784bf7b2eb;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Equitação ;
+   :nome "Cynthia Page" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ea96d47b79642735d
+:60b3ee0ea96d47b79642735d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Montgomery_Rhodes
+:Montgomery_Rhodes rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ea96d47b79642735d ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Montgomery Rhodes" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e63cc2530b136daef
+:60b3ee0e63cc2530b136daef rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-03-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Claire_Joyce
+:Claire_Joyce rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e63cc2530b136daef;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Basquetebol ;
+   :nome "Claire Joyce" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e8a311b08fca3541b
+:60b3ee0e8a311b08fca3541b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Evangelina_Key
+:Evangelina_Key rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e8a311b08fca3541b ;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Evangelina Key" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ea9b4c2114abcf6d7
+:60b3ee0ea9b4c2114abcf6d7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Effie_Gibson
+:Effie_Gibson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ea9b4c2114abcf6d7 ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Effie Gibson" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e16fc834f28234ef4
+:60b3ee0e16fc834f28234ef4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-03-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Maureen_Cobb
+:Maureen_Cobb rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e16fc834f28234ef4 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Maureen Cobb" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0efe55045feaaea0d0
+:60b3ee0efe55045feaaea0d0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Dee_Holman
+:Dee_Holman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0efe55045feaaea0d0 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Dee Holman" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e53dad18808565be7
+:60b3ee0e53dad18808565be7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Larson_Morin
+:Larson_Morin rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e53dad18808565be7 ;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Larson Morin" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e25015995bacd5bed
+:60b3ee0e25015995bacd5bed rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ursula_Martinez
+:Ursula_Martinez rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e25015995bacd5bed;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Ursula Martinez" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ed8819374df399b72
+:60b3ee0ed8819374df399b72 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#English_Clemons
+:English_Clemons rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ed8819374df399b72;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "English Clemons" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e47a5478e9b66110d
+:60b3ee0e47a5478e9b66110d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Stella_Jackson
+:Stella_Jackson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e47a5478e9b66110d ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Stella Jackson" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0eddf26117e9d32bcb
+:60b3ee0eddf26117e9d32bcb rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Haley_Joseph
+:Haley_Joseph rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0eddf26117e9d32bcb;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Haley Joseph" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ebc5f8bcac6a4b89d
+:60b3ee0ebc5f8bcac6a4b89d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Kelsey_Roberts
+:Kelsey_Roberts rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ebc5f8bcac6a4b89d;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Kelsey Roberts" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e9f0c3dbf2ecc854f
+:60b3ee0e9f0c3dbf2ecc854f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Watson_Lynch
+:Watson_Lynch rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e9f0c3dbf2ecc854f;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Dança ;
+   :nome "Watson Lynch" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e6cb88f8d26691e15
+:60b3ee0e6cb88f8d26691e15 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Chasity_Coffey
+:Chasity_Coffey rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e6cb88f8d26691e15;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Chasity Coffey" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e0797a9f03b138d18
+:60b3ee0e0797a9f03b138d18 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Paula_Delaney
+:Paula_Delaney rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e0797a9f03b138d18 ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Paula Delaney" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e769aecb50db619f2
+:60b3ee0e769aecb50db619f2 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Galloway_Sanders
+:Galloway_Sanders rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e769aecb50db619f2;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Galloway Sanders" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e553355b77862ea98
+:60b3ee0e553355b77862ea98 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tina_Blankenship
+:Tina_Blankenship rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e553355b77862ea98;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Tina Blankenship" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ee3bb3fd71f515d88
+:60b3ee0ee3bb3fd71f515d88 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Whitehead_Montgomery
+:Whitehead_Montgomery rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ee3bb3fd71f515d88 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Whitehead Montgomery" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ed5dd8522cc53e7b0
+:60b3ee0ed5dd8522cc53e7b0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Dominguez_Chambers
+:Dominguez_Chambers rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ed5dd8522cc53e7b0 ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Equitação ;
+   :nome "Dominguez Chambers" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e28ab1329e2ed0888
+:60b3ee0e28ab1329e2ed0888 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Booth_Eaton
+:Booth_Eaton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e28ab1329e2ed0888 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Booth Eaton" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e7524108bf9936414
+:60b3ee0e7524108bf9936414 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Joanna_Grant
+:Joanna_Grant rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e7524108bf9936414 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Joanna Grant" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e59e86eaf9b9a5372
+:60b3ee0e59e86eaf9b9a5372 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jeri_Pearson
+:Jeri_Pearson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e59e86eaf9b9a5372;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Jeri Pearson" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e13085dc64e17e4b0
+:60b3ee0e13085dc64e17e4b0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sanchez_Mcgee
+:Sanchez_Mcgee rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e13085dc64e17e4b0;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Sanchez Mcgee" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e3d4f8a3a439f8b7a
+:60b3ee0e3d4f8a3a439f8b7a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Magdalena_Francis
+:Magdalena_Francis rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e3d4f8a3a439f8b7a ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Magdalena Francis" ;
+   :género "M" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e6edaad4b8a63efae
+:60b3ee0e6edaad4b8a63efae rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-19" .
+###  http://www.di.uminho.pt/prc2021/EMD#Morris_Poole
+:Morris_Poole rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e6edaad4b8a63efae;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Morris Poole" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e538d62e10eba66b6
+:60b3ee0e538d62e10eba66b6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Rodriguez_Gonzalez
+:Rodriguez_Gonzalez rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e538d62e10eba66b6 ;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Rodriguez Gonzalez" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0eca6dd1525f201090
+:60b3ee0eca6dd1525f201090 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Christine_Rice
+:Christine_Rice rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0eca6dd1525f201090;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Christine Rice" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e472001f8e05a40ee
+:60b3ee0e472001f8e05a40ee rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Valdez_Harper
+:Valdez_Harper rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e472001f8e05a40ee ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Valdez Harper" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e3b279f45e79cd6fa
+:60b3ee0e3b279f45e79cd6fa rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Berta_Clay
+:Berta_Clay rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e3b279f45e79cd6fa;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Berta Clay" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0eee4b8338800e6003
+:60b3ee0eee4b8338800e6003 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bonnie_Sandoval
+:Bonnie_Sandoval rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0eee4b8338800e6003;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Equitação ;
+   :nome "Bonnie Sandoval" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e66f3d4c3cc778b1e
+:60b3ee0e66f3d4c3cc778b1e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Stein_Wiggins
+:Stein_Wiggins rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e66f3d4c3cc778b1e ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Stein Wiggins" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e278b7161e71d9ceb
+:60b3ee0e278b7161e71d9ceb rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tanya_Mcclain
+:Tanya_Mcclain rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e278b7161e71d9ceb;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Tanya Mcclain" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e7ded570068dce1d9
+:60b3ee0e7ded570068dce1d9 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Perry_Sanford
+:Perry_Sanford rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e7ded570068dce1d9 ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Perry Sanford" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e94c479068389f5e3
+:60b3ee0e94c479068389f5e3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Maxine_Rutledge
+:Maxine_Rutledge rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e94c479068389f5e3 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Maxine Rutledge" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e7ac2f667ececc242
+:60b3ee0e7ac2f667ececc242 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tucker_Morse
+:Tucker_Morse rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e7ac2f667ececc242 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Tucker Morse" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0eabfeddd7f84fd275
+:60b3ee0eabfeddd7f84fd275 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-17" .
+###  http://www.di.uminho.pt/prc2021/EMD#Thelma_Schmidt
+:Thelma_Schmidt rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0eabfeddd7f84fd275 ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Thelma Schmidt" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e3d51473e1b41004b
+:60b3ee0e3d51473e1b41004b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Charles_Kim
+:Charles_Kim rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e3d51473e1b41004b ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Charles Kim" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e926c1d538dfaabd3
+:60b3ee0e926c1d538dfaabd3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Duncan_Davidson
+:Duncan_Davidson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e926c1d538dfaabd3 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Duncan Davidson" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ea6339abf19460649
+:60b3ee0ea6339abf19460649 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-07" .
+###  http://www.di.uminho.pt/prc2021/EMD#Gertrude_Dillon
+:Gertrude_Dillon rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0ea6339abf19460649;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Gertrude Dillon" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e059b32a47b518e93
+:60b3ee0e059b32a47b518e93 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Brennan_Santana
+:Brennan_Santana rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e059b32a47b518e93;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :BTT ;
+   :nome "Brennan Santana" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e57b3659681466acf
+:60b3ee0e57b3659681466acf rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ball_Barlow
+:Ball_Barlow rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e57b3659681466acf;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Ball Barlow" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e651ec286b869976d
+:60b3ee0e651ec286b869976d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Oneil_Baxter
+:Oneil_Baxter rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0e651ec286b869976d ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Oneil Baxter" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e67043c92ce84a97c
+:60b3ee0e67043c92ce84a97c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Helena_Mayo
+:Helena_Mayo rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e67043c92ce84a97c;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Helena Mayo" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0ea5d75fed720e4820
+:60b3ee0ea5d75fed720e4820 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Martin_Brewer
+:Martin_Brewer rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee0ea5d75fed720e4820 ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Martin Brewer" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee0e9dc10b681d5212b5
+:60b3ee0e9dc10b681d5212b5 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Wilder_Greene
+:Wilder_Greene rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee0e9dc10b681d5212b5;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Wilder Greene" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee817af5fb3fb1e153ef
+:60b3ee817af5fb3fb1e153ef rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Harrison_Finch
+:Harrison_Finch rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee817af5fb3fb1e153ef ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Harrison Finch" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81145de55fffb7bdfa
+:60b3ee81145de55fffb7bdfa rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jordan_Alvarez
+:Jordan_Alvarez rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81145de55fffb7bdfa;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Jordan Alvarez" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee811a4429c17e036357
+:60b3ee811a4429c17e036357 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lane_Norton
+:Lane_Norton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee811a4429c17e036357 ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Lane Norton" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8115745fe4ce8dbc5a
+:60b3ee8115745fe4ce8dbc5a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Carrillo_Munoz
+:Carrillo_Munoz rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8115745fe4ce8dbc5a ;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Carrillo Munoz" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8128adc82a45f8023d
+:60b3ee8128adc82a45f8023d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Barrett_Frederick
+:Barrett_Frederick rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8128adc82a45f8023d;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Barrett Frederick" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81525963fc4fd2cf9d
+:60b3ee81525963fc4fd2cf9d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Harmon_Stone
+:Harmon_Stone rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81525963fc4fd2cf9d;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Harmon Stone" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e69c16cc6108e7ad
+:60b3ee81e69c16cc6108e7ad rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Chandra_Potts
+:Chandra_Potts rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81e69c16cc6108e7ad ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Chandra Potts" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81ec958ef30a9daa8d
+:60b3ee81ec958ef30a9daa8d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#John_Warner
+:John_Warner rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81ec958ef30a9daa8d ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "John Warner" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee813905ebb273d5d9a0
+:60b3ee813905ebb273d5d9a0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Casey_Bowman
+:Casey_Bowman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee813905ebb273d5d9a0 ;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Casey Bowman" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8106e9b44af3270a40
+:60b3ee8106e9b44af3270a40 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mccullough_Pena
+:Mccullough_Pena rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8106e9b44af3270a40 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Mccullough Pena" ;
+   :género "M" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee812f35f4ff3c2edecf
+:60b3ee812f35f4ff3c2edecf rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Brianna_Bentley
+:Brianna_Bentley rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee812f35f4ff3c2edecf ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Brianna Bentley" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee819d5bb33e21ff7e16
+:60b3ee819d5bb33e21ff7e16 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Nixon_Hendrix
+:Nixon_Hendrix rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee819d5bb33e21ff7e16 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Ténis ;
+   :nome "Nixon Hendrix" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81ce306eb25d963bb0
+:60b3ee81ce306eb25d963bb0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Buckner_Luna
+:Buckner_Luna rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81ce306eb25d963bb0;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Buckner Luna" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8138f5b0173e1bc637
+:60b3ee8138f5b0173e1bc637 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Britt_Zamora
+:Britt_Zamora rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8138f5b0173e1bc637;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Ténis ;
+   :nome "Britt Zamora" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81f5035e13f1db0069
+:60b3ee81f5035e13f1db0069 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hendrix_Bauer
+:Hendrix_Bauer rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81f5035e13f1db0069;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Hendrix Bauer" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8131597dae8f73a11b
+:60b3ee8131597dae8f73a11b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Travis_Sampson
+:Travis_Sampson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8131597dae8f73a11b ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Ténis ;
+   :nome "Travis Sampson" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e32abefb2a9e8629
+:60b3ee81e32abefb2a9e8629 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-11-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Darla_Ware
+:Darla_Ware rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81e32abefb2a9e8629 ;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Darla Ware" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee815852d8fc2dc33e8a
+:60b3ee815852d8fc2dc33e8a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-17" .
+###  http://www.di.uminho.pt/prc2021/EMD#Peters_Vaughn
+:Peters_Vaughn rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee815852d8fc2dc33e8a;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Ténis ;
+   :nome "Peters Vaughn" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee815e7f792d741f2228
+:60b3ee815e7f792d741f2228 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lawrence_Herman
+:Lawrence_Herman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee815e7f792d741f2228;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Lawrence Herman" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee815b7d9a126c47165d
+:60b3ee815b7d9a126c47165d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Chang_Oneill
+:Chang_Oneill rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee815b7d9a126c47165d ;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Chang Oneill" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e769b6603a6525c6
+:60b3ee81e769b6603a6525c6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Patrick_Mcintyre
+:Patrick_Mcintyre rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81e769b6603a6525c6;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :BTT ;
+   :nome "Patrick Mcintyre" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee815cb65367e6de0b3c
+:60b3ee815cb65367e6de0b3c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Joyce_Evans
+:Joyce_Evans rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee815cb65367e6de0b3c;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Joyce Evans" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee813bd664873721a6a1
+:60b3ee813bd664873721a6a1 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Larsen_Villarreal
+:Larsen_Villarreal rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee813bd664873721a6a1 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Larsen Villarreal" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e901a8c787b38008
+:60b3ee81e901a8c787b38008 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Morrow_Yang
+:Morrow_Yang rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81e901a8c787b38008;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "Morrow Yang" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81874f8871966eedd1
+:60b3ee81874f8871966eedd1 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Dunn_Horn
+:Dunn_Horn rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81874f8871966eedd1;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Dunn Horn" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81146b3cd8954b7256
+:60b3ee81146b3cd8954b7256 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Viola_Medina
+:Viola_Medina rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81146b3cd8954b7256;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Viola Medina" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e02e5fb35760bec3
+:60b3ee81e02e5fb35760bec3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Valdez_Barnes
+:Valdez_Barnes rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81e02e5fb35760bec3;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Valdez Barnes" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8162c5de4569ccfe2f
+:60b3ee8162c5de4569ccfe2f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sweet_Gibbs
+:Sweet_Gibbs rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8162c5de4569ccfe2f;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Sweet Gibbs" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81034e5cb2050e882a
+:60b3ee81034e5cb2050e882a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-17" .
+###  http://www.di.uminho.pt/prc2021/EMD#Addie_Hayes
+:Addie_Hayes rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81034e5cb2050e882a ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Ténis ;
+   :nome "Addie Hayes" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81a545dd3ccaea41b0
+:60b3ee81a545dd3ccaea41b0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#May_Holt
+:May_Holt rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81a545dd3ccaea41b0;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "May Holt" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee817c1ce5b6cb67302a
+:60b3ee817c1ce5b6cb67302a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Christensen_Boyd
+:Christensen_Boyd rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee817c1ce5b6cb67302a;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Christensen Boyd" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81cdbf91a4db1113eb
+:60b3ee81cdbf91a4db1113eb rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Workman_Franks
+:Workman_Franks rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81cdbf91a4db1113eb ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Workman Franks" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81ed581129ff3b2087
+:60b3ee81ed581129ff3b2087 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-05" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lucile_Underwood
+:Lucile_Underwood rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81ed581129ff3b2087 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Lucile Underwood" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e62094c1d0bfca5c
+:60b3ee81e62094c1d0bfca5c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Heath_Bishop
+:Heath_Bishop rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81e62094c1d0bfca5c;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Heath Bishop" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81bc1a4f4c3bc26de1
+:60b3ee81bc1a4f4c3bc26de1 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Rosales_Mejia
+:Rosales_Mejia rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81bc1a4f4c3bc26de1 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Rosales Mejia" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e20d4412bdf4f468
+:60b3ee81e20d4412bdf4f468 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ray_Howe
+:Ray_Howe rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81e20d4412bdf4f468 ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Ray Howe" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81956a3fcc57d06c8c
+:60b3ee81956a3fcc57d06c8c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-05" .
+###  http://www.di.uminho.pt/prc2021/EMD#Suarez_Campbell
+:Suarez_Campbell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81956a3fcc57d06c8c ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Suarez Campbell" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8125e3c7f8ae2daa67
+:60b3ee8125e3c7f8ae2daa67 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Shaffer_Le
+:Shaffer_Le rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8125e3c7f8ae2daa67 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Shaffer Le" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81c0d4102a9f396149
+:60b3ee81c0d4102a9f396149 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Justine_Wise
+:Justine_Wise rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81c0d4102a9f396149;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Justine Wise" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81b5064ca4e9536d3c
+:60b3ee81b5064ca4e9536d3c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Villarreal_Tucker
+:Villarreal_Tucker rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81b5064ca4e9536d3c ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Villarreal Tucker" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8195bd88f9e936aca7
+:60b3ee8195bd88f9e936aca7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-05" .
+###  http://www.di.uminho.pt/prc2021/EMD#Monica_Neal
+:Monica_Neal rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8195bd88f9e936aca7 ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Monica Neal" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81864959e7fb8bc864
+:60b3ee81864959e7fb8bc864 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lloyd_Dotson
+:Lloyd_Dotson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81864959e7fb8bc864;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Lloyd Dotson" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8187b3e7d863bbaf97
+:60b3ee8187b3e7d863bbaf97 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mccray_Barker
+:Mccray_Barker rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8187b3e7d863bbaf97 ;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Mccray Barker" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81afbc52a666850b8c
+:60b3ee81afbc52a666850b8c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sellers_Hunter
+:Sellers_Hunter rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81afbc52a666850b8c;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Parapente ;
+   :nome "Sellers Hunter" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81d74bfab7c22b5eaa
+:60b3ee81d74bfab7c22b5eaa rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Cathryn_Fletcher
+:Cathryn_Fletcher rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81d74bfab7c22b5eaa;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Cathryn Fletcher" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee810078ab3f7321a731
+:60b3ee810078ab3f7321a731 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-02-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Dee_Lowery
+:Dee_Lowery rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee810078ab3f7321a731;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Basquetebol ;
+   :nome "Dee Lowery" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81a40cc7fc63be65ad
+:60b3ee81a40cc7fc63be65ad rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Freeman_Wyatt
+:Freeman_Wyatt rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81a40cc7fc63be65ad;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Freeman Wyatt" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81efda597f9d074638
+:60b3ee81efda597f9d074638 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Guy_Drake
+:Guy_Drake rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81efda597f9d074638;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Karaté ;
+   :nome "Guy Drake" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81d9e0e05421b4d08e
+:60b3ee81d9e0e05421b4d08e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mendez_Good
+:Mendez_Good rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81d9e0e05421b4d08e;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Mendez Good" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee813611a9e67c3546a3
+:60b3ee813611a9e67c3546a3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Burnett_Hogan
+:Burnett_Hogan rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee813611a9e67c3546a3 ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Parapente ;
+   :nome "Burnett Hogan" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee816e416ff33c21634a
+:60b3ee816e416ff33c21634a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jamie_Cherry
+:Jamie_Cherry rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee816e416ff33c21634a;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Jamie Cherry" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81858e8c650b8d992f
+:60b3ee81858e8c650b8d992f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bird_Noble
+:Bird_Noble rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81858e8c650b8d992f ;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Karaté ;
+   :nome "Bird Noble" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee817468bb467a39e2f8
+:60b3ee817468bb467a39e2f8 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Burgess_Bradshaw
+:Burgess_Bradshaw rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee817468bb467a39e2f8;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Burgess Bradshaw" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8117de88dc519ae9d3
+:60b3ee8117de88dc519ae9d3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Laura_Jacobson
+:Laura_Jacobson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8117de88dc519ae9d3 ;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Laura Jacobson" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8160bf5c46dcb3cfa7
+:60b3ee8160bf5c46dcb3cfa7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Blair_Sherman
+:Blair_Sherman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8160bf5c46dcb3cfa7;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Badminton ;
+   :nome "Blair Sherman" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81ea2bed08bf81e861
+:60b3ee81ea2bed08bf81e861 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bobbi_Hawkins
+:Bobbi_Hawkins rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81ea2bed08bf81e861;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Bobbi Hawkins" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81051fe3467036095a
+:60b3ee81051fe3467036095a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-21" .
+###  http://www.di.uminho.pt/prc2021/EMD#Montoya_Anthony
+:Montoya_Anthony rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81051fe3467036095a;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Basquetebol ;
+   :nome "Montoya Anthony" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8152ddb1911c44b96a
+:60b3ee8152ddb1911c44b96a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hooper_Kirby
+:Hooper_Kirby rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8152ddb1911c44b96a;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :BTT ;
+   :nome "Hooper Kirby" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81839f04840d199de9
+:60b3ee81839f04840d199de9 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Wolfe_Baird
+:Wolfe_Baird rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81839f04840d199de9;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Wolfe Baird" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81375cc4e9aba8bc6e
+:60b3ee81375cc4e9aba8bc6e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lamb_Graham
+:Lamb_Graham rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81375cc4e9aba8bc6e ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Lamb Graham" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81422fd173977583e5
+:60b3ee81422fd173977583e5 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Valentine_Fitzgerald
+:Valentine_Fitzgerald rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81422fd173977583e5;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Valentine Fitzgerald" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee813c7547937e764cab
+:60b3ee813c7547937e764cab rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Herminia_Mooney
+:Herminia_Mooney rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee813c7547937e764cab;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Herminia Mooney" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee818db2661d700d6ea3
+:60b3ee818db2661d700d6ea3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Golden_Hopkins
+:Golden_Hopkins rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee818db2661d700d6ea3 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Golden Hopkins" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee811426bce48b453191
+:60b3ee811426bce48b453191 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lancaster_Andrews
+:Lancaster_Andrews rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee811426bce48b453191 ;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Triatlo ;
+   :nome "Lancaster Andrews" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81d13fde44c2e74aab
+:60b3ee81d13fde44c2e74aab rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-15" .
+###  http://www.di.uminho.pt/prc2021/EMD#Elena_Sullivan
+:Elena_Sullivan rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81d13fde44c2e74aab;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Elena Sullivan" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81ef9b6d894223a9fd
+:60b3ee81ef9b6d894223a9fd rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Deana_Ramsey
+:Deana_Ramsey rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81ef9b6d894223a9fd ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Deana Ramsey" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8154161dd7358b2e65
+:60b3ee8154161dd7358b2e65 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mayra_Rose
+:Mayra_Rose rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee8154161dd7358b2e65 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Mayra Rose" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81fcb5c8f9970e2899
+:60b3ee81fcb5c8f9970e2899 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tina_Salinas
+:Tina_Salinas rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81fcb5c8f9970e2899;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Tina Salinas" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e97e332884e1299a
+:60b3ee81e97e332884e1299a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sheila_Caldwell
+:Sheila_Caldwell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81e97e332884e1299a;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Sheila Caldwell" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8151ebf5ddaa5ca13c
+:60b3ee8151ebf5ddaa5ca13c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hudson_Duffy
+:Hudson_Duffy rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8151ebf5ddaa5ca13c;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Hudson Duffy" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee818e25f41f67491f02
+:60b3ee818e25f41f67491f02 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Guzman_Douglas
+:Guzman_Douglas rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee818e25f41f67491f02;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Guzman Douglas" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee817ca74f6cb607c6f9
+:60b3ee817ca74f6cb607c6f9 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ethel_Bartlett
+:Ethel_Bartlett rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee817ca74f6cb607c6f9;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Ethel Bartlett" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee818cd611e6bf56f2f1
+:60b3ee818cd611e6bf56f2f1 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Doyle_Odom
+:Doyle_Odom rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee818cd611e6bf56f2f1 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Doyle Odom" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81c1515414ac1fb549
+:60b3ee81c1515414ac1fb549 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Araceli_Castaneda
+:Araceli_Castaneda rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81c1515414ac1fb549;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Araceli Castaneda" ;
+   :género "F" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81d15fe413bd86d938
+:60b3ee81d15fe413bd86d938 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Fuentes_Walker
+:Fuentes_Walker rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81d15fe413bd86d938;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Fuentes Walker" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e2dc932e4e6f7e51
+:60b3ee81e2dc932e4e6f7e51 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sarah_Moore
+:Sarah_Moore rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81e2dc932e4e6f7e51 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "Sarah Moore" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81f9666482a5c13406
+:60b3ee81f9666482a5c13406 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Cheryl_Watson
+:Cheryl_Watson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81f9666482a5c13406;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Cheryl Watson" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81d7dbdba97369e927
+:60b3ee81d7dbdba97369e927 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Langley_Velez
+:Langley_Velez rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81d7dbdba97369e927;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Langley Velez" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81e024b81dde892dd6
+:60b3ee81e024b81dde892dd6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Alisa_Morrison
+:Alisa_Morrison rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81e024b81dde892dd6;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Alisa Morrison" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81c5073acaa4febef6
+:60b3ee81c5073acaa4febef6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Malinda_Merritt
+:Malinda_Merritt rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81c5073acaa4febef6;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Malinda Merritt" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81963e6ecf70e3d586
+:60b3ee81963e6ecf70e3d586 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lenora_Kane
+:Lenora_Kane rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81963e6ecf70e3d586;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Lenora Kane" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8122f33125935e59d3
+:60b3ee8122f33125935e59d3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Cabrera_Curtis
+:Cabrera_Curtis rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8122f33125935e59d3;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Cabrera Curtis" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81828ee0dba6850475
+:60b3ee81828ee0dba6850475 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Roseann_Benjamin
+:Roseann_Benjamin rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81828ee0dba6850475 ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Roseann Benjamin" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8152b3f05331a47645
+:60b3ee8152b3f05331a47645 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Stafford_Ray
+:Stafford_Ray rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8152b3f05331a47645;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Stafford Ray" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81411e7acd216d0bf0
+:60b3ee81411e7acd216d0bf0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jewel_Trevino
+:Jewel_Trevino rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81411e7acd216d0bf0;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Jewel Trevino" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8103ed6d19e90ce9f7
+:60b3ee8103ed6d19e90ce9f7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mckenzie_Woods
+:Mckenzie_Woods rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8103ed6d19e90ce9f7;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Ténis ;
+   :nome "Mckenzie Woods" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8182b8712a2f15e41a
+:60b3ee8182b8712a2f15e41a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jean_Conley
+:Jean_Conley rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8182b8712a2f15e41a;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Jean Conley" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee811a2021b6b24ffbc2
+:60b3ee811a2021b6b24ffbc2 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Conway_Alexander
+:Conway_Alexander rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee811a2021b6b24ffbc2;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Conway Alexander" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81c44446a9eceefd87
+:60b3ee81c44446a9eceefd87 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Maryann_Joyce
+:Maryann_Joyce rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81c44446a9eceefd87;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Maryann Joyce" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee812d50aad901e7e243
+:60b3ee812d50aad901e7e243 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ayers_Carroll
+:Ayers_Carroll rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee812d50aad901e7e243 ;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Ayers Carroll" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee816b42d22ea075aba7
+:60b3ee816b42d22ea075aba7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bonita_Mccormick
+:Bonita_Mccormick rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee816b42d22ea075aba7;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Bonita Mccormick" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee812a4b8125a96689a0
+:60b3ee812a4b8125a96689a0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Kathy_Kramer
+:Kathy_Kramer rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee812a4b8125a96689a0;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Kathy Kramer" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81b71a63346d0243e7
+:60b3ee81b71a63346d0243e7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tonia_Bryan
+:Tonia_Bryan rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81b71a63346d0243e7 ;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Basquetebol ;
+   :nome "Tonia Bryan" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81559385200672594d
+:60b3ee81559385200672594d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-02-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Barker_Mercer
+:Barker_Mercer rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81559385200672594d;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Barker Mercer" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81a113b4cb68ef5906
+:60b3ee81a113b4cb68ef5906 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-19" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mcfarland_Tyson
+:Mcfarland_Tyson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3ee81a113b4cb68ef5906 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Mcfarland Tyson" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81655cc723f988a62d
+:60b3ee81655cc723f988a62d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-19" .
+###  http://www.di.uminho.pt/prc2021/EMD#Meagan_Carter
+:Meagan_Carter rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81655cc723f988a62d;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Meagan Carter" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee8186fff74d432c9259
+:60b3ee8186fff74d432c9259 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Catalina_Webb
+:Catalina_Webb rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee8186fff74d432c9259;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Catalina Webb" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81051bf4a2138bb141
+:60b3ee81051bf4a2138bb141 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Moses_Sargent
+:Moses_Sargent rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81051bf4a2138bb141;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Moses Sargent" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81c4345661feac7a9a
+:60b3ee81c4345661feac7a9a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-19" .
+###  http://www.di.uminho.pt/prc2021/EMD#Preston_Mccall
+:Preston_Mccall rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81c4345661feac7a9a;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Preston Mccall" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3ee81451b811209c3deef
+:60b3ee81451b811209c3deef rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Christian_Clements
+:Christian_Clements rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3ee81451b811209c3deef;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Christian Clements" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb933e50bd455af89a9
+:60b3eeb933e50bd455af89a9 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jeanine_Hester
+:Jeanine_Hester rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb933e50bd455af89a9;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Jeanine Hester" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9b701a941937c0dd8
+:60b3eeb9b701a941937c0dd8 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tonia_Espinoza
+:Tonia_Espinoza rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9b701a941937c0dd8;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Tonia Espinoza" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9fc87ff10010ae517
+:60b3eeb9fc87ff10010ae517 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Alyssa_Howard
+:Alyssa_Howard rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9fc87ff10010ae517 ;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Alyssa Howard" ;
+   :género "F" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9e966a3cf1239840a
+:60b3eeb9e966a3cf1239840a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Merrill_Fulton
+:Merrill_Fulton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9e966a3cf1239840a;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Merrill Fulton" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9dbbc9f23e5c888ac
+:60b3eeb9dbbc9f23e5c888ac rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jaime_Erickson
+:Jaime_Erickson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9dbbc9f23e5c888ac;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Jaime Erickson" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9425c872217db611e
+:60b3eeb9425c872217db611e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Felicia_Skinner
+:Felicia_Skinner rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9425c872217db611e;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Felicia Skinner" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb967d2dd4be3e2c87d
+:60b3eeb967d2dd4be3e2c87d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Margaret_Bray
+:Margaret_Bray rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb967d2dd4be3e2c87d ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Karaté ;
+   :nome "Margaret Bray" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb944e8f43647ed05f2
+:60b3eeb944e8f43647ed05f2 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-03-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Etta_Cotton
+:Etta_Cotton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb944e8f43647ed05f2 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Etta Cotton" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9bc3d74e0cb400631
+:60b3eeb9bc3d74e0cb400631 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Kelley_Davidson
+:Kelley_Davidson rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9bc3d74e0cb400631 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Equitação ;
+   :nome "Kelley Davidson" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb934a2174ec11d92a6
+:60b3eeb934a2174ec11d92a6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Crawford_Merritt
+:Crawford_Merritt rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb934a2174ec11d92a6 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Crawford Merritt" ;
+   :género "M" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9fa4e587712a640d4
+:60b3eeb9fa4e587712a640d4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Kim_Buck
+:Kim_Buck rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9fa4e587712a640d4 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Kim Buck" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb948dd398953308f2d
+:60b3eeb948dd398953308f2d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Gilda_Schmidt
+:Gilda_Schmidt rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb948dd398953308f2d ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Gilda Schmidt" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9a2085e98659a2f5b
+:60b3eeb9a2085e98659a2f5b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mcintosh_Aguirre
+:Mcintosh_Aguirre rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9a2085e98659a2f5b ;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "Mcintosh Aguirre" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9bfd86db079523f51
+:60b3eeb9bfd86db079523f51 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ida_Bradshaw
+:Ida_Bradshaw rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9bfd86db079523f51 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Dança ;
+   :nome "Ida Bradshaw" ;
+   :género "F" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb98614ea36f88963ba
+:60b3eeb98614ea36f88963ba rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jefferson_Pacheco
+:Jefferson_Pacheco rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb98614ea36f88963ba ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Jefferson Pacheco" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb910808af364c63729
+:60b3eeb910808af364c63729 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-14" .
+###  http://www.di.uminho.pt/prc2021/EMD#Olson_Hickman
+:Olson_Hickman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb910808af364c63729;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Olson Hickman" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb939a5cb2da478d86c
+:60b3eeb939a5cb2da478d86c rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Malinda_Mccall
+:Malinda_Mccall rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb939a5cb2da478d86c;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Malinda Mccall" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb92b1debc068c42080
+:60b3eeb92b1debc068c42080 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Raquel_Dejesus
+:Raquel_Dejesus rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb92b1debc068c42080;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Raquel Dejesus" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9ec44aba1040d2e1e
+:60b3eeb9ec44aba1040d2e1e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-02-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Daniel_Chambers
+:Daniel_Chambers rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9ec44aba1040d2e1e;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Daniel Chambers" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9a9f081f26deada43
+:60b3eeb9a9f081f26deada43 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-21" .
+###  http://www.di.uminho.pt/prc2021/EMD#Samantha_Sharp
+:Samantha_Sharp rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9a9f081f26deada43 ;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Samantha Sharp" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9468961b15e8e1277
+:60b3eeb9468961b15e8e1277 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Robert_Herman
+:Robert_Herman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9468961b15e8e1277 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "Robert Herman" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9edcbd2a0befa0a74
+:60b3eeb9edcbd2a0befa0a74 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Olive_Chapman
+:Olive_Chapman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9edcbd2a0befa0a74;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Olive Chapman" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb97aecf09da8650e19
+:60b3eeb97aecf09da8650e19 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-04-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mccoy_Blackburn
+:Mccoy_Blackburn rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb97aecf09da8650e19;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Mccoy Blackburn" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9d7265f5ab15e4fed
+:60b3eeb9d7265f5ab15e4fed rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lambert_Ferrell
+:Lambert_Ferrell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9d7265f5ab15e4fed ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Lambert Ferrell" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9217c0274b8a1022b
+:60b3eeb9217c0274b8a1022b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Small_Coffey
+:Small_Coffey rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9217c0274b8a1022b;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Dança ;
+   :nome "Small Coffey" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9cc832d080dd2c0e0
+:60b3eeb9cc832d080dd2c0e0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hicks_Daniels
+:Hicks_Daniels rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9cc832d080dd2c0e0;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Hicks Daniels" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9bc920eef418c62ac
+:60b3eeb9bc920eef418c62ac rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Meghan_Cabrera
+:Meghan_Cabrera rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9bc920eef418c62ac;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Meghan Cabrera" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9cf9c078af09a7b74
+:60b3eeb9cf9c078af09a7b74 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hubbard_Hart
+:Hubbard_Hart rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9cf9c078af09a7b74 ;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Hubbard Hart" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb968346da5d651b20d
+:60b3eeb968346da5d651b20d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Chelsea_Gallegos
+:Chelsea_Gallegos rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb968346da5d651b20d ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Andebol ;
+   :nome "Chelsea Gallegos" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91afe89807606d176
+:60b3eeb91afe89807606d176 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Natalie_Figueroa
+:Natalie_Figueroa rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb91afe89807606d176;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Esgrima ;
+   :nome "Natalie Figueroa" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9080c70a07ef5c4ac
+:60b3eeb9080c70a07ef5c4ac rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hayes_Ward
+:Hayes_Ward rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9080c70a07ef5c4ac;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Hayes Ward" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb96f9b421618f39954
+:60b3eeb96f9b421618f39954 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Graves_Mccray
+:Graves_Mccray rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb96f9b421618f39954;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Graves Mccray" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb90afb40019dea8a64
+:60b3eeb90afb40019dea8a64 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mavis_Riley
+:Mavis_Riley rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb90afb40019dea8a64 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Mavis Riley" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb90fc3f9678fed0903
+:60b3eeb90fc3f9678fed0903 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Salas_Joseph
+:Salas_Joseph rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb90fc3f9678fed0903 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Salas Joseph" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9f0342bd19d6a5a39
+:60b3eeb9f0342bd19d6a5a39 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Carly_Peck
+:Carly_Peck rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9f0342bd19d6a5a39 ;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Carly Peck" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb966fd425e94c59395
+:60b3eeb966fd425e94c59395 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Ramirez_Blevins
+:Ramirez_Blevins rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb966fd425e94c59395 ;
+   :pertenceA :Vitoria ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Ramirez Blevins" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91977642e615c41e3
+:60b3eeb91977642e615c41e3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Parks_Saunders
+:Parks_Saunders rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb91977642e615c41e3 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Parks Saunders" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb93a24ff700a3928d5
+:60b3eeb93a24ff700a3928d5 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Leanne_Armstrong
+:Leanne_Armstrong rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb93a24ff700a3928d5;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Leanne Armstrong" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb99c434fb1a7c7c633
+:60b3eeb99c434fb1a7c7c633 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-03-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Kline_Stark
+:Kline_Stark rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb99c434fb1a7c7c633;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Kline Stark" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9f430b0e9e81165c4
+:60b3eeb9f430b0e9e81165c4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Elliott_Guzman
+:Elliott_Guzman rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9f430b0e9e81165c4 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Elliott Guzman" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb94d27b52fe1b15f19
+:60b3eeb94d27b52fe1b15f19 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Liz_Baldwin
+:Liz_Baldwin rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb94d27b52fe1b15f19 ;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Liz Baldwin" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91ab516aa15e1199a
+:60b3eeb91ab516aa15e1199a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-10-16" .
+###  http://www.di.uminho.pt/prc2021/EMD#Warner_Bullock
+:Warner_Bullock rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb91ab516aa15e1199a ;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Parapente ;
+   :nome "Warner Bullock" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb97b17e786bdf88e29
+:60b3eeb97b17e786bdf88e29 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Santana_Harper
+:Santana_Harper rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb97b17e786bdf88e29;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Santana Harper" ;
+   :género "F" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb95762eb38f4ae9a22
+:60b3eeb95762eb38f4ae9a22 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-01-18" .
+###  http://www.di.uminho.pt/prc2021/EMD#Imelda_Odonnell
+:Imelda_Odonnell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb95762eb38f4ae9a22 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Imelda Odonnell" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9c05f073a238c4aa6
+:60b3eeb9c05f073a238c4aa6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lila_Curry
+:Lila_Curry rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9c05f073a238c4aa6;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Lila Curry" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9c82e74bc1831a3be
+:60b3eeb9c82e74bc1831a3be rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-02-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Milagros_Ellis
+:Milagros_Ellis rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9c82e74bc1831a3be ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Patinagem ;
+   :nome "Milagros Ellis" ;
+   :género "M" ;
+   :idade "21" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9e81cdbbee14cab97
+:60b3eeb9e81cdbbee14cab97 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-15" .
+###  http://www.di.uminho.pt/prc2021/EMD#Stafford_Hale
+:Stafford_Hale rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9e81cdbbee14cab97 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Dança ;
+   :nome "Stafford Hale" ;
+   :género "F" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb983fb3181e8f43d12
+:60b3eeb983fb3181e8f43d12 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-05" .
+###  http://www.di.uminho.pt/prc2021/EMD#Blevins_Cline
+:Blevins_Cline rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb983fb3181e8f43d12;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Triatlo ;
+   :nome "Blevins Cline" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9817b6dc6e2848304
+:60b3eeb9817b6dc6e2848304 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-15" .
+###  http://www.di.uminho.pt/prc2021/EMD#Marisol_Owen
+:Marisol_Owen rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9817b6dc6e2848304 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Parapente ;
+   :nome "Marisol Owen" ;
+   :género "M" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9ab56338f42cdaf13
+:60b3eeb9ab56338f42cdaf13 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mcintyre_Walsh
+:Mcintyre_Walsh rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9ab56338f42cdaf13 ;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Mcintyre Walsh" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9de8d709dd3fd086f
+:60b3eeb9de8d709dd3fd086f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Valarie_Silva
+:Valarie_Silva rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9de8d709dd3fd086f;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Valarie Silva" ;
+   :género "M" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9077997c0e212f286
+:60b3eeb9077997c0e212f286 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-06" .
+###  http://www.di.uminho.pt/prc2021/EMD#Jimmie_Beck
+:Jimmie_Beck rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9077997c0e212f286 ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Jimmie Beck" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb916caa13610b8cadf
+:60b3eeb916caa13610b8cadf rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-30" .
+###  http://www.di.uminho.pt/prc2021/EMD#Amparo_Price
+:Amparo_Price rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb916caa13610b8cadf ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Futebol ;
+   :nome "Amparo Price" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9c65ee38149a83dfc
+:60b3eeb9c65ee38149a83dfc rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Susanna_Lowery
+:Susanna_Lowery rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9c65ee38149a83dfc;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Susanna Lowery" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb97c9c1d91087c47a4
+:60b3eeb97c9c1d91087c47a4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Flynn_Huber
+:Flynn_Huber rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb97c9c1d91087c47a4;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Atletismo ;
+   :nome "Flynn Huber" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb97aabcddbffca43f3
+:60b3eeb97aabcddbffca43f3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Elaine_Allen
+:Elaine_Allen rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb97aabcddbffca43f3 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Elaine Allen" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb935b59a6c217af521
+:60b3eeb935b59a6c217af521 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Gwen_Pate
+:Gwen_Pate rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb935b59a6c217af521 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "False" ;
+   :pratica :Karaté ;
+   :nome "Gwen Pate" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb972a330700a58a10a
+:60b3eeb972a330700a58a10a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-19" .
+###  http://www.di.uminho.pt/prc2021/EMD#Leila_Solis
+:Leila_Solis rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb972a330700a58a10a;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Leila Solis" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9a78530cac96a3f79
+:60b3eeb9a78530cac96a3f79 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-04-17" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mercedes_Heath
+:Mercedes_Heath rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9a78530cac96a3f79;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Mercedes Heath" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9235de1538781611d
+:60b3eeb9235de1538781611d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Althea_Fitzpatrick
+:Althea_Fitzpatrick rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9235de1538781611d;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :Basquetebol ;
+   :nome "Althea Fitzpatrick" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9f7311f86c6a33646
+:60b3eeb9f7311f86c6a33646 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Arlene_Morton
+:Arlene_Morton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9f7311f86c6a33646 ;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Arlene Morton" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9354e8a0e1817c201
+:60b3eeb9354e8a0e1817c201 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mosley_Gonzales
+:Mosley_Gonzales rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9354e8a0e1817c201 ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Mosley Gonzales" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9e6ca114d8ab96bc4
+:60b3eeb9e6ca114d8ab96bc4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-31" .
+###  http://www.di.uminho.pt/prc2021/EMD#Torres_Hardy
+:Torres_Hardy rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9e6ca114d8ab96bc4 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Torres Hardy" ;
+   :género "F" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb945accec6f3eb9c3d
+:60b3eeb945accec6f3eb9c3d rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-13" .
+###  http://www.di.uminho.pt/prc2021/EMD#Annmarie_Petersen
+:Annmarie_Petersen rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb945accec6f3eb9c3d;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "False" ;
+   :pratica :Dança ;
+   :nome "Annmarie Petersen" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb92a2f391cda5b305e
+:60b3eeb92a2f391cda5b305e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-03" .
+###  http://www.di.uminho.pt/prc2021/EMD#Osborn_Green
+:Osborn_Green rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb92a2f391cda5b305e ;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Karaté ;
+   :nome "Osborn Green" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9a57cc0f98a998c9a
+:60b3eeb9a57cc0f98a998c9a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Davenport_Dominguez
+:Davenport_Dominguez rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9a57cc0f98a998c9a ;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Davenport Dominguez" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb94b33eaa274778def
+:60b3eeb94b33eaa274778def rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-12-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Barton_Massey
+:Barton_Massey rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb94b33eaa274778def;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Barton Massey" ;
+   :género "M" ;
+   :idade "26" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9a78fd4bfe9e36453
+:60b3eeb9a78fd4bfe9e36453 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-09" .
+###  http://www.di.uminho.pt/prc2021/EMD#Holly_Bowen
+:Holly_Bowen rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9a78fd4bfe9e36453 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Orientação ;
+   :nome "Holly Bowen" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9868c63b27774163f
+:60b3eeb9868c63b27774163f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Dennis_Crawford
+:Dennis_Crawford rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9868c63b27774163f;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Atletismo ;
+   :nome "Dennis Crawford" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9a857578bd25302db
+:60b3eeb9a857578bd25302db rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-05-25" .
+###  http://www.di.uminho.pt/prc2021/EMD#Oliver_Mcleod
+:Oliver_Mcleod rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9a857578bd25302db ;
+   :pertenceA :SCBraga ;
+   :federado "False" ;
+   :pratica :Ténis ;
+   :nome "Oliver Mcleod" ;
+   :género "F" ;
+   :idade "25" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9abbaec58aed568da
+:60b3eeb9abbaec58aed568da rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-03-01" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tameka_Orr
+:Tameka_Orr rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9abbaec58aed568da;
+   :pertenceA :Vitoria ;
+   :federado "False" ;
+   :pratica :Ciclismo ;
+   :nome "Tameka Orr" ;
+   :género "F" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb90d885cf3327fe6bd
+:60b3eeb90d885cf3327fe6bd rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Foster_Strickland
+:Foster_Strickland rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb90d885cf3327fe6bd;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Patinagem ;
+   :nome "Foster Strickland" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91ded4fa3db5fdf8e
+:60b3eeb91ded4fa3db5fdf8e rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-26" .
+###  http://www.di.uminho.pt/prc2021/EMD#Marlene_Rodgers
+:Marlene_Rodgers rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb91ded4fa3db5fdf8e;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Ténis ;
+   :nome "Marlene Rodgers" ;
+   :género "F" ;
+   :idade "27" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb909f2540c651ec8ff
+:60b3eeb909f2540c651ec8ff rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-04-12" .
+###  http://www.di.uminho.pt/prc2021/EMD#Shari_Mathews
+:Shari_Mathews rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb909f2540c651ec8ff;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Shari Mathews" ;
+   :género "M" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91c3038d321c60bb3
+:60b3eeb91c3038d321c60bb3 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-05-07" .
+###  http://www.di.uminho.pt/prc2021/EMD#Josie_Rasmussen
+:Josie_Rasmussen rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb91c3038d321c60bb3 ;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :Badminton ;
+   :nome "Josie Rasmussen" ;
+   :género "M" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9c4b1d5f4d4a0099b
+:60b3eeb9c4b1d5f4d4a0099b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-06-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Shelton_Walton
+:Shelton_Walton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9c4b1d5f4d4a0099b ;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Shelton Walton" ;
+   :género "M" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9cded7ae5d2724d52
+:60b3eeb9cded7ae5d2724d52 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-21" .
+###  http://www.di.uminho.pt/prc2021/EMD#Odonnell_Russell
+:Odonnell_Russell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9cded7ae5d2724d52 ;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :BTT ;
+   :nome "Odonnell Russell" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91485796dedd2444b
+:60b3eeb91485796dedd2444b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Elba_Le
+:Elba_Le rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb91485796dedd2444b ;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :SUP ;
+   :nome "Elba Le" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9fbb0206c040aa4f1
+:60b3eeb9fbb0206c040aa4f1 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Sweet_Woodward
+:Sweet_Woodward rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9fbb0206c040aa4f1;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Sweet Woodward" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9ef81456a2178baca
+:60b3eeb9ef81456a2178baca rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-02-24" .
+###  http://www.di.uminho.pt/prc2021/EMD#Wilkins_Cummings
+:Wilkins_Cummings rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9ef81456a2178baca ;
+   :pertenceA :ACRroriz ;
+   :federado "True" ;
+   :pratica :Dança ;
+   :nome "Wilkins Cummings" ;
+   :género "M" ;
+   :idade "33" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb929306aeaff7f31a0
+:60b3eeb929306aeaff7f31a0 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-04" .
+###  http://www.di.uminho.pt/prc2021/EMD#Rogers_Noel
+:Rogers_Noel rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb929306aeaff7f31a0;
+   :pertenceA :ACDRcrespos ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Rogers Noel" ;
+   :género "F" ;
+   :idade "35" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb99d4b85092734ded4
+:60b3eeb99d4b85092734ded4 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-03-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Hodges_Ashley
+:Hodges_Ashley rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb99d4b85092734ded4;
+   :pertenceA :ABCbraga ;
+   :federado "False" ;
+   :pratica :Andebol ;
+   :nome "Hodges Ashley" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb96b4950f33f42c5b6
+:60b3eeb96b4950f33f42c5b6 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-12-19" .
+###  http://www.di.uminho.pt/prc2021/EMD#Curtis_Dillon
+:Curtis_Dillon rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb96b4950f33f42c5b6 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Curtis Dillon" ;
+   :género "M" ;
+   :idade "29" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9c4c935218799831f
+:60b3eeb9c4c935218799831f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-02-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Lelia_Oliver
+:Lelia_Oliver rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9c4c935218799831f;
+   :pertenceA :GDGoma ;
+   :federado "False" ;
+   :pratica :Ténis ;
+   :nome "Lelia Oliver" ;
+   :género "M" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91dbe172db8fd8f61
+:60b3eeb91dbe172db8fd8f61 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-02-07" .
+###  http://www.di.uminho.pt/prc2021/EMD#Fuentes_Rogers
+:Fuentes_Rogers rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb91dbe172db8fd8f61 ;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :BTT ;
+   :nome "Fuentes Rogers" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9c7550e5dc5a5ddb1
+:60b3eeb9c7550e5dc5a5ddb1 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-28" .
+###  http://www.di.uminho.pt/prc2021/EMD#Carole_Lindsey
+:Carole_Lindsey rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9c7550e5dc5a5ddb1 ;
+   :pertenceA :AmigosMontanha ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Carole Lindsey" ;
+   :género "F" ;
+   :idade "34" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb95632a2a2915ae72b
+:60b3eeb95632a2a2915ae72b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-07-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Martinez_Johns
+:Martinez_Johns rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb95632a2a2915ae72b;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :SUP ;
+   :nome "Martinez Johns" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9af56ea737b79ac30
+:60b3eeb9af56ea737b79ac30 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-21" .
+###  http://www.di.uminho.pt/prc2021/EMD#Kellie_Holland
+:Kellie_Holland rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9af56ea737b79ac30;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Kellie Holland" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9e387855b0de81d09
+:60b3eeb9e387855b0de81d09 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-06-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Mathis_Kirk
+:Mathis_Kirk rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9e387855b0de81d09;
+   :pertenceA :EDViana ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Mathis Kirk" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb93bfe7ecd8361f659
+:60b3eeb93bfe7ecd8361f659 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-10-22" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bertha_Shelton
+:Bertha_Shelton rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb93bfe7ecd8361f659 ;
+   :pertenceA :GDGoma ;
+   :federado "True" ;
+   :pratica :Orientação ;
+   :nome "Bertha Shelton" ;
+   :género "M" ;
+   :idade "28" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9860033876d65f5f7
+:60b3eeb9860033876d65f5f7 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-01-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Bonnie_Diaz
+:Bonnie_Diaz rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9860033876d65f5f7;
+   :pertenceA :SCBraga ;
+   :federado "True" ;
+   :pratica :Ténis ;
+   :nome "Bonnie Diaz" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb97a2511a770990f0f
+:60b3eeb97a2511a770990f0f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-08-23" .
+###  http://www.di.uminho.pt/prc2021/EMD#Becker_Talley
+:Becker_Talley rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb97a2511a770990f0f;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Becker Talley" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9080a93e404ab974a
+:60b3eeb9080a93e404ab974a rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-08-11" .
+###  http://www.di.uminho.pt/prc2021/EMD#Zelma_Bell
+:Zelma_Bell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9080a93e404ab974a;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Equitação ;
+   :nome "Zelma Bell" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb96e988bb711c0c940
+:60b3eeb96e988bb711c0c940 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2019-09-29" .
+###  http://www.di.uminho.pt/prc2021/EMD#Stanton_Cox
+:Stanton_Cox rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb96e988bb711c0c940;
+   :pertenceA :EDViana ;
+   :federado "False" ;
+   :pratica :BTT ;
+   :nome "Stanton Cox" ;
+   :género "F" ;
+   :idade "22" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb97d329fb5b3d7379b
+:60b3eeb97d329fb5b3d7379b rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-07-15" .
+###  http://www.di.uminho.pt/prc2021/EMD#Cindy_Shepherd
+:Cindy_Shepherd rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb97d329fb5b3d7379b ;
+   :pertenceA :AVCfamalicão ;
+   :federado "True" ;
+   :pratica :Ciclismo ;
+   :nome "Cindy Shepherd" ;
+   :género "F" ;
+   :idade "23" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb95b00f32d469ef4b2
+:60b3eeb95b00f32d469ef4b2 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-09-20" .
+###  http://www.di.uminho.pt/prc2021/EMD#Knapp_Buckner
+:Knapp_Buckner rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb95b00f32d469ef4b2;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Knapp Buckner" ;
+   :género "F" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb91accf4bd8b426245
+:60b3eeb91accf4bd8b426245 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-11-27" .
+###  http://www.di.uminho.pt/prc2021/EMD#Callahan_Mitchell
+:Callahan_Mitchell rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb91accf4bd8b426245;
+   :pertenceA :ABCbraga ;
+   :federado "True" ;
+   :pratica :Parapente ;
+   :nome "Callahan Mitchell" ;
+   :género "M" ;
+   :idade "24" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9dd4dc919156890ee
+:60b3eeb9dd4dc919156890ee rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-10" .
+###  http://www.di.uminho.pt/prc2021/EMD#Allie_Lyons
+:Allie_Lyons rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :reprovou :60b3eeb9dd4dc919156890ee;
+   :pertenceA :ACRroriz ;
+   :federado "False" ;
+   :pratica :Equitação ;
+   :nome "Allie Lyons" ;
+   :género "M" ;
+   :idade "31" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9d9f01093dc14973f
+:60b3eeb9d9f01093dc14973f rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2020-05-08" .
+###  http://www.di.uminho.pt/prc2021/EMD#Tammy_Bryant
+:Tammy_Bryant rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9d9f01093dc14973f ;
+   :pertenceA :ACDRcrespos ;
+   :federado "True" ;
+   :pratica :Futebol ;
+   :nome "Tammy Bryant" ;
+   :género "M" ;
+   :idade "32" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#60b3eeb9d027f625a1b63723
+:60b3eeb9d027f625a1b63723 rdf:type owl:NamedIndividual ,
+            :EMD ;
+   :data "2021-01-02" .
+###  http://www.di.uminho.pt/prc2021/EMD#Carissa_Rosario
+:Carissa_Rosario rdf:type owl:NamedIndividual ,
+            :Atleta ;
+   :passou :60b3eeb9d027f625a1b63723 ;
+   :pertenceA :Clube_de_Orientação_do_Minho ;
+   :federado "True" ;
+   :pratica :Esgrima ;
+   :nome "Carissa Rosario" ;
+   :género "F" ;
+   :idade "30" .
+
+
+###  http://www.di.uminho.pt/prc2021/EMD#GDGoma
+:GDGoma rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#AVCfamalicão
+:AVCfamalicão rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#ABCbraga
+:ABCbraga rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#Clube_de_Orientação_do_Minho
+:Clube_de_Orientação_do_Minho rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#SCBraga
+:SCBraga rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#ACDRcrespos
+:ACDRcrespos rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#ACRroriz
+:ACRroriz rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#Vitoria
+:Vitoria rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#AmigosMontanha
+:AmigosMontanha rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#EDViana
+:EDViana rdf:type owl:NamedIndividual ,
+            :Clube .
+###  http://www.di.uminho.pt/prc2021/EMD#Futebol
+:Futebol rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Triatlo
+:Triatlo rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Badminton
+:Badminton rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Ciclismo
+:Ciclismo rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Patinagem
+:Patinagem rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Parapente
+:Parapente rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Orientação
+:Orientação rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Esgrima
+:Esgrima rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#BTT
+:BTT rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Atletismo
+:Atletismo rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#SUP
+:SUP rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Basquetebol
+:Basquetebol rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Karaté
+:Karaté rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Dança
+:Dança rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Andebol
+:Andebol rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Equitação
+:Equitação rdf:type owl:NamedIndividual ,
+            :Modalidade .
+###  http://www.di.uminho.pt/prc2021/EMD#Ténis
+:Ténis rdf:type owl:NamedIndividual ,
+            :Modalidade .

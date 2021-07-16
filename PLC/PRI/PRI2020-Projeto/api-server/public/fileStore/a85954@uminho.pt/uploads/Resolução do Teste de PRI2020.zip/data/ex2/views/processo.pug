@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue-grey
+    h1 Processo #{proc.codigo} - #{proc.idRel}
+  .w3-container.w3-padding
+    b Relação:
+    span  #{proc.tipoRel}
+    p
+      b Descrição: 
+      span  #{classe.descricao}
+    p
+      b Status: 
+      span  #{classe.status}
+
+  footer.w3-container.w3-blue-grey.w3-padding-medium
+    address.w3-padding-16
+        a(href=`/classe/${aluno}`) Voltar atrás
+        a(href="/classes").w3-right Página inicial
+        
+    

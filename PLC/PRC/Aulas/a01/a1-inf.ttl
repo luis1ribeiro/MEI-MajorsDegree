@@ -1,0 +1,149 @@
+@prefix : <http://www.di.uminho.pt/prc2021/a1-inf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/a1-inf> .
+
+<http://www.di.uminho.pt/prc2021/a1-inf> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#ensina
+<http://www.semanticweb.org/xalug/ontologies/uc#ensina> rdf:type owl:ObjectProperty ;
+                                                        owl:inverseOf <http://www.semanticweb.org/xalug/ontologies/uc#éEnsinadaPor> ;
+                                                        rdfs:domain <http://www.semanticweb.org/xalug/ontologies/uc#Professor> ;
+                                                        rdfs:range <http://www.semanticweb.org/xalug/ontologies/uc#UC> .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#frequenta
+<http://www.semanticweb.org/xalug/ontologies/uc#frequenta> rdf:type owl:ObjectProperty ;
+                                                           owl:inverseOf <http://www.semanticweb.org/xalug/ontologies/uc#éFrequentadaPor> ;
+                                                           rdfs:domain <http://www.semanticweb.org/xalug/ontologies/uc#Aluno> ;
+                                                           rdfs:range <http://www.semanticweb.org/xalug/ontologies/uc#UC> .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#éAlunoDe
+<http://www.semanticweb.org/xalug/ontologies/uc#éAlunoDe> rdf:type owl:ObjectProperty ;
+                                                          owl:inverseOf <http://www.semanticweb.org/xalug/ontologies/uc#éProfessorDe> .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#éEnsinadaPor
+<http://www.semanticweb.org/xalug/ontologies/uc#éEnsinadaPor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#éFrequentadaPor
+<http://www.semanticweb.org/xalug/ontologies/uc#éFrequentadaPor> rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#éProfessorDe
+<http://www.semanticweb.org/xalug/ontologies/uc#éProfessorDe> rdf:type owl:ObjectProperty ;
+                                                              owl:propertyChainAxiom ( <http://www.semanticweb.org/xalug/ontologies/uc#ensina>
+                                                                                       <http://www.semanticweb.org/xalug/ontologies/uc#éFrequentadaPor>
+                                                                                     ) .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#anoletivo
+<http://www.semanticweb.org/xalug/ontologies/uc#anoletivo> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#designação
+<http://www.semanticweb.org/xalug/ontologies/uc#designação> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#nome
+<http://www.semanticweb.org/xalug/ontologies/uc#nome> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#Aluno
+<http://www.semanticweb.org/xalug/ontologies/uc#Aluno> rdf:type owl:Class ;
+                                                       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.semanticweb.org/xalug/ontologies/uc#frequenta> ;
+                                                                         owl:someValuesFrom <http://www.semanticweb.org/xalug/ontologies/uc#UC>
+                                                                       ] .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#Professor
+<http://www.semanticweb.org/xalug/ontologies/uc#Professor> rdf:type owl:Class ;
+                                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                             owl:onProperty <http://www.semanticweb.org/xalug/ontologies/uc#ensina> ;
+                                                                             owl:someValuesFrom <http://www.semanticweb.org/xalug/ontologies/uc#UC>
+                                                                           ] .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#UC
+<http://www.semanticweb.org/xalug/ontologies/uc#UC> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#PRC2021
+<http://www.semanticweb.org/xalug/ontologies/uc#PRC2021> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.semanticweb.org/xalug/ontologies/uc#UC> ;
+                                                         <http://www.semanticweb.org/xalug/ontologies/uc#éEnsinadaPor> <http://www.semanticweb.org/xalug/ontologies/uc#jcr> ;
+                                                         <http://www.semanticweb.org/xalug/ontologies/uc#éFrequentadaPor> <http://www.semanticweb.org/xalug/ontologies/uc#amigo_do_mariolas> ,
+                                                                                                                          <http://www.semanticweb.org/xalug/ontologies/uc#mariolas> ;
+                                                         <http://www.semanticweb.org/xalug/ontologies/uc#anoletivo> "2020/2021" ;
+                                                         <http://www.semanticweb.org/xalug/ontologies/uc#designação> "Processamento e Representação do Conhecimento" .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#SPLN2021
+<http://www.semanticweb.org/xalug/ontologies/uc#SPLN2021> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/xalug/ontologies/uc#UC> ;
+                                                          <http://www.semanticweb.org/xalug/ontologies/uc#éEnsinadaPor> <http://www.semanticweb.org/xalug/ontologies/uc#jj> ;
+                                                          <http://www.semanticweb.org/xalug/ontologies/uc#éFrequentadaPor> <http://www.semanticweb.org/xalug/ontologies/uc#amigo_do_mariolas> ,
+                                                                                                                           <http://www.semanticweb.org/xalug/ontologies/uc#mariolas> .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#amigo_do_mariolas
+<http://www.semanticweb.org/xalug/ontologies/uc#amigo_do_mariolas> rdf:type owl:NamedIndividual ,
+                                                                            <http://www.semanticweb.org/xalug/ontologies/uc#Aluno> ;
+                                                                   <http://www.semanticweb.org/xalug/ontologies/uc#frequenta> <http://www.semanticweb.org/xalug/ontologies/uc#PRC2021> ,
+                                                                                                                              <http://www.semanticweb.org/xalug/ontologies/uc#SPLN2021> ;
+                                                                   <http://www.semanticweb.org/xalug/ontologies/uc#éAlunoDe> <http://www.semanticweb.org/xalug/ontologies/uc#jcr> ,
+                                                                                                                             <http://www.semanticweb.org/xalug/ontologies/uc#jj> ;
+                                                                   <http://www.semanticweb.org/xalug/ontologies/uc#nome> "Chefe chefe" .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#jcr
+<http://www.semanticweb.org/xalug/ontologies/uc#jcr> rdf:type owl:NamedIndividual ,
+                                                              <http://www.semanticweb.org/xalug/ontologies/uc#Professor> ;
+                                                     <http://www.semanticweb.org/xalug/ontologies/uc#ensina> <http://www.semanticweb.org/xalug/ontologies/uc#PRC2021> ;
+                                                     <http://www.semanticweb.org/xalug/ontologies/uc#éProfessorDe> <http://www.semanticweb.org/xalug/ontologies/uc#amigo_do_mariolas> ,
+                                                                                                                   <http://www.semanticweb.org/xalug/ontologies/uc#mariolas> ;
+                                                     <http://www.semanticweb.org/xalug/ontologies/uc#nome> "José Carlos Ramalho" .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#jj
+<http://www.semanticweb.org/xalug/ontologies/uc#jj> rdf:type owl:NamedIndividual ,
+                                                             <http://www.semanticweb.org/xalug/ontologies/uc#Professor> ;
+                                                    <http://www.semanticweb.org/xalug/ontologies/uc#ensina> <http://www.semanticweb.org/xalug/ontologies/uc#SPLN2021> ;
+                                                    <http://www.semanticweb.org/xalug/ontologies/uc#éProfessorDe> <http://www.semanticweb.org/xalug/ontologies/uc#amigo_do_mariolas> ,
+                                                                                                                  <http://www.semanticweb.org/xalug/ontologies/uc#mariolas> ;
+                                                    <http://www.semanticweb.org/xalug/ontologies/uc#nome> "José João" .
+
+
+###  http://www.semanticweb.org/xalug/ontologies/uc#mariolas
+<http://www.semanticweb.org/xalug/ontologies/uc#mariolas> rdf:type owl:NamedIndividual ,
+                                                                   <http://www.semanticweb.org/xalug/ontologies/uc#Aluno> ;
+                                                          <http://www.semanticweb.org/xalug/ontologies/uc#frequenta> <http://www.semanticweb.org/xalug/ontologies/uc#PRC2021> ,
+                                                                                                                     <http://www.semanticweb.org/xalug/ontologies/uc#SPLN2021> ;
+                                                          <http://www.semanticweb.org/xalug/ontologies/uc#éAlunoDe> <http://www.semanticweb.org/xalug/ontologies/uc#jcr> ,
+                                                                                                                    <http://www.semanticweb.org/xalug/ontologies/uc#jj> ;
+                                                          <http://www.semanticweb.org/xalug/ontologies/uc#nome> "Luís Mário" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

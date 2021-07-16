@@ -1,0 +1,78 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "Enunciado do Projeto 1",
+            "tipo": "pdf"
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "Projeto1",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "SelRA",
+                        "tipo": "g4"
+                    }, {
+                        "titulo": "Relatorio",
+                        "tipo": "pdf"
+                    }, {
+                        "titulo": "Main",
+                        "tipo": "java"
+                    }, {
+                        "titulo": "computacaoEscola",
+                        "tipo": "txt"
+                    }
+                ],
+                "pastas": [
+                    {
+                        "titulo": "___server___",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "db",
+                                    "tipo": "json"
+                                },
+                                {
+                                    "titulo": "error",
+                                    "tipo": "html"
+                                },
+                                {
+                                    "titulo": "output",
+                                    "tipo": "html"
+                                },
+                                {
+                                    "titulo": "server",
+                                    "tipo": "js"
+                                }, {
+                                    "titulo": "static",
+                                    "tipo": "js"
+                                }
+                            ],
+                            "pastas": [
+                                {
+                                    "titulo": "public",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "favicon",
+                                                "tipo": "png"
+                                            }, {
+                                                "titulo": "icon",
+                                                "tipo": "png"
+                                            }, {
+                                                "titulo": "w3",
+                                                "tipo": "css"
+                                            }
+                                        ],
+                                        "pastas": []
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

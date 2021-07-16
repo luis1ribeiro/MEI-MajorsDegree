@@ -1,0 +1,71 @@
+extends layout
+
+block content
+    .w3-container.w3-section.w3-card-4
+        header.w3-container.w3-blue-grey
+            h2 Editar um Aluno
+        form.w3-container(action='/alunos/edit' method='POST')
+            label.w3-text-blue-grey
+                b Número / Identificador
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='Número' value=aluno.Número)
+                    input.w3-input.w3-border.w3-light-grey(type='hidden' name='_id' value=aluno._id)
+            label.w3-text-blue-grey
+                b Nome
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='Nome' value=aluno.Nome)
+            label.w3-text-blue-grey
+                b Link para o repositório no Git
+                    input.w3-input.w3-border.w3-light-grey(type='text' name='Git' value=aluno.Git)
+            label.w3-text-blue-grey
+                b Editar TPCS feitos
+                    each val, index in aluno.tpc
+                            label(class="checkbox-inline")
+                                br
+                                if(index=0)
+                                    if(val==1)
+                                        input(type='checkbox', name='tpc1', checked)
+                                    else 
+                                        input(type='checkbox', name='tpc1')
+                                    b.w3-text-black   TPC #{index}
+                                    br
+                                if(index=1)
+                                    if(val==1)
+                                        input(type='checkbox', name='tpc2', checked)
+                                    else 
+                                        input(type='checkbox', name='tpc2')
+                                    b.w3-text-black   TPC #{index}
+                                    br
+                                if(index=2)
+                                    if(val==1)
+                                        input(type='checkbox', name='tpc3', checked)
+                                    else 
+                                        input(type='checkbox', name='tpc3')
+                                    b.w3-text-black   TPC #{index}
+                                    br
+                                if(index=3)
+                                    if(val==1)
+                                        input(type='checkbox', name='tpc4', checked)
+                                    else 
+                                        input(type='checkbox', name='tpc4')
+                                    b.w3-text-black   TPC #{index}
+                                    br
+                                if(index=4)
+                                    if(val==1)
+                                        input(type='checkbox', name='tpc5', checked)
+                                    else 
+                                        input(type='checkbox', name='tpc5')
+                                    b.w3-text-black   TPC #{index}
+                                    br
+                                if(index=5)
+                                    if(val==1)
+                                        input(type='checkbox', name='tpc6', checked)
+                                    else 
+                                        input(type='checkbox', name='tpc6')
+                                    b.w3-text-black   TPC #{index}
+                                    br
+            br
+            input.w3-btn.w3-blue-grey-blue-greyw3-btn.w3-border.w3-margin-bottom.w3-left.w3-blue-grey(type='submit' value='Editar')
+            input.w3-btn.w3-border.w3-margin-bottom.w3-right.w3-blue-grey(type='reset' value='Limpar valores')
+    .w3-container.w3-blue-grey
+        footer.w3-container
+            p
+                a(href="/") Voltar à página principal

@@ -1,0 +1,15 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "par",
+            "tipo": "html"
+        }, {
+            "titulo": "ls",
+            "tipo": "html"
+        }, {
+            "titulo": "lc",
+            "tipo": "html"
+        }
+    ],
+    "pastas": []
+}

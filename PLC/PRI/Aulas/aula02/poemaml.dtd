@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT poema (titulo, autor, corpo, data)>
+<!ELEMENT titulo (#PCDATA)> <!-- #PCDATA corresponde a texto ou string -->
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT data (#PCDATA)>
+
+<!ELEMENT corpo (estrofe+)> <!-- <!ELEMENT corpo (quadra,quadra,terceto,terceto)> -->
+<!ELEMENT estrofe (verso+)>
+<!ELEMENT verso (#PCDATA|nome|local)*>
+<!ELEMENT nome (#PCDATA)>
+<!ELEMENT local (#PCDATA)>
+
+<!-- 
+    - Operadores de Sequência : 
+        . a,b 
+        . a|b
+    - Operadores de Ocorrência :
+        . ?
+        . *
+        . +
+-->

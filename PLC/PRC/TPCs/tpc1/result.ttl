@@ -1,0 +1,2358 @@
+@prefix : <http://www.di.uminho.pt/prc2021/uc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/uc> .
+
+<http://www.di.uminho.pt/prc2021/uc> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#designacao
+:designacao rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#ensina
+:ensina rdf:type owl:ObjectProperty ;
+        owl:inverseOf :éEnsinadaPor ;
+        rdfs:domain :Professor ;
+        rdfs:range :UC .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#frequenta
+:frequenta rdf:type owl:ObjectProperty ;
+           owl:inverseOf :éFrequentadaPor ;
+           rdfs:domain :Aluno ;
+           rdfs:range :UC .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éAlunoDe
+:éAlunoDe rdf:type owl:ObjectProperty ;
+          owl:inverseOf :éProfessorDe .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éEnsinadaPor
+:éEnsinadaPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éFrequentadaPor
+:éFrequentadaPor rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#éProfessorDe
+:éProfessorDe rdf:type owl:ObjectProperty ;
+              owl:propertyChainAxiom ( :ensina
+                                       :éFrequentadaPor
+                                     ) .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#anoletivo
+:anoletivo rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#designação
+:designação rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#nome
+:nome rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#Aluno
+:Aluno rdf:type owl:Class ;
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :frequenta ;
+                         owl:someValuesFrom :UC
+                       ] .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#Professor
+:Professor rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :ensina ;
+                             owl:someValuesFrom :UC
+                           ] .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#UC
+:UC rdf:type owl:Class .
+
+
+###  http://www.w3.org/2002/07/owl#NameIndividual
+owl:NameIndividual rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/uc#A84007
+:A84007 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Sheena Patrick" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84021
+:A84021 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Claudette Buckley" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84023
+:A84023 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Eloise Mendoza" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84043
+:A84043 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Palmer Sampson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84045
+:A84045 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Becky Gray" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84051
+:A84051 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Amelia Swanson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84082
+:A84082 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Colleen Turner" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84083
+:A84083 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Lenora Hogan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84084
+:A84084 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Jimenez Giles" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84098
+:A84098 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Shannon Compton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84102
+:A84102 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Munoz Gregory" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84119
+:A84119 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Guy Lowe" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84121
+:A84121 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Aida Wolfe" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84125
+:A84125 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Noelle Mcguire" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84143
+:A84143 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Foster Kerr" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84144
+:A84144 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Lorrie Whitney" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84145
+:A84145 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Hebert Salas" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84149
+:A84149 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Althea Hicks" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84180
+:A84180 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Leach Santana" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84181
+:A84181 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Melody Washington" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84194
+:A84194 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Benton Vinson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84210
+:A84210 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Barry Dale" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84212
+:A84212 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Morgan Fernandez" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84219
+:A84219 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Welch Cameron" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84222
+:A84222 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Butler Gillespie" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84244
+:A84244 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Curry Torres" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84259
+:A84259 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Alford Snyder" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84262
+:A84262 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Montoya Ellison" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84268
+:A84268 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mcneil Cannon" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84279
+:A84279 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mcclain Massey" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84285
+:A84285 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Eaton Cooke" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84287
+:A84287 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Dudley Terry" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84312
+:A84312 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Susana Mckinney" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84328
+:A84328 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Hood Black" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84332
+:A84332 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Patti Logan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84339
+:A84339 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Patsy Wolf" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84353
+:A84353 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "John Finch" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84359
+:A84359 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Amparo Pittman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84376
+:A84376 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Byers Hodges" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84390
+:A84390 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Clay Koch" ,
+              "Krista Goodwin" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84400
+:A84400 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Charlotte Mayer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84411
+:A84411 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Farmer Ray" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84422
+:A84422 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Cervantes Hickman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84426
+:A84426 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Effie Bennett" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84427
+:A84427 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Latonya Beard" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84429
+:A84429 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Weber Pugh" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84441
+:A84441 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Tanisha Byrd" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84444
+:A84444 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Spears Nunez" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84459
+:A84459 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Marisa Tate" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84464
+:A84464 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Rosalie Moses" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84470
+:A84470 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Allen Vang" ,
+              "Carrillo Eaton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84475
+:A84475 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Marina Beasley" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84482
+:A84482 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mcdonald Knowles" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84484
+:A84484 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Carla Wade" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84500
+:A84500 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ,
+                   :VF ;
+        :nome "Mcfadden Hayden" ,
+              "Salazar Weber" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84502
+:A84502 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mckee Molina" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84505
+:A84505 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Bernadette Mcclain" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84509
+:A84509 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Lourdes Lee" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84515
+:A84515 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Chambers Fitzgerald" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84526
+:A84526 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Coffey Marshall" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84528
+:A84528 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Hines Grant" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84548
+:A84548 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Dunlap Daniel" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84560
+:A84560 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Pollard Fox" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84573
+:A84573 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Dora Mcfarland" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84580
+:A84580 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Doris Farrell" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84604
+:A84604 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Bridgette Dixon" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84610
+:A84610 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Deidre Donaldson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84616
+:A84616 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Avery Mays" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84669
+:A84669 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Bailey Head" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84670
+:A84670 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Staci Gonzalez" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84673
+:A84673 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Sondra Oconnor" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84674
+:A84674 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Fry Rush" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84676
+:A84676 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Sampson Coleman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84691
+:A84691 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Leann Mcmillan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84695
+:A84695 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Kristy Kaufman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84698
+:A84698 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Bernice Vaughan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84710
+:A84710 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Noble Townsend" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84722
+:A84722 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Lottie Mcknight" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84732
+:A84732 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Francine Davenport" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84748
+:A84748 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Maryellen Hartman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84751
+:A84751 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Tammy Shaw" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84753
+:A84753 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Nelson Hardy" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84757
+:A84757 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Dianne Mcfadden" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84761
+:A84761 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Geraldine Garner" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84779
+:A84779 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Alba Wilson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84792
+:A84792 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Blackburn Blackburn" ,
+              "Kennedy Stewart" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84820
+:A84820 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Aurora Cross" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84822
+:A84822 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Dorthy Schroeder" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84839
+:A84839 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Alice Gamble" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84845
+:A84845 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Lilly Barrera" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84852
+:A84852 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Houston Evans" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84859
+:A84859 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Pamela Sargent" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84867
+:A84867 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Anita Bass" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84883
+:A84883 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Natalia Pope" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84901
+:A84901 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Lara Hampton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84916
+:A84916 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Puckett Santiago" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84931
+:A84931 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Allison Summers" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84941
+:A84941 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Frank Brennan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84948
+:A84948 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Bauer Battle" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84974
+:A84974 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Iva Leblanc" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A84979
+:A84979 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Hester Cohen" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85021
+:A85021 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Horne Matthews" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85022
+:A85022 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Anna Madden" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85026
+:A85026 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Edna Salinas" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85056
+:A85056 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Howell Woodard" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85057
+:A85057 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Rachael Tillman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85070
+:A85070 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Brigitte Solomon" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85071
+:A85071 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Frieda Cervantes" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85073
+:A85073 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Katie Chambers" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85085
+:A85085 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Santiago Ramsey" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85102
+:A85102 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Vazquez Lambert" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85117
+:A85117 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Price Shaffer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85123
+:A85123 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Tamra Pruitt" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85129
+:A85129 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Marla Glover" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85130
+:A85130 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Robyn Dunn" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85150
+:A85150 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Guzman Branch" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85158
+:A85158 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Sexton Romero" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85165
+:A85165 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Krystal Vance" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85166
+:A85166 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Cassie May" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85181
+:A85181 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Reilly Rosario" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85202
+:A85202 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Aimee Christian" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85216
+:A85216 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Dominique Boyd" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85228
+:A85228 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Margo Bryan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85240
+:A85240 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Riggs Guthrie" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85252
+:A85252 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Barton Kirk" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85260
+:A85260 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Fowler Harris" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85261
+:A85261 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Celia Mack" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85273
+:A85273 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Willie Dawson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85287
+:A85287 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Nolan Faulkner" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85293
+:A85293 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Helene Rogers" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85296
+:A85296 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Lela Levine" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85300
+:A85300 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Sellers Murray" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85310
+:A85310 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mcclure Henson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85313
+:A85313 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Lynette Colon" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85319
+:A85319 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Johanna Buck" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85322
+:A85322 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Alston Nolan" ,
+              "Margie Navarro" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85343
+:A85343 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Catherine Holland" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85346
+:A85346 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Craig King" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85350
+:A85350 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Conner Norman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85355
+:A85355 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Quinn Meadows" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85385
+:A85385 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Katina Weeks" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85386
+:A85386 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Sharlene Schultz" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85387
+:A85387 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ,
+                   :VF ;
+        :nome "Kerri Waller" ,
+              "Melba Newman" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85389
+:A85389 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Gwendolyn Price" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85393
+:A85393 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Shaw Everett" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85414
+:A85414 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Brenda Horne" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85432
+:A85432 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Muriel Perkins" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85439
+:A85439 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mercedes Cox" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85441
+:A85441 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Tracie Hensley" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85458
+:A85458 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Jean Tyler" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85474
+:A85474 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Vega Hooper" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85480
+:A85480 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Vera Daugherty" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85512
+:A85512 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Griffin Nieves" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85527
+:A85527 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Solomon Levy" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85555
+:A85555 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ,
+                   :VF ;
+        :nome "Decker Mccarthy" ,
+              "Yang Stokes" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85574
+:A85574 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Lola Benson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85576
+:A85576 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Mabel Figueroa" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85585
+:A85585 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Liza Mccall" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85592
+:A85592 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Hazel Richmond" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85595
+:A85595 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Jo Brady" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85597
+:A85597 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Anne Rosales" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85601
+:A85601 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Kaitlin Richardson" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85621
+:A85621 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Loraine Gould" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85633
+:A85633 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Kirby Little" ,
+              "Mary Christensen" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85634
+:A85634 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Melton Walters" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85645
+:A85645 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "King Moore" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85665
+:A85665 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Della Leon" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85697
+:A85697 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Schmidt Young" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85699
+:A85699 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Jolene Frazier" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85740
+:A85740 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Josie Vega" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85781
+:A85781 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Edwards Mason" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85786
+:A85786 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Mcbride Winters" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85789
+:A85789 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Denise Greene" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85801
+:A85801 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Kaye Yang" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85821
+:A85821 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "David Daniels" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85824
+:A85824 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Rodriguez Kline" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85837
+:A85837 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Jody Hopkins" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85847
+:A85847 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Christensen Adkins" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85850
+:A85850 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Golden Benton" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85853
+:A85853 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Reid West" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85859
+:A85859 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Cherie Acevedo" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85868
+:A85868 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Kathie Hawkins" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85880
+:A85880 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Castaneda Sharp" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85889
+:A85889 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Agnes Avila" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85899
+:A85899 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Green Sparks" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85906
+:A85906 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Rodriquez Lang" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85913
+:A85913 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Delores Boyer" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85921
+:A85921 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Copeland Sosa" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85948
+:A85948 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Sandy Duncan" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85960
+:A85960 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Pitts Ballard" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85970
+:A85970 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :GCS ,
+                   :PRC ,
+                   :PRI ,
+                   :SPLN ;
+        :nome "Jefferson Rowe" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#A85981
+:A85981 rdf:type owl:NamedIndividual ,
+                 :Aluno ,
+                 owl:NameIndividual ;
+        :frequenta :AC ,
+                   :CSI ,
+                   :EM ,
+                   :VF ;
+        :nome "Alexis Bond" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#AC
+:AC rdf:type owl:NamedIndividual ,
+             :UC ,
+             owl:NameIndividual ;
+    :anoletivo "2020/2021" ;
+    :designacao "Arquitetura e Cálculo" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#CSI
+:CSI rdf:type owl:NamedIndividual ,
+              :UC ,
+              owl:NameIndividual ;
+     :anoletivo "2020/2021" ;
+     :designacao "Cálculo de Sistemas de Informação" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#EM
+:EM rdf:type owl:NamedIndividual ,
+             :UC ,
+             owl:NameIndividual ;
+    :anoletivo "2020/2021" ;
+    :designacao "Especificação e Modelação" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#GCS
+:GCS rdf:type owl:NamedIndividual ,
+              :UC ,
+              owl:NameIndividual ;
+     :anoletivo "2020/2021" ;
+     :designacao "Gramáticas na Compreensão de Software" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#PRC
+:PRC rdf:type owl:NamedIndividual ,
+              :UC ,
+              owl:NameIndividual ;
+     :anoletivo "2020/2021" ;
+     :designacao "Processamento e Representação de Conhecimento" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#PRI
+:PRI rdf:type owl:NamedIndividual ,
+              :UC ,
+              owl:NameIndividual ;
+     :anoletivo "2020/2021" ;
+     :designacao "Processamento e Representação de Informação" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#SPLN
+:SPLN rdf:type owl:NamedIndividual ,
+               :UC ,
+               owl:NameIndividual ;
+      :anoletivo "2020/2021" ;
+      :designacao "Scripting no Processamento de Linguagem Natural" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#VF
+:VF rdf:type owl:NamedIndividual ,
+             :UC ,
+             owl:NameIndividual ;
+    :anoletivo "2020/2021" ;
+    :designacao "Verificação Formal" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#ac
+:ac rdf:type owl:NamedIndividual ,
+             :Professor ,
+             owl:NameIndividual ;
+    :ensina :EM ;
+    :nome "Alcino Cunha" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#jcr
+:jcr rdf:type owl:NamedIndividual ,
+              :Professor ,
+              owl:NameIndividual ;
+     :ensina :PRC ,
+             :PRI ;
+     :nome "José Carlos Ramalho" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#jj
+:jj rdf:type owl:NamedIndividual ,
+             :Professor ,
+             owl:NameIndividual ;
+    :ensina :SPLN ;
+    :nome "José João" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#jno
+:jno rdf:type owl:NamedIndividual ,
+              :Professor ,
+              owl:NameIndividual ;
+     :ensina :CSI ;
+     :nome "José Nuno Oliveira" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#lb
+:lb rdf:type owl:NamedIndividual ,
+             :Professor ,
+             owl:NameIndividual ;
+    :ensina :AC ;
+    :nome "Luís Barbosa" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#mjf
+:mjf rdf:type owl:NamedIndividual ,
+              :Professor ,
+              owl:NameIndividual ;
+     :ensina :VF ;
+     :nome "Maria João Frade" .
+
+
+###  http://www.di.uminho.pt/prc2021/uc#prh
+:prh rdf:type owl:NamedIndividual ,
+              :Professor ,
+              owl:NameIndividual ;
+     :ensina :GCS ;
+     :nome "Pedro Rangel Henriques" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

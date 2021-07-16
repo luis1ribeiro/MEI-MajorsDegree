@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>PRI 2020</key>
+        <title>Teste de Processamento e Representação de Informação</title>
+        <bdate>18-01-2021</bdate>
+        <edate>18-01-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A5954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>
+           No primeiro exercício, foi pedido a correção de um dataSet fornecido. Dentro da pasta da resolução do exercicio 1, tem uma pasta relativa à resposta e explicação das questões 1.1 e 1.3, que remetem à
+           forma como corrigi o dataSet (usando FLEX e uma script js), e o comando usado no mongoimport. O nome desta pasta é: /dataSetRespostas.
+        </p>
+        <p>
+           <b> Resposta à 1.1: </b>
+           1. Inicialmente criei um ficheiro flex para substituir o ref por "ref", e gerei o casamentos_new.json (para correr ./a.out < casamentos.json > casamentos_new.json); 2. Depois notei que haviam pequenos erros dentro do dataSet, portanto corrigi à mão visto que eram poucos (4); 
+           3. Para a criação do campo _id, criei um script js para isso (para correr: node script.js), em que aceitava o ficheiro gerado pelo FLEX, e gera o casamentos_fixed.json.
+           Este último será usado para alimentar a base de dados.
+            <b> Resposta à 1.3: </b>
+            > mongoimport -d testePRI -c casamentos --jsonArray casamentos_fixed.json
+        </p>
+
+        <p> 
+            No segundo exercício, foi proposto a implementação de uma aplicação em <i>nodejs</i> (porta 9091) que permita navegar sobre a API de dados, CLAV que visa a classificação e a avaliação de toda a documentação circulante na administração pública portuguesa.
+            Numa primeira fase foi testado a API de dados com o <i>Postman</i> de forma a perceber melhor a face a qual foi desenvolvido para tal foi respondido algumas questões:
+        </p>
+            <p>
+                <b>1. Quantos processos (nível 3) e quais são (obtem uma lista em JSON; podes concatenar sublistas invocando várias queries), pertencentes à descendência da classe 750? </b>
+                <u>R: Existem 3 processos.</u>
+            </p>
+            <p>
+                <b>2. Quantos subprocessos existem no catálogo inteiro? (classes de nível 4)</b>
+                <u>R: Existem 116 processos.</u>
+            </p>
+            <p>
+                <b>3. Quantos processos (classes de nível 3) se encontram na descendência de 750.30?</b>
+                <u>R: Existem 5 processos.</u>
+            </p>
+            <p>
+                <b>4. Quantos processos (classes de nível 3) estão relacionados com 750.30.001?</b>
+                <u>R: Existem 6 processos.</u>
+            </p>
+        <p>
+            Foi tudo implementado como pedido. Na página inicial, apresenta-se uma tabela com as classes de nível 1, com links respetivos para cada classe.
+            Dentro da página de cada classe encontra-se a sua informação, e uma tabela respetiva com os seus descendentes. Caso for de nível 3, apresenta-se outra tabela
+            com as classes relacionadas e o tipo de relação associado.
+            De notar, o token foi usado estaticamente, isto é, fiz um post à API fornecida e usei o token dado pela API, isto é, não tentei a valorização.
+        </p>
+    </abstract>
+    <deliverables>
+            <link url="../ex1/dataSetRespostas/casamentos.json">Dataset disponibilizado  - exercício 1</link>
+            <link url="../ex1/dataSetRespostas/casamentos_fixed.json">Dataset corrigido  - exercício 1.1</link>
+            <link url="../ex1/dataSetRespostas/1(1).txt">Explicação - exercício 1.1</link>
+            <link url="../ex1/dataSetRespostas/1(3).txt">Comando utilizado para a persistência dos dados - exercício 1.3</link>
+            <link url="../ex1/controllers/casamentos.js">Funções para retirar informação da base de dados - exercício 1</link>
+            <link url="../ex1/models/casamentos.js">Modelo de um objecto do dataset - exercício 1</link>
+            <link url="../ex1/routes/api.js">Rotas implementadas - exercício 1</link>
+            <link url="../ex2/aquecimento.txt">Respostas às questões - exercício 2</link>
+            <link url="../ex2/routes/index.js">Rotas implementadas - exercício 2</link>
+            <link url="pr.xml">pr.xml</link>
+    </deliverables>
+</pr>

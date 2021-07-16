@@ -1,0 +1,42 @@
+1 -- Quantos exames estão registados?
+SELECT DISTINCT (COUNT(?s) as ?nmrExames) WHERE { 
+   ?s a :EMD .
+}
+
+2 -- Quantos exames tiveram um resultado válido?
+SELECT (COUNT(?exame) as ?passou) WHERE { 
+   ?s a :Atleta .
+   ?s :passou ?exame .
+}
+
+3 -- Qual a distribuição dos exames por género?
+SELECT ?g (COUNT(?p) AS ?total) WHERE { 
+    	?a a :Atleta .
+    	?a ?p ?exame .
+    	FILTER (?p IN (:passou,:reprovou))
+        ?a :género ?g.
+} GROUP BY ?g
+
+4 -- Qual a distribuição dos exames por modalidade?
+SELECT ?m (COUNT(?a) AS ?total) WHERE { 
+    	?a a :Atleta .
+    	?a :pratica ?m .
+} GROUP BY ?m
+
+5 -- Quantos atletas federados do "GDGoma" fizeram EMD?
+SELECT (COUNT(?p) AS ?total) WHERE { 
+    	?a a :Atleta .
+    	?a ?p ?exame .
+    	FILTER (?p IN (:passou,:reprovou))
+        ?a :pertenceA :GDGoma .
+		?a :federado "True" .
+}
+
+6 -- Quantos atletas do género feminino que praticam Triatlo fizeram EMD?
+SELECT (COUNT(?p) AS ?total) WHERE { 
+    	?a a :Atleta .
+    	?a ?p ?exame .
+    	FILTER (?p IN (:passou,:reprovou))
+        ?a :pratica :Triatlo .
+    	?a :género "F" .
+}

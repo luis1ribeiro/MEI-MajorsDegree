@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  .w3-container
+        h3 CLAV: Classificação e Avaliação da Informação Pública
+        h9 Esta é a página principal. Aqui poderá consultar toda a lista de entidades guardadas no sistema.
+  div(style='margin:25px; padding:5px; border: 1px solid black; font-size: 16px')
+    dl
+        dt
+            b Nível:
+        dd= classe.nivel
+        dt
+            b Título:
+        dd= classe.titulo
+        dt
+            b Código:
+        dd= classe.codigo
+        dt
+            b Descrição:
+        dd= classe.descricao
+        dt
+            b Status:
+        dd= classe.status
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-orange.w3-margin-top
+        h4 Descendentes
+      table.w3-table-all
+        tr
+          th Código
+          th Título
+        each c in classe.filhos
+                tr
+                    td
+                      a(href="/c"+c.codigo)= c.codigo
+                    td= c.titulo
+  if bool == 1
+    .w3-container
+        .w3-card-4
+            header.w3-container.w3-orange.w3-margin-top
+                h4 Relações
+            table.w3-table-all
+                tr
+                    th Código
+                    th Título
+                    th Relação
+                each r in classe.processosRelacionados
+                    if (r.idRel == "eSuplementoPara" || r.idRel == "eCruzadoCom" || r.idRel == "eComplementarDe" || r.idRel == "eSuplementoDe")
+                      tr
+                        td
+                            a(href="/c"+r.codigo)= r.codigo
+                        td= r.titulo
+                        td= r.idRel
+  footer.w3-container.w3-orange.w3-margin-top 
+    a(href="/") Back to Home Page |
+    if(pai!=0)
+        a(href="/c"+pai) Volta para a Classe Pai

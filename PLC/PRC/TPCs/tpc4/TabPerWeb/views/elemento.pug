@@ -1,0 +1,46 @@
+extends layout
+
+block content
+    .w3-container
+        h3 Tabela Periódica - GraphDB
+        h9 Esta é a página relativa ao elemento 
+            b #{elemento.name} - #{elemento.symbol}. 
+            t Aqui tem a informação relativa a este.
+    div(style='margin:25px; padding:5px; border: 1px solid black; font-size: 14px') 
+            b Elemento - Símbolo:       
+            t #{elemento.name} - #{elemento.symbol}
+            br
+            b Número Atómico:       
+            t #{elemento.anumber}
+            br
+            b Peso Atómico:       
+            t #{elemento.aweight}
+            br
+            b Classificação Química:       
+            t #{elemento.classification}
+            br
+            b Cor:       
+            t #{elemento.color}
+            br
+            b Bloco:       
+            t #{elemento.block}
+            br
+            b Grupo - Período:       
+            a(href="http://localhost:9091/grupos/"+elemento.group) #{elemento.group}
+            t   -   
+            a(href="http://localhost:9091/periodos/"+elemento.period)  period_#{elemento.period}
+            br
+            b Estado natural:       
+            t #{elemento.standardstate}
+    footer.w3-container.w3-orange.w3-margin-top(style="font-size:10px")
+      pre
+        i(class="fa fa-home")     
+        a(href="/") Voltar à Home Page
+      pre
+        i(class="fa fa-flask")     
+        a(href="/elementos") Voltar para os Elementos
+      pre
+        i(class="fa fa-arrow-left")     
+        a(href="/grupos/"+elemento.group) Voltar para o Grupo a que pertence
+        t    |   
+        a(href="/periodos/"+elemento.period) Voltar para o Período a que pertence

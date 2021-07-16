@@ -1,0 +1,141 @@
+[{
+  "_id": {
+    "$oid": "6023c9d49419b920d420861d"
+  },
+  "file": "6023c9d49419b920d420861b",
+  "date": "2021-02-10T11:56",
+  "type": "File",
+  "autor": "Diogo Pereira",
+  "descricao": "New submission: Producer Diogo Pereira has just released an Files entitled \"Fichas de Algoritmos e Complexidade\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ca3c9419b920d4208622"
+  },
+  "file": "6023ca3c9419b920d4208620",
+  "date": "2021-02-10T11:57",
+  "type": "File",
+  "autor": "JJ",
+  "descricao": "New submission: Producer JJ has just released an Slides entitled \"Material de PL\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cacb9419b920d4208628"
+  },
+  "file": "6023cacb9419b920d4208626",
+  "date": "2021-02-10T12:00",
+  "type": "File",
+  "autor": "Luís Lopes",
+  "descricao": "New submission: Producer Luís Lopes has just released an Test/Exam entitled \"Mini-Testes de PI\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cb589419b920d420862f"
+  },
+  "file": "6023cb589419b920d420862d",
+  "date": "2021-02-10T12:02",
+  "type": "File",
+  "autor": "JCR",
+  "descricao": "New submission: Producer JCR has just released an Slides entitled \"Aula 1\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cbe39419b920d4208636"
+  },
+  "file": "6023cbe39419b920d4208634",
+  "date": "2021-02-10T12:04",
+  "type": "File",
+  "autor": "Gonçalo Pinto",
+  "descricao": "New submission: Producer Gonçalo Pinto has just released an Student Work entitled \"TPC1 de PRI\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cc809419b920d4208640"
+  },
+  "file": "6023cc809419b920d420863e",
+  "date": "2021-02-10T12:07",
+  "type": "File",
+  "autor": "PRH",
+  "descricao": "New submission: Producer PRH has just released an Test/Exam entitled \"Avaliação : Gramáticas na Compreensão de Software\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ccf99419b920d4208647"
+  },
+  "file": "6023ccf99419b920d4208645",
+  "date": "2021-02-10T12:09",
+  "type": "File",
+  "autor": "Luís Ribeiro",
+  "descricao": "New submission: Producer Luís Ribeiro has just released an Problem Solved entitled \"Resolução do Teste\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cd579419b920d420864f"
+  },
+  "file": "6023cd579419b920d420864d",
+  "date": "2021-02-10T12:11",
+  "type": "File",
+  "autor": "Gonçalo Pinto",
+  "descricao": "New submission: Producer Gonçalo Pinto has just released an Application entitled \"Projeto de GCS\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ce389419b920d420865c"
+  },
+  "file": "6023ce389419b920d420865a",
+  "date": "2021-02-10T12:14",
+  "type": "File",
+  "autor": "JCR",
+  "descricao": "New submission: Producer JCR has just released an Test/Exam entitled \"Avaliação: Desenvolvimento de Aplicações Web\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ce6d9419b920d4208662"
+  },
+  "file": "6023ce6d9419b920d4208660",
+  "date": "2021-02-10T12:15",
+  "type": "File",
+  "autor": "JCR",
+  "descricao": "New submission: Producer JCR has just released an Test/Exam entitled \"Avaliação: Desenvolvimento de Aplicações Web\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023ced49419b920d4208669"
+  },
+  "file": "6023ced49419b920d4208667",
+  "date": "2021-02-10T12:17",
+  "type": "File",
+  "autor": "JCR",
+  "descricao": "New submission: Producer JCR has just released an Enunciated entitled \"Projeto Final\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cf2d9419b920d4208671"
+  },
+  "file": "6023cf2d9419b920d420866f",
+  "date": "2021-02-10T12:18",
+  "type": "File",
+  "autor": "JCR",
+  "descricao": "New submission: Producer JCR has just released an Grades entitled \"Resultados da Avaliação de PRI\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cfab9419b920d420867d"
+  },
+  "file": "6023cfab9419b920d420867b",
+  "date": "2021-02-10T12:20",
+  "type": "File",
+  "autor": "Administrador",
+  "descricao": "New submission: Producer Administrador has just released an Example entitled \"Ficheiro Simples\".",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6023cfe69419b920d4208681"
+  },
+  "file": "6023cfe69419b920d420867f",
+  "date": "2021-02-10T12:21",
+  "type": "File",
+  "autor": "Administrador",
+  "descricao": "New submission: Producer Administrador has just released an Example entitled \"Ficheiro combinado\".",
+  "__v": 0
+}]

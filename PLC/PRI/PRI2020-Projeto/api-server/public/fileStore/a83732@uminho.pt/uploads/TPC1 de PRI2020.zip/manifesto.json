@@ -1,0 +1,20 @@
+{
+    "ficheiros": [],
+    "pastas": [
+        {
+            "titulo": "TPC1",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "gato",
+                        "tipo": "html"
+                    }, {
+                        "titulo": "gato",
+                        "tipo": "css"
+                    }
+                ],
+                "pastas": []
+            }
+        }
+    ]
+}

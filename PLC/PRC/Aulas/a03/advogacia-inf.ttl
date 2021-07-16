@@ -1,0 +1,138 @@
+@prefix : <http://www.di.uminho.pt/prc2021/advogacia-inf#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/advogacia-inf> .
+
+<http://www.di.uminho.pt/prc2021/advogacia-inf> rdf:type owl:Ontology ;
+                                                 rdfs:comment "História de Advogados" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/advogacia#dir
+<http://www.di.uminho.pt/prc2021/advogacia#dir> rdf:type owl:ObjectProperty ;
+                                                owl:inverseOf <http://www.di.uminho.pt/prc2021/advogacia#esq> .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#esq
+<http://www.di.uminho.pt/prc2021/advogacia#esq> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/advogacia#bebida
+<http://www.di.uminho.pt/prc2021/advogacia#bebida> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#carro
+<http://www.di.uminho.pt/prc2021/advogacia#carro> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#corGravata
+<http://www.di.uminho.pt/prc2021/advogacia#corGravata> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#idade
+<http://www.di.uminho.pt/prc2021/advogacia#idade> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#nome
+<http://www.di.uminho.pt/prc2021/advogacia#nome> rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#área
+<http://www.di.uminho.pt/prc2021/advogacia#área> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/advogacia#Advogado
+<http://www.di.uminho.pt/prc2021/advogacia#Advogado> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.di.uminho.pt/prc2021/advogacia#Pessoa> .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#Pessoa
+<http://www.di.uminho.pt/prc2021/advogacia#Pessoa> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/advogacia#A1
+<http://www.di.uminho.pt/prc2021/advogacia#A1> rdf:type owl:NamedIndividual ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Advogado> ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Pessoa> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#dir> <http://www.di.uminho.pt/prc2021/advogacia#A2> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#bebida> "margarita"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#carro> "Crossover"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#corGravata> "verde"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#idade> 40 ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#nome> "Otávio"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#área> "Imobiliária"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#A2
+<http://www.di.uminho.pt/prc2021/advogacia#A2> rdf:type owl:NamedIndividual ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Advogado> ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Pessoa> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#dir> <http://www.di.uminho.pt/prc2021/advogacia#A3> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#esq> <http://www.di.uminho.pt/prc2021/advogacia#A1> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#bebida> "mojito"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#carro> "Pickup"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#corGravata> "amarelo"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#idade> 30 ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#nome> "Alberto"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#área> "Trabalhista"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#A3
+<http://www.di.uminho.pt/prc2021/advogacia#A3> rdf:type owl:NamedIndividual ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Advogado> ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Pessoa> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#dir> <http://www.di.uminho.pt/prc2021/advogacia#A4> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#esq> <http://www.di.uminho.pt/prc2021/advogacia#A2> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#bebida> "martini"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#carro> "Hyundai"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#corGravata> "azul"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#idade> 34 ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#nome> "Ulisses"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#área> "Comercial"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#A4
+<http://www.di.uminho.pt/prc2021/advogacia#A4> rdf:type owl:NamedIndividual ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Advogado> ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Pessoa> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#dir> <http://www.di.uminho.pt/prc2021/advogacia#A5> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#esq> <http://www.di.uminho.pt/prc2021/advogacia#A3> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#bebida> "cosmopolita"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#carro> "SUV"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#corGravata> "vermelha"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#idade> 37 ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#nome> "Luís"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#área> "Civil"^^xsd:string .
+
+
+###  http://www.di.uminho.pt/prc2021/advogacia#A5
+<http://www.di.uminho.pt/prc2021/advogacia#A5> rdf:type owl:NamedIndividual ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Advogado> ,
+                                                        <http://www.di.uminho.pt/prc2021/advogacia#Pessoa> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#esq> <http://www.di.uminho.pt/prc2021/advogacia#A4> ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#bebida> "caipirinha"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#carro> "Subaru"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#corGravata> "branca"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#idade> 44 ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#nome> "Carlos"^^xsd:string ;
+                                               <http://www.di.uminho.pt/prc2021/advogacia#área> "Consumidor"^^xsd:string .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

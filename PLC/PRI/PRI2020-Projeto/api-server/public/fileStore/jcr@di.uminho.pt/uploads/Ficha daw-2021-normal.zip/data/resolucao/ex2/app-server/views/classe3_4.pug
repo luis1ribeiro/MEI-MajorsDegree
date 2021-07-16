@@ -1,0 +1,50 @@
+extends layout
+
+block content
+
+    h1 Classe nível #{n.nivel}
+    .w3-container.w3-margin
+
+          header.w3-container.w3-teal
+            p Id: #{n.id}
+            p Código: #{n.codigo}
+            p Titulo: #{n.titulo}
+            P Status :#{n.status}
+          
+
+          .w3-container.w3-margin
+            h3 Lista de classes relacionadas
+            table.w3-table-all
+              tr 
+                th Código
+                th Título
+                th Tipo Relacao
+
+              
+              each t in lista
+                tr
+                 td
+                    a(href="/nivel3/c"+t.codigo) #{t.codigo}
+                 td=t.titulo
+                 td=t.tipoRel
+
+          .w3-container.w3-margin
+            h3 Lista de termos indice
+            table.w3-table-all
+              tr 
+                th idTI
+                th termo
+              
+              each t in n.termosInd
+                tr
+                 td
+                    a(href="/lista_termos#"+t.idTI) #{t.idTI}
+                 td=t.termo
+
+
+          footer.w3-container.w3-teal
+            p
+             a(href="/") Index  
+            if anterior!=null 
+             p
+              a(href=anterior) Anterior #{anterior}        

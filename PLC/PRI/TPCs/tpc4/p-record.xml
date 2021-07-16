@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project-record SYSTEM "p-record.dtd">
+<project-record>
+    <meta>
+        <title>PRI_TPC4</title>
+        <key-name>PRI_2020_TPC4</key-name>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <b_date>05/11/2020</b_date>
+        <e_date>06/11/2020</e_date>
+    </meta>
+    <workteam>
+        <teammate>
+            <id>1</id>
+            <name>Luís Ribeiro</name>
+            <email href="mailto:a85954@alunos.uminho.pt">a85954@alunos.uminho.pt</email>
+        </teammate>
+    </workteam>
+    <abstract>
+        <p>Este é o <b>TP4</b> da cadeira de <u>Processamento e Representação de Informação</u>.</p>
+        <p>Inicialmente, criei uma <i>stylesheet</i> transformadora em <b>XSLT</b>, 
+            em que todos os arqs estavam ordenados numericamente. 
+        </p>
+        <p>
+            Depois, com a ajuda do <b>Node JS</b> foi criado um servidor que abria uma porta e respondia a <i>requests</i>
+            no <i>path</i> do <b><i>URL</i></b>. 
+        </p>
+        <p>Github: <url href="https://github.com/luis1ribeiro/PRI2020">Luís Ribeiro - PRI2020</url></p>
+    </abstract>
+    <deliverables>
+        <url href="arqtp4.xsl">XSL Document.</url>
+        <url href="arq.xml">XML ARQ.</url>
+        <url href="servtp4.js">Servidor NODE JS.</url>
+    </deliverables>
+</project-record>

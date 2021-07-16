@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project-record SYSTEM "p-record.dtd">
+<project-record>
+    <meta>
+        <title>PRI_TPC5</title>
+        <key-name>PRI_2020_TPC5</key-name>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <b_date>09/11/2020</b_date>
+        <e_date>16/11/2020</e_date>
+    </meta>
+    <workteam>
+        <teammate>
+            <id>1</id>
+            <name>Luís Ribeiro</name>
+            <email href="mailto:a85954@alunos.uminho.pt">a85954@alunos.uminho.pt</email>
+        </teammate>
+    </workteam>
+    <abstract>
+        <p>Este é o <b>TPC5</b> da cadeira de <u>Processamento e Representação de Informação</u>.</p>
+        <p> Foi criado um servidor em <b>Node JS</b> que mandava <i>requests</i> a um servidor <i>JSON</i> aberto noutra porta </p>
+        <p> Assim, em vez do servidor em Node servir páginas estáticas, serve páginas dinâmicas.</p>
+        <p>Github: <url href="https://github.com/luis1ribeiro/PRI2020">Luís Ribeiro - PRI2020</url></p>
+    </abstract>
+    <deliverables>
+        <url href="db.json">JSON Server.</url>
+        <url href="escola.js">Servidor NODE JS.</url>
+    </deliverables>
+</project-record>

@@ -1,0 +1,22 @@
+{
+  "alunos": [
+    {
+      "nome": "Luís Ribeiro",
+      "id": "A85954",
+      "curso": "MIEI",
+      "git": "https://github.com/luis1ribeiro"
+    },
+    {
+      "nome": "Luís Mário",
+      "id": "A85955",
+      "curso": "MIEI",
+      "git": "https://github.com/luisribeiro"
+    },
+    {
+      "nome": "Alberto Pereira",
+      "id": "A33876",
+      "curso": "Psicologia",
+      "git": ""
+    }
+  ]
+}

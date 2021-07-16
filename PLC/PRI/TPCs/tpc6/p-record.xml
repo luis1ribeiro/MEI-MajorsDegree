@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project-record SYSTEM "p-record.dtd">
+<project-record>
+    <meta>
+        <title>PRI_TPC6</title>
+        <key-name>PRI_2020_TPC6</key-name>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <b_date>/16/2020</b_date>
+        <e_date>22/11/2020</e_date>
+    </meta>
+    <workteam>
+        <teammate>
+            <id>1</id>
+            <name>Luís Ribeiro</name>
+            <email href="mailto:a85954@alunos.uminho.pt">a85954@alunos.uminho.pt</email>
+        </teammate>
+    </workteam>
+    <abstract>
+        <p>Este é o <b>TPC6</b> da cadeira de <u>Processamento e Representação de Informação</u>.</p>
+        <p> Foi criado um servidor em <b>Node JS</b> que mandava <i>requests</i> a um servidor <i>JSON</i> aberto noutra porta.</p>
+        <p> Com a ajuda de <b>Formulários</b> foi possível inserir informação para o ficheiro <i>JSON</i>, através do método <i>POST</i>.
+            Para mudar o estado de uma tarefa, usei o <i>AJAX</i> que manda um request à base dados para mudar de estado, quando carrego num botão.
+        </p>
+        <p>Github: <url href="https://github.com/luis1ribeiro/PRI2020">Luís Ribeiro - PRI2020</url></p>
+    </abstract>
+    <deliverables>
+        <url href="db.json">JSON Server.</url>
+        <url href="tp6.js">Servidor NODE JS.</url>
+        <url href="static.js">Servidor NODE JS.</url>
+        <url href="public">Pasta com ficheiros estáticos.</url>
+    </deliverables>
+</project-record>

@@ -1,0 +1,36 @@
+
+<!-- saved from url=(0072)http://www4.di.uminho.pt/~jcr/AULAS/didac/compiladores/exemplos/par.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h2>Lex</h2>
+<pre>
+%{
+#include "y.tab.h"
+%}
+%%
+\(      return('(');
+\)      return(')');
+[ \t\n] ;
+.       return(ERRO);
+
+</pre>
+
+<h2>Yacc</h2>
+<pre>
+%token ERRO
+%%
+S : '(' S ')' S
+  | ;
+%%
+void main()
+{
+  yyparse();
+}
+
+int yyerror()
+{
+  printf("Syntax error...");
+  return(0);
+}
+
+</pre>
+
+</body></html>

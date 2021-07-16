@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC3</key>
+        <title>Criação de uma view que suporta as ontologias em GraphDB</title>
+        <bdate>08-03-2021</bdate>
+        <edate>15-03-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>
+            Para a construção de uma <i>view</i> que suporta as minhas ontologias cosntruídas e alojadas no <i>GraphDB</i>, usei a <i>framework <b>Express</b></i> para tal, ignorando a parte de acesso à base de dados, construindo apenas à volta
+            da parte visual.
+            Dentro da <i>routes</i>, usando a ferramenta <i>axios</i>, fiz pedidos à API ao GraphDb sobre as minhas ontologias, desde o nome de cada ontologia até aos indíviduos das mesmas. De notar que o nome das ontologias deve ser o mesmo dos prefixos, para os pedidos serem consistentes.
+        </p>
+        <p>
+            Para construir a view e iniciar o serviço, basta correr <i>npm i</i> e, de seguida, <i>npm start</i>. A porta 9901 será correspondente ao serviço de ontologias implementado.
+        </p>
+    </abstract>
+    <deliverables>
+            <link url="OntologiaWeb/">View implementada em Express</link>
+    </deliverables>
+</pr>

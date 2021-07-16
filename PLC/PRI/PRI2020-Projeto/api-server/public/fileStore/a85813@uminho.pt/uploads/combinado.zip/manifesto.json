@@ -1,0 +1,44 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "ficheiro1",
+            "tipo": "txt"
+
+        }, {
+            "titulo": "ficheiro2",
+            "tipo": "txt"
+
+        }, {
+            "titulo": "ficheiro3",
+            "tipo": "txt"
+
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "pasta1",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "ficheiro_pasta1",
+                        "tipo": "txt"
+                    }
+                ],
+                "pastas": [
+                    {
+                        "titulo": "pasta2",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "ficheiro_pasta2",
+                                    "tipo": "txt"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

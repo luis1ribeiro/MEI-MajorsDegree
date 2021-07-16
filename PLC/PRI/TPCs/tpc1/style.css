@@ -1,0 +1,126 @@
+html {
+    height: 100%;
+}
+
+body {
+    /*font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;*/
+    min-height: 100%;
+    line-height: 1.8;
+    color: #333333;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+}
+
+/*
+#grad1 {
+    height: 100px;
+    background: rgb(195,192,250);
+    background: linear-gradient(0deg, rgba(195,192,250,1) 0%, rgba(121,121,219,1) 20%, rgba(62,175,198,1) 100%);
+}
+
+#grad2 {
+    height: 100px;
+    background: rgb(150,150,150);
+    background: linear-gradient(0deg, rgba(150,150,150,1) 0%, rgba(87,87,87,1) 0%, rgba(23,23,23,1) 100%);
+}
+
+#grad3 {
+    background: rgb(250,192,192);
+    background: linear-gradient(0deg, rgba(250,192,192,1) 0%, rgba(219,121,121,1) 20%, rgba(198,62,62,1) 100%);
+}
+*/
+
+.reddot {
+    height: 25px;
+    width: 25px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.bluedot {
+    height: 25px;
+    width: 25px;
+    background-color: #0000cc;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.blackdot {
+    height: 25px;
+    width: 25px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    color: #333333;
+}
+
+a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    text-decoration: none;
+}
+
+    a:link {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+h1, h2, h3, h4, h5 {
+    color: #000;
+    font-family: "Playfair Display", times, serif;
+}
+
+main, aside {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    aside {
+        width: 50%;
+    }
+}
+
+aside {
+    background-position: center center;
+    background-size: cover;
+    height: 400px;
+    position: absolute;
+}
+
+@media (min-width: 576px) {
+    aside {
+        height: 100vh;
+        position: fixed;
+        right: 0;
+        top: 0;
+    }
+}
+
+main {
+    float: left;
+    padding: 7%;
+    position: absolute;
+}

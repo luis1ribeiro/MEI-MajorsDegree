@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  header.w3-container.w3-blue-grey
+    h1 Curso #{curso.id}
+  .w3-container.w3-padding
+    b Designacao:
+    span #{curso.designacao}
+    p
+      b Instrumento: 
+      address
+        a(href=`/`) #{curso.instrumento.id}
+        span  - #{curso.instrumento["#text"]}
+
+  footer.w3-container.w3-blue-grey.w3-padding-medium
+    address.w3-padding-16
+        a(href=`/aluno/${aluno}`) Voltar atrás
+        a(href="/").w3-right Página inicial
+
+    
+        

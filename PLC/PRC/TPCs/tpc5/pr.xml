@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC5</key>
+        <title>Tratamento e Criação de uma Ontologia apartir do JCRPubs.xml</title>
+        <bdate>22-03-2021</bdate>
+        <edate>29-03-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p> Numa primeira fase pretendeu-se analisar o <i>dataset</i> das pubs do jcr, para inferir sobres as tags principais e entidades necessárias para a próximo passo. </p>
+        <p> De seguida foi usado o <i>Protégé</i> para construir a ontologia base sobre as tags e entidades inferidas em cima, tais como os seus atributos e relações. </p>
+        <p> Posteriormente, criei um <i>transformer</i> em XSLT para povoar a Ontologia. No entanto notei algumas incoerências, visto que haviam '\n' entre tags, gerando erros de sintaxe em Turtle. </p>
+        <p> Em seguida carreguei a ontologia no Ontobud criando um repositório de nome
+                <b>A85954-TP5</b> e importou-se a Ontologia final. </p>
+        <p> Por fim, criou-se uma API de dados com as seguintes rotas: 
+            <i> GET /pubs </i>, 
+            <i> GET /pubs?type= </i>, 
+            <i> GET /pubs/{id} </i>, 
+            <i> GET /authors </i> e 
+            <i> GET /authors/{id} </i> . 
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="jcrpubs.xml">Dataset</link>
+        <link url="tp5-base.ttl">Ontologia Base sem povoamento</link>
+        <link url="jcrpubs.xslt">StyleSheet Transformer para Povoamento</link>
+        <link url="result.ttl">Resultado do povoamento</link>
+        <link url="tp5-final.ttl">Ontologia final</link>
+        <link url="server-requests/">Servidor com rotas criadas</link>
+    </deliverables>
+</pr>

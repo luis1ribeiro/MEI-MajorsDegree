@@ -1,0 +1,70 @@
+PREFIXO --> PREFIX : <http://www.di.uminho.pt/prc2021/mapa-virtual#>
+
+-- 1. Cidades ordenada por nome. --
+    select ?s ?n ?d where { 
+        ?s a :Cidade ;
+            :nome ?n;
+            :distrito ?d.
+    } order by ?n
+
+
+-- 2. Ligações entre cidades e indentificação das cidades de cada ligação. --
+    select ?c1 ?n1 ?c2 ?n2 ?dist where { 
+        ?s a :Ligação ;
+        :origem ?c1;
+        :destino ?c2;
+        :distancia ?dist .
+        ?c1	:nome ?n1 .
+        ?c2 :nome ?n2 .
+    }
+
+
+-- 3. Ligações com origem em Viana (c7) --
+    select ?c ?n ?dist where { 
+        ?s a :Ligação ;
+        :origem :c7;
+        :destino ?c;
+        :distancia ?dist .
+        ?c	:nome ?n .
+    } order by ?n
+
+
+-- 4. Listagem ordenada sem repetições dos distritos. --
+    select ?distritos where { 
+        ?s a :Cidade ;
+        :distrito ?distritos .
+    } group by ?distritos order by ?distritos
+
+    -- Posso também usar o distinct em cima, invés do group by.
+
+
+-- 5. Distritos com numero de cidades associadas. --
+    select ?distritos (COUNT(?distritos) as ?cidades) where { 
+        ?s a :Cidade ;
+        :distrito ?distritos .
+    } group by ?distritos order by ?distritos
+
+
+-- 6. Inserir uma cidade. --
+    insert data {
+        :c101 rdf:type owl:NameIndividual , :Cidade;
+        :descrição "A rainha do Vez";
+        :distrito "Viana do Castelo";
+        :nome "Arcos de Valdevez";
+        :população 40000 .
+    }
+
+
+-- 7. Delete campo de um registo. --
+    delete data {
+        :c101 :população 40000 .
+    }
+
+
+-- 8. Construção de ligações entre cidades na mesma ligação. --
+    construct {
+        ?c1 :temLigação ?c2.
+    } where {
+        ?l :origem ?c1 .
+        ?l :destino ?c2 .
+    }

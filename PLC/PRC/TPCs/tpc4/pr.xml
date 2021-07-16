@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC4</key>
+        <title>Criação de uma view que suporta a ontologia estudada em aula sobre a Tabela Periódica</title>
+        <bdate>15-03-2021</bdate>
+        <edate>22-03-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>
+            Para a construção de uma <i>view</i> que suporta as minhas ontologias cosntruídas e alojadas no <i>GraphDB</i>, usei a <i>framework <b>Express</b></i>, ignorando a parte de acesso à base de dados, construindo apenas à volta
+            da parte visual.
+            Dentro da <i>routes</i>, usando a ferramenta <i>axios</i>, fiz pedidos à API ao GraphDb sobre a ontologia da Tabela Periódica. Com a ajuda das queries em SPARQL, consegui retirar toda a informação relativa aos elementos, períodos e grupos da Tabela.
+        </p>
+        <p>
+            Para construir a view e iniciar o serviço, basta correr <i>npm i</i> e, de seguida, <i>npm start</i>. A porta 9901 será correspondente ao serviço de suporte à ontologia Tabela Periódica.
+        </p>
+    </abstract>
+    <deliverables>
+            <link url="TabPerWeb/">View implementada em Express.</link>
+            <link url="./Periodic_Table">Ontologia da Tabela Periódica.</link>
+    </deliverables>
+</pr>

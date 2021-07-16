@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project-record SYSTEM "p-record.dtd">
+<project-record>
+    <meta>
+        <title>PRI_TPC2</title>
+        <key-name>PRI_2020_TPC2</key-name>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <b_date>20/10/2020</b_date>
+        <e_date>24/10/2020</e_date>
+    </meta>
+    <workteam>
+        <teammate>
+            <id>1</id>
+            <name>Luís Ribeiro</name>
+            <email href="mailto:a85954@alunos.uminho.pt">a85954@alunos.uminho.pt</email>
+        </teammate>
+    </workteam>
+    <abstract>
+        <p>Este é o <b>TPC2</b> da cadeira de <u>Processamento e Representação de Informação</u>.</p>
+        <p>Inicialmente, formalizei o problema e através do uso das ferramentas do <i>Oxygen XML Editor</i>, juntamente com o ficheiro <i>Document Type Definition</i>, gerei o <b><i>XML</i></b> necessário.</p>
+        <p>Github: <url href="https://github.com/luis1ribeiro/PRI2020">Luís Ribeiro - PRI2020</url></p>
+    </abstract>
+    <deliverables>
+        <url href="p-record.dtd">Document type Definition (DTD) do Project Record.</url>
+    </deliverables>
+</project-record>

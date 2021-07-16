@@ -1,0 +1,5 @@
+docker run -d -p 2224:3026 --name flask-example $image_id
+A porta 3026 é a porta configurada no ficheiro python.
+
+Explorar de forma local:
+docker save $image_id > fserver.tar

@@ -1,0 +1,61 @@
+
+<!-- saved from url=(0071)http://www4.di.uminho.pt/~jcr/AULAS/didac/compiladores/exemplos/lc.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h2>Makefile</h2>
+<pre>
+lc : y.tab.o lex.yy.o 
+	cc -o lc y.tab.o lex.yy.o -lfl
+	rm *.o
+	rm *.c
+
+y.tab.o : y.tab.c
+	cc -c y.tab.c
+
+y.tab.c y.tab.h : lc.y
+	yacc -d lc.y
+
+lex.yy.o : lex.yy.c y.tab.h
+	cc -c lex.yy.c
+
+lex.yy.c : lc.l
+	flex lc.l
+
+</pre>
+<h2>Lex</h2>
+<pre>
+%{
+#include "y.tab.h"
+%}
+%%
+[0-9]+   return(INTEIRO);
+\(       return('(');
+\)       return(')');
+\;       return(';');
+[ \t\n]+ ;
+.        return(ERRO);
+
+</pre>
+
+<h2>Yacc</h2>
+<pre>
+%token ERRO INTEIRO
+%%
+Lcomp : '(' Conteudo ')' 
+      | '(' ')';
+
+Conteudo : INTEIRO
+         | INTEIRO ';' Conteudo ;
+
+%%
+int main()
+{
+  yyparse();
+}
+
+int yyerror()
+{
+  printf("Syntax error...");
+  return(0);
+}
+</pre>
+
+</body></html>

@@ -1,0 +1,198 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "teste",
+            "tipo": "html"
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "recursos",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "batismos",
+                        "tipo": "json"
+                    }
+                ],
+                "pastas": []
+            }
+        }, {
+            "titulo": "teste_files",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "fichas",
+                        "tipo": "jpeg"
+                    }, {
+                        "titulo": "bootstrap.min",
+                        "tipo": "css"
+                    }
+                ],
+                "pastas": []
+            }
+        }, {
+            "titulo": "teste_files",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "fichas",
+                        "tipo": "jpeg"
+                    }, {
+                        "titulo": "bootstrap.min",
+                        "tipo": "css"
+                    }
+                ],
+                "pastas": []
+            }
+        }, {
+            "titulo": "resolucao",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "README",
+                        "tipo": "md"
+                    }
+                ],
+                "pastas": [
+                    {
+                        "titulo": "ex1",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "batismos",
+                                    "tipo": "json"
+                                }, {
+                                    "titulo": "ex1",
+                                    "tipo": "txt"
+                                }
+                            ],
+                            "pastas": [
+                                {
+                                    "titulo": "api-server",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "app",
+                                                "tipo": "js"
+                                            }
+                                        ],
+                                        "pastas": [
+                                            {
+                                                "titulo": "controllers",
+                                                "conteudo": {
+                                                    "ficheiros": [
+                                                        {
+                                                            "titulo": "batismo",
+                                                            "tipo": "js"
+                                                        }
+                                                    ],
+                                                    "pastas": []
+                                                }
+                                            }, {
+                                                "titulo": "models",
+                                                "conteudo": {
+                                                    "ficheiros": [
+                                                        {
+                                                            "titulo": "batismo",
+                                                            "tipo": "js"
+                                                        }
+                                                    ],
+                                                    "pastas": []
+                                                }
+                                            }, {
+                                                "titulo": "routes",
+                                                "conteudo": {
+                                                    "ficheiros": [
+                                                        {
+                                                            "titulo": "api",
+                                                            "tipo": "js"
+                                                        }
+                                                    ],
+                                                    "pastas": []
+                                                }
+                                            }
+                                        ]
+                                    }
+
+                                }
+                            ]
+                        }
+                    }, {
+                        "titulo": "ex2",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "aquecimento",
+                                    "tipo": "txt"
+                                }
+                            ],
+                            "pastas": [
+                                {
+                                    "titulo": "app-server",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "app",
+                                                "tipo": "js"
+                                            }
+                                        ],
+                                        "pastas": [
+                                            {
+                                                "titulo": "routes",
+                                                "conteudo": {
+                                                    "ficheiros": [
+                                                        {
+                                                            "titulo": "index",
+                                                            "tipo": "js"
+                                                        }
+                                                    ],
+                                                    "pastas": []
+                                                }
+                                            }, {
+                                                "titulo": "views",
+                                                "conteudo": {
+                                                    "ficheiros": [
+                                                        {
+                                                            "titulo": "classe1",
+                                                            "tipo": "pug"
+                                                        },
+                                                        {
+                                                            "titulo": "classe2",
+                                                            "tipo": "pug"
+                                                        },
+                                                        {
+                                                            "titulo": "classe3_4",
+                                                            "tipo": "pug"
+                                                        },
+                                                        {
+                                                            "titulo": "error",
+                                                            "tipo": "pug"
+                                                        }, {
+                                                            "titulo": "index",
+                                                            "tipo": "pug"
+                                                        }, {
+                                                            "titulo": "layout",
+                                                            "tipo": "pug"
+                                                        }, {
+                                                            "titulo": "lista_classes1",
+                                                            "tipo": "pug"
+                                                        }, {
+                                                            "titulo": "lista_termos",
+                                                            "tipo": "pug"
+                                                        }
+                                                    ],
+                                                    "pastas": []
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

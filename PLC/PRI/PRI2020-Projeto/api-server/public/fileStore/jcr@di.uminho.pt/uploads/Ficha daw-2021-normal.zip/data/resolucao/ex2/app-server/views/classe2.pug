@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+    h1 Classe nível 2
+    .w3-container.w3-margin
+
+          header.w3-container.w3-teal
+            p Id: #{n.id}
+            p Código: #{n.codigo}
+            p Titulo: #{n.titulo}
+            P Status :#{n.status}
+          
+          .w3-container.w3-margin
+             h3 Lista de descendentes
+             table.w3-table-all
+              tr 
+              th Código
+              th Título
+
+              
+              each t in lista
+                tr
+                  td
+                    a(href="/nivel3/c"+t.codigo) #{t.codigo}
+                  td=t.titulo
+
+
+
+          footer.w3-container.w3-teal
+            p
+             a(href="/") Index  
+            if anterior!=null 
+             p
+              a(href=anterior) Anterior #{anterior}        

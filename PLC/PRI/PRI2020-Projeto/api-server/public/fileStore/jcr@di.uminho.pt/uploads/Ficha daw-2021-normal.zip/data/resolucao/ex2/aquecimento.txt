@@ -1,0 +1,22 @@
+2 Testa a API de dados com o Postman ou diretamente no link da API e dá resposta às seguintes questões:
+
+        1
+            Quantos processos (nível 3) e quais são (obtem uma lista em JSON; podes concatenar sublistas invocando várias queries), 
+            pertencentes à descendência da classe 900?
+            
+            http://clav-api.di.uminho.pt/v2/classes/c900/descendencia?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDgxMGM2NDFhYmQ1NDU0MDZkZmRkMSIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJkYXcyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMTE1MTUyMywiZXhwIjoxNjExMTgwMzIzfQ.Uvvn0SP1UKDVZPNidSquOD2Rf9nr0ioqy86xsTbnOf5XiKCv2JkORTx65ISp2cOrhNfyTjeVZ_D0C5alaCi_2U_XRhD9xKCbBzaTmNwci4LbEz2SWuqEix7SzUSgqcU6Wfo_SzO1cpw_QoNetemK433w_Db8HwrYpPp3T4e7tYEE4BPU-JiUh8q-BRSPmf5BjrXhDISbJwIlftw72bz8zWZ0X5SRQYXHQx40KWLB4o7ttbhCdzs67hMZnWmt1rjoLrJL5yKv5PK1smgDWax2F9o1UrGhDlLX_OrMga1nlGlj6NBms4yZHUnCf4S3mHbOc5-j7E7TrWH3jndJkFBISg
+            900.10 = 8 descendet, 900.20 = 13 descende
+
+        2 Quantas entidades estão catalogadas?
+
+            http://clav-api.di.uminho.pt/v2/entidades?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDgxMGM2NDFhYmQ1NDU0MDZkZmRkMSIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJkYXcyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMTE1MTUyMywiZXhwIjoxNjExMTgwMzIzfQ.Uvvn0SP1UKDVZPNidSquOD2Rf9nr0ioqy86xsTbnOf5XiKCv2JkORTx65ISp2cOrhNfyTjeVZ_D0C5alaCi_2U_XRhD9xKCbBzaTmNwci4LbEz2SWuqEix7SzUSgqcU6Wfo_SzO1cpw_QoNetemK433w_Db8HwrYpPp3T4e7tYEE4BPU-JiUh8q-BRSPmf5BjrXhDISbJwIlftw72bz8zWZ0X5SRQYXHQx40KWLB4o7ttbhCdzs67hMZnWmt1rjoLrJL5yKv5PK1smgDWax2F9o1UrGhDlLX_OrMga1nlGlj6NBms4yZHUnCf4S3mHbOc5-j7E7TrWH3jndJkFBISg
+            721
+
+    3. Quantos processos (classes de nível 3) se encontram na descendência de 900.10?
+        http://clav-api.di.uminho.pt/v2/classes/c900/descendencia?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDgxMGM2NDFhYmQ1NDU0MDZkZmRkMSIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJkYXcyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMTE1MTUyMywiZXhwIjoxNjExMTgwMzIzfQ.Uvvn0SP1UKDVZPNidSquOD2Rf9nr0ioqy86xsTbnOf5XiKCv2JkORTx65ISp2cOrhNfyTjeVZ_D0C5alaCi_2U_XRhD9xKCbBzaTmNwci4LbEz2SWuqEix7SzUSgqcU6Wfo_SzO1cpw_QoNetemK433w_Db8HwrYpPp3T4e7tYEE4BPU-JiUh8q-BRSPmf5BjrXhDISbJwIlftw72bz8zWZ0X5SRQYXHQx40KWLB4o7ttbhCdzs67hMZnWmt1rjoLrJL5yKv5PK1smgDWax2F9o1UrGhDlLX_OrMga1nlGlj6NBms4yZHUnCf4S3mHbOc5-j7E7TrWH3jndJkFBISg
+        8
+
+    4. Quantos processos (classes de nível 3) estão relacionados com 900.10.505?
+
+        http://clav-api.di.uminho.pt/v2/classes/c900.10.505/procRel?token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMDgxMGM2NDFhYmQ1NDU0MDZkZmRkMSIsImxldmVsIjoyLCJlbnRpZGFkZSI6ImVudF9BM0VTIiwiZW1haWwiOiJkYXcyMDIwQHRlc3RlLnVtaW5oby5wdCIsImlhdCI6MTYxMTE1MTUyMywiZXhwIjoxNjExMTgwMzIzfQ.Uvvn0SP1UKDVZPNidSquOD2Rf9nr0ioqy86xsTbnOf5XiKCv2JkORTx65ISp2cOrhNfyTjeVZ_D0C5alaCi_2U_XRhD9xKCbBzaTmNwci4LbEz2SWuqEix7SzUSgqcU6Wfo_SzO1cpw_QoNetemK433w_Db8HwrYpPp3T4e7tYEE4BPU-JiUh8q-BRSPmf5BjrXhDISbJwIlftw72bz8zWZ0X5SRQYXHQx40KWLB4o7ttbhCdzs67hMZnWmt1rjoLrJL5yKv5PK1smgDWax2F9o1UrGhDlLX_OrMga1nlGlj6NBms4yZHUnCf4S3mHbOc5-j7E7TrWH3jndJkFBISg
+        5

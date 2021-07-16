@@ -1,0 +1,39 @@
+- Início -
+	
+	- Descarregar imagens docker que o Processor pediu.
+		> docker images | grep zzglider
+		. Tentar gerir as imagens e por comunicação entre elas.
+
+	> docker run -d -p 7008:7200 --name gdb $image_id
+		. Se abrir na porta 7008, o graphDB vai estar a correr.
+		
+	localhost:7008 -> GraphDB:
+		. criar repositório "mapa-virtual".
+
+	- Vou ter um serviço main -> Página Estática.
+		. Links para outros serviços. 
+		. Usar o docker compose e o nginx (servidor web). Defino o meu docker-compose.yaml. 
+		
+		> docker-compose up -d: Cria uma rede interna com o nome da pasta onde estão os serviçoes (aula 9 neste caso).
+		Em casso de erro: 
+			> docker-compose down: Elimina a rede e apaga os serviços.
+		> docker-compose build -t zzglider
+
+
+- Bullarium Bracarense -
+
+	. Mudar bb.html para index.html e criar um Dockerfile com referência ao nginx.
+	> docker build -t zzglider/bb
+	> docker run -d -p 7007:80 --name bb zzglider/bb:latest
+
+
+- API construída na última aula (mapa-virtual) -
+
+	. Dockerfile discussão.
+	. Alterações feitas à última api -> Adicionado Dockerfile, dockerignore, transações respondem internamente.
+	
+	> docker build -t mapa-dc .
+	> docker run -d -p 3000:13000 --name mapa $image_id
+
+	Primeiro faço docker-compose, vou à porta 7201 e faço import da minha ontologia e depois posso comunicar com o meu localhost 3000, q é a 13000 do serviço map-api.
+	

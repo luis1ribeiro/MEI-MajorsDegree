@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .w3-container
+        h3 Tabela Periódica - GraphDB
+        h9 Esta é a página relativa aos Períodos da Tabela Periódica.
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-orange.w3-margin-top
+        h4 Períodos da Tabela Periódica
+      table.w3-table-all(id="TP")
+        thead
+            tr
+                th Nome do Período
+                th Número 
+        tbody
+            each p in periodos
+                tr
+                    td
+                        a(href="/periodos/"+p.numero) Período #{p.numero}
+                    td= p.numero
+  footer.w3-container.w3-orange.w3-margin-top(style="font-size:10px")
+      pre
+        i(class="fa fa-home")     
+        a(href="/") Voltar à Home Page

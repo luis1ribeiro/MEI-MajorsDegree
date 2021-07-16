@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .w3-container
+        h3 Tabela Periódica - GraphDB
+        h9 Esta é a página relativa aos Grupos Químicos da Tabela Periódica.
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-orange.w3-margin-top
+        h4 Grupos da Tabela Periódica
+      table.w3-table-all(id="TP")
+        thead
+            tr
+                th Nome do Grupo
+                th Número
+        tbody
+            each g in grupos
+                tr
+                    td
+                        a(href="/grupos/"+g.id)= g.nome
+                    td= g.numero
+  footer.w3-container.w3-orange.w3-margin-top(style="font-size:10px")
+      pre
+        i(class="fa fa-home")     
+        a(href="/") Voltar à Home Page

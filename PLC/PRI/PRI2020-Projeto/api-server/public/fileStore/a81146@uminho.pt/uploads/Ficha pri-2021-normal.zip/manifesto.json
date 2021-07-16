@@ -1,0 +1,28 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "casamentos",
+            "tipo": "json"
+        },{
+            "titulo": "teste",
+            "tipo": "html"
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "teste_files",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "bootstrap.min",
+                        "tipo": "css"
+                    },{
+                        "titulo": "fichas",
+                        "tipo": "jpeg"
+                    }
+                ],
+                "pastas": []
+            }
+        }
+    ]
+}

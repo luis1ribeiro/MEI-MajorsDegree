@@ -1,0 +1,19 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "Ficha 1",
+            "tipo": "pdf"
+        }, {
+            "titulo": "Ficha 2",
+            "tipo": "pdf"
+        }, {
+            "titulo": "Ficha 3",
+            "tipo": "pdf"
+        }, {
+            "titulo": "Ficha 4",
+            "tipo": "pdf"
+        }
+
+    ],
+    "pastas": []
+}

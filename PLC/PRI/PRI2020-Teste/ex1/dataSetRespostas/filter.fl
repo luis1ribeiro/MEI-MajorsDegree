@@ -1,0 +1,21 @@
+/* Adaptar para o filtro q queira fazer */
+%{
+/* Declaracoes C diversas */
+int id = 0;
+%}
+
+Abrev ER
+
+%%
+ref\:		{printf("\"ref\":");}	
+.			{ECHO;}
+
+%%
+int yywrap()
+{ return(1); }
+
+int main()
+{
+  yylex();
+  return 0;
+}

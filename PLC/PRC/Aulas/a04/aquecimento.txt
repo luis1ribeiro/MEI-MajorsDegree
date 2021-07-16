@@ -1,0 +1,79 @@
+Some SPARQL queries -> dbpedia.org/sparql :
+
+. select distinct ?Concept where {[] a ?Concept} LIMIT 100
+    - Sendo 'a'(ou rdf:type) este Concept tem que ser Classe. Vão ser apresentadas 100 classes DIFERENTES (distinct).
+
+. select distinct ?alb where {?alb a dbo:Album} LIMIT 100
+    - Query em Albuns.
+
+
+Periodic Table Querys :
+
+    SELECT ?simb ?name ?anumber where {
+        ?s a :Element ;
+             :symbol ?simb ;
+             :name ?name ;
+             :atomicNumber ?anumber .
+    }
+    ORDER BY asc (?anumber)
+
+    -- 5. 3 Elementos com maior número atómico. --
+    
+    ...(anterior)
+    ORDER BY dsc (?anumber)
+    LIMIT 3
+
+    -- 6. Obtenha o número e o nome de cada grupo (há cerca de 20 grupos). --
+
+    SELECT * where {
+        ?s a :Group .
+        OPTIONAL { ?s :number ?number . }
+        OPTIONAL { ?s :name ?name . }
+    }
+    - O optional porque um grupo pode não ter nome ou número. Daí também separar em 2 blocos OPTIONAL diferentes.
+
+    -- 7. Obtenha o nome, o símbolo e o número atómico dos elementos do grupo 18. --
+
+    SELECT ?simb ?name ?anumber where {
+        ?s a :Element ;
+             :symbol ?simb ;
+             :name ?name ;
+             :atomicNumber ?anumber ;
+             :group :group_18;
+    }
+
+    -- 8. Qual o número de elementos em cada grupo? (distribuição dos elementos por grupos) --
+
+    SELECT ?g (COUNT(?elem) AS ?nelems) - nelems vai ser o nome da coluna atribuída ao COUNT
+    WHERE {
+        ?g a :Group .
+        ?g :element ?elem . - elem é o mesmo elem de cima, aqui referencio que tem de ser do grupo g.
+    }
+    GROUP BY ?g
+
+    -- 9. Quais os 5 grupos com mais elementos? --
+
+    ...(anterior)
+    ORDER BY desc (?nelems)
+    LIMIT 5
+
+    -- 10. Qual a média dos números atómicos dos elementos na tabela? --
+
+    SELECT (AVG(?anumber) AS ?media) 
+    WHERE {
+        ?s a :Element ;
+             :atomicNumber ?anumber .
+    }
+
+    -- 11. Qual o maior/menor número atómico na tabela? --
+
+    SELECT (MAX(?anumber) AS ?media) -- Para o menor em vez de MAX -> MIN
+    WHERE {
+        ?s a :Element ;
+             :atomicNumber ?anumber .
+    }
+
+
+
+
+

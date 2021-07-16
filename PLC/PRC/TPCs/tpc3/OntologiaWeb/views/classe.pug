@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .w3-container
+        h3 GraphDB: Graph DataBase
+        h9 Esta é a página relativa à classe #{classe}. Aqui tem a informação relativa a esta.
+  div(style='margin:25px; padding:5px; border: 1px solid black; font-size: 16px')
+    dl
+        dt
+            b Classe:
+        dd= classe
+        dt
+            b Repositório a que pertence:
+        dd
+            a(href="/"+rep)= rep
+        dt
+            b URI:
+        dd= prefixo + classe
+
+  .w3-container
+    .w3-card-4
+      header.w3-container.w3-orange.w3-margin-top
+        h4 Classes OWL
+      table.w3-table-all
+        tr
+          th Nome Indivíduo
+          th Prefixo
+        each i in inds
+              if (i != "NameIndividual" && i != 'NamedIndividual' && i)
+                tr
+                    td
+                      a(href="/"+rep+"/"+classe+"/"+i)= i
+                    td= prefixo + i
+  footer.w3-container.w3-orange.w3-margin-top(style="font-size:10px")
+      pre
+        i(class="fa fa-home")     
+        a(href="/") Back to Home Page
+      pre
+        i(class="fa fa-arrow-left")     
+        a(href="/"+rep) Voltar para a Repositório correspondente

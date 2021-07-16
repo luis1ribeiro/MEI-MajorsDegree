@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC8</key>
+        <title>Construção de ligações através de queries SPARQL</title>
+        <bdate>03-05-2021</bdate>
+        <edate>10-05-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p> 
+            O objetivo deste TPC é construir as ligações e inseri las na ontologia através de queries SPARQL usando o CONSTRUCT.
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="construct.py">Script Python</link>
+    </deliverables>
+</pr>

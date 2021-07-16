@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC7</key>
+        <title>Criar e Povoar uma ontologia relativa a uma mapa virtual</title>
+        <bdate>26-04-2021</bdate>
+        <edate>03-05-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p> Inicialmente utilizei o <i>Protege</i> para criar a parte estrutural da ontologia, sem qualquer povoamento.
+        </p>
+        <p>
+            Para povoar esta ontologia, criei uma <i>script</i> em <b>Python</b>, que criava estruturas auxiliares como dicionário e escreve (<i>append</i>) para um ficheiro com a parte estrutural da ontologia acima mencionada.
+            Para automatizar o processo, dentro da mesma <i>script</i> Python, declarei funções para que o ficheiro final será criado sempre que é executado a <i>script</i>.
+        </p>
+        <p>
+            Note que o ficheiro <i>json2ttl</i> é a <i>script Python</i> acima referida, sem a extensão, e funciona como um executável. (<i>$./json2ttl</i>)
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="pre-processamento/mapavirtual.json">Dataset</link>
+        <link url="pre-processamento/mv-base.ttl">Ontologia base</link>
+        <link url="mv-final.ttl">Ontologia após povoamento</link>
+        <link url="json2ttl">Script Python com Leitura JSON e povoamento em ttl</link>
+    </deliverables>
+</pr>

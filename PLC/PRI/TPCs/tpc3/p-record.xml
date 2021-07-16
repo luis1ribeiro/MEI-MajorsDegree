@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project-record SYSTEM "p-record.dtd">
+<project-record>
+    <meta>
+        <title>PRI_TPC3</title>
+        <key-name>PRI_2020_TPC3</key-name>
+        <supervisor href="http://www4.di.uminho.pt/~jcr/">José Carlos Ramalho</supervisor>
+        <b_date>28/10/2020</b_date>
+        <e_date>31/10/2020</e_date>
+    </meta>
+    <workteam>
+        <teammate>
+            <id>1</id>
+            <name>Luís Ribeiro</name>
+            <email href="mailto:a85954@alunos.uminho.pt">a85954@alunos.uminho.pt</email>
+        </teammate>
+    </workteam>
+    <abstract>
+        <p>Este é o <b>TPC3</b> da cadeira de <u>Processamento e Representação de Informação</u>.</p>
+        <p>O objetivo deste TPC era criar uma <i>stylesheet</i> transformadora em <b>XSLT</b>, para através de um ficheiro XML de input, gerar um output com extensão HTML.</p>
+        <p>Github: <url href="https://github.com/luis1ribeiro/PRI2020">Luís Ribeiro - PRI2020</url></p>
+    </abstract>
+    <deliverables>
+        <url href="arq.dtd">Document type Definition (DTD) do ARQ.</url>
+        <url href="arq.xml">XML ARQ.</url>
+        <url href="arq.xsl">XSL Tabela ARQ.</url>
+        <url href="arq2.xsl">XSL ARQ.</url>
+    </deliverables>
+</project-record>

@@ -1,0 +1,28 @@
+{
+    "ficheiros": [
+        {
+            "titulo": "Ficha01",
+            "tipo": "pdf"
+        }
+    ],
+    "pastas": [
+        {
+            "titulo": "resolucao",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "notas",
+                        "tipo": "g4"
+                    },{
+                        "titulo": "listas",
+                        "tipo": "g4"
+                    },{
+                        "titulo": "gestao",
+                        "tipo": "g4"
+                    }
+                ],
+                "pastas": []
+            }
+        }
+    ]
+}

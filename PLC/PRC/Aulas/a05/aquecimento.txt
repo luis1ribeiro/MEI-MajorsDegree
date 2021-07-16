@@ -1,0 +1,67 @@
+
+-- Variable Assignment. --
+
+SELECT ?author ?work xsd:integer(?date) AS ?year FROM <http://dbpedia.org/>
+WHERE {
+    ?author rdf:type dbo:Writer .
+    ?author dbo:notableWork ?work .
+    ?work dbp:releaseDate ?date .
+}    
+    ORDER BY DESC(?year) -- O year referenciado acima é usado aqui.
+    LIMIT 100
+
+
+-- Variables assignment with String Manipulation and Regular Expression. --
+
+SELECT ?author ?work SUBSTR((REPLACE(STR(?date),"[^0-9]", "")), 1, 4) AS ?year FROM <http://dbpedia.org/>
+WHERE {
+    ?author rdf:type dbo:Writer .
+    ?author dbo:notableWork ?work .
+    ?work dbp:releaseDate ?date .
+    FILTER REGEX (?date, "[0-9]{4}") -- RE usado para Filtragem.
+} 
+    ORDER BY DESC(?year)
+    LIMIT 100
+
+
+-- Aggeregate Function com GroupBy e OrderBy. --
+
+SELECT ?author COUNT(?work) AS ?num_works FROM <http://dbpedia.org/>
+WHERE {
+    ?author rdf:type dbo:Writer ;
+    dbo:notableWork ?work .
+} 
+    GROUP BY ?author -- Posso tirar, depende do motor.
+    ORDER BY DESC (?num_works)
+
+
+-- Lista de Works associado a um autor. --
+
+SELECT ?author (GROUP_CONCAT(?work; SEPARATOR='\n') AS ?works) FROM <http://dbpedia.org/>
+WHERE {
+    ?author rdf:type dbo:Writer ;
+    dbo:notableWork ?work .
+} 
+    GROUP BY ?author
+
+
+Property Path :
+    . Is a possible route through an RDF graph between two graph nodes.
+
+    -- Inverse property paths
+    { ?x foaf:mbox <mailto:alice@example> . }
+    =
+    { <mailto:alice@example> ^foaf:mbox ?x . }
+
+    { ?x foaf:knows/^foaf:knows ?y .
+      FILTER (?x != ?y) } -- Sequência de inverse paths.
+
+    -- Alternatives: Match one or both possibilities
+    { :book1 dc:title|rdfs:label ?displayString . }
+
+    -- Sequence ou Composição de propriedades
+    { ?x foaf:mbox <mailto:alice@example> .
+      ?x foaf:knows/foaf:knows/foaf:name ?name . }
+    
+    { ?x foaf:knows+/foaf:name ?name . } -- Sequência arbitrária.
+

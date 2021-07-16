@@ -1,0 +1,21 @@
+-- Constrói a relação temIrmão
+CONSTRUCT {
+    ?a :temIrmão ?b .
+} WHERE {
+    ?a :temProgenitor ?p .
+    ?b :temProgenitor ?p .
+    FILTER (?a != ?b) .
+}
+
+INSERT DATA {
+    <DEPOIS DO CONSTRUCT>
+}
+
+-- Constrói a relação tio
+CONSTRUCT {
+    ?a :temTio ?b .
+} WHERE {
+    ?a :temProgenitor ?p .
+    ?p :temIrmão ?b .
+    FILTER (?p != ?b) .
+}

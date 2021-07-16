@@ -1,0 +1,71 @@
+
+-- 1. Quantos triplos existem na Ontologia? --
+SELECT (COUNT(*) as ?triplos) WHERE { 
+   ?s ?p ?o .
+}
+
+-- 2. Que classes estão definidas? --
+SELECT ?s WHERE { ?s a owl:Class}
+
+-- 3. Que propriedades tem a classe "Article"? --
+SELECT DISTINCT ?p 
+WHERE {
+    ?s rdf:type :Article .
+    ?s ?p ?o .
+}
+
+-- 4. Quantos artigos aparecem na ontologia? --
+SELECT (COUNT(*) AS ?nArtigos) 
+WHERE {
+   ?s a :Article .
+}
+
+-- 5. Calcula uma tabela com o seu identificador, título e data de publicação (ou ano). --
+SELECT ?id ?tit (year(?date) AS ?ano)
+WHERE {
+   ?s a :Article .
+   ?s :title ?tit ;
+      :dataPub ?date .
+   BIND(strafter(str(?s), "#article-") as ?id) -- Podemos usar o bind para retirar o "article-" e ficar apenas com o id.
+}
+
+-- 5.1. Artigos por ano. Por ano por ser um alias, tem que se usar o BIND. --
+SELECT ?ano (COUNT(?s) as ?nartigos)
+WHERE {
+   ?s a :Article .
+   ?s :title ?tit ;
+      :dataPub ?date .
+   BIND((year(?date)) as ?ano)
+}
+GROUP BY ?ano
+ORDER BY ASC (?ano)
+
+-- 6. Quantos artigos referem "José Sócrates"? Lista os seus identificadores, títulos e datas de publicação. --
+SELECT  ?s ?tit (year(?date) AS ?ano)
+WHERE {
+   ?s a :Article .
+   ?s :title ?tit ;
+      :referesPerson :person-José_Sócrates ;
+      :dataPub ?date .
+}
+
+-- 7. Qual a distribuição dos artigos pelas personalidades referenciadas? --
+SELECT ?pessoa (count(?s) as ?nartigos)
+WHERE {
+   ?s a :Article .
+   ?s :title ?tit ;
+      :referesPerson ?idp ;
+      :dataPub ?date .
+   BIND(strafter(str(?idp), "person-") as ?pessoa)
+}
+GROUP BY ?pessoa
+ORDER BY DESC (?nartigos)
+LIMIT 20
+
+-- 8. Quantos músicos estão catalogados na ontologia? -- 
+SELECT (COUNT(*) AS ?totmusicos) WHERE { ?s :hasJob :job-músico . }
+
+-- 9. Lista os artigos referentes a "John Lennon": id, título e data de publicação. --
+
+
+-- 10. Que profissões são usadas na ontologia? --

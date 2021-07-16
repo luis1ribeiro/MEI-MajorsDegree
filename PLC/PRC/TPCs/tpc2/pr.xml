@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC2</key>
+        <title>Povoação e criação de uma Ontologia usando como dataSet um XML</title>
+        <bdate>05-03-2021</bdate>
+        <edate>08-03-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p>
+            Inicialmente, como pedido pelo docente, criei uma ontologia <i>ttl</i> base de forma a criar as classes e as suas propriedades, 
+            tanto como as <i>Data Properties</i>(como nome, título da obra, tipo de ficheiros, entre outros), e <i>Object Properties</i>, onde este representa
+            as relações entre classes. Como o docente referiu que um Arranjo também é um Compositor, criei uma <i>OP</i> para cada um, e um Compositor terá que ter composto
+            uma Obra (<i>owl:onProperty :compôs ; owl:someValuesFrom :Obra</i>), ou ter feito um arranjo de uma Obra (<i>owl:onProperty :compositorArranjoDe ; owl:someValuesFrom :Obra</i>).  
+        </p>
+        <p>
+            Numa segunda fase foi criado um transformador de XML (<i>XSLT</i>). Na criação deste tive alguns cuidados, porque havia algumas <i>tags</i> que fugiam "à regra".
+            Por exemplo, havia a Obra <i>m65</i> tinha vários compositores associados, separados por ",", então para tratar isso usei as funcionalidades do <i>XSLT 2.0</i> de
+            <i>tokenize</i>, usando um <i>xsl:for-each</i> para iterar sobre os vários compositores, assim foram criados os vários compositores associados à mesma obra.
+            Usei também a funcionalidade de <i>replace</i> para remover os espaços entre nomes, títulos, entre outros.
+            Outra dificuldade que tive foi que haviam <b>2</b> Obras que no subtítulo começavam e acabavam com <i>"</i>, e isso trouxe-me problemas porque na transformação das tags
+            tinha que pôr <i>"</i> para ser depois consumido pela sintaxe do <i>Turtle</i>, e nestes casos ficariam 2 aspas seguidas e dava erro de sintaxe.
+            Tentei usar a funcionalidade de <i>replace</i> mencionada acima, no entanto não me estava a deixar proteger a <i>"</i> que queria dar <i>replace</i>, portanto como eram poucos casos(2)
+            decidi ir ao <i>DataSet</i> <i>XML</i> base e retirar essas <i>"</i>. 
+        </p>
+        <p>
+            Depois da transformação, é gerado um ficheiro <i>result-xslt.ttl</i>.
+            Este ficheiro criado e preenchido deverá ser adiconado na secção <i>INDIVIDUALS</i>, como <i>append</i>, no ficheiro <i>amd-base.ttl</i>, guardado num novo ficheiro com nome <i>amd-final.ttl</i>.
+        </p>
+    </abstract>
+    <deliverables>
+            <link url="arquivo-musica-digital.xml">DataSet XML fornecido.</link>
+            <link url="amd-base.ttl">Ficheiro TTL de base, criado na fase inicial.</link>
+            <link url="amd.xslt">Ficheiro <i>XSLT</i> transfomador do ficheiro XML dado, de forma a gerar a povoação da secção <i>Individuals</i>.</link>
+            <link url="result-xslt.ttl">Ficheiro TTL gerado após a transformação.</link>
+            <link url="amd-final.ttl">Ficheiro TTL final que será o resultado de adicionar os 2 ficheiros TTL anteriores.</link>
+    </deliverables>
+</pr>

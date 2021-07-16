@@ -1,0 +1,166 @@
+{
+    "ficheiros": [],
+    "pastas": [
+        {
+            "titulo": "ex1",
+            "conteudo": {
+                "ficheiros": [],
+                "pastas": [
+                    {
+                        "titulo": "cleansing",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "casamentos",
+                                    "tipo": "json"
+                                }, {
+                                    "titulo": "casamentos_fixed",
+                                    "tipo": "json"
+                                }, {
+                                    "titulo": "cleanse",
+                                    "tipo": "js"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }, {
+                        "titulo": "servidor",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "app",
+                                    "tipo": "js"
+                                }
+                            ],
+                            "pastas": [
+                                {
+                                    "titulo": "controllers",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "casamento",
+                                                "tipo": "js"
+                                            }
+                                        ],
+                                        "pastas": []
+                                    }
+                                }, {
+                                    "titulo": "models",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "casamento",
+                                                "tipo": "js"
+                                            }
+                                        ],
+                                        "pastas": []
+                                    }
+                                }, {
+                                    "titulo": "routes",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "index",
+                                                "tipo": "js"
+                                            }
+                                        ],
+                                        "pastas": []
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }, {
+            "titulo": "ex2",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "app",
+                        "tipo": "js"
+                    }, {
+                        "titulo": "package",
+                        "tipo": "json"
+                    }, {
+                        "titulo": "package-lock",
+                        "tipo": "json"
+                    }
+                ],
+                "pastas": [
+                    {
+                        "titulo": "localState",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "myToken",
+                                    "tipo": "txt"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }, {
+                        "titulo": "public",
+                        "conteudo": {
+                            "ficheiros": [],
+                            "pastas": [
+                                {
+                                    "titulo": "stylesheets",
+                                    "conteudo": {
+                                        "ficheiros": [
+                                            {
+                                                "titulo": "style",
+                                                "tipo": "css"
+                                            }
+                                        ],
+                                        "pastas": []
+                                    }
+                                }
+                            ]
+                        }
+                    }, {
+                        "titulo": "routes",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "index",
+                                    "tipo": "js"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }, {
+                        "titulo": "views",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "classe",
+                                    "tipo": "pug"
+                                },
+                                {
+                                    "titulo": "classes",
+                                    "tipo": "pug"
+                                },
+                                {
+                                    "titulo": "curso",
+                                    "tipo": "pug"
+                                },
+                                {
+                                    "titulo": "error",
+                                    "tipo": "pug"
+                                }, {
+                                    "titulo": "layout",
+                                    "tipo": "pug"
+                                }, {
+                                    "titulo": "processo",
+                                    "tipo": "pug"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,2 @@
+Criar um package.json para ser copiado para o docker, de modo a não haver a necessidade de instalar os packages 1 a 1.
+É criado um entidades.json sempre que a script é corrida com a informação do clav.

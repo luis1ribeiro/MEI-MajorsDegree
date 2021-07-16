@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pr>
+    <meta>
+        <key>TPC6</key>
+        <title>Usar server-api implementado no último TPC e aplciar uma view em Vue</title>
+        <bdate>12-04-2021</bdate>
+        <edate>19-04-2021</edate>
+        <supervisor url="http://www4.di.uminho.pt/~jcr/"> José Carlos Ramalho</supervisor>
+    </meta>
+    <workteam>
+        <worker num="A85954">
+            <name>Luís Mário Macedo Ribeiro</name>
+            <email>a85954@alunos.uminho.pt</email>
+        </worker>
+    </workteam>
+    <abstract>
+        <p> Para implementar uma view em Vue, tive que primeiro criar um servidor API que responde a pedidos a uma API de dados sobre publicações, alocado na ontobud como uma ontologia.
+            Para isso usei o trabalho feito no último TPC, alterando algumas rotas para retornar campos pedidos para este TPC (como o ano de publicação de cada publicação, número de publicações associadas a cada autor, etc.)
+        </p>
+        <p>
+            Na parte da view, usei a <i>framework</i> Vue. Implementei views para apresentar todos os autores, todas as publicações e a informação de cada autor. Por ser informação muito extensa, decidi usar os dataTables do Vue, de forma a paginar
+            de forma eficiente a informação extraída das rotas. 
+            Devido a problema de CORS, fui obrigado a criar um <i>proxy</i>, semelhante ao criado na aula, para ser possível fazer requets ao servidor das rotas, em cima explicado.
+        </p>
+    </abstract>
+    <deliverables>
+        <link url="jcrpubs.xml">Dataset</link>
+        <link url="tp5-final.ttl">Ontologia final</link>
+        <link url="server-api/">Servidor com rotas criadas</link>
+        <link url="vue-router/">Servidor com rotas criadas</link>
+    </deliverables>
+</pr>

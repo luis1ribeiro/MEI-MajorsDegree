@@ -1,0 +1,25 @@
+{
+  "tarefas": [
+    {
+      "descr": "Fazer PRI",
+      "resp": "Luís Ribeiro a85954",
+      "data_limite": "18-11-2020",
+      "estado": "toDo",
+      "id": 1
+    },
+    {
+      "descr": "Fazer GCS",
+      "resp": "Luís Ribeiro a85954",
+      "data_limite": "18-11-2020",
+      "estado": "toDo",
+      "id": 2
+    },
+    {
+      "descr": "Fazer SSI",
+      "resp": "Luís Ribeiro a85954",
+      "data_limite": "18-11-2020",
+      "estado": "toDo",
+      "id": 3
+    }
+  ]
+}

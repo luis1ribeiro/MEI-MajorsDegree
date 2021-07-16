@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue-grey
+            h3 Ficha Aluno: #{aluno.Nome}
+        .w3-container
+            table(class="w3-table-all")
+                tr
+                    th Número
+                        td=aluno.Número
+                tr
+                    th Nome
+                        td=aluno.Nome
+                tr
+                    th Git
+                        td
+                            a(href=aluno.Git)= aluno.Git
+                tr  
+                    th TPC 
+                        td
+                            each val, index in aluno.tpc
+                                if(val==1)
+                                    pre ☑ TPC #{index}: Feito
+                                else
+                                    pre ☒ TPC #{index}: Não feito
+    .w3-container.w3-blue-grey
+        footer.w3-container
+            p
+                a(href="/alunos") Voltar à Lista de Alunos        

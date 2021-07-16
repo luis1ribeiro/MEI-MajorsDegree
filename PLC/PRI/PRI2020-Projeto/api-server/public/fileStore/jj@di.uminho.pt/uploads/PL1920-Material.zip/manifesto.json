@@ -1,0 +1,54 @@
+{
+    "ficheiros": [],
+    "pastas": [
+        {
+            "titulo": "TP",
+            "conteudo": {
+                "ficheiros": [
+                    {
+                        "titulo": "pl19tp1",
+                        "tipo": "pdf"
+                    }, {
+                        "titulo": "pl19tp2",
+                        "tipo": "pdf"
+                    }
+                ],
+                "pastas": []
+            }
+        }, {
+            "titulo": "FE",
+            "conteudo": {
+                "ficheiros": [],
+                "pastas": [
+                    {
+                        "titulo": "Ficha1",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "plc19f01",
+                                    "tipo": "pdf"
+                                }, {
+                                    "titulo": "pl19f01-res",
+                                    "tipo": "pdf"
+                                }
+                            ],
+                            "pastas": []
+                        }
+                    }, {
+                        "titulo": "Ficha2",
+                        "conteudo": {
+                            "ficheiros": [
+                                {
+                                    "titulo": "pl19f02",
+                                    "tipo": "pdf"
+                                }
+                            ],
+                            "pastas": [
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

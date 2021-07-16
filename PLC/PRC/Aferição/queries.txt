@@ -1,0 +1,11 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX : <http://www.di.uminho.pt/prc2021/condominios#>
+prefix tabP: <http://www.di.uminho.pt/prc2021/condominios#> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+1. SELECT ?s WHERE { ?s a ?o . FILTER (?o IN (:Despesas, :Receitas )) }
+2. SELECT ?s WHERE { ?s a :Fração MINUS { ?s :pagou :Abr } }
+3. SELECT ?fra (SUM(?value) as ?valortotal) WHERE { ?s a :Despesas . ?s :fornecedor ?fra . ?s :valor ?value } GroupBy ?fra Order By desc (?valortotal)
+4. SELECT (SUM(?valor) as ?total) WHERE { SELECT ?s ((xsd:integer(COUNT(?meses)) * xsd:integer(?mespago)) AS ?valor) WHERE { ?s a :Fração . ?s :mensalidade ?mespago . ?s :pagou ?meses . } Group by ?s }
+5. SELECT ?s ((xsd:integer(COUNT(?meses)) * xsd:integer(?mespago)) AS ?valor) WHERE { ?s a :Fração . ?s :mensalidade ?mespago . ?s :pagou ?meses . } Group by (?s)

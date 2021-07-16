@@ -1,0 +1,186 @@
+@prefix : <http://www.di.uminho.pt/prc2021/amd#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.di.uminho.pt/prc2021/amd> .
+
+<http://www.di.uminho.pt/prc2021/amd> rdf:type owl:Ontology ;
+                                       rdfs:comment "Ontologia para um arquivo de música digital" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/amd#compositorArranjoDe
+:compositorArranjoDe rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :temcomoArranjo .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#compôs
+:compôs rdf:type owl:ObjectProperty ;
+        owl:inverseOf :foiComposta ;
+        rdfs:domain :Compositor ;
+        rdfs:range :Obra .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#foiComposta
+:foiComposta rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#pertence
+:pertence rdf:type owl:ObjectProperty ;
+          owl:inverseOf :segueaPartitura ;
+          rdfs:domain :Partitura ;
+          rdfs:range :Instrumento .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#segueaPartitura
+:segueaPartitura rdf:type owl:ObjectProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#temcomoArranjo
+:temcomoArranjo rdf:type owl:ObjectProperty ;
+                rdfs:domain :Obra ;
+                rdfs:range :Compositor .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#temcomoInstrumento
+:temcomoInstrumento rdf:type owl:ObjectProperty ;
+                    owl:inverseOf :éInstrumentoDe .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#éInstrumentoDe
+:éInstrumentoDe rdf:type owl:ObjectProperty ;
+                rdfs:domain :Instrumento ;
+                rdfs:range :Obra .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/amd#afinação
+:afinação rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#arranjo
+:arranjo rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#clave
+:clave rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#designação
+:designação rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#editado
+:editado rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#href
+:href rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#nome
+:nome rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#path
+:path rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#subtítulo
+:subtítulo rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#tipo
+:tipo rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#type
+:type rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#título
+:título rdf:type owl:DatatypeProperty .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#voz
+:voz rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/amd#Compositor
+:Compositor rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :compositorArranjoDe ;
+                              owl:someValuesFrom :Obra
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :compôs ;
+                              owl:someValuesFrom :Obra
+                            ] .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#Instrumento
+:Instrumento rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :éInstrumentoDe ;
+                               owl:someValuesFrom :Obra
+                             ] .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#Obra
+:Obra rdf:type owl:Class .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#Partitura
+:Partitura rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :pertence ;
+                             owl:someValuesFrom :Instrumento
+                           ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.di.uminho.pt/prc2021/amd#Clarinete
+:Clarinete rdf:type owl:NamedIndividual ,
+                    :Instrumento ;
+           :éInstrumentoDe :m1 ;
+           :designação "Clarinete" .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#HomenagemJSerra-clarinete1.pdf
+:HomenagemJSerra-clarinete1.pdf rdf:type owl:NamedIndividual ,
+                                         :Partitura ;
+                                :pertence :Clarinete ;
+                                :path "HomenagemJSerra-clarinete1.pdf" ;
+                                :type "PDF" ;
+                                :voz "I" .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#IlidioCosta
+:IlidioCosta rdf:type owl:NamedIndividual ,
+                      :Compositor ;
+             :compôs :m1 ;
+             :nome "Ilídio Costa" .
+
+
+###  http://www.di.uminho.pt/prc2021/amd#m1
+:m1 rdf:type owl:NamedIndividual ,
+             :Obra ;
+    :tipo "Marcha de Desfile" ;
+    :título "Homenagem a J.Serra" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

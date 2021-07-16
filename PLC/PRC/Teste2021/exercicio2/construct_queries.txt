@@ -1,0 +1,463 @@
+1 -- Constrói os triplos da relação Irmão;
+CONSTRUCT {
+    ?a :Irmão ?b.
+} 
+WHERE {
+    ?a :temProgenitor ?p .
+    ?b :temProgenitor ?p . 
+    
+    FILTER (?a != ?b) .
+}
+
+Resultados:
+:Ana_da_Silva_Ramalho :Irmão :Abílio_da_Silva_Ramalho, :António_da_Silva_Ramalho_1904,
+    :Arminda_da_Silva_Ramalho, :Ezequiel_da_Silva_Ramalho, :Generosa_da_Silva_Ramalho .
+
+:António_da_Silva_Ramalho_1904 :Irmão :Abílio_da_Silva_Ramalho, :Ana_da_Silva_Ramalho,
+    :Arminda_da_Silva_Ramalho, :Ezequiel_da_Silva_Ramalho, :Generosa_da_Silva_Ramalho .
+
+:Arminda_da_Silva_Ramalho :Irmão :Abílio_da_Silva_Ramalho, :Ana_da_Silva_Ramalho,
+    :António_da_Silva_Ramalho_1904, :Ezequiel_da_Silva_Ramalho, :Generosa_da_Silva_Ramalho .
+
+:Ezequiel_da_Silva_Ramalho :Irmão :Abílio_da_Silva_Ramalho, :Ana_da_Silva_Ramalho,
+    :António_da_Silva_Ramalho_1904, :Arminda_da_Silva_Ramalho, :Generosa_da_Silva_Ramalho .
+
+:Generosa_da_Silva_Ramalho :Irmão :Abílio_da_Silva_Ramalho, :Ana_da_Silva_Ramalho,
+    :António_da_Silva_Ramalho_1904, :Arminda_da_Silva_Ramalho, :Ezequiel_da_Silva_Ramalho .
+
+:Emília_Esteves_de_Araújo_1908 :Irmão :Albina_Esteves_de_Araújo_1910, :Filomena_Esteves_de_Araújo_1927,
+    :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912, :José_Emílio_Esteves_de_Araújo_1916,
+    :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Filomena_Esteves_de_Araújo_1927 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912, :José_Emílio_Esteves_de_Araújo_1916,
+    :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Henrique_Luís_Esteves_de_Araújo_1924 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Filomena_Esteves_de_Araújo_1927, :Maria_Esteves_de_Araújo_1912, :José_Emílio_Esteves_de_Araújo_1916,
+    :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Maria_Esteves_de_Araújo_1912 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Filomena_Esteves_de_Araújo_1927, :Henrique_Luís_Esteves_de_Araújo_1924, :José_Emílio_Esteves_de_Araújo_1916,
+    :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:José_Emílio_Esteves_de_Araújo_1916 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Filomena_Esteves_de_Araújo_1927, :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912,
+    :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Luís_Esteves_de_Araújo_1918 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Filomena_Esteves_de_Araújo_1927, :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912,
+    :José_Emílio_Esteves_de_Araújo_1916, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Sara_Esteves_de_Araújo_1914 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Filomena_Esteves_de_Araújo_1927, :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912,
+    :José_Emílio_Esteves_de_Araújo_1916, :Luís_Esteves_de_Araújo_1918, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Virgínia_Esteves_de_Araújo_1921 :Irmão :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908,
+    :Filomena_Esteves_de_Araújo_1927, :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912,
+    :José_Emílio_Esteves_de_Araújo_1916, :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914 .
+
+:Teresa_Maria_Ribeiro_Leite_1985 :Irmão :Ana_Margarida_Ribeiro_Leite_1980 .
+
+:Henrique_Marçal_Araújo_Leite_1943 :Irmão :Rui_Alberto_Araújo_Leite_1948, :Maria_Flora_Araújo_Leite_1941 .
+
+:Maria_Flora_Araújo_Leite_1941 :Irmão :Rui_Alberto_Araújo_Leite_1948, :Henrique_Marçal_Araújo_Leite_1943 .
+
+:Abílio_da_Silva_Ramalho :Irmão :Ana_da_Silva_Ramalho, :António_da_Silva_Ramalho_1904,
+    :Arminda_da_Silva_Ramalho, :Ezequiel_da_Silva_Ramalho, :Generosa_da_Silva_Ramalho .
+
+:Gilberto_Couto_Leite :Irmão :Domingos_Couto_Leite, :Helena_Couto_Leite, :Marçal_Aristides_Costa_Leite_1909,
+    :João_Bernardo_Couto_Leite_1916, :Orlando_Couto_Leite, :Rosa_Couto_Leite .
+
+:Helena_Couto_Leite :Irmão :Domingos_Couto_Leite, :Gilberto_Couto_Leite, :Marçal_Aristides_Costa_Leite_1909,
+    :João_Bernardo_Couto_Leite_1916, :Orlando_Couto_Leite, :Rosa_Couto_Leite .
+
+:Marçal_Aristides_Costa_Leite_1909 :Irmão :Domingos_Couto_Leite, :Gilberto_Couto_Leite,
+    :Helena_Couto_Leite, :João_Bernardo_Couto_Leite_1916, :Orlando_Couto_Leite, :Rosa_Couto_Leite .
+
+:João_Bernardo_Couto_Leite_1916 :Irmão :Domingos_Couto_Leite, :Gilberto_Couto_Leite,
+    :Helena_Couto_Leite, :Marçal_Aristides_Costa_Leite_1909, :Orlando_Couto_Leite, :Rosa_Couto_Leite .
+
+:Orlando_Couto_Leite :Irmão :Domingos_Couto_Leite, :Gilberto_Couto_Leite, :Helena_Couto_Leite,
+    :Marçal_Aristides_Costa_Leite_1909, :João_Bernardo_Couto_Leite_1916, :Rosa_Couto_Leite .
+
+:Rosa_Couto_Leite :Irmão :Domingos_Couto_Leite, :Gilberto_Couto_Leite, :Helena_Couto_Leite,
+    :Marçal_Aristides_Costa_Leite_1909, :João_Bernardo_Couto_Leite_1916, :Orlando_Couto_Leite .
+
+:Albina_Esteves_de_Araújo_1910 :Irmão :Emília_Esteves_de_Araújo_1908, :Filomena_Esteves_de_Araújo_1927,
+    :Henrique_Luís_Esteves_de_Araújo_1924, :Maria_Esteves_de_Araújo_1912, :José_Emílio_Esteves_de_Araújo_1916,
+    :Luís_Esteves_de_Araújo_1918, :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921 .
+
+:Maria_Alves_dos_Santos_1906 :Irmão :Florinda_Alves_dos_Santos .
+
+:Domingos_Couto_Leite :Irmão :Gilberto_Couto_Leite, :Helena_Couto_Leite, :Marçal_Aristides_Costa_Leite_1909,
+    :João_Bernardo_Couto_Leite_1916, :Orlando_Couto_Leite, :Rosa_Couto_Leite .
+
+:Rui_Alberto_Araújo_Leite_1948 :Irmão :Henrique_Marçal_Araújo_Leite_1943, :Maria_Flora_Araújo_Leite_1941 .
+
+:Isabel_Maria_Cabrita_de_Araújo_Leite_1971 :Irmão :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971 .
+
+:José_dos_Santos_Ramalho_1942 :Irmão :Ilda_dos_Santos_Ramalho_1949, :Manuel_Carlos_dos_Santos_Ramalho,
+    :Manuel_Fernando_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_ .
+
+:Manuel_Carlos_dos_Santos_Ramalho :Irmão :Ilda_dos_Santos_Ramalho_1949, :José_dos_Santos_Ramalho_1942,
+    :Manuel_Fernando_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_ .
+
+:Manuel_Fernando_dos_Santos_Ramalho :Irmão :Ilda_dos_Santos_Ramalho_1949, :José_dos_Santos_Ramalho_1942,
+    :Manuel_Carlos_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_ .
+
+:Maria_Flora_dos_Santos_Ramalho_ :Irmão :Ilda_dos_Santos_Ramalho_1949, :José_dos_Santos_Ramalho_1942,
+    :Manuel_Carlos_dos_Santos_Ramalho, :Manuel_Fernando_dos_Santos_Ramalho .
+
+:Florinda_Alves_dos_Santos :Irmão :Maria_Alves_dos_Santos_1906 .
+
+:Henrique_Miguel_Cabrita_de_Araújo_Leite_1971 :Irmão :Isabel_Maria_Cabrita_de_Araújo_Leite_1971 .
+
+:Maria_Helena_Leite_Ramalho_1968 :Irmão :José_Carlos_Leite_Ramalho_1967 .
+
+:Ilda_dos_Santos_Ramalho_1949 :Irmão :José_dos_Santos_Ramalho_1942, :Manuel_Carlos_dos_Santos_Ramalho,
+    :Manuel_Fernando_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_ .
+
+:José_Carlos_Leite_Ramalho_1967 :Irmão :Maria_Helena_Leite_Ramalho_1968 .
+
+:Ana_Margarida_Ribeiro_Leite_1980 :Irmão :Teresa_Maria_Ribeiro_Leite_1985 .
+
+-------------------------------------------------------------------------
+2 -- Constrói os triplos da relação Bisavô;
+CONSTRUCT {
+      ?a :Bisavô ?b .
+} 
+WHERE {
+    ?a :ePaide ?p1 .
+    ?p1 :eProgenitorDe ?p2 .
+    ?p2 :eProgenitorDe ?b .
+}
+
+Resultados:
+:Henrique_Luiz_de_Araújo_1867 :Bisavô :Ana_Margarida_Ribeiro_Leite_1980, :Teresa_Maria_Ribeiro_Leite_1985,
+    :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971, :Isabel_Maria_Cabrita_de_Araújo_Leite_1971,
+    :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968 .
+
+:Marçal_da_Costa_Leite :Bisavô :Ana_Margarida_Ribeiro_Leite_1980, :Teresa_Maria_Ribeiro_Leite_1985,
+    :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971, :Isabel_Maria_Cabrita_de_Araújo_Leite_1971,
+    :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968 .
+
+:José_Francisco_Ramos_Mouco :Bisavô :Ilda_dos_Santos_Ramalho_1949, :José_dos_Santos_Ramalho_1942,
+    :Manuel_Carlos_dos_Santos_Ramalho, :Manuel_Fernando_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_ .
+
+:António_da_Silva_Ramalho :Bisavô :Ilda_dos_Santos_Ramalho_1949, :José_dos_Santos_Ramalho_1942,
+    :Manuel_Carlos_dos_Santos_Ramalho, :Manuel_Fernando_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_ .
+
+:José_Maria_Esteves :Bisavô :Rui_Alberto_Araújo_Leite_1948, :Henrique_Marçal_Araújo_Leite_1943,
+    :Maria_Flora_Araújo_Leite_1941 .
+
+:José_Emílio_de_Araújo :Bisavô :Rui_Alberto_Araújo_Leite_1948, :Henrique_Marçal_Araújo_Leite_1943,
+    :Maria_Flora_Araújo_Leite_1941 .
+
+:Manuel_da_Silva_Ramalho_1866 :Bisavô :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968 .
+
+:Jozé_da_Silva_Santos_1879 :Bisavô :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968 .
+
+
+-------------------------------------------------------------------------
+3 -- Constrói os triplos da relação Descendentes;
+CONSTRUCT {
+      ?a :Descendente ?b .
+} WHERE {
+    ?a :temProgenitor+ ?b .
+}
+
+Resultados:
+:Abílio_da_Silva_Ramalho :Descendente :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866,
+    :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco, :António_da_Silva_Ramalho,
+    :Maria_Dias_dos_Reis .
+
+:Custódia_Azevedo_1867 :Descendente :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco .
+
+:Manuel_da_Silva_Ramalho_1866 :Descendente :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Albina_Esteves_de_Araújo_1910 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Maria_Araújo_1884 :Descendente :Emília_Esteves, :José_Maria_Esteves .
+
+:Henrique_Luiz_de_Araújo_1867 :Descendente :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Ana_Margarida_Ribeiro_Leite_1980 :Descendente :Maria_Margarida_Ribeiro_1954, :Rui_Alberto_Araújo_Leite_1948,
+    :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909, :Maria_Araújo_1884,
+    :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Rui_Alberto_Araújo_Leite_1948 :Descendente :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909,
+    :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo .
+
+:Ana_da_Silva_Ramalho :Descendente :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866,
+    :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco, :António_da_Silva_Ramalho,
+    :Maria_Dias_dos_Reis .
+
+:António_da_Silva_Ramalho_1904 :Descendente :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866,
+    :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco, :António_da_Silva_Ramalho,
+    :Maria_Dias_dos_Reis .
+
+:Arminda_da_Silva_Ramalho :Descendente :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866,
+    :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco, :António_da_Silva_Ramalho,
+    :Maria_Dias_dos_Reis .
+
+:Domingos_Couto_Leite :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Emília_Esteves_de_Araújo_1908 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Ezequiel_da_Silva_Ramalho :Descendente :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866,
+    :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco, :António_da_Silva_Ramalho,
+    :Maria_Dias_dos_Reis .
+
+:Filomena_Esteves_de_Araújo_1927 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Florinda_Alves_dos_Santos :Descendente :Christina_Rosa_Silva_Santos_1879, :Jozé_da_Silva_Santos_1879 .
+
+:Generosa_da_Silva_Ramalho :Descendente :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866,
+    :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco, :António_da_Silva_Ramalho,
+    :Maria_Dias_dos_Reis .
+
+:Gilberto_Couto_Leite :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Helena_Couto_Leite :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Henrique_Luís_Esteves_de_Araújo_1924 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Henrique_Marçal_Araújo_Leite_1943 :Descendente :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909,
+    :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo .
+
+:Maria_Esteves_de_Araújo_1912 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Marçal_Aristides_Costa_Leite_1909 :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Henrique_Miguel_Cabrita_de_Araújo_Leite_1971 :Descendente :Henrique_Marçal_Araújo_Leite_1943,
+    :Maria_Otília_Araújo_Leite_1944, :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909,
+    :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo .
+
+:Ilda_dos_Santos_Ramalho_1949 :Descendente :António_da_Silva_Ramalho_1904, :Maria_Alves_dos_Santos_1906,
+    :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Maria_Alves_dos_Santos_1906 :Descendente :Christina_Rosa_Silva_Santos_1879, :Jozé_da_Silva_Santos_1879 .
+
+:Isabel_Maria_Cabrita_de_Araújo_Leite_1971 :Descendente :Henrique_Marçal_Araújo_Leite_1943,
+    :Maria_Otília_Araújo_Leite_1944, :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909,
+    :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo .
+
+:José_Carlos_Leite_Ramalho_1967 :Descendente :Maria_Flora_Araújo_Leite_1941, :José_dos_Santos_Ramalho_1942,
+    :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909, :António_da_Silva_Ramalho_1904,
+    :Maria_Alves_dos_Santos_1906, :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Maria_Flora_Araújo_Leite_1941 :Descendente :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909,
+    :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo .
+
+:José_dos_Santos_Ramalho_1942 :Descendente :António_da_Silva_Ramalho_1904, :Maria_Alves_dos_Santos_1906,
+    :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:José_Emílio_Esteves_de_Araújo_1916 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:João_Bernardo_Couto_Leite_1916 :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Luís_Esteves_de_Araújo_1918 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Manuel_Carlos_dos_Santos_Ramalho :Descendente :António_da_Silva_Ramalho_1904, :Maria_Alves_dos_Santos_1906,
+    :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Manuel_Fernando_dos_Santos_Ramalho :Descendente :António_da_Silva_Ramalho_1904, :Maria_Alves_dos_Santos_1906,
+    :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Maria_Flora_dos_Santos_Ramalho_ :Descendente :António_da_Silva_Ramalho_1904, :Maria_Alves_dos_Santos_1906,
+    :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Maria_Helena_Leite_Ramalho_1968 :Descendente :Maria_Flora_Araújo_Leite_1941, :José_dos_Santos_Ramalho_1942,
+    :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909, :António_da_Silva_Ramalho_1904,
+    :Maria_Alves_dos_Santos_1906, :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite,
+    :Marçal_da_Costa_Leite, :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Christina_Rosa_Silva_Santos_1879,
+    :Jozé_da_Silva_Santos_1879, :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis .
+
+:Orlando_Couto_Leite :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Rosa_Couto_Leite :Descendente :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite .
+
+:Sara_Esteves_de_Araújo_1914 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Teresa_Maria_Ribeiro_Leite_1985 :Descendente :Maria_Margarida_Ribeiro_1954, :Rui_Alberto_Araújo_Leite_1948,
+    :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909, :Maria_Araújo_1884,
+    :Henrique_Luiz_de_Araújo_1867, :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+:Virgínia_Esteves_de_Araújo_1921 :Descendente :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867,
+    :Emília_Esteves, :José_Maria_Esteves, :Maria_das_Dores_Fernandes_de_Brito, :José_Emílio_de_Araújo .
+
+
+-------------------------------------------------------------------------
+4 -- Constrói os triplos da relação Primo;
+CONSTRUCT {
+    ?a :Primo ?b.
+}
+WHERE {
+    ?a :temProgenitor ?x.
+    ?b :temProgenitor ?y.
+    
+    ?x :temProgenitor ?p .
+    ?y :temProgenitor ?p . 
+    
+    FILTER (?x != ?y) .
+}
+
+Resultados:
+:Henrique_Miguel_Cabrita_de_Araújo_Leite_1971 :Primo :Ana_Margarida_Ribeiro_Leite_1980,
+    :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968, :Teresa_Maria_Ribeiro_Leite_1985 .
+
+:Isabel_Maria_Cabrita_de_Araújo_Leite_1971 :Primo :Ana_Margarida_Ribeiro_Leite_1980,
+    :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968, :Teresa_Maria_Ribeiro_Leite_1985 .
+
+:José_Carlos_Leite_Ramalho_1967 :Primo :Ana_Margarida_Ribeiro_Leite_1980, :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971,
+    :Isabel_Maria_Cabrita_de_Araújo_Leite_1971, :Teresa_Maria_Ribeiro_Leite_1985 .
+
+:Maria_Helena_Leite_Ramalho_1968 :Primo :Ana_Margarida_Ribeiro_Leite_1980, :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971,
+    :Isabel_Maria_Cabrita_de_Araújo_Leite_1971, :Teresa_Maria_Ribeiro_Leite_1985 .
+
+:Ana_Margarida_Ribeiro_Leite_1980 :Primo :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971,
+    :Isabel_Maria_Cabrita_de_Araújo_Leite_1971, :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968 .
+
+:Teresa_Maria_Ribeiro_Leite_1985 :Primo :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971,
+    :Isabel_Maria_Cabrita_de_Araújo_Leite_1971, :José_Carlos_Leite_Ramalho_1967, :Maria_Helena_Leite_Ramalho_1968 .
+
+-------------------------------------------------------------------------
+5 -- Acrescenta o atributo sexo à tua ontologia, há várias formas de o fazer, escolhe a que entenderes. Constrói os triplos relacionados com esta propriedade usando as propriedades existentes: temPai e temMae;
+Criei uma nova classe Sexo e object property :temSexo
+/* Feminino */
+CONSTRUCT {
+    ?a :temSexo :F.
+}
+WHERE {
+    ?x :temMae ?a .
+}
+
+Resultados:
+:Custódia_Azevedo_1867 :temSexo :F .
+
+:Maria_Gonçalves_de_Azevedo :temSexo :F .
+
+:Maria_Dias_dos_Reis :temSexo :F .
+
+:Maria_Araújo_1884 :temSexo :F .
+
+:Emília_Esteves :temSexo :F .
+
+:Maria_das_Dores_Fernandes_de_Brito :temSexo :F .
+
+:Maria_Margarida_Ribeiro_1954 :temSexo :F .
+
+:Maria_Esteves_de_Araújo_1912 :temSexo :F .
+
+:Flora_Castilho_do_Couto_Leite :temSexo :F .
+
+:Christina_Rosa_Silva_Santos_1879 :temSexo :F .
+
+:Maria_Otília_Araújo_Leite_1944 :temSexo :F .
+
+:Maria_Alves_dos_Santos_1906 :temSexo :F .
+
+:Maria_Flora_Araújo_Leite_1941 :temSexo :F .
+
+
+/* Masculino *()
+CONSTRUCT {
+    ?a :temSexo :M.
+}
+WHERE {
+    ?x :temPai ?a .
+}
+
+Resultados:
+:Manuel_da_Silva_Ramalho_1866 :temSexo :M .
+
+:José_Francisco_Ramos_Mouco :temSexo :M .
+
+:António_da_Silva_Ramalho :temSexo :M .
+
+:Henrique_Luiz_de_Araújo_1867 :temSexo :M .
+
+:José_Maria_Esteves :temSexo :M .
+
+:José_Emílio_de_Araújo :temSexo :M .
+
+:Rui_Alberto_Araújo_Leite_1948 :temSexo :M .
+
+:Marçal_Aristides_Costa_Leite_1909 :temSexo :M .
+
+:Marçal_da_Costa_Leite :temSexo :M .
+
+:Jozé_da_Silva_Santos_1879 :temSexo :M .
+
+:Henrique_Marçal_Araújo_Leite_1943 :temSexo :M .
+
+:António_da_Silva_Ramalho_1904 :temSexo :M .
+
+:José_dos_Santos_Ramalho_1942 :temSexo :M .
+
+
+-------------------------------------------------------------------------
+6 -- Constrói os triplos das pessoas relacionadas com "José_Carlos_Leite_Ramalho_1967", diretamente ou indiretamente, ou seja, para todas as pessoas com caminho no grafo até ao indivíduo em questão constrói o triplo: :José_Carlos_Leite_Ramalho_1967 :temRelacaoCom :indivíduoX .
+CONSTRUCT {
+    :José_Carlos_Leite_Ramalho_1967 :temRelacaoCom ?x .
+}
+WHERE {
+    ?x (:eProgenitorDe|:temProgenitor)+ :José_Carlos_Leite_Ramalho_1967 .
+}
+
+Resultados:
+:José_Carlos_Leite_Ramalho_1967 :temRelacaoCom :Maria_Flora_Araújo_Leite_1941, :José_dos_Santos_Ramalho_1942,
+    :Maria_Esteves_de_Araújo_1912, :Marçal_Aristides_Costa_Leite_1909, :José_Carlos_Leite_Ramalho_1967,
+    :Maria_Helena_Leite_Ramalho_1968, :António_da_Silva_Ramalho_1904, :Maria_Alves_dos_Santos_1906,
+    :Maria_Araújo_1884, :Henrique_Luiz_de_Araújo_1867, :Rui_Alberto_Araújo_Leite_1948,
+    :Henrique_Marçal_Araújo_Leite_1943, :Flora_Castilho_do_Couto_Leite, :Marçal_da_Costa_Leite,
+    :Custódia_Azevedo_1867, :Manuel_da_Silva_Ramalho_1866, :Ilda_dos_Santos_Ramalho_1949,
+    :Manuel_Carlos_dos_Santos_Ramalho, :Manuel_Fernando_dos_Santos_Ramalho, :Maria_Flora_dos_Santos_Ramalho_,
+    :Christina_Rosa_Silva_Santos_1879, :Jozé_da_Silva_Santos_1879, :Emília_Esteves, :José_Maria_Esteves,
+    :Albina_Esteves_de_Araújo_1910, :Emília_Esteves_de_Araújo_1908, :Filomena_Esteves_de_Araújo_1927,
+    :Henrique_Luís_Esteves_de_Araújo_1924, :José_Emílio_Esteves_de_Araújo_1916, :Luís_Esteves_de_Araújo_1918,
+    :Sara_Esteves_de_Araújo_1914, :Virgínia_Esteves_de_Araújo_1921, :Maria_das_Dores_Fernandes_de_Brito,
+    :José_Emílio_de_Araújo, :Ana_Margarida_Ribeiro_Leite_1980, :Teresa_Maria_Ribeiro_Leite_1985,
+    :Henrique_Miguel_Cabrita_de_Araújo_Leite_1971, :Isabel_Maria_Cabrita_de_Araújo_Leite_1971,
+    :Domingos_Couto_Leite, :Gilberto_Couto_Leite, :Helena_Couto_Leite, :João_Bernardo_Couto_Leite_1916,
+    :Orlando_Couto_Leite, :Rosa_Couto_Leite, :Maria_Gonçalves_de_Azevedo, :José_Francisco_Ramos_Mouco,
+    :Abílio_da_Silva_Ramalho, :Ana_da_Silva_Ramalho, :Arminda_da_Silva_Ramalho, :Ezequiel_da_Silva_Ramalho,
+    :Generosa_da_Silva_Ramalho, :António_da_Silva_Ramalho, :Maria_Dias_dos_Reis, :Florinda_Alves_dos_Santos,
+    :Maria_Margarida_Ribeiro_1954, :Maria_Otília_Araújo_Leite_1944 .

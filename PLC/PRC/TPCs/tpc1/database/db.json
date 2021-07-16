@@ -1,0 +1,1077 @@
+{
+    "ucs": [
+        {
+            "id": "PRC",
+            "designacao": "Processamento e Representação de Conhecimento",
+            "anoLetivo": "2020/2021"
+        }, {
+            "id": "SPLN",
+            "designacao": "Scripting no Processamento de Linguagem Natural",
+            "anoLetivo": "2020/2021"
+        }, {
+            "id": "PRI",
+            "designacao": "Processamento e Representação de Informação",
+            "anoLetivo": "2020/2021"
+        }, {
+            "id": "GCS",
+            "designacao": "Gramáticas na Compreensão de Software",
+            "anoLetivo": "2020/2021"
+        },
+        {
+            "id": "CSI",
+            "designacao": "Cálculo de Sistemas de Informação",
+            "anoLetivo": "2020/2021"
+        },
+        {
+            "id": "EM",
+            "designacao": "Especificação e Modelação",
+            "anoLetivo": "2020/2021"
+        },
+        {
+            "id": "AC",
+            "designacao": "Arquitetura e Cálculo",
+            "anoLetivo": "2020/2021"
+        },
+        {
+            "id": "VF",
+            "designacao": "Verificação Formal",
+            "anoLetivo": "2020/2021"
+        }
+    ],
+    "docentes": [
+        {
+            "id": "jcr",
+            "nome": "José Carlos Ramalho",
+            "ensina": "PRC,PRI"
+        }, {
+            "id": "jj",
+            "nome": "José João",
+            "ensina": "SPLN"
+        }, {
+            "id": "prh",
+            "nome": "Pedro Rangel Henriques",
+            "ensina": "GCS"
+        }, {
+            "id": "jno",
+            "nome": "José Nuno Oliveira",
+            "ensina": "CSI"
+        },
+        {
+            "id": "ac",
+            "nome": "Alcino Cunha",
+            "ensina": "EM"
+        },
+        {
+            "id": "lb",
+            "nome": "Luís Barbosa",
+            "ensina": "AC"
+        },
+        {
+            "id": "mjf",
+            "nome": "Maria João Frade",
+            "ensina": "VF"
+        }
+    ],
+    "alunos": [
+          {
+            "id": "A85786",
+            "nome": "Mcbride Winters",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84852",
+            "nome": "Houston Evans",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84515",
+            "nome": "Chambers Fitzgerald",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84560",
+            "nome": "Pollard Fox",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84931",
+            "nome": "Allison Summers",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85300",
+            "nome": "Sellers Murray",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84916",
+            "nome": "Puckett Santiago",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85633",
+            "nome": "Kirby Little",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84748",
+            "nome": "Maryellen Hartman",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84822",
+            "nome": "Dorthy Schroeder",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85343",
+            "nome": "Catherine Holland",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84710",
+            "nome": "Noble Townsend",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84422",
+            "nome": "Cervantes Hickman",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85026",
+            "nome": "Edna Salinas",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84411",
+            "nome": "Farmer Ray",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84390",
+            "nome": "Clay Koch",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85574",
+            "nome": "Lola Benson",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85458",
+            "nome": "Jean Tyler",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85070",
+            "nome": "Brigitte Solomon",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85056",
+            "nome": "Howell Woodard",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85913",
+            "nome": "Delores Boyer",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84180",
+            "nome": "Leach Santana",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85880",
+            "nome": "Castaneda Sharp",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85216",
+            "nome": "Dominique Boyd",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85555",
+            "nome": "Decker Mccarthy",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84359",
+            "nome": "Amparo Pittman",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84244",
+            "nome": "Curry Torres",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84722",
+            "nome": "Lottie Mcknight",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84883",
+            "nome": "Natalia Pope",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84181",
+            "nome": "Melody Washington",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85150",
+            "nome": "Guzman Branch",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85801",
+            "nome": "Kaye Yang",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85261",
+            "nome": "Celia Mack",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85313",
+            "nome": "Lynette Colon",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85576",
+            "nome": "Mabel Figueroa",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84339",
+            "nome": "Patsy Wolf",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84610",
+            "nome": "Deidre Donaldson",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84084",
+            "nome": "Jimenez Giles",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84429",
+            "nome": "Weber Pugh",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84820",
+            "nome": "Aurora Cross",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85585",
+            "nome": "Liza Mccall",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85837",
+            "nome": "Jody Hopkins",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85322",
+            "nome": "Alston Nolan",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85240",
+            "nome": "Riggs Guthrie",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85633",
+            "nome": "Mary Christensen",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84268",
+            "nome": "Mcneil Cannon",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84212",
+            "nome": "Morgan Fernandez",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85296",
+            "nome": "Lela Levine",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84974",
+            "nome": "Iva Leblanc",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84674",
+            "nome": "Fry Rush",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84604",
+            "nome": "Bridgette Dixon",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84502",
+            "nome": "Mckee Molina",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84400",
+            "nome": "Charlotte Mayer",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85432",
+            "nome": "Muriel Perkins",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85165",
+            "nome": "Krystal Vance",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84287",
+            "nome": "Dudley Terry",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85273",
+            "nome": "Willie Dawson",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85597",
+            "nome": "Anne Rosales",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85057",
+            "nome": "Rachael Tillman",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84143",
+            "nome": "Foster Kerr",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84023",
+            "nome": "Eloise Mendoza",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84194",
+            "nome": "Benton Vinson",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85740",
+            "nome": "Josie Vega",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84673",
+            "nome": "Sondra Oconnor",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84757",
+            "nome": "Dianne Mcfadden",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85847",
+            "nome": "Christensen Adkins",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84098",
+            "nome": "Shannon Compton",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84353",
+            "nome": "John Finch",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85387",
+            "nome": "Melba Newman",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85346",
+            "nome": "Craig King",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84573",
+            "nome": "Dora Mcfarland",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84580",
+            "nome": "Doris Farrell",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85948",
+            "nome": "Sandy Duncan",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85595",
+            "nome": "Jo Brady",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84509",
+            "nome": "Lourdes Lee",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84021",
+            "nome": "Claudette Buckley",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84144",
+            "nome": "Lorrie Whitney",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85260",
+            "nome": "Fowler Harris",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84427",
+            "nome": "Latonya Beard",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84548",
+            "nome": "Dunlap Daniel",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85085",
+            "nome": "Santiago Ramsey",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84390",
+            "nome": "Krista Goodwin",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84219",
+            "nome": "Welch Cameron",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85202",
+            "nome": "Aimee Christian",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85355",
+            "nome": "Quinn Meadows",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84125",
+            "nome": "Noelle Mcguire",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84669",
+            "nome": "Bailey Head",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84210",
+            "nome": "Barry Dale",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84526",
+            "nome": "Coffey Marshall",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84670",
+            "nome": "Staci Gonzalez",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85859",
+            "nome": "Cherie Acevedo",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84149",
+            "nome": "Althea Hicks",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85474",
+            "nome": "Vega Hooper",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84616",
+            "nome": "Avery Mays",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85960",
+            "nome": "Pitts Ballard",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85166",
+            "nome": "Cassie May",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84505",
+            "nome": "Bernadette Mcclain",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85512",
+            "nome": "Griffin Nieves",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84444",
+            "nome": "Spears Nunez",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85921",
+            "nome": "Copeland Sosa",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84500",
+            "nome": "Salazar Weber",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84470",
+            "nome": "Allen Vang",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84145",
+            "nome": "Hebert Salas",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85123",
+            "nome": "Tamra Pruitt",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85981",
+            "nome": "Alexis Bond",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85601",
+            "nome": "Kaitlin Richardson",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85181",
+            "nome": "Reilly Rosario",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85527",
+            "nome": "Solomon Levy",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84500",
+            "nome": "Mcfadden Hayden",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85387",
+            "nome": "Kerri Waller",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84051",
+            "nome": "Amelia Swanson",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84441",
+            "nome": "Tanisha Byrd",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85071",
+            "nome": "Frieda Cervantes",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85293",
+            "nome": "Helene Rogers",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85555",
+            "nome": "Yang Stokes",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84948",
+            "nome": "Bauer Battle",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84043",
+            "nome": "Palmer Sampson",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84761",
+            "nome": "Geraldine Garner",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85389",
+            "nome": "Gwendolyn Price",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85621",
+            "nome": "Loraine Gould",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84792",
+            "nome": "Blackburn Blackburn",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84279",
+            "nome": "Mcclain Massey",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84475",
+            "nome": "Marina Beasley",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84459",
+            "nome": "Marisa Tate",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85228",
+            "nome": "Margo Bryan",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85699",
+            "nome": "Jolene Frazier",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85697",
+            "nome": "Schmidt Young",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84691",
+            "nome": "Leann Mcmillan",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85824",
+            "nome": "Rodriguez Kline",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84859",
+            "nome": "Pamela Sargent",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84482",
+            "nome": "Mcdonald Knowles",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85252",
+            "nome": "Barton Kirk",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85634",
+            "nome": "Melton Walters",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85889",
+            "nome": "Agnes Avila",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85592",
+            "nome": "Hazel Richmond",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85350",
+            "nome": "Conner Norman",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85102",
+            "nome": "Vazquez Lambert",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84779",
+            "nome": "Alba Wilson",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85319",
+            "nome": "Johanna Buck",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85322",
+            "nome": "Margie Navarro",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85480",
+            "nome": "Vera Daugherty",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84753",
+            "nome": "Nelson Hardy",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84470",
+            "nome": "Carrillo Eaton",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85117",
+            "nome": "Price Shaffer",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84979",
+            "nome": "Hester Cohen",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84792",
+            "nome": "Kennedy Stewart",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84732",
+            "nome": "Francine Davenport",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85781",
+            "nome": "Edwards Mason",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85850",
+            "nome": "Golden Benton",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84259",
+            "nome": "Alford Snyder",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84528",
+            "nome": "Hines Grant",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84484",
+            "nome": "Carla Wade",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84676",
+            "nome": "Sampson Coleman",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84751",
+            "nome": "Tammy Shaw",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85868",
+            "nome": "Kathie Hawkins",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84839",
+            "nome": "Alice Gamble",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85789",
+            "nome": "Denise Greene",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84698",
+            "nome": "Bernice Vaughan",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85414",
+            "nome": "Brenda Horne",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84464",
+            "nome": "Rosalie Moses",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85906",
+            "nome": "Rodriquez Lang",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85158",
+            "nome": "Sexton Romero",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84285",
+            "nome": "Eaton Cooke",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84102",
+            "nome": "Munoz Gregory",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84222",
+            "nome": "Butler Gillespie",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85970",
+            "nome": "Jefferson Rowe",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85129",
+            "nome": "Marla Glover",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85386",
+            "nome": "Sharlene Schultz",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84083",
+            "nome": "Lenora Hogan",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84328",
+            "nome": "Hood Black",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85287",
+            "nome": "Nolan Faulkner",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85021",
+            "nome": "Horne Matthews",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84082",
+            "nome": "Colleen Turner",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84121",
+            "nome": "Aida Wolfe",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85393",
+            "nome": "Shaw Everett",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84119",
+            "nome": "Guy Lowe",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85073",
+            "nome": "Katie Chambers",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85130",
+            "nome": "Robyn Dunn",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85310",
+            "nome": "Mcclure Henson",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84332",
+            "nome": "Patti Logan",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84426",
+            "nome": "Effie Bennett",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85853",
+            "nome": "Reid West",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84867",
+            "nome": "Anita Bass",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84901",
+            "nome": "Lara Hampton",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84695",
+            "nome": "Kristy Kaufman",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85645",
+            "nome": "King Moore",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85899",
+            "nome": "Green Sparks",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85441",
+            "nome": "Tracie Hensley",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84262",
+            "nome": "Montoya Ellison",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85821",
+            "nome": "David Daniels",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85439",
+            "nome": "Mercedes Cox",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84045",
+            "nome": "Becky Gray",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84376",
+            "nome": "Byers Hodges",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84007",
+            "nome": "Sheena Patrick",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84312",
+            "nome": "Susana Mckinney",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85385",
+            "nome": "Katina Weeks",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A84845",
+            "nome": "Lilly Barrera",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A84941",
+            "nome": "Frank Brennan",
+            "estuda": "GCS,PRC,PRI,SPLN"
+          },
+          {
+            "id": "A85665",
+            "nome": "Della Leon",
+            "estuda": "CSI,EM,VF,AC"
+          },
+          {
+            "id": "A85022",
+            "nome": "Anna Madden",
+            "estuda": "CSI,EM,VF,AC"
+          }
+    ]
+}

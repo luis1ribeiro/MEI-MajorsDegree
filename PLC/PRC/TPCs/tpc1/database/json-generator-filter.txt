@@ -1,0 +1,9 @@
+[
+  '{{repeat(200)}}',
+  	{
+      id: 'A'+'{{integer(84000, 86000)}}',
+      nome: '{{firstName()}}' + ' ' + '{{surname()}}',
+      estuda:
+	  '{{random(["GCS", "PRC", "PRI", "SPLN"], ["CSI", "EM", "VF", "AC"])}}'
+    }
+]
